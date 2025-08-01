@@ -9,21 +9,44 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var txtName: UITextField!
+    @IBOutlet weak var txtMobileNo: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtAddress: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var txtConfirmPassword: UITextField!
+    @IBOutlet weak var btnSignUp: UIButton!
+    @IBOutlet weak var btnAlreadyHaveAccount: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        txtName.design()
+        txtMobileNo.design()
+        txtEmail.design()
+        txtAddress.design()
+        txtPassword.design()
+        txtConfirmPassword.design()
+        btnSignUp.design()
+        
+        txtName.setPadding(left: 20, right: 20)
+        txtMobileNo.setPadding(left: 20, right: 20)
+        txtEmail.setPadding(left: 20, right: 20)
+        txtPassword.setPadding(left: 20, right: 20)
+        txtConfirmPassword.setPadding(left: 20, right: 20)
+        
 
-        // Do any additional setup after loading the view.
+        self.navigationItem.hidesBackButton = true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func btnAlreadyAcountLogin(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name:"LoginStoryboard", bundle : nil)
+        if ((storyboard.instantiateViewController(withIdentifier : "LoginViewController") as? LoginViewController) != nil){
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        
     }
-    */
-
+    
 }
