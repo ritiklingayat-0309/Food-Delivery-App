@@ -37,6 +37,11 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func btnForgetAction(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name:"LoginStoryboard", bundle : nil)
+        if let secondVc = storyboard.instantiateViewController(withIdentifier : "ResetPasswordViewController") as? ResetPasswordViewController{
+            self.navigationController?.pushViewController(secondVc, animated: true)
+        }
     }
     
    

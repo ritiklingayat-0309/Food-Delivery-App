@@ -421,6 +421,76 @@
             </objects>
             <point key="canvasLocation" x="57.251908396946561" y="-2.1126760563380285"/>
         </scene>
+        <!--Reset Password View Controller-->
+        <scene sceneID="46C-Xm-uLt">
+            <objects>
+                <viewController storyboardIdentifier="ResetPasswordViewController" id="w2H-kM-hSl" customClass="ResetPasswordViewController" customModule="Meal_Monkey_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LnW-UH-eKI">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bb-tZ-Zbn">
+                                <rect key="frame" x="36" y="166" width="368" height="34.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
+                                <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your email to receive a link a new password view email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbH-wQ-cjK">
+                                <rect key="frame" x="53" y="213.66666666666666" width="329" height="32.333333333333343"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                <color key="textColor" name="Font Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y8h-GS-9x6">
+                                <rect key="frame" x="34" y="305" width="372" height="56"/>
+                                <color key="backgroundColor" name="Text Field background"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Rla-3A-GTS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="w2H-kM-hSl" id="wLM-Qt-BFJ"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JkO-I4-lVb">
+                                <rect key="frame" x="34" y="395" width="372" height="56"/>
+                                <color key="backgroundColor" name="login Background Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Wdn-Lp-gRp"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Send">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bMi-Xu-ZSH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Y8h-GS-9x6" firstAttribute="leading" secondItem="bMi-Xu-ZSH" secondAttribute="leading" constant="34" id="2LN-WF-zo1"/>
+                            <constraint firstItem="KbH-wQ-cjK" firstAttribute="top" secondItem="1bb-tZ-Zbn" secondAttribute="bottom" constant="13" id="88q-Gn-gE1"/>
+                            <constraint firstItem="bMi-Xu-ZSH" firstAttribute="trailing" secondItem="KbH-wQ-cjK" secondAttribute="trailing" constant="58" id="Bez-pE-4Qg"/>
+                            <constraint firstItem="1bb-tZ-Zbn" firstAttribute="top" secondItem="bMi-Xu-ZSH" secondAttribute="top" constant="42" id="ObS-Yf-b8o"/>
+                            <constraint firstItem="JkO-I4-lVb" firstAttribute="top" secondItem="Y8h-GS-9x6" secondAttribute="bottom" constant="34" id="Ram-Fk-jR4"/>
+                            <constraint firstItem="KbH-wQ-cjK" firstAttribute="leading" secondItem="bMi-Xu-ZSH" secondAttribute="leading" constant="53" id="U6w-bb-Nkd"/>
+                            <constraint firstItem="bMi-Xu-ZSH" firstAttribute="trailing" secondItem="Y8h-GS-9x6" secondAttribute="trailing" constant="34" id="aGT-hG-wPU"/>
+                            <constraint firstItem="bMi-Xu-ZSH" firstAttribute="trailing" secondItem="JkO-I4-lVb" secondAttribute="trailing" constant="34" id="bxi-LY-VCJ"/>
+                            <constraint firstItem="1bb-tZ-Zbn" firstAttribute="leading" secondItem="bMi-Xu-ZSH" secondAttribute="leading" constant="36" id="coQ-Xd-zCC"/>
+                            <constraint firstItem="JkO-I4-lVb" firstAttribute="leading" secondItem="bMi-Xu-ZSH" secondAttribute="leading" constant="34" id="drj-lm-DFX"/>
+                            <constraint firstItem="Y8h-GS-9x6" firstAttribute="top" secondItem="KbH-wQ-cjK" secondAttribute="bottom" constant="59" id="lGf-z7-nc3"/>
+                            <constraint firstItem="bMi-Xu-ZSH" firstAttribute="trailing" secondItem="1bb-tZ-Zbn" secondAttribute="trailing" constant="36" id="tRz-W6-pe7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnSend" destination="JkO-I4-lVb" id="fIY-D1-t0d"/>
+                        <outlet property="txtEmail" destination="Y8h-GS-9x6" id="Gvg-1F-sUa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4vY-dV-fRK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="929" y="-82"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_1xfacebook-letter-logo" width="7.3333334922790527" height="16"/>
