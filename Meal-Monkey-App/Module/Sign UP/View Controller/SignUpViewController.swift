@@ -20,33 +20,29 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtName.design()
-        txtMobileNo.design()
-        txtEmail.design()
-        txtAddress.design()
-        txtPassword.design()
-        txtConfirmPassword.design()
-        btnSignUp.design()
-        
-        txtName.setPadding(left: 20, right: 20)
-        txtMobileNo.setPadding(left: 20, right: 20)
-        txtEmail.setPadding(left: 20, right: 20)
-        txtPassword.setPadding(left: 20, right: 20)
-        txtConfirmPassword.setPadding(left: 20, right: 20)
-        
-
         self.navigationItem.hidesBackButton = true
+       
+        viewStyle(textfield: [txtName, txtMobileNo, txtEmail,txtAddress,txtConfirmPassword,btnSignUp])
+        setPadding(textfield: [txtName, txtMobileNo,txtEmail,txtAddress,txtPassword,txtConfirmPassword])
     }
     
+    func viewStyle(textfield: [UIView]){
+                for item in textfield {
+                    item.viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray)
+                }
+            }
+            
+            func setPadding(textfield: [UITextField]){
+                for item in textfield {
+                    item.setPadding(left: 34, right: 34)
+                }
+            }
     
+
     @IBAction func btnAlreadyAcountLogin(_ sender: Any) {
-        
         let storyboard = UIStoryboard(name:"LoginStoryboard", bundle : nil)
         if ((storyboard.instantiateViewController(withIdentifier : "LoginViewController") as? LoginViewController) != nil){
             self.navigationController?.popViewController(animated: true)
         }
-        
-        
     }
-    
 }

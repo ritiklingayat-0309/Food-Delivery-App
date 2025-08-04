@@ -11,8 +11,6 @@ class SplashScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -21,8 +19,5 @@ class SplashScreenViewController: UIViewController {
         if let secondVc = storyboard.instantiateViewController(withIdentifier : "LoginViewController") as? LoginViewController{
             self.navigationController?.pushViewController(secondVc, animated: true)
         }
-        
     }
-
-
 }

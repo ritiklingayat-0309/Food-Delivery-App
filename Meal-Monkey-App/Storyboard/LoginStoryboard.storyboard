@@ -63,7 +63,7 @@
                                                                     <outlet property="delegate" destination="qG2-vW-1az" id="vDS-hB-xPK"/>
                                                                 </connections>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile No\" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NDT-m2-oRn">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NDT-m2-oRn">
                                                                 <rect key="frame" x="0.0" y="168" width="372" height="56"/>
                                                                 <color key="backgroundColor" name="Text Field background"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -85,7 +85,7 @@
                                                                 <rect key="frame" x="0.0" y="336" width="372" height="56"/>
                                                                 <color key="backgroundColor" name="Text Field background"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="qG2-vW-1az" id="HmY-sj-tkq"/>
                                                                 </connections>
@@ -94,7 +94,7 @@
                                                                 <rect key="frame" x="0.0" y="420" width="372" height="56"/>
                                                                 <color key="backgroundColor" name="Text Field background"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="qG2-vW-1az" id="tQi-WX-QWX"/>
                                                                 </connections>
@@ -251,7 +251,7 @@
                                                     <constraint firstAttribute="height" constant="56" id="8sg-EL-9ja"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="LP0-Zv-ogS"/>
                                                 </connections>
@@ -278,7 +278,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Forget your password?">
+                                                <state key="normal" title="Forgot your password?">
                                                     <color key="titleColor" red="0.48627450980392156" green="0.49019607843137253" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -296,7 +296,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9if-zm-YDK">
                                                 <rect key="frame" x="30" y="488" width="380" height="55"/>
-                                                <color key="backgroundColor" red="0.21176470588235294" green="0.49803921568627452" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="Login with facebook Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="2Yp-9T-Jtd"/>
                                                 </constraints>
@@ -463,6 +463,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Send">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnSendAction:" destination="w2H-kM-hSl" eventType="touchUpInside" id="YyC-JN-lmt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bMi-Xu-ZSH"/>
@@ -489,7 +492,96 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vY-dV-fRK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="-82"/>
+            <point key="canvasLocation" x="1619" y="7"/>
+        </scene>
+        <!--New Password View Controller-->
+        <scene sceneID="wOI-IM-ndY">
+            <objects>
+                <viewController storyboardIdentifier="NewPasswordViewController" id="47F-JU-mPz" customClass="NewPasswordViewController" customModule="Meal_Monkey_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v3e-sl-DRc">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgK-eO-jtY">
+                                <rect key="frame" x="36" y="166" width="368" height="34.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
+                                <color key="textColor" red="0.2901960784" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your email to receive a link a new password view email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pT-L0-WFn">
+                                <rect key="frame" x="53" y="213.66666666666666" width="329" height="32.333333333333343"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                <color key="textColor" name="Font Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UUw-gt-0Cr">
+                                <rect key="frame" x="34" y="305" width="372" height="56"/>
+                                <color key="backgroundColor" name="Text Field background"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="OQa-5d-PwY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="47F-JU-mPz" id="pF2-90-xan"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAy-vn-Jd2">
+                                <rect key="frame" x="34" y="473" width="372" height="56"/>
+                                <color key="backgroundColor" name="login Background Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="23h-ZF-fng"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Next">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnNextAction:" destination="47F-JU-mPz" eventType="touchUpInside" id="RTi-oD-HCl"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3uy-Om-SJ6">
+                                <rect key="frame" x="34" y="389" width="372" height="56"/>
+                                <color key="backgroundColor" name="Text Field background"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Klm-MB-dW4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="47F-JU-mPz" id="Diu-vM-ahB"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jV7-rt-GWW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UUw-gt-0Cr" firstAttribute="top" secondItem="5pT-L0-WFn" secondAttribute="bottom" constant="59" id="2sP-h6-BD4"/>
+                            <constraint firstItem="3uy-Om-SJ6" firstAttribute="leading" secondItem="jV7-rt-GWW" secondAttribute="leading" constant="34" id="6lg-Dv-ILI"/>
+                            <constraint firstItem="jV7-rt-GWW" firstAttribute="trailing" secondItem="3uy-Om-SJ6" secondAttribute="trailing" constant="34" id="9Lm-2I-Ta5"/>
+                            <constraint firstItem="rgK-eO-jtY" firstAttribute="leading" secondItem="jV7-rt-GWW" secondAttribute="leading" constant="36" id="JyN-OO-Zbo"/>
+                            <constraint firstItem="5pT-L0-WFn" firstAttribute="top" secondItem="rgK-eO-jtY" secondAttribute="bottom" constant="13" id="LeZ-p7-zZG"/>
+                            <constraint firstItem="3uy-Om-SJ6" firstAttribute="top" secondItem="UUw-gt-0Cr" secondAttribute="bottom" constant="28" id="MuF-3x-SU6"/>
+                            <constraint firstItem="jV7-rt-GWW" firstAttribute="trailing" secondItem="jAy-vn-Jd2" secondAttribute="trailing" constant="34" id="NvX-Ac-h2l"/>
+                            <constraint firstItem="UUw-gt-0Cr" firstAttribute="leading" secondItem="jV7-rt-GWW" secondAttribute="leading" constant="34" id="O7d-xF-9of"/>
+                            <constraint firstItem="jAy-vn-Jd2" firstAttribute="leading" secondItem="jV7-rt-GWW" secondAttribute="leading" constant="34" id="Pgt-43-JVH"/>
+                            <constraint firstItem="jAy-vn-Jd2" firstAttribute="top" secondItem="3uy-Om-SJ6" secondAttribute="bottom" constant="28" id="j4w-cd-8Oc"/>
+                            <constraint firstItem="jV7-rt-GWW" firstAttribute="trailing" secondItem="rgK-eO-jtY" secondAttribute="trailing" constant="36" id="nVG-7h-VsJ"/>
+                            <constraint firstItem="rgK-eO-jtY" firstAttribute="top" secondItem="jV7-rt-GWW" secondAttribute="top" constant="42" id="oha-pt-mii"/>
+                            <constraint firstItem="jV7-rt-GWW" firstAttribute="trailing" secondItem="5pT-L0-WFn" secondAttribute="trailing" constant="58" id="qUz-mf-xfB"/>
+                            <constraint firstItem="5pT-L0-WFn" firstAttribute="leading" secondItem="jV7-rt-GWW" secondAttribute="leading" constant="53" id="z9E-UJ-zmi"/>
+                            <constraint firstItem="jV7-rt-GWW" firstAttribute="trailing" secondItem="UUw-gt-0Cr" secondAttribute="trailing" constant="34" id="zFp-hs-HZY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnNext" destination="jAy-vn-Jd2" id="V2K-6z-PJ4"/>
+                        <outlet property="txtCofirmPassword" destination="3uy-Om-SJ6" id="EPJ-Jo-Fco"/>
+                        <outlet property="txtEmail" destination="UUw-gt-0Cr" id="ujM-Qb-pvm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4EX-Jn-9EL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="807" y="7"/>
         </scene>
     </scenes>
     <resources>
@@ -498,8 +590,11 @@
         <namedColor name="Font Color">
             <color red="0.48600000143051147" green="0.49000000953674316" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Login with facebook Color">
+            <color red="0.21199999749660492" green="0.49799999594688416" blue="0.75300002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Text Field background">
-            <color red="0.71399998664855957" green="0.71799999475479126" blue="0.71799999475479126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="login Background Color">
             <color red="0.98799997568130493" green="0.37599998712539673" blue="0.067000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

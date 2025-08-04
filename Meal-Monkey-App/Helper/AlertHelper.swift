@@ -23,7 +23,14 @@ extension UIAlertController {
     }
 }
 
-//For Padding
+extension UIView {
+    
+    func viewStyle(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) {
+        self.layer.cornerRadius = cornerRadius
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
+    }
+}
 extension UITextField {
     func setPadding(left: CGFloat = 0, right: CGFloat = 0) {
         if left > 0 {
@@ -31,6 +38,7 @@ extension UITextField {
             self.leftView = paddingView
             self.leftViewMode = .always
         }
+        
         if right > 0 {
             let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: right, height: self.frame.height))
             self.rightView = paddingView
@@ -39,28 +47,24 @@ extension UITextField {
     }
 }
 
-//for border and bordercolor
-extension UIView {
-    func design() {
-        self.layer.cornerRadius = 28
-        self.clipsToBounds = true
-    }
-}
 
 //for email and password validation
 extension String {
+
     var isValidPassword: Bool {
         let passwordRegex = #"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}$"#
-        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
-        return passwordPredicate.evaluate(with: self)
+        let predicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return predicate.evaluate(with: self)
     }
-    
+
     var isValidEmail: Bool {
-        let emailRegEx = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
-        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
-        return emailPredicate.evaluate(with: self)
+        let trimmed = self.trimmingCharacters(in: .whitespacesAndNewlines)
+        let emailRegex = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,64}$"#
+        let predicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return predicate.evaluate(with: trimmed)
     }
 }
+
 
 
 
