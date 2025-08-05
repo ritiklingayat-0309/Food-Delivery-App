@@ -13,7 +13,13 @@ class MoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tblView.register(UINib(nibName: "MoreTableViewCell", bundle: nil), forCellReuseIdentifier: "MoreTableViewCell")
+        self.setLeftAlignedTitle("More")
+        self.setCartButton(target: self, action: #selector(cartButtonTapped))
+        
     }
-
+    
+    @objc func cartButtonTapped() {
+        print("Cart button tapped")
+    }
 }
 

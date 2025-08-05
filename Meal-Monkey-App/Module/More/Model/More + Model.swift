@@ -24,9 +24,12 @@ class More {
                  title: "Payment Details"),
             More(image: UIImage(named: "ic_order") ?? UIImage(),
                  title: "My Orders"),
-            More(image: UIImage(named: "ic_notification") ?? UIImage(), title: "Notifications"),
-            More(image: UIImage(named: "ic_inbox2") ?? UIImage(), title: "Inbox"),
-            More(image: UIImage(named: "ic_about") ?? UIImage(), title: "About Us")
+            More(image: UIImage(named: "ic_notification") ?? UIImage(),
+                 title: "Notifications"),
+            More(image: UIImage(named: "ic_inbox2") ?? UIImage(),
+                 title: "Inbox"),
+            More(image: UIImage(named: "ic_about") ?? UIImage(),
+                 title: "About Us")
         ]
     }
 }

@@ -9,9 +9,7 @@ import UIKit
 
 class ResetPasswordViewController: UIViewController {
     
-    
     @IBOutlet weak var txtEmail: UITextField!
-    
     @IBOutlet weak var btnSend: UIButton!
     
     override func viewDidLoad() {
@@ -32,8 +30,6 @@ class ResetPasswordViewController: UIViewController {
             item.setPadding(left: 34, right: 34)
         }
     }
-    
-    
     
     @IBAction func btnSendAction(_ sender: Any) {
         let storyboard = UIStoryboard(name:"LoginStoryboard", bundle : nil)

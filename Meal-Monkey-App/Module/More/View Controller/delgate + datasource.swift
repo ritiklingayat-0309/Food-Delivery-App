@@ -18,6 +18,62 @@ extension MoreViewController: UITableViewDataSource, UITableViewDelegate {
         let obj = arrMore[indexPath.row]
         cell.configMoreData(more : obj)
         return cell
-        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+            if let plvc = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
+                plvc.objPageType = .PaymentDetails
+                self.navigationController?.pushViewController(plvc, animated: true)
+            }
+            print("First row selected")
+            
+        case 1:
+            let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+            if let plvc = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
+                plvc.objPageType = .MyOrder
+                self.navigationController?.pushViewController(plvc, animated: true)
+            }
+            print("Second row selected")
+            
+        case 2:
+            print("Third row selected")
+            let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+            if let plvc = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
+                plvc.objPageType = .Notification
+                self.navigationController?.pushViewController(plvc, animated: true)
+            }
+            
+        case 3:
+            let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+            if let plvc = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
+                plvc.objPageType = .Inbox
+                self.navigationController?.pushViewController(plvc, animated: true)
+            }
+            print("fourth row selected")
+            
+        case 4:
+            let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+            if let plvc = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
+                plvc.objPageType = .About
+                self.navigationController?.pushViewController(plvc, animated: true)
+            }
+            print("fifth row selected")
+            
+        default:
+            print("Other row selected")
+        }
     }
 }
+
+enum PageType {
+    case PaymentDetails
+    case MyOrder
+    case Notification
+    case Inbox
+    case About
+}
+
+

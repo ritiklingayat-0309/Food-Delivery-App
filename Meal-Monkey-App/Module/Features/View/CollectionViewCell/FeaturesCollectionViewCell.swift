@@ -17,5 +17,4 @@ class FeaturesCollectionViewCell: UICollectionViewCell {
     func configFeature(features : Features) {
         imgView.image = features.image
     }
-
 }
