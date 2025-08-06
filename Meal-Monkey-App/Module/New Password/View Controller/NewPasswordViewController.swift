@@ -23,7 +23,7 @@ class NewPasswordViewController: UIViewController {
             item.viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray)
         }
     }
-
+    
     func setPadding(textfield: [UITextField]){
         for item in textfield {
             item.setPadding(left: 34, right: 34)

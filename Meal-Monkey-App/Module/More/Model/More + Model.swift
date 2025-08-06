@@ -6,18 +6,17 @@
 //
 
 import Foundation
-
 import UIKit
 
 class More {
     let image: UIImage
     let title: String
-
+    
     init(image: UIImage, title: String) {
         self.image = image
         self.title = title
     }
-
+    
     class func addData() -> [More] {
         return [
             More(image: UIImage(named: "ic_payment") ?? UIImage(),

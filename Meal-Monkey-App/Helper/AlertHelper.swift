@@ -35,7 +35,6 @@ extension UITextField {
             self.leftView = paddingView
             self.leftViewMode = .always
         }
-        
         if right > 0 {
             let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: right, height: self.frame.height))
             self.rightView = paddingView
@@ -44,59 +43,9 @@ extension UITextField {
     }
 }
 
-//for email and password validation
-extension String {
-    var isValidPassword: Bool {
-        let passwordRegex = #"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}$"#
-        let predicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
-        return predicate.evaluate(with: self)
-    }
-    
-    var isValidEmail: Bool {
-        let trimmed = self.trimmingCharacters(in: .whitespacesAndNewlines)
-        let emailRegex = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,64}$"#
-        let predicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
-        return predicate.evaluate(with: trimmed)
-    }
-}
 
-extension UIViewController {
-    
-    func setLeftAlignedTitleWithBack(_ title: String, font: UIFont = .systemFont(ofSize: 29), textColor: UIColor = UIColor(named: "NavigationColor") ?? .black, target: Any?, action: Selector) {
-        let backButton = UIButton(type: .system)
-        backButton.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-        backButton.tintColor = textColor
-        backButton.addTarget(target, action: action, for: .touchUpInside)
-        let titleLabel = UILabel()
-        titleLabel.text = title
-        titleLabel.font = font
-        titleLabel.textColor = textColor
-        titleLabel.sizeToFit()
-        let stackView = UIStackView(arrangedSubviews: [backButton, titleLabel])
-        stackView.axis = .horizontal
-        stackView.spacing = 8
-        let leftItem = UIBarButtonItem(customView: stackView)
-        self.navigationItem.leftBarButtonItem = leftItem
-    }
-    
-    func setLeftAlignedTitle(_ title: String, font: UIFont = .systemFont(ofSize: 29), textColor: UIColor = UIColor(named: "NavigationColor") ?? .black) {
-        let titleLabel = UILabel()
-        titleLabel.text = title
-        titleLabel.font = font
-        titleLabel.textColor = textColor
-        titleLabel.sizeToFit()
-        
-        let leftItem = UIBarButtonItem(customView: titleLabel)
-        self.navigationItem.leftBarButtonItem = leftItem
-    }
-    
-    func setCartButton(target: Any?, action: Selector, tintColor: UIColor = UIColor(named: "NavigationColor") ?? .black) {
-        let cartImage = UIImage(systemName: "cart.fill")?.withRenderingMode(.alwaysTemplate)
-        let cartButton = UIBarButtonItem(image: cartImage, style: .plain, target: target, action: action)
-        cartButton.tintColor = tintColor
-        self.navigationItem.rightBarButtonItem = cartButton
-    }
-}
+
+
 
 
 

@@ -21,7 +21,6 @@ class LoginViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         viewStyle(textfield: [txtEmail, txtPassword, btnLogin, btnForget, btnLoginWithFaceBook, btnLoginWithGoogle])
         setPadding(textfield: [txtEmail, txtPassword])
-        
     }
     
     func viewStyle(textfield: [UIView]){
@@ -73,11 +72,9 @@ class LoginViewController: UIViewController {
     private func showMainTabBar() {
         let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
         if let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as? UITabBarController {
-            
             // Set as rootViewController
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let sceneDelegate = windowScene.delegate as? SceneDelegate {
-                
                 sceneDelegate.window?.rootViewController = tabBarController
                 sceneDelegate.window?.makeKeyAndVisible()
             }
