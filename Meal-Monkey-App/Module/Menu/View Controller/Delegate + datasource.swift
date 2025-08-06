@@ -15,8 +15,29 @@ extension MenuViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : MenuTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell", for: indexPath) as! MenuTableViewCell
+        cell.selectionStyle = .none
         cell.configMenu(menu : arrMenu[indexPath.row])
         cell.backgroundColor = .clear
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch indexPath.row{
+        case 0:
+            print("Food")
+        case 1:
+            print("breverges")
+        case 2:
+            print("Desserts")
+            let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
+            if let secondVc = storyboard.instantiateViewController(withIdentifier : "DessertsViewController") as? DessertsViewController{
+                self.navigationController?.pushViewController(secondVc, animated: true)
+            }
+        case 3:
+            print("Promotions")
+        default: break
+            
+        }
     }
 }
