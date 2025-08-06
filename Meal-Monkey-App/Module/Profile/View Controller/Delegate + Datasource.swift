@@ -15,3 +15,22 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
         dismiss(animated: true)
     }
 }
+
+extension ProfileViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case lblName:
+            lblEmail.becomeFirstResponder()
+        case lblEmail:
+            lblMobile.becomeFirstResponder()
+        case lblMobile:
+            lblAdress.becomeFirstResponder()
+        case lblAdress:
+            textField.resignFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+}
