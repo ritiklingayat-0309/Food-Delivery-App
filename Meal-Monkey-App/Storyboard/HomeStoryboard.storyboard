@@ -111,7 +111,7 @@
                                 <rect key="frame" x="0.0" y="162" width="393" height="573"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNE-vn-Zqh">
-                                        <rect key="frame" x="0.0" y="0.0" width="385" height="800.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="385" height="654.66666666666663"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_imgPro" translatesAutoresizingMaskIntoConstraints="NO" id="mOB-kX-ayd">
                                                 <rect key="frame" x="137" y="85" width="111" height="102"/>
@@ -149,7 +149,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="CzI-Qu-MtO">
-                                                <rect key="frame" x="21" y="296.66666666666674" width="343" height="494"/>
+                                                <rect key="frame" x="21" y="296.66666666666669" width="343" height="348.00000000000006"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ooh-8z-2gn">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="56"/>
@@ -190,26 +190,8 @@
                                                             <outlet property="delegate" destination="RrP-bu-uW5" id="CZw-xd-ttV"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OOo-Wf-0G3">
-                                                        <rect key="frame" x="0.0" y="291.99999999999994" width="343" height="56"/>
-                                                        <color key="backgroundColor" name="Text Field background"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="RrP-bu-uW5" id="ERt-Xh-Thk"/>
-                                                        </connections>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cJ7-cW-q6d">
-                                                        <rect key="frame" x="0.0" y="364.99999999999994" width="343" height="56"/>
-                                                        <color key="backgroundColor" name="Text Field background"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="RrP-bu-uW5" id="uxV-gE-Qqb"/>
-                                                        </connections>
-                                                    </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAZ-Je-NDl">
-                                                        <rect key="frame" x="0.0" y="437.99999999999994" width="343" height="56"/>
+                                                        <rect key="frame" x="0.0" y="291.99999999999994" width="343" height="56"/>
                                                         <color key="backgroundColor" name="login Background Color"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -270,12 +252,10 @@
                         <outlet property="btnSignOut" destination="POf-bY-kUm" id="WaH-lR-S9E"/>
                         <outlet property="imgView" destination="mOB-kX-ayd" id="xwH-CK-UL5"/>
                         <outlet property="lblAdress" destination="gii-um-Zr8" id="mNU-Bc-3ed"/>
-                        <outlet property="lblConfirmPassword" destination="cJ7-cW-q6d" id="6hD-nq-t6E"/>
                         <outlet property="lblEmail" destination="MgM-bo-eX3" id="xf1-nu-Q4T"/>
                         <outlet property="lblMobile" destination="f2B-ym-ZuW" id="5f9-ja-Yn2"/>
                         <outlet property="lblName" destination="ooh-8z-2gn" id="XvY-jC-L4d"/>
                         <outlet property="lblTitleUser" destination="jaj-tk-diE" id="1nX-Px-qYI"/>
-                        <outlet property="lbllPassword" destination="OOo-Wf-0G3" id="dRt-Zb-W1O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n0I-Mq-s8P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

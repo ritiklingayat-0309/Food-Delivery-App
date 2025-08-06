@@ -17,14 +17,12 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var lblEmail: UITextField!
     @IBOutlet weak var lblMobile: UITextField!
     @IBOutlet weak var lblAdress: UITextField!
-    @IBOutlet weak var lbllPassword: UITextField!
-    @IBOutlet weak var lblConfirmPassword: UITextField!
     @IBOutlet weak var btnSave: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewStyle(textfield: [lblName,lblEmail,lblMobile,lblAdress,lbllPassword,lblConfirmPassword,btnSave])
-        setPadding(textfield: [ lblName,lblEmail,lblMobile,lblAdress,lbllPassword,lblConfirmPassword])
+        viewStyle(textfield: [lblName,lblEmail,lblMobile,lblAdress,btnSave])
+        setPadding(textfield: [ lblName,lblEmail,lblMobile,lblAdress])
         let tabGesture = UITapGestureRecognizer(target: self, action: #selector(imgeTab))
         imgView.addGestureRecognizer(tabGesture)
         imgView.layer.cornerRadius = 50
