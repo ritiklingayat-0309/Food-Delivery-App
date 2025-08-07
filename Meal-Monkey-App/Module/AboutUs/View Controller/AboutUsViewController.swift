@@ -19,7 +19,7 @@ class AboutUsViewController: UIViewController {
             print("Navigate to My payment screen")
             self.setLeftAlignedTitleWithBack("PaymentDetails", target: self, action: #selector(backButtonTapped))
             setCartButton(target: self, action: #selector(cartButtonTapped))
-
+            
         case .MyOrder:
             print("Navigate to My Orders screen")
             self.setLeftAlignedTitleWithBack("MyOrder", target: self, action: #selector(backButtonTapped))
@@ -50,9 +50,10 @@ class AboutUsViewController: UIViewController {
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
+    
     @objc func cartButtonTapped() {
-           // Handle cart button tap
-           print("Cart tapped")
-       }
+        // Handle cart button tap
+        print("Cart tapped")
+    }
 }
 

@@ -8,7 +8,6 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var btnEditProfile: UIButton!
     @IBOutlet weak var btnSignOut: UIButton!

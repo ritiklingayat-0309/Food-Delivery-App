@@ -43,6 +43,15 @@ extension UITextField {
     }
 }
 
+class Style{
+    class func addStackBorder(stackViews: [UIView]) {
+        for stackView in stackViews {
+            stackView.layer.cornerRadius = 28
+            stackView.layer.borderColor = UIColor.lightGray.cgColor
+            stackView.clipsToBounds = true
+        }
+    }
+}
 
 
 

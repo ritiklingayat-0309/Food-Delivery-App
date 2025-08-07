@@ -8,8 +8,6 @@
 import UIKit
 
 class OffersTableViewCell: UITableViewCell {
-
-    
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var lblcafeName: UILabel!
     @IBOutlet weak var lblRating: UILabel!
@@ -18,13 +16,10 @@ class OffersTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func configOffer(offer : offer)
@@ -35,5 +30,4 @@ class OffersTableViewCell: UITableViewCell {
         lblRestrotype.text = "\(offer.strCafeName)"
         lblFoodType.text = "\(offer.strFoodType)"
     }
-    
 }

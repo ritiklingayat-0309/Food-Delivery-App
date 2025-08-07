@@ -14,7 +14,7 @@ class SplashScreenViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        sleep(3)
+        // sleep(3)
         let storyboard = UIStoryboard(name:"LoginStoryboard", bundle : nil)
         if let secondVc = storyboard.instantiateViewController(withIdentifier : "LoginViewController") as? LoginViewController{
             self.navigationController?.pushViewController(secondVc, animated: true)

@@ -8,7 +8,6 @@
 import UIKit
 
 class ResetPasswordViewController: UIViewController {
-    
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var btnSend: UIButton!
     
@@ -33,7 +32,7 @@ class ResetPasswordViewController: UIViewController {
     
     @IBAction func btnSendAction(_ sender: Any) {
         let storyboard = UIStoryboard(name:"LoginStoryboard", bundle : nil)
-        if let secondVc = storyboard.instantiateViewController(withIdentifier : "NewPasswordViewController") as? NewPasswordViewController{
+        if let secondVc = storyboard.instantiateViewController(withIdentifier : "SendOTPViewController") as? SendOTPViewController{
             self.navigationController?.pushViewController(secondVc, animated: true)
         }
     }

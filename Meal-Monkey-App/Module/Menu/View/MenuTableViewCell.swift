@@ -8,7 +8,6 @@
 import UIKit
 
 class MenuTableViewCell: UITableViewCell {
-    
     @IBOutlet weak var imgFood: UIImageView!
     @IBOutlet weak var lblFoodName: UILabel!
     @IBOutlet weak var lblFoodQuntity: UILabel!

@@ -8,30 +8,19 @@
 import UIKit
 
 class DessertsTableViewCell: UITableViewCell {
-
     @IBOutlet weak var imgViewTop: UIImageView!
-    
     @IBOutlet weak var imgViewbottom: UIImageView!
-    
     @IBOutlet weak var lblDessertName: UILabel!
-  
-    
     @IBOutlet weak var lblRating: UILabel!
-    
-    
     @IBOutlet weak var lblRestroName: UILabel!
-    
     @IBOutlet weak var lblCategory: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func configDessert(dessert : Desserts){

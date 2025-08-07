@@ -8,7 +8,7 @@
 import UIKit
 
 class AboutUsTableViewCell: UITableViewCell {
-    //for each page data 
+    //for each page data
     @IBOutlet weak var lbltitle: UILabel!
     @IBOutlet weak var lbltitle2: UILabel!
     @IBOutlet weak var lblRightSidetitle: UILabel!
@@ -26,19 +26,19 @@ class AboutUsTableViewCell: UITableViewCell {
         lbltitle2.isHidden = true
         lblRightSidetitle.isHidden = true
         btnStar.isHidden = true
-        }
-
-        func configNotificationcell(about: AboutModel) {
-            lbltitle.text = about.strText
-            btnStar.isHidden = true
-            lblRightSidetitle.isHidden = true
-            lbltitle2.text = about.strTimezone
-        }
-        
-        func configInboxcell(about: AboutModel) {
-            lbltitle.text = about.strText
-            btnStar.isHidden = false
-            lblRightSidetitle.text = about.strRightSideText
-            lbltitle2.text = about.strText2
-        }
+    }
+    
+    func configNotificationcell(about: AboutModel) {
+        lbltitle.text = about.strText
+        btnStar.isHidden = true
+        lblRightSidetitle.isHidden = true
+        lbltitle2.text = about.strTimezone
+    }
+    
+    func configInboxcell(about: AboutModel) {
+        lbltitle.text = about.strText
+        btnStar.isHidden = false
+        lblRightSidetitle.text = about.strRightSideText
+        lbltitle2.text = about.strText2
+    }
 }

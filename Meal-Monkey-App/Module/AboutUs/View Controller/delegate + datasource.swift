@@ -19,6 +19,7 @@ extension AboutUsViewController : UITableViewDelegate, UITableViewDataSource {
         switch objPageType {
         case .About:
             cell.configaboutcell(about: currentData[indexPath.row])
+            
         case .Notification:
             cell.configNotificationcell(about: currentData[indexPath.row])
         case .Inbox:

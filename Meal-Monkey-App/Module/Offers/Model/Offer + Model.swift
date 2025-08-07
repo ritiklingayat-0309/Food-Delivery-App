@@ -27,28 +27,28 @@ class offer: NSObject{
     }
     
     class func getAllOffers() -> [offer] {
-            return [
-                offer(
-                    imageCafe: "ic_offer_cafede",
-                    strCafeName: "Café de Noires",
-                    strNoOfRatings: "(124 ratings)",
-                    strRestaurantType: "Café",
-                    strFoodType: "Western Food"
-                ),
-                offer(
-                    imageCafe: "ic_offer_Isso",
-                    strCafeName: "Isso",
-                    strNoOfRatings: "(124 ratings)",
-                    strRestaurantType: "Café",
-                    strFoodType: "Western Food"
-                ),
-                offer(
-                    imageCafe: "ic_offer_cafeBean",
-                    strCafeName: "Cafe Beans",
-                    strNoOfRatings: "(124 ratings)",
-                    strRestaurantType: "Café",
-                    strFoodType: "Western Food"
-                )
-            ]
-        }
+        return [
+            offer(
+                imageCafe: "ic_offer_cafede",
+                strCafeName: "Café de Noires",
+                strNoOfRatings: "(124 ratings)",
+                strRestaurantType: "Café",
+                strFoodType: "Western Food"
+            ),
+            offer(
+                imageCafe: "ic_offer_Isso",
+                strCafeName: "Isso",
+                strNoOfRatings: "(124 ratings)",
+                strRestaurantType: "Café",
+                strFoodType: "Western Food"
+            ),
+            offer(
+                imageCafe: "ic_offer_cafeBean",
+                strCafeName: "Cafe Beans",
+                strNoOfRatings: "(124 ratings)",
+                strRestaurantType: "Café",
+                strFoodType: "Western Food"
+            )
+        ]
+    }
 }

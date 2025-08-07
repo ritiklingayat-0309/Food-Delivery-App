@@ -18,6 +18,7 @@ class NewPasswordViewController: UIViewController {
         viewStyle(textfield: [txtEmail, txtCofirmPassword, btnNext])
         setPadding(textfield: [txtEmail, txtCofirmPassword])
     }
+    
     func viewStyle(textfield: [UIView]){
         for item in textfield {
             item.viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray)

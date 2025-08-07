@@ -13,13 +13,13 @@ class Menu {
     var foodName: String
     var quantity: Int
     var img: String?   // Image name (from asset catalog)
-
+    
     init(foodName: String, quantity: Int, img: String? = nil) {
         self.foodName = foodName
         self.quantity = quantity
         self.img = img
     }
-
+    
     // Class method to return an array of Menu items
     class func addMenuList() -> [Menu] {
         return [
