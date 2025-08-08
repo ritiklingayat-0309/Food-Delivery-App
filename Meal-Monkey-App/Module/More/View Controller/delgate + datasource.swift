@@ -23,10 +23,14 @@ extension MoreViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
-            if let plvc = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
-                plvc.objPageType = .PaymentDetails
-                self.navigationController?.pushViewController(plvc, animated: true)
+//            let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+//            if let plvc = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
+//                plvc.objPageType = .PaymentDetails
+//                self.navigationController?.pushViewController(plvc, animated: true)
+//            }
+            let storyboard = UIStoryboard(name:"MoreStoryboard", bundle : nil)
+            if let secondVc = storyboard.instantiateViewController(withIdentifier : "PaymentDetailsViewController") as? PaymentDetailsViewController{
+                self.navigationController?.pushViewController(secondVc, animated: true)
             }
             print("First row selected")
             
