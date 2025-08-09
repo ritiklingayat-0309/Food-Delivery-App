@@ -17,7 +17,26 @@ extension DessertsViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : DessertsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DessertsTableViewCell", for: indexPath) as! DessertsTableViewCell
-        cell.configDessert(dessert : arrdesserts[indexPath.row])
+        
+        switch objFoodType {
+        case .food:
+            cell.configDessert(dessert : arrdesserts[indexPath.row])
+            
+        case .Beverages:
+            cell.configDessert(dessert : arrdesserts[indexPath.row])
+            
+        case .Dessert:
+            cell.configDessert(dessert : arrdesserts[indexPath.row])
+            
+        default:
+            break
+        }
         return cell
     }
+}
+
+enum FoodType {
+    case Dessert
+    case Beverages
+    case food
 }

@@ -14,6 +14,7 @@ class PaymentDetailsViewController: UIViewController {
     @IBOutlet weak var btnAddAnotherCart: UIButton!
     
     
+    @IBOutlet weak var ViewTop: UIView!
     //inside the view
     
     @IBOutlet weak var btnCross: UIButton!
@@ -41,7 +42,7 @@ class PaymentDetailsViewController: UIViewController {
         EditStyle.setborder(textfields: [btnAddAnotherCart])
         setLeftAlignedTitleWithBack("Payment Details", target: self, action: #selector(backButtonTapped))
         setCartButton(target: self, action: #selector(cartButtonTapped))
-        
+        ViewTop.isHidden = true
         viewAddCard.isHidden = true
         viewAddCard.layer.cornerRadius = 20
         viewAddCard.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -72,6 +73,7 @@ class PaymentDetailsViewController: UIViewController {
     
     @IBAction func btnAddAnotherCardFromTblAction(_ sender: Any) {
         viewAddCard.isHidden = false
+        ViewTop.isHidden = false
         UIView.animate(withDuration: 0.3) {
             self.viewAddCard.transform = .identity
             self.tabBarController?.tabBar.isHidden = true
@@ -84,6 +86,7 @@ class PaymentDetailsViewController: UIViewController {
             self.viewAddCard.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
         }) { _ in
             self.viewAddCard.isHidden = true
+            self.ViewTop.isHidden = true
             self.tabBarController?.tabBar.isHidden = false
 
         }

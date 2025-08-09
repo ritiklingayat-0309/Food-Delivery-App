@@ -25,8 +25,18 @@ extension MenuViewController : UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.row{
         case 0:
+            let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
+              if let plvc = storyboard.instantiateViewController(withIdentifier: "DessertsViewController") as? DessertsViewController {
+                  plvc.objFoodType = .food
+                  self.navigationController?.pushViewController(plvc, animated: true)
+              }
             print("Food")
         case 1:
+            let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
+              if let plvc = storyboard.instantiateViewController(withIdentifier: "DessertsViewController") as? DessertsViewController {
+                  plvc.objFoodType = .Beverages
+                  self.navigationController?.pushViewController(plvc, animated: true)
+              }
             print("breverges")
         case 2:
             print("Desserts")

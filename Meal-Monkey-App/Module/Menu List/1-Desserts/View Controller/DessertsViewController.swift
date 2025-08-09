@@ -11,11 +11,25 @@ class DessertsViewController: UIViewController {
     var arrdesserts : [Desserts] = Desserts.getDessertList()
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
+    var objFoodType: FoodType = .Dessert
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLeftAlignedTitleWithBack("Dessert", target: self, action: #selector(backButtonTapped))
-        setCartButton(target: self, action: #selector(cartTapped))
+        switch objFoodType {
+        case .food :
+            setLeftAlignedTitleWithBack("food", target: self, action: #selector(backButtonTapped))
+            setCartButton(target: self, action: #selector(cartTapped))
+            print("food")
+        case .Beverages :
+            setLeftAlignedTitleWithBack("Beverages", target: self, action: #selector(backButtonTapped))
+            setCartButton(target: self, action: #selector(cartTapped))
+            print("Beverages")
+        case .Dessert :
+            setLeftAlignedTitleWithBack("Dessert", target: self, action: #selector(backButtonTapped))
+            setCartButton(target: self, action: #selector(cartTapped))
+            print("Dessert")
+        }
+        
         tblView.register(UINib(nibName: "DessertsTableViewCell", bundle: nil), forCellReuseIdentifier: "DessertsTableViewCell")
         viewStyle(textfield: [txtSearch])
         setPadding(textfield: [ txtSearch])
@@ -41,3 +55,6 @@ class DessertsViewController: UIViewController {
         }
     }
 }
+
+
+

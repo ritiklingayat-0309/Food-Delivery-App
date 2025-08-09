@@ -19,11 +19,7 @@ class AboutUsViewController: UIViewController {
             print("Navigate to My payment screen")
             self.setLeftAlignedTitleWithBack("PaymentDetails", target: self, action: #selector(backButtonTapped))
             setCartButton(target: self, action: #selector(cartButtonTapped))
-//            let storyboard = UIStoryboard(name:"MoreStoryboard", bundle : nil)
-//            if let secondVc = storyboard.instantiateViewController(withIdentifier : "PaymentDetailsViewController") as? PaymentDetailsViewController{
-//                self.navigationController?.pushViewController(secondVc, animated: true)
-//            }
-            
+
         case .MyOrder:
             print("Navigate to My Orders screen")
             self.setLeftAlignedTitleWithBack("MyOrder", target: self, action: #selector(backButtonTapped))

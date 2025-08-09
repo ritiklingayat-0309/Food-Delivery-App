@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="477" height="264"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="LdV-E9-bo7">
-                                <rect key="frame" x="45" y="25" width="387" height="219"/>
+                                <rect key="frame" x="45" y="25" width="387" height="214"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tyt-Qq-Mxm">
                                         <rect key="frame" x="0.0" y="0.0" width="387" height="36.333333333333336"/>
@@ -32,7 +32,7 @@
                                                 <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dx-Bo-Ub7">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dx-Bo-Ub7">
                                                 <rect key="frame" x="125.66666666666666" y="0.0" width="261.33333333333337" height="36.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="ic_righ_img"/>
@@ -78,10 +78,10 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5L-pe-oRp">
-                                        <rect key="frame" x="0.0" y="132.66666666666666" width="387" height="86.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="132.66666666666666" width="387" height="81.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Other Methods" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwg-TN-mVe">
-                                                <rect key="frame" x="0.0" y="0.0" width="387" height="86.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="387" height="81.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                 <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -96,7 +96,7 @@
                             <constraint firstItem="LdV-E9-bo7" firstAttribute="top" secondItem="dgd-64-fsC" secondAttribute="top" constant="25" id="HsJ-qN-cwQ"/>
                             <constraint firstItem="LdV-E9-bo7" firstAttribute="leading" secondItem="dgd-64-fsC" secondAttribute="leading" constant="45" id="LTU-ac-hCe"/>
                             <constraint firstAttribute="trailing" secondItem="LdV-E9-bo7" secondAttribute="trailing" constant="45" id="kzv-d0-jf6"/>
-                            <constraint firstAttribute="bottom" secondItem="LdV-E9-bo7" secondAttribute="bottom" constant="20" id="vAm-x9-Udw"/>
+                            <constraint firstAttribute="bottom" secondItem="LdV-E9-bo7" secondAttribute="bottom" constant="25" id="vAm-x9-Udw"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nqm-Ve-U0z">

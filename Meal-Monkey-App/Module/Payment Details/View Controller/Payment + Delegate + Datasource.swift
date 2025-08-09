@@ -15,11 +15,7 @@ extension PaymentDetailsViewController : UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : PaymentDetailsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "PaymentDetailsTableViewCell", for: indexPath) as! PaymentDetailsTableViewCell
-        cell.lblCardNo.text = "1111"
+        cell.lblCardNo.text = "xxxxx1111"
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 200// or any height you want
-//    }
 }

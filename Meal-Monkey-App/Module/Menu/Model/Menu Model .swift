@@ -32,8 +32,6 @@ class Menu {
             Menu(foodName: "Desserts",
                  quantity: 155, img:
                     "ic_Desert"),
-            Menu(foodName: "Promotions",
-                 quantity: 25)
         ]
     }
 }
