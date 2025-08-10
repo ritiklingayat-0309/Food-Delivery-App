@@ -21,11 +21,8 @@ extension UIViewController {
         button.setTitleColor(textColor, for: .normal)
         button.titleLabel?.font = font
         button.tintColor = textColor
-        
         button.addTarget(target, action: action, for: .touchUpInside)
-        
         button.sizeToFit()
-        
         let leftItem = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = leftItem
     }
@@ -36,7 +33,6 @@ extension UIViewController {
         titleLabel.font = font
         titleLabel.textColor = textColor
         titleLabel.sizeToFit()
-        
         let leftItem = UIBarButtonItem(customView: titleLabel)
         self.navigationItem.leftBarButtonItem = leftItem
     }

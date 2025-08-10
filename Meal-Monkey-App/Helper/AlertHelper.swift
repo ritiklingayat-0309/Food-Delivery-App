@@ -21,7 +21,6 @@ extension UIAlertController {
 }
 
 extension UIView {
-    
     func viewStyle(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) {
         self.layer.cornerRadius = cornerRadius
         self.layer.borderWidth = borderWidth

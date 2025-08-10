@@ -268,9 +268,7 @@ at anytime </string>
                                             <constraint firstItem="cZK-Cq-2a0" firstAttribute="width" secondItem="Y9S-Pr-r3X" secondAttribute="width" id="2iw-x3-1v0"/>
                                             <constraint firstAttribute="bottom" secondItem="cZK-Cq-2a0" secondAttribute="bottom" id="BMn-Py-Ef2"/>
                                             <constraint firstAttribute="trailing" secondItem="cZK-Cq-2a0" secondAttribute="trailing" id="Rv8-gd-Goa"/>
-                                            <constraint firstAttribute="trailing" secondItem="cZK-Cq-2a0" secondAttribute="trailing" constant="21" id="UO6-1r-AQ3"/>
                                             <constraint firstItem="cZK-Cq-2a0" firstAttribute="top" secondItem="Y9S-Pr-r3X" secondAttribute="top" id="poC-2B-rdJ"/>
-                                            <constraint firstItem="cZK-Cq-2a0" firstAttribute="leading" secondItem="Y9S-Pr-r3X" secondAttribute="leading" constant="21" id="rlf-UM-hQ6"/>
                                             <constraint firstItem="cZK-Cq-2a0" firstAttribute="height" secondItem="Y9S-Pr-r3X" secondAttribute="height" priority="250" id="zuM-DW-LgH"/>
                                         </constraints>
                                     </scrollView>

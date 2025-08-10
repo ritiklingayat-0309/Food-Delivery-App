@@ -15,22 +15,16 @@ extension CartViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as? CartTableViewCell else {
-                   return UITableViewCell()
-               }
+            return UITableViewCell()
+        }
         let product = cartItems[indexPath.row]
-               cell.configure(with: product)
-               
-               // This closure handles the cell's delete button action.
-               cell.onDelete = { [weak self] in
-                   guard let self = self,
-                         let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return }
-                   
-                   // Remove the item from the global cart array.
-                   appDelegate.arrCart.remove(at: indexPath.row)
-                   
-                   // Reload the table view to reflect the change.
-                   self.tblView.reloadData()
-               }
+        cell.configure(with: product)
+        cell.onDelete = { [weak self] in
+            guard let self = self,
+                  let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return }
+            appDelegate.arrCart.remove(at: indexPath.row)
+            self.tblView.reloadData()
+        }
         return cell
     }
 }

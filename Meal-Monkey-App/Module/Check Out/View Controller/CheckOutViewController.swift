@@ -16,8 +16,6 @@ class CheckOutViewController: UIViewController {
     @IBOutlet weak var btnBackToHome: UIButton!
     @IBOutlet weak var viewTop: UIView!
     //card view
-    
-    
     @IBOutlet weak var txtCardNo: UITextField!
     @IBOutlet weak var btnCross: UIButton!
     @IBOutlet weak var viewScroll: UIView!
@@ -77,7 +75,6 @@ class CheckOutViewController: UIViewController {
             self.tabBarController?.tabBar.isHidden = true
         }
     }
-    
     
     @IBAction func btnBackToHomeAction(_ sender: Any) {
     }

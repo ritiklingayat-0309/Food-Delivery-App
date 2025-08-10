@@ -11,6 +11,7 @@ class AboutUsViewController: UIViewController {
     var currentData: [AboutModel] = []
     @IBOutlet weak var tblView: UITableView!
     var objPageType: PageType = .About
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,7 +20,7 @@ class AboutUsViewController: UIViewController {
             print("Navigate to My payment screen")
             self.setLeftAlignedTitleWithBack("PaymentDetails", target: self, action: #selector(backButtonTapped))
             setCartButton(target: self, action: #selector(cartButtonTapped))
-
+            
         case .MyOrder:
             print("Navigate to My Orders screen")
             self.setLeftAlignedTitleWithBack("MyOrder", target: self, action: #selector(backButtonTapped))
