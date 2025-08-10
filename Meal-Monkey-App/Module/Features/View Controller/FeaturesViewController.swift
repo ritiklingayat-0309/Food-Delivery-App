@@ -21,21 +21,9 @@ class FeaturesViewController: UIViewController {
         super.viewDidLoad()
         lblTitle.text = "Find Food You Love"
         lblSubTitle.text = "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep"
-        viewStyle(textfield: [btnNext])
+        EditStyle.setborder(textfields: [btnNext])
         self.navigationItem.hidesBackButton = true
         colView.register(UINib(nibName: "FeaturesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeaturesCollectionViewCell")
-    }
-    
-    func viewStyle(textfield: [UIView]){
-        for item in textfield {
-            item.viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray)
-        }
-    }
-    
-    func setPadding(textfield: [UITextField]){
-        for item in textfield {
-            item.setPadding(left: 34, right: 34)
-        }
     }
     
     func updateLabels(for page: Int) {

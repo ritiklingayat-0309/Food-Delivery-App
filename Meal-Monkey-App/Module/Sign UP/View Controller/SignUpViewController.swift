@@ -25,21 +25,9 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        viewStyle(textfield: [txtName, txtMobileNo, txtEmail,txtAddress,btnSignUp])
-        setPadding(textfield: [txtName, txtMobileNo,txtEmail,txtAddress,txtPassword,txtConfirmPassword])
-        Style.addStackBorder(stackViews: [stackPasswordeye,stackConfirmPaseye])
-    }
-    
-    func viewStyle(textfield: [UIView]){
-        for item in textfield {
-            item.viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray)
-        }
-    }
-    
-    func setPadding(textfield: [UITextField]){
-        for item in textfield {
-            item.setPadding(left: 34, right: 34)
-        }
+        EditStyle.setPadding(textFields: [txtName, txtMobileNo,txtEmail,txtAddress,txtPassword,txtConfirmPassword], paddingWidth: 28)
+        EditStyle.setborder(textfields: [txtName, txtMobileNo, txtEmail,txtAddress,btnSignUp])
+        EditStyle.addStackBorder(stackViews: [stackPasswordeye,stackConfirmPaseye])
     }
     
     @IBAction func btnPasswordEyeAction(_ sender: Any) {

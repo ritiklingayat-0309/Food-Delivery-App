@@ -15,7 +15,7 @@ extension SendOTPViewController: UITextFieldDelegate {
         guard allowedCharacters.isSuperset(of: characterSet) else {
             return false
         }
-
+        
         if string.count > 1 {
             return false
         }

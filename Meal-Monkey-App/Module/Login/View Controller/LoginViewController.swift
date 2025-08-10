@@ -22,23 +22,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        viewStyle(textfield: [txtEmail,btnLogin, btnForget, btnLoginWithFaceBook, btnLoginWithGoogle])
-        setPadding(textfield: [txtEmail, txtPassword])
-        Style.addStackBorder(stackViews : [stackViewPass])
+        EditStyle.addStackBorder(stackViews : [stackViewPass])
+        EditStyle.setPadding(textFields: [txtEmail,txtPassword], paddingWidth: 28)
+        EditStyle.setborder(textfields: [txtEmail,btnLogin, btnForget, btnLoginWithFaceBook, btnLoginWithGoogle])
     }
-    
-    func viewStyle(textfield: [UIView]){
-        for item in textfield {
-            item.viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray)
-        }
-    }
-    
-    func setPadding(textfield: [UITextField]){
-        for item in textfield {
-            item.setPadding(left: 34, right: 34)
-        }
-    }
-    
+        
     @IBAction func btnEyeAction(_ sender: Any) {
         isPasswordVisible = !isPasswordVisible
         txtPassword.isSecureTextEntry = !isPasswordVisible

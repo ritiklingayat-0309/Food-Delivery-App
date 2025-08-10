@@ -17,33 +17,15 @@ class OffersViewController: UIViewController {
         setLeftAlignedTitle("Latest Offers")
         setCartButton(target: self, action: #selector(cartTapped))
         tblView.register(UINib(nibName: "OffersTableViewCell", bundle: nil), forCellReuseIdentifier: "OffersTableViewCell")
-        viewStyle(textfield: [btnCheckOffer])
-        setPadding(textfield: [])
+        btnCheckOffer.layer.cornerRadius = btnCheckOffer.frame.height/2
     }
-    
-    func viewStyle(textfield: [UIView]){
-        for item in textfield {
-            item.viewStyle(cornerRadius: btnCheckOffer.frame.height/2, borderWidth: 0, borderColor: .systemGray)
-        }
-    }
-    
-    func setPadding(textfield: [UITextField]){
-        for item in textfield {
-            item.setPadding(left: 34, right: 34)
-        }
-    }
-    
+
     @objc func cartTapped() {
         print("Cart tapped")
     }
     
     @IBAction func btnCheckOfferAction(_ sender: Any) {
     }
-    
-    
-    
-    
-    
 }
 
 

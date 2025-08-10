@@ -8,28 +8,36 @@
 import UIKit
 
 class DessertsViewController: UIViewController {
-    var arrdesserts : [Desserts] = Desserts.getDessertList()
+   
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
-    var objFoodType: FoodType = .Dessert
+    var selectedProductType: ProductType = .Desserts
     
+    var arrProducts: [ProductModel] {
+            return ProductModel.addProductData().filter { $0.objProductType == selectedProductType }
+        }
     override func viewDidLoad() {
         super.viewDidLoad()
-        switch objFoodType {
-        case .food :
-            setLeftAlignedTitleWithBack("food", target: self, action: #selector(backButtonTapped))
-            setCartButton(target: self, action: #selector(cartTapped))
-            print("food")
-        case .Beverages :
-            setLeftAlignedTitleWithBack("Beverages", target: self, action: #selector(backButtonTapped))
-            setCartButton(target: self, action: #selector(cartTapped))
-            print("Beverages")
-        case .Dessert :
-            setLeftAlignedTitleWithBack("Dessert", target: self, action: #selector(backButtonTapped))
-            setCartButton(target: self, action: #selector(cartTapped))
-            print("Dessert")
+        switch selectedProductType {
+        case .food:
+            setLeftAlignedTitleWithBack(
+                "Food",
+                target: self,
+                action: #selector(backButtonTapped)
+            )
+        case .Beverages:
+            setLeftAlignedTitleWithBack(
+                "Beverages",
+                target: self,
+                action: #selector(backButtonTapped)
+            )
+        case .Desserts:
+            setLeftAlignedTitleWithBack(
+                "Desserts",
+                target: self,
+                action: #selector(backButtonTapped)
+            )
         }
-        
         tblView.register(UINib(nibName: "DessertsTableViewCell", bundle: nil), forCellReuseIdentifier: "DessertsTableViewCell")
         viewStyle(textfield: [txtSearch])
         setPadding(textfield: [ txtSearch])

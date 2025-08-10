@@ -17,24 +17,16 @@ class MenuViewController: UIViewController {
         self.setCartButton(target: self, action: #selector(cartButtonTapped))
         tblView.backgroundColor = .clear
         tblView.register(UINib(nibName: "MenuTableViewCell", bundle: nil), forCellReuseIdentifier: "MenuTableViewCell")
-        viewStyle(textfield: [txtSearch])
-        setPadding(textfield: [txtSearch])
+        EditStyle.setPadding(textFields: [txtSearch], paddingWidth: 28)
+        EditStyle.setborder(textfields: [txtSearch])
     }
     
     @objc func cartButtonTapped() {
         print("Cart button tapped")
-    }
-    
-    func viewStyle(textfield: [UIView]){
-        for item in textfield {
-            item.viewStyle(cornerRadius: 22.5, borderWidth: 0, borderColor: .systemGray)
-        }
-    }
-    
-    func setPadding(textfield: [UITextField]){
-        for item in textfield {
-            item.setPadding(left: 34, right: 34)
-        }
+                let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil) // Change if different
+                if let secondVC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+                    navigationController?.pushViewController(secondVC, animated: true)
+                }
     }
 }
 

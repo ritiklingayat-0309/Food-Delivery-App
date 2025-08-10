@@ -24,7 +24,6 @@ class SendOTPViewController: UIViewController {
         txtOTP3.layer.cornerRadius = 12
         txtOTP4.layer.cornerRadius = 12
         EditStyle.setborder(textfields: [btnNext])
-        
         let allviews = [txtOTP1!, txtOTP2!, txtOTP3!, txtOTP4!]
         for tf in allviews {
             tf.delegate = self

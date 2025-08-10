@@ -27,23 +27,24 @@ extension MenuViewController : UITableViewDelegate, UITableViewDataSource {
         case 0:
             let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
               if let plvc = storyboard.instantiateViewController(withIdentifier: "DessertsViewController") as? DessertsViewController {
-                  plvc.objFoodType = .food
+                  plvc.selectedProductType = .food
                   self.navigationController?.pushViewController(plvc, animated: true)
               }
             print("Food")
         case 1:
             let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
               if let plvc = storyboard.instantiateViewController(withIdentifier: "DessertsViewController") as? DessertsViewController {
-                  plvc.objFoodType = .Beverages
+                  plvc.selectedProductType = .Beverages
                   self.navigationController?.pushViewController(plvc, animated: true)
               }
             print("breverges")
         case 2:
             print("Desserts")
             let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
-            if let secondVc = storyboard.instantiateViewController(withIdentifier : "DessertsViewController") as? DessertsViewController{
-                self.navigationController?.pushViewController(secondVc, animated: true)
-            }
+              if let plvc = storyboard.instantiateViewController(withIdentifier: "DessertsViewController") as? DessertsViewController {
+                  plvc.selectedProductType = .Desserts
+                  self.navigationController?.pushViewController(plvc, animated: true)
+              }
         case 3:
             print("Promotions")
         default: break

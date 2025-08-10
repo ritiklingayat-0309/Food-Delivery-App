@@ -20,8 +20,8 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewStyle(textfield: [lblName,lblEmail,lblMobile,lblAdress,btnSave])
-        setPadding(textfield: [ lblName,lblEmail,lblMobile,lblAdress])
+        EditStyle.setPadding(textFields: [lblName,lblEmail,lblMobile,lblAdress], paddingWidth: 28)
+        EditStyle.setborder(textfields: [lblName,lblEmail,lblMobile,lblAdress,btnSave])
         let tabGesture = UITapGestureRecognizer(target: self, action: #selector(imgeTab))
         imgView.addGestureRecognizer(tabGesture)
         imgView.layer.cornerRadius = 50
@@ -31,18 +31,6 @@ class ProfileViewController: UIViewController {
     
     @objc func cartButtonTapped() {
         print("Cart button tapped")
-    }
-    
-    func viewStyle(textfield: [UIView]){
-        for item in textfield {
-            item.viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray)
-        }
-    }
-    
-    func setPadding(textfield: [UITextField]){
-        for item in textfield {
-            item.setPadding(left: 34, right: 34)
-        }
     }
     
     @objc func imgeTab() {
