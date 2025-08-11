@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    
     func setLeftAlignedTitleWithBack(_ title: String,font: UIFont = .systemFont(ofSize: 29),
                                      textColor: UIColor = UIColor(named: "NavigationColor") ?? .black,
                                      target: Any?,

@@ -221,7 +221,7 @@ class ProductModel {
                 strProductImage: "ic_sundaikkai_morkulambu",
                 intTotalNumberOfRatings: 100,
                 objProductCategory: .SouthIndian,
-                objProductType: .food
+                objProductType: .Beverages
             ),
             ProductModel(
                 intId: 16,
@@ -624,7 +624,7 @@ class ProductModel {
                     "Pearl millet flatbread served with jaggery & ghee",
                 floatProductRating: 4.6,
                 doubleProductPrice: 60.0,
-                strProductImage: "Ic_Bajra_Rotla_Ringan_Olo",
+                strProductImage: "ic_Bajra_Rotla_Ringan_Olo",
                 intTotalNumberOfRatings: 95,
                 objProductCategory: .Gujarati,
                 objProductType: .food
@@ -749,7 +749,7 @@ class ProductModel {
                     "Classic pizza with tomato sauce, mozzarella, and basil",
                 floatProductRating: 4.8,
                 doubleProductPrice: 300.0,
-                strProductImage: "margherita_pizza.jpg",
+                strProductImage: "ic_margherita_pizza",
                 intTotalNumberOfRatings: 500,
                 objProductCategory: .WesternFood,
                 objProductType: .food
@@ -761,7 +761,7 @@ class ProductModel {
                     "Pasta with creamy sauce, bacon, and parmesan",
                 floatProductRating: 4.7,
                 doubleProductPrice: 280.0,
-                strProductImage: "spaghetti_carbonara.jpg",
+                strProductImage: "ic_spaghetti_carbonara",
                 intTotalNumberOfRatings: 420,
                 objProductCategory: .WesternFood,
                 objProductType: .food
@@ -773,7 +773,7 @@ class ProductModel {
                     "Juicy beef patty with cheese, lettuce, and tomato",
                 floatProductRating: 4.6,
                 doubleProductPrice: 250.0,
-                strProductImage: "cheeseburger.jpg",
+                strProductImage: "ic_cheese_burger",
                 intTotalNumberOfRatings: 600,
                 objProductCategory: .WesternFood,
                 objProductType: .food
@@ -785,7 +785,7 @@ class ProductModel {
                     "Tender chicken breast seasoned and grilled to perfection",
                 floatProductRating: 4.5,
                 doubleProductPrice: 270.0,
-                strProductImage: "grilled_chicken.jpg",
+                strProductImage: "ic_grilled_chicken",
                 intTotalNumberOfRatings: 350,
                 objProductCategory: .WesternFood,
                 objProductType: .food
@@ -796,7 +796,7 @@ class ProductModel {
                 strProductDescription: "Crispy battered fish served with fries",
                 floatProductRating: 4.6,
                 doubleProductPrice: 320.0,
-                strProductImage: "fish_and_chips.jpg",
+                strProductImage: "ic_fish_and_chips",
                 intTotalNumberOfRatings: 280,
                 objProductCategory: .WesternFood,
                 objProductType: .food
@@ -809,7 +809,7 @@ class ProductModel {
                     "Rich chocolate dessert with a fudgy texture",
                 floatProductRating: 4.9,
                 doubleProductPrice: 120.0,
-                strProductImage: "chocolate_brownie.jpg",
+                strProductImage: "ic_chocolate_brownie",
                 intTotalNumberOfRatings: 500,
                 objProductCategory: .WesternFood,
                 objProductType: .Desserts
@@ -821,7 +821,7 @@ class ProductModel {
                     "Creamy dessert with biscuit base and fruit topping",
                 floatProductRating: 4.8,
                 doubleProductPrice: 180.0,
-                strProductImage: "cheesecake.jpg",
+                strProductImage: "ic_cheesecake",
                 intTotalNumberOfRatings: 450,
                 objProductCategory: .WesternFood,
                 objProductType: .Desserts
@@ -833,7 +833,7 @@ class ProductModel {
                     "Classic pastry with cinnamon-spiced apple filling",
                 floatProductRating: 4.7,
                 doubleProductPrice: 150.0,
-                strProductImage: "apple_pie.jpg",
+                strProductImage: "ic_apple_pie",
                 intTotalNumberOfRatings: 400,
                 objProductCategory: .WesternFood,
                 objProductType: .Desserts
@@ -845,7 +845,7 @@ class ProductModel {
                     "Italian creamy dessert served with fruit coulis",
                 floatProductRating: 4.6,
                 doubleProductPrice: 170.0,
-                strProductImage: "panna_cotta.jpg",
+                strProductImage: "ic_panna_cotta",
                 intTotalNumberOfRatings: 320,
                 objProductCategory: .WesternFood,
                 objProductType: .Desserts
@@ -857,7 +857,7 @@ class ProductModel {
                     "Coffee-flavored Italian dessert with mascarpone",
                 floatProductRating: 4.9,
                 doubleProductPrice: 200.0,
-                strProductImage: "tiramisu.jpg",
+                strProductImage: "ic_tiramisu",
                 intTotalNumberOfRatings: 480,
                 objProductCategory: .WesternFood,
                 objProductType: .Desserts
@@ -869,7 +869,7 @@ class ProductModel {
                     "Espresso-based coffee with steamed milk foam",
                 floatProductRating: 4.8,
                 doubleProductPrice: 90.0,
-                strProductImage: "cappuccino.jpg",
+                strProductImage: "ic_cappuccino",
                 intTotalNumberOfRatings: 550,
                 objProductCategory: .WesternFood,
                 objProductType: .Beverages
@@ -881,7 +881,7 @@ class ProductModel {
                     "Creamy espresso drink with steamed milk",
                 floatProductRating: 4.7,
                 doubleProductPrice: 100.0,
-                strProductImage: "latte.jpg",
+                strProductImage: "ic_latte",
                 intTotalNumberOfRatings: 500,
                 objProductCategory: .WesternFood,
                 objProductType: .Beverages
@@ -893,7 +893,7 @@ class ProductModel {
                     "Rich and creamy cocoa drink topped with whipped cream",
                 floatProductRating: 4.9,
                 doubleProductPrice: 110.0,
-                strProductImage: "hot_chocolate.jpg",
+                strProductImage: "ic_hot_chocolate",
                 intTotalNumberOfRatings: 450,
                 objProductCategory: .WesternFood,
                 objProductType: .Beverages
@@ -904,7 +904,7 @@ class ProductModel {
                 strProductDescription: "Chilled coffee drink served over ice",
                 floatProductRating: 4.6,
                 doubleProductPrice: 80.0,
-                strProductImage: "iced_coffee.jpg",
+                strProductImage: "ic_iced_coffee",
                 intTotalNumberOfRatings: 400,
                 objProductCategory: .WesternFood,
                 objProductType: .Beverages
@@ -916,7 +916,7 @@ class ProductModel {
                     "Refreshing tea served cold with lemon flavor",
                 floatProductRating: 4.5,
                 doubleProductPrice: 70.0,
-                strProductImage: "lemon_iced_tea.jpg",
+                strProductImage: "ic_lemon_iced_tea",
                 intTotalNumberOfRatings: 380,
                 objProductCategory: .WesternFood,
                 objProductType: .Beverages
@@ -929,7 +929,8 @@ enum ProductType: String {
     case Beverages
     case Desserts
 }
-enum ProductCategory: String {
+enum ProductCategory: String, CaseIterable {
+    case All
     case Punjabi
     case Chinese
     case Gujarati

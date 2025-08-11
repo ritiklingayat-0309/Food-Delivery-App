@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 extension DessertsViewController : UITableViewDelegate, UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrProducts.count
     }

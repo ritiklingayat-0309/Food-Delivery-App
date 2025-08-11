@@ -41,7 +41,6 @@ class CheckOutViewController: UIViewController {
         setLeftAlignedTitleWithBack("CheckOut", target: self, action: #selector(backButtonTapped))
         EditStyle.setborder(textfields: [btnSendOrder,btnTrackMyOrder,btnAddCardCardView,txtExpMonth,txtExpYear,txtSecurityCode,txtFirstName,txtLastName,txtCardNo])
         EditStyle.setPadding(textFields: [txtSecurityCode,txtExpYear,txtExpMonth,txtFirstName,txtLastName,txtCardNo], paddingWidth: 28)
-        
         tblView.register(UINib(nibName: "CashOnDeliveryTableViewCell", bundle: nil), forCellReuseIdentifier: "CashOnDeliveryTableViewCell")
         tblView.register(UINib(nibName: "GmailTableViewCell", bundle: nil), forCellReuseIdentifier: "GmailTableViewCell")
         tblView.register(UINib(nibName: "VisaTableViewCell", bundle: nil), forCellReuseIdentifier: "VisaTableViewCell")
@@ -74,6 +73,9 @@ class CheckOutViewController: UIViewController {
             self.viewAddCard.transform = .identity
             self.tabBarController?.tabBar.isHidden = true
         }
+    }
+    
+    @IBAction func btnTrackMyOrderAction(_ sender: Any) {
     }
     
     @IBAction func btnBackToHomeAction(_ sender: Any) {

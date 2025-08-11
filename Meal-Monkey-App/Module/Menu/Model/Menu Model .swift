@@ -24,13 +24,13 @@ class Menu {
     class func addMenuList() -> [Menu] {
         return [
             Menu(foodName: "Food",
-                 quantity: 120,
+                 quantity: 25,
                  img: "ic_Food"),
             Menu(foodName: "Beverages",
-                 quantity: 220,
+                 quantity: 25,
                  img: "ic_Beverages"),
             Menu(foodName: "Desserts",
-                 quantity: 155, img:
+                 quantity: 20, img:
                     "ic_Desert"),
         ]
     }

@@ -27,6 +27,7 @@ extension UIView {
         self.layer.borderColor = borderColor.cgColor
     }
 }
+
 extension UITextField {
     func setPadding(left: CGFloat = 0, right: CGFloat = 0) {
         if left > 0 {

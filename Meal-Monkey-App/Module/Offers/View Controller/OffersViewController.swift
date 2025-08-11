@@ -19,9 +19,13 @@ class OffersViewController: UIViewController {
         tblView.register(UINib(nibName: "OffersTableViewCell", bundle: nil), forCellReuseIdentifier: "OffersTableViewCell")
         btnCheckOffer.layer.cornerRadius = btnCheckOffer.frame.height/2
     }
-
+    
     @objc func cartTapped() {
         print("Cart tapped")
+        let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
+        if let secondVC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            navigationController?.pushViewController(secondVC, animated: true)
+        }
     }
     
     @IBAction func btnCheckOfferAction(_ sender: Any) {

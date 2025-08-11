@@ -7,19 +7,69 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+struct CategoryModel {
+    let name: String
+    let imageName: String
+}
+class HomeViewController: UIViewController , HomeTableTableViewCellDelegate{
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
+    
+    var categories: [CategoryModel] = [
+        CategoryModel(name: "Punjabi",
+                      imageName: "punjabi_image"),
+        CategoryModel(name: "Chinese", imageName: "chinese_image"),
+        CategoryModel(name: "Gujarati", imageName: "gujarati_image"),
+        CategoryModel(name: "SouthIndian", imageName: "southindian_image"),
+        CategoryModel(name: "WesternFood", imageName: "westernfood_image"),
+    ]
+    var selectedCategory: ProductCategory = .All
+    var recentItems: [ProductModel] = []
+    var arrProductData: [ProductModel] = ProductModel.addProductData()
+    var objProductCategory: ProductModel?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        recentItems = RecentItemsHelper.shared.getRecentItems()
+        tblView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLeftAlignedTitle("Good morning Akila!")
+        setLeftAlignedTitle("Good morning Ritik!")
         setCartButton(target: self, action: #selector(btnCartTapped))
         EditStyle.setborder(textfields: [txtSearch])
         EditStyle.setPadding(textFields: [txtSearch], paddingWidth: 28)
         tblView.showsVerticalScrollIndicator = false
         tblView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
         tblView.reloadData()
+        DispatchQueue.main.async {
+            self.tblView.reloadData()
+        }
     }
+    
     @objc func btnCartTapped() {
+        let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
+        if let secondVC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            navigationController?.pushViewController(secondVC, animated: true)
+        }
     }
+    
+    func HomeTableViewCell(_ cell: HomeTableViewCell, didSelectProduct product: ProductModel) {
+        RecentItemsHelper.shared.addProduct(product)
+        
+        let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
+        if let detailVC = storyboard.instantiateViewController(withIdentifier: "ItemDetailsViewController") as? ItemDetailsViewController {
+            detailVC.selectedProduct = product
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+        recentItems = RecentItemsHelper.shared.getRecentItems()
+        tblView.reloadData()
+    }
+    func HomeTableViewCell(_ cell: HomeTableViewCell, didSelectCategory category: ProductCategory) {
+        selectedCategory = category
+        DispatchQueue.main.async {
+            self.tblView.reloadData()
+        }
+    }
+
 }

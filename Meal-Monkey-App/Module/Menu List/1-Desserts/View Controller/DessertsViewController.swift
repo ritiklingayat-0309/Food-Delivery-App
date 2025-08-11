@@ -8,14 +8,13 @@
 import UIKit
 
 class DessertsViewController: UIViewController {
-   
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
     var selectedProductType: ProductType = .Desserts
     
     var arrProducts: [ProductModel] {
-            return ProductModel.addProductData().filter { $0.objProductType == selectedProductType }
-        }
+        return ProductModel.addProductData().filter { $0.objProductType == selectedProductType }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         switch selectedProductType {
@@ -25,12 +24,14 @@ class DessertsViewController: UIViewController {
                 target: self,
                 action: #selector(backButtonTapped)
             )
+            
         case .Beverages:
             setLeftAlignedTitleWithBack(
                 "Beverages",
                 target: self,
                 action: #selector(backButtonTapped)
             )
+            
         case .Desserts:
             setLeftAlignedTitleWithBack(
                 "Desserts",
@@ -49,6 +50,10 @@ class DessertsViewController: UIViewController {
     
     @objc func cartTapped() {
         print("Cart tapped")
+        let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
+        if let secondVC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            navigationController?.pushViewController(secondVC, animated: true)
+        }
     }
     
     func viewStyle(textfield: [UIView]){

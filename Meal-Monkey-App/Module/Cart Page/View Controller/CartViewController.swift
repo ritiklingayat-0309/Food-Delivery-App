@@ -17,15 +17,20 @@ class CartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // Reload the data every time the view appears to get the latest cart items.
         tblView.reloadData()
+        EditStyle.setborder(textfields: [btnPlaceOrder])
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tblView.register(UINib(nibName: "CartTableViewCell", bundle: nil ), forCellReuseIdentifier: "CartTableViewCell")
+        self.title = "Cart"
     }
     
     @IBAction func btnPlaceOrderAction(_ sender: Any) {
+        let storyboard = UIStoryboard(name:"MoreStoryboard", bundle : nil)
+        if let secondVc = storyboard.instantiateViewController(withIdentifier : "CheckOutViewController") as? CheckOutViewController{
+            self.navigationController?.pushViewController(secondVc, animated: true)
+        }
     }
 }

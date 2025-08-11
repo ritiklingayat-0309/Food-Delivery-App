@@ -10,9 +10,7 @@ import UIKit
 class MyOrderViewController: UIViewController {
 
     @IBOutlet weak var btnAddNote: UIButton!
-    
     @IBOutlet weak var lblSubTotal: UILabel!
-    
     @IBOutlet weak var btnCheckout: UIButton!
     @IBOutlet weak var lblTotal: UILabel!
     @IBOutlet weak var lblDeliveryCost: UILabel!

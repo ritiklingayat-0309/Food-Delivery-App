@@ -95,12 +95,10 @@ class ItemDetailsViewController: UIViewController {
         guard let appDelegate = appDelegate else { return }
         if let existingIndex = appDelegate.arrCart.firstIndex(where: { $0.intId == productToAdd.intId }) {
             appDelegate.arrCart[existingIndex].intProductQty = currentQuantity
-            print("Updated \(productToAdd.strProductName) quantity to \(currentQuantity).")
         } else {
             let newProduct = productToAdd
             newProduct.intProductQty = currentQuantity
             appDelegate.arrCart.append(newProduct)
-            print("Added \(productToAdd.strProductName) with quantity \(currentQuantity).")
         }
     }
 }

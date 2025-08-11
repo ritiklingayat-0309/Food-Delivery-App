@@ -711,14 +711,14 @@ continue to reset your password</string>
                                 <color key="textColor" name="Font Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UUw-gt-0Cr">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UUw-gt-0Cr">
                                 <rect key="frame" x="34" y="305" width="372" height="56"/>
                                 <color key="backgroundColor" name="Text Field background"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="OQa-5d-PwY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="47F-JU-mPz" id="pF2-90-xan"/>
                                 </connections>

@@ -401,8 +401,12 @@ meals and more!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52d-m7-gpK">
-                                <rect key="frame" x="21" y="233.33333333333334" width="64" height="25.000000000000028"/>
+                                <rect key="frame" x="21" y="230.33333333333334" width="81.333333333333329" height="14.666666666666657"/>
                                 <color key="backgroundColor" name="login Background Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="81.310000000000002" id="2ma-T2-mXz"/>
+                                    <constraint firstAttribute="height" constant="14.83" id="Ck8-vy-zL0"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Check Offers">
@@ -413,7 +417,7 @@ meals and more!</string>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KBn-M6-Wb9">
-                                <rect key="frame" x="0.0" y="291.33333333333326" width="393" height="443.66666666666674"/>
+                                <rect key="frame" x="0.0" y="268" width="393" height="467"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="RAB-Tz-joL" id="ti9-vK-u2Q"/>
@@ -424,14 +428,14 @@ meals and more!</string>
                         <viewLayoutGuide key="safeArea" id="Fao-on-jds"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KBn-M6-Wb9" firstAttribute="top" secondItem="52d-m7-gpK" secondAttribute="bottom" constant="33" id="23v-Ei-JkD"/>
+                            <constraint firstItem="52d-m7-gpK" firstAttribute="top" secondItem="l4E-qV-t11" secondAttribute="bottom" constant="21" id="32W-9d-g5W"/>
+                            <constraint firstItem="KBn-M6-Wb9" firstAttribute="top" secondItem="52d-m7-gpK" secondAttribute="bottom" constant="23" id="5m6-Mb-uYY"/>
                             <constraint firstItem="Fao-on-jds" firstAttribute="trailing" secondItem="KBn-M6-Wb9" secondAttribute="trailing" id="BPe-Xy-4ne"/>
                             <constraint firstItem="l4E-qV-t11" firstAttribute="top" secondItem="Fao-on-jds" secondAttribute="top" constant="15" id="I5t-oG-zqO"/>
-                            <constraint firstItem="52d-m7-gpK" firstAttribute="top" secondItem="l4E-qV-t11" secondAttribute="bottom" constant="24" id="Kd8-DJ-bf0"/>
                             <constraint firstItem="l4E-qV-t11" firstAttribute="leading" secondItem="Fao-on-jds" secondAttribute="leading" constant="21" id="SLO-z1-f8P"/>
                             <constraint firstItem="KBn-M6-Wb9" firstAttribute="leading" secondItem="Fao-on-jds" secondAttribute="leading" id="Whi-ZK-gjo"/>
-                            <constraint firstItem="52d-m7-gpK" firstAttribute="leading" secondItem="Fao-on-jds" secondAttribute="leading" constant="21" id="nnI-ag-3ND"/>
                             <constraint firstItem="Fao-on-jds" firstAttribute="bottom" secondItem="KBn-M6-Wb9" secondAttribute="bottom" id="osQ-Sb-22O"/>
+                            <constraint firstItem="52d-m7-gpK" firstAttribute="leading" secondItem="Fao-on-jds" secondAttribute="leading" constant="21" id="sDS-Df-xyL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8E4-JP-Q86"/>

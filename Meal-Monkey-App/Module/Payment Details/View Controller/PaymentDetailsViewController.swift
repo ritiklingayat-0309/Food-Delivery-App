@@ -50,6 +50,10 @@ class PaymentDetailsViewController: UIViewController {
     
     @objc func cartButtonTapped() {
         print("Cart button tapped")
+        let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
+        if let secondVC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            navigationController?.pushViewController(secondVC, animated: true)
+        }
     }
     
     @objc func backButtonTapped() {

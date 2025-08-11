@@ -25,12 +25,36 @@ class PaymentModel : NSObject{
     }
     
     class func addcardDetails() -> [PaymentModel] {
-            return [
-                PaymentModel(intCardNumber: 4111111111111111, strMonth: "01", strYear: "2026", intSecurityCode: 123, strFirstName: "Akshay", strLastName: "Nena"),
-                PaymentModel(intCardNumber: 4222222222222222, strMonth: "02", strYear: "2027", intSecurityCode: 456, strFirstName: "John", strLastName: "Doe"),
-                PaymentModel(intCardNumber: 4333333333333333, strMonth: "03", strYear: "2028", intSecurityCode: 789, strFirstName: "Jane", strLastName: "Smith"),
-                PaymentModel(intCardNumber: 4444444444444444, strMonth: "04", strYear: "2029", intSecurityCode: 321, strFirstName: "Mark", strLastName: "Taylor"),
-                PaymentModel(intCardNumber: 4555555555555555, strMonth: "05", strYear: "2030", intSecurityCode: 654, strFirstName: "Emily", strLastName: "Clark")
-            ]
-        }
+        return [
+            PaymentModel(intCardNumber: 4111111111111111,
+                         strMonth: "01",
+                         strYear: "2026",
+                         intSecurityCode: 123,
+                         strFirstName: "Akshay",
+                         strLastName: "Nena"),
+            PaymentModel(intCardNumber: 4222222222222222,
+                         strMonth: "02", strYear: "2027",
+                         intSecurityCode: 456,
+                         strFirstName: "John",
+                         strLastName: "Doe"),
+            PaymentModel(intCardNumber: 4333333333333333,
+                         strMonth: "03",
+                         strYear: "2028",
+                         intSecurityCode: 789,
+                         strFirstName: "Jane",
+                         strLastName: "Smith"),
+            PaymentModel(intCardNumber: 4444444444444444,
+                         strMonth: "04",
+                         strYear: "2029",
+                         intSecurityCode: 321,
+                         strFirstName: "Mark",
+                         strLastName: "Taylor"),
+            PaymentModel(intCardNumber: 4555555555555555,
+                         strMonth: "05",
+                         strYear: "2030",
+                         intSecurityCode: 654,
+                         strFirstName: "Emily",
+                         strLastName: "Clark")
+        ]
+    }
 }

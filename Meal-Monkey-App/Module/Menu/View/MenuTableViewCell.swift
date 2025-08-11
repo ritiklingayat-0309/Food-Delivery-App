@@ -20,8 +20,7 @@ class MenuTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configMenu(menu : Menu)
-    {
+    func configMenu(menu : Menu) {
         if let imageName = menu.img {
             imgFood.image = UIImage(named: imageName)
         } else {

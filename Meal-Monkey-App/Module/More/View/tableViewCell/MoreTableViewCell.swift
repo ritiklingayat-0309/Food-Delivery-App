@@ -22,8 +22,7 @@ class MoreTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configMoreData(more : More)
-    {
+    func configMoreData(more : More) {
         imgView.image = more.image
         lblMore.text = more.title
     }

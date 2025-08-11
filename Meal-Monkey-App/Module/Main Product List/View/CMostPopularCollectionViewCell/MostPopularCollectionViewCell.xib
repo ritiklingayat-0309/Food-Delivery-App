@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MostPopularCollectionViewCell" customModule="MealMonkey" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MostPopularCollectionViewCell" customModule="Meal_Monkey_App" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="327" height="231"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -92,6 +92,9 @@
             <size key="customSize" width="327" height="231"/>
             <connections>
                 <outlet property="imgMostPopular" destination="otQ-M7-g9q" id="ceX-Kq-zlT"/>
+                <outlet property="lblFoodCategory" destination="8pk-ye-vN1" id="UxK-oD-vjo"/>
+                <outlet property="lblFoodName" destination="3Yt-ze-CzT" id="hNu-K4-irG"/>
+                <outlet property="lblRatings" destination="ehs-5c-Biq" id="Gop-ZX-JOy"/>
             </connections>
             <point key="canvasLocation" x="258.77862595419845" y="84.154929577464799"/>
         </collectionViewCell>
