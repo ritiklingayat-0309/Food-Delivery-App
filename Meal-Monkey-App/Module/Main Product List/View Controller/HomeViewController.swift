@@ -7,22 +7,10 @@
 
 import UIKit
 
-struct CategoryModel {
-    let name: String
-    let imageName: String
-}
 class HomeViewController: UIViewController , HomeTableTableViewCellDelegate{
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
-    
-    var categories: [CategoryModel] = [
-        CategoryModel(name: "Punjabi",
-                      imageName: "punjabi_image"),
-        CategoryModel(name: "Chinese", imageName: "chinese_image"),
-        CategoryModel(name: "Gujarati", imageName: "gujarati_image"),
-        CategoryModel(name: "SouthIndian", imageName: "southindian_image"),
-        CategoryModel(name: "WesternFood", imageName: "westernfood_image"),
-    ]
+  
     var selectedCategory: ProductCategory = .All
     var recentItems: [ProductModel] = []
     var arrProductData: [ProductModel] = ProductModel.addProductData()
@@ -41,7 +29,7 @@ class HomeViewController: UIViewController , HomeTableTableViewCellDelegate{
         EditStyle.setPadding(textFields: [txtSearch], paddingWidth: 28)
         tblView.showsVerticalScrollIndicator = false
         tblView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
-        tblView.reloadData()
+        
         DispatchQueue.main.async {
             self.tblView.reloadData()
         }

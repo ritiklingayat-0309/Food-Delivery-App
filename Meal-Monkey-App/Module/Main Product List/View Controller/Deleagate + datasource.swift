@@ -16,6 +16,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
+        cell.delegate = self
+        
         if let layout = cell.collectionViewHome.collectionViewLayout as? UICollectionViewFlowLayout {
             if indexPath.row == 0 || indexPath.row == 2 {
                 layout.scrollDirection = .horizontal
@@ -23,7 +25,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 layout.scrollDirection = .vertical
             }
             cell.collectionViewHome.collectionViewLayout.invalidateLayout()
-            
+          
+
         }
         
         switch indexPath.row {
@@ -33,7 +36,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.categories = ProductCategory.allCases
             cell.btnViewAll.isHidden = true
             cell.lblCollectionViewTitle.isHidden = true
-            cell.delegate = self
+            cell.collectionViewHomeHeight.constant = 113
+
             
         case 1:
             cell.collectionType = .popular
@@ -60,11 +64,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.collectionViewHomeHeight.constant = 185
             cell.delegate = self
             if selectedCategory == .All {
-                cell.products = arrProductData.filter { $0.floatProductRating >= 4.5 && $0.floatProductRating <= 5.0 }
+                cell.products = arrProductData.filter { $0.floatProductRating >= 4.5 &&
+                    $0.floatProductRating <= 5.0 }
             } else {
                 cell.products = arrProductData.filter {
                     $0.floatProductRating >= 4.5 &&
-                    $0.floatProductRating >= 5.0 &&
+                    $0.floatProductRating <= 5.0 &&
                     $0.objProductCategory == selectedCategory
                 }
             }
@@ -76,11 +81,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.lblCollectionViewTitle.text = "Recent Items"
             cell.products = recentItems
             cell.collectionViewHomeHeight.constant = cell.collectionViewHome.collectionViewLayout.collectionViewContentSize.height
-            cell.delegate = self
         default:
             break
         }
         cell.collectionViewHome.reloadData()
+        DispatchQueue.main.async {
+            cell.collectionViewHome.layoutIfNeeded()
+            cell.updateCollectionHeight()
+        }
         return cell
     }
 }

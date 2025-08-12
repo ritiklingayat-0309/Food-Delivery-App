@@ -28,6 +28,8 @@ class CheckOutViewController: UIViewController {
     @IBOutlet weak var `switch`: UISwitch!
     @IBOutlet weak var btnAddCardCardView: UIButton!
     //checkout View
+    
+    @IBOutlet weak var btnChangeAddress: UIButton!
     @IBOutlet weak var btnSendOrder: UIButton!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var btnAddCard: UIButton!
@@ -79,6 +81,13 @@ class CheckOutViewController: UIViewController {
     }
     
     @IBAction func btnBackToHomeAction(_ sender: Any) {
+    }
+    
+    @IBAction func btnChangeAddressAction(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+        if let secondVc = storyboard.instantiateViewController(identifier: "MapViewController") as? MapViewController{
+            self.navigationController?.pushViewController(secondVc, animated: true)
+        }
     }
     
     @IBAction func btnAddCardAction(_ sender: Any) {

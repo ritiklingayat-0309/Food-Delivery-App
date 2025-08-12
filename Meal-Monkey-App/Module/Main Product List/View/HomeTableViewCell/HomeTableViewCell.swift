@@ -7,6 +7,7 @@ protocol HomeTableTableViewCellDelegate: AnyObject {
 }
 
 class HomeTableViewCell: UITableViewCell {
+    
     weak var delegate: HomeTableTableViewCellDelegate?
     @IBOutlet weak var lblCollectionViewTitle: UILabel!
     @IBOutlet weak var btnViewAll: UIButton!
@@ -25,10 +26,9 @@ class HomeTableViewCell: UITableViewCell {
     var categories: [ProductCategory] = [] {
         didSet {
             collectionViewHome.reloadData()
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
+            DispatchQueue.main.async {
                 self.collectionViewHome.layoutIfNeeded()
-                self.collectionViewHomeHeight.constant = self.collectionViewHome.collectionViewLayout.collectionViewContentSize.height
+                self.updateCollectionHeight()
             }
         }
     }
@@ -36,13 +36,21 @@ class HomeTableViewCell: UITableViewCell {
     var products: [ProductModel] = [] {
         didSet {
             collectionViewHome.reloadData()
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
+            DispatchQueue.main.async {
                 self.collectionViewHome.layoutIfNeeded()
-                self.collectionViewHomeHeight.constant = self.collectionViewHome.collectionViewLayout.collectionViewContentSize.height
+                self.updateCollectionHeight()
             }
         }
     }
+    
+    func updateCollectionHeight() {
+        if let layout = collectionViewHome.collectionViewLayout as? UICollectionViewFlowLayout,
+           layout.scrollDirection == .vertical {
+            self.collectionViewHomeHeight.constant = self.collectionViewHome.collectionViewLayout.collectionViewContentSize.height
+        }
+    }
+    
+  
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -109,7 +117,7 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
         if collectionType == .category {
             return CGSize(width: 88, height: 113)
         } else if collectionType == .popular {
-            return CGSize(width: 375, height: 242.19)
+            return CGSize(width:collectionViewHome.frame.width , height: 242.19)
         } else if collectionType == .mostPopular {
             return CGSize(width: 228, height: 185)
         } else if collectionType == .RecentItems {

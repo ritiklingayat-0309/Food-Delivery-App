@@ -291,6 +291,13 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Profile" translatesAutoresizingMaskIntoConstraints="NO" id="LqG-Qd-RQ9">
+                                                <rect key="frame" x="149.66666666666666" y="105" width="86" height="23"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="23" id="cbM-mR-eca"/>
+                                                    <constraint firstAttribute="width" constant="86" id="pbw-gM-euW"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -299,6 +306,7 @@
                                             <constraint firstItem="r9X-h7-Dd4" firstAttribute="top" secondItem="mOB-kX-ayd" secondAttribute="bottom" constant="19" id="2VG-bW-7cZ"/>
                                             <constraint firstAttribute="trailing" secondItem="POf-bY-kUm" secondAttribute="trailing" constant="162" id="2fX-Ix-oEk"/>
                                             <constraint firstAttribute="trailing" secondItem="mOB-kX-ayd" secondAttribute="trailing" constant="137" id="6dR-so-IAZ"/>
+                                            <constraint firstItem="LqG-Qd-RQ9" firstAttribute="centerX" secondItem="dNE-vn-Zqh" secondAttribute="centerX" id="BDe-Yg-1H9"/>
                                             <constraint firstItem="mOB-kX-ayd" firstAttribute="top" secondItem="dNE-vn-Zqh" secondAttribute="top" constant="31" id="KH9-N9-PHb"/>
                                             <constraint firstItem="POf-bY-kUm" firstAttribute="top" secondItem="jaj-tk-diE" secondAttribute="bottom" constant="6" id="Mgg-Mu-rJ5"/>
                                             <constraint firstItem="r9X-h7-Dd4" firstAttribute="leading" secondItem="dNE-vn-Zqh" secondAttribute="leading" constant="155" id="N1r-w2-wld"/>
@@ -310,6 +318,7 @@
                                             <constraint firstItem="POf-bY-kUm" firstAttribute="leading" secondItem="dNE-vn-Zqh" secondAttribute="leading" constant="162" id="jNB-86-5km"/>
                                             <constraint firstItem="CzI-Qu-MtO" firstAttribute="leading" secondItem="dNE-vn-Zqh" secondAttribute="leading" constant="21" id="pY4-fy-fpr"/>
                                             <constraint firstAttribute="trailing" secondItem="CzI-Qu-MtO" secondAttribute="trailing" constant="21" id="qgQ-x7-e68"/>
+                                            <constraint firstItem="LqG-Qd-RQ9" firstAttribute="top" secondItem="dNE-vn-Zqh" secondAttribute="top" constant="105" id="sEL-dS-8rr"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -570,6 +579,7 @@ meals and more!</string>
     </scenes>
     <resources>
         <image name="ic_Hlocation" width="11.333333015441895" height="7"/>
+        <image name="ic_Profile" width="94.333335876464844" height="31.666666030883789"/>
         <image name="ic_homec" width="31" height="30"/>
         <image name="ic_imgPro" width="103" height="102"/>
         <image name="ic_menu" width="33" height="33"/>

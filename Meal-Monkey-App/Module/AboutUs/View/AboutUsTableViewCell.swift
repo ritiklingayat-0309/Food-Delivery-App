@@ -13,7 +13,8 @@ class AboutUsTableViewCell: UITableViewCell {
     @IBOutlet weak var lbltitle2: UILabel!
     @IBOutlet weak var lblRightSidetitle: UILabel!
     @IBOutlet weak var btnStar: UIButton!
-    
+    @IBOutlet weak var lblRightSidetitleHeight:
+    NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -26,6 +27,7 @@ class AboutUsTableViewCell: UITableViewCell {
         lbltitle.text = about.strText
         lbltitle2.isHidden = true
         lblRightSidetitle.isHidden = true
+        lblRightSidetitleHeight.constant = 0
         btnStar.isHidden = true
     }
     

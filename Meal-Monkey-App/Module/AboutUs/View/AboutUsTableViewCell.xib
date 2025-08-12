@@ -92,6 +92,7 @@
             <connections>
                 <outlet property="btnStar" destination="pPi-d3-tS6" id="0ch-4G-x7M"/>
                 <outlet property="lblRightSidetitle" destination="JSd-yG-S07" id="Xal-Si-6lw"/>
+                <outlet property="lblRightSidetitleHeight" destination="VqN-js-iNI" id="a6I-7z-C1b"/>
                 <outlet property="lbltitle" destination="EeH-tW-lqY" id="O85-dL-Xtc"/>
                 <outlet property="lbltitle2" destination="3uo-He-Fhx" id="n7C-Dk-E8Y"/>
             </connections>

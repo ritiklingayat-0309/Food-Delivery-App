@@ -4,12 +4,114 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="4ik-iU-7Rw">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="QgT-Yb-17r" customClass="MapViewController" customModule="Meal_Monkey_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PIE-mE-uqH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ow-gf-Nfo">
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="17.43" translatesAutoresizingMaskIntoConstraints="NO" id="nn1-t0-8vX">
+                                        <rect key="frame" x="22" y="597.66666666666663" width="349" height="34.333333333333371"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ug4-jS-n6J">
+                                                <rect key="frame" x="0.0" y="0.6666666666666643" width="36" height="33"/>
+                                                <color key="tintColor" name="login Background Color"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="36" id="hza-iz-aNH"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a saved place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mf-Eq-LXs">
+                                                <rect key="frame" x="53.333333333333329" y="0.0" width="230.66666666666669" height="34.333333333333336"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                                <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3H-hD-x6F">
+                                                <rect key="frame" x="301.33333333333331" y="0.0" width="47.666666666666686" height="34.333333333333336"/>
+                                                <color key="tintColor" name="login Background Color"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="chevron.down" catalog="system"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gca-EI-TBU">
+                                        <rect key="frame" x="21" y="528.66666666666663" width="351" height="45"/>
+                                        <color key="backgroundColor" name="Text Field background"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="oiH-Wo-hOo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="QgT-Yb-17r" id="dam-uq-cTX"/>
+                                        </connections>
+                                    </textField>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="640-1M-sew">
+                                        <rect key="frame" x="0.0" y="60.000000000000028" width="393" height="449.66666666666674"/>
+                                        <standardMapConfiguration key="preferredConfiguration"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="QgT-Yb-17r" id="5lX-Zv-ALB"/>
+                                        </connections>
+                                    </mapView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRZ-4O-H1a">
+                                        <rect key="frame" x="320" y="435.66666666666663" width="50" height="57"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="G1g-Dq-YOU"/>
+                                            <constraint firstAttribute="height" constant="57" id="eea-eh-VfZ"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="ic_location"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="gca-EI-TBU" firstAttribute="leading" secondItem="4ow-gf-Nfo" secondAttribute="leading" constant="21" id="55N-8c-Wv5"/>
+                                    <constraint firstItem="640-1M-sew" firstAttribute="leading" secondItem="4ow-gf-Nfo" secondAttribute="leading" id="5Xy-Ta-4Do"/>
+                                    <constraint firstItem="nn1-t0-8vX" firstAttribute="top" secondItem="gca-EI-TBU" secondAttribute="bottom" constant="24" id="AI0-gG-I4X"/>
+                                    <constraint firstItem="640-1M-sew" firstAttribute="top" secondItem="4ow-gf-Nfo" secondAttribute="top" constant="60" id="EVb-zM-MiG"/>
+                                    <constraint firstAttribute="trailing" secondItem="nn1-t0-8vX" secondAttribute="trailing" constant="22" id="FFs-ex-zqk"/>
+                                    <constraint firstItem="gca-EI-TBU" firstAttribute="top" secondItem="640-1M-sew" secondAttribute="bottom" constant="19" id="HCG-jd-qgw"/>
+                                    <constraint firstAttribute="trailing" secondItem="gca-EI-TBU" secondAttribute="trailing" constant="21" id="UMU-aR-Spn"/>
+                                    <constraint firstAttribute="bottom" secondItem="nn1-t0-8vX" secondAttribute="bottom" constant="34" id="Z7K-X3-I13"/>
+                                    <constraint firstAttribute="trailing" secondItem="640-1M-sew" secondAttribute="trailing" id="bzd-XU-4tl"/>
+                                    <constraint firstAttribute="trailing" secondItem="fRZ-4O-H1a" secondAttribute="trailing" constant="23" id="k2u-dc-LI5"/>
+                                    <constraint firstItem="nn1-t0-8vX" firstAttribute="leading" secondItem="4ow-gf-Nfo" secondAttribute="leading" constant="22" id="n2v-r5-dis"/>
+                                    <constraint firstItem="gca-EI-TBU" firstAttribute="top" secondItem="fRZ-4O-H1a" secondAttribute="bottom" constant="36" id="yPr-ca-xOc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ooQ-ls-6Nx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4ow-gf-Nfo" firstAttribute="leading" secondItem="ooQ-ls-6Nx" secondAttribute="leading" id="KVz-tH-zlq"/>
+                            <constraint firstItem="ooQ-ls-6Nx" firstAttribute="trailing" secondItem="4ow-gf-Nfo" secondAttribute="trailing" id="SOr-yP-5RU"/>
+                            <constraint firstItem="ooQ-ls-6Nx" firstAttribute="bottom" secondItem="4ow-gf-Nfo" secondAttribute="bottom" id="m4u-j0-njX"/>
+                            <constraint firstItem="4ow-gf-Nfo" firstAttribute="top" secondItem="ooQ-ls-6Nx" secondAttribute="top" id="m6P-Vc-afk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnChangeAddress" destination="fRZ-4O-H1a" id="Ifr-Bq-EbF"/>
+                        <outlet property="btnSaveAddress" destination="f3H-hD-x6F" id="ijj-sF-2oT"/>
+                        <outlet property="mapView" destination="640-1M-sew" id="Un0-BF-VYH"/>
+                        <outlet property="txtSearch" destination="gca-EI-TBU" id="IfA-sa-i8S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D1F-l6-OoU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-773" y="5"/>
+        </scene>
         <!--About Us View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -511,6 +613,9 @@ Brooklyn, NY 11216</string>
                                         <state key="normal" title="change">
                                             <color key="titleColor" name="login Background Color"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnChangeAddressAction:" destination="r3M-dY-kbO" eventType="touchUpInside" id="2e9-WC-0Ba"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -1015,6 +1120,7 @@ at anytime </string>
                         <outlet property="btnAddCardCardView" destination="IFP-N8-nNW" id="22u-In-tI5"/>
                         <outlet property="btnBackToHome" destination="Pge-iF-Eih" id="OZi-dt-kxc"/>
                         <outlet property="btnCancelX" destination="NhT-tv-hgn" id="gjH-7E-FIl"/>
+                        <outlet property="btnChangeAddress" destination="poa-5p-gbQ" id="LNE-Qy-ecG"/>
                         <outlet property="btnCross" destination="e3f-Tg-TGH" id="Apw-On-aoX"/>
                         <outlet property="btnSendOrder" destination="nrN-K7-EWi" id="UVm-KO-yOP"/>
                         <outlet property="btnTrackMyOrder" destination="pyL-9g-kqG" id="nEp-He-jz1"/>
@@ -1042,9 +1148,12 @@ at anytime </string>
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="ic_ThankuPage" width="227" height="250"/>
         <image name="ic_addNotebtn" width="7" height="12"/>
         <image name="ic_btn_img" width="12" height="24"/>
+        <image name="ic_location" width="52" height="57.333332061767578"/>
+        <image name="star.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="Text Field background">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
