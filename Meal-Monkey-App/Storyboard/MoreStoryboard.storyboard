@@ -439,7 +439,7 @@ at anytime </string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D8J-aD-uaf">
-                                <rect key="frame" x="0.0" y="147.00000000000003" width="393" height="393.66666666666674"/>
+                                <rect key="frame" x="0.0" y="264" width="393" height="283.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="xT9-Hk-nWQ" id="mcl-cI-yad"/>
@@ -552,17 +552,81 @@ at anytime </string>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_restro" translatesAutoresizingMaskIntoConstraints="NO" id="vy1-Wu-6A6">
+                                <rect key="frame" x="21" y="150" width="100" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="mBn-Ft-LFN"/>
+                                    <constraint firstAttribute="height" constant="80" id="x4W-SN-3A1"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K9e-hA-45V">
+                                <rect key="frame" x="131" y="150" width="252" height="66"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="King Burgers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed7-I3-jcP">
+                                        <rect key="frame" x="0.0" y="0.0" width="252" height="18.666666666666668"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                        <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Z9I-vs-7Xx">
+                                        <rect key="frame" x="0.0" y="28.666666666666654" width="252" height="14.333333333333332"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_start" translatesAutoresizingMaskIntoConstraints="NO" id="sSa-EK-ga0">
+                                                <rect key="frame" x="0.0" y="0.0" width="13" height="14.333333333333334"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="13" id="uJn-RA-qgi"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="4.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsb-kq-KNu">
+                                                <rect key="frame" x="18" y="0.0" width="15.333333333333336" height="14.333333333333334"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
+                                                <color key="textColor" red="0.9882352941176471" green="0.37647058823529411" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="(124 ratings)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6V0-Uh-isu">
+                                                <rect key="frame" x="38.333333333333357" y="0.0" width="213.66666666666663" height="14.333333333333334"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                                <color key="textColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="42X-Wx-HSe">
+                                        <rect key="frame" x="0.0" y="53" width="252" height="13"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_flocation" translatesAutoresizingMaskIntoConstraints="NO" id="CnP-WJ-Pw4">
+                                                <rect key="frame" x="0.0" y="0.0" width="10" height="13"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="10" id="gOS-BS-J47"/>
+                                                    <constraint firstAttribute="height" constant="13" id="llc-Zj-6kJ"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No 03, 4th Lane, Newyork" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlk-uW-3JQ">
+                                                <rect key="frame" x="20" y="0.0" width="232" height="13"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                                <color key="textColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jm1-yM-hyI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="D8J-aD-uaf" firstAttribute="top" secondItem="Jm1-yM-hyI" secondAttribute="top" constant="29" id="9Pn-7z-36a"/>
-                            <constraint firstItem="CxG-UY-m7b" firstAttribute="top" secondItem="D8J-aD-uaf" secondAttribute="bottom" constant="17" id="Eri-k2-wfx"/>
-                            <constraint firstItem="Jm1-yM-hyI" firstAttribute="trailing" secondItem="D8J-aD-uaf" secondAttribute="trailing" id="O9j-gg-4Ei"/>
+                            <constraint firstItem="K9e-hA-45V" firstAttribute="top" secondItem="Jm1-yM-hyI" secondAttribute="top" constant="32" id="BZ4-QI-qzn"/>
+                            <constraint firstItem="D8J-aD-uaf" firstAttribute="top" secondItem="vy1-Wu-6A6" secondAttribute="bottom" constant="34" id="Fmt-sD-29U"/>
+                            <constraint firstItem="Jm1-yM-hyI" firstAttribute="trailing" secondItem="K9e-hA-45V" secondAttribute="trailing" constant="10" id="FpR-VL-pjC"/>
+                            <constraint firstItem="CxG-UY-m7b" firstAttribute="top" secondItem="D8J-aD-uaf" secondAttribute="bottom" constant="10" id="FvB-kL-jZJ"/>
+                            <constraint firstItem="vy1-Wu-6A6" firstAttribute="top" secondItem="Jm1-yM-hyI" secondAttribute="top" constant="32" id="IF4-JU-tNa"/>
                             <constraint firstItem="Jm1-yM-hyI" firstAttribute="trailing" secondItem="CxG-UY-m7b" secondAttribute="trailing" constant="21" id="PbS-Te-xch"/>
+                            <constraint firstItem="vy1-Wu-6A6" firstAttribute="leading" secondItem="Jm1-yM-hyI" secondAttribute="leading" constant="21" id="SsN-Wx-eK6"/>
                             <constraint firstItem="CxG-UY-m7b" firstAttribute="leading" secondItem="Jm1-yM-hyI" secondAttribute="leading" constant="21" id="YRy-KL-UHD"/>
                             <constraint firstItem="Jm1-yM-hyI" firstAttribute="bottom" secondItem="CxG-UY-m7b" secondAttribute="bottom" constant="18" id="bAt-j3-N1d"/>
-                            <constraint firstItem="D8J-aD-uaf" firstAttribute="leading" secondItem="Jm1-yM-hyI" secondAttribute="leading" id="wKd-Nt-9dW"/>
+                            <constraint firstItem="D8J-aD-uaf" firstAttribute="trailing" secondItem="Jm1-yM-hyI" secondAttribute="trailing" id="hhS-wb-MXj"/>
+                            <constraint firstItem="K9e-hA-45V" firstAttribute="leading" secondItem="vy1-Wu-6A6" secondAttribute="trailing" constant="10" id="l4C-SI-7Fz"/>
+                            <constraint firstItem="D8J-aD-uaf" firstAttribute="leading" secondItem="Jm1-yM-hyI" secondAttribute="leading" id="xQd-aI-jez"/>
                         </constraints>
                     </view>
                     <connections>
@@ -576,7 +640,7 @@ at anytime </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6li-7A-ZgK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1698" y="12"/>
+            <point key="canvasLocation" x="1696.9465648854962" y="11.971830985915494"/>
         </scene>
         <!--Check Out View Controller-->
         <scene sceneID="XGi-qx-aT4">
@@ -1152,7 +1216,10 @@ at anytime </string>
         <image name="ic_ThankuPage" width="227" height="250"/>
         <image name="ic_addNotebtn" width="7" height="12"/>
         <image name="ic_btn_img" width="12" height="24"/>
+        <image name="ic_flocation" width="11" height="14"/>
         <image name="ic_location" width="52" height="57.333332061767578"/>
+        <image name="ic_restro" width="1024" height="1024"/>
+        <image name="ic_start" width="14" height="14.333333015441895"/>
         <image name="star.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="Text Field background">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

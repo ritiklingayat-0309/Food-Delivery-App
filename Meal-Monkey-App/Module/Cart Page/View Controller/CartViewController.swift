@@ -28,9 +28,27 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func btnPlaceOrderAction(_ sender: Any) {
-        let storyboard = UIStoryboard(name:"MoreStoryboard", bundle : nil)
-        if let secondVc = storyboard.instantiateViewController(withIdentifier : "CheckOutViewController") as? CheckOutViewController{
-            self.navigationController?.pushViewController(secondVc, animated: true)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        if appDelegate.arrCart.isEmpty {
+            let alert = UIAlertController(title: "Empty Cart", message: "Please add items before placing an order.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+            return
         }
+        if !appDelegate.arrCart.isEmpty {
+            appDelegate.arrOrder.append(appDelegate.arrCart)
+            appDelegate.arrCart.removeAll()
+        }
+    
+        tblView.reloadData()
+        
+        // Show alert
+        let alert = UIAlertController(title: "Order Placed", message: "Your order has been placed successfully!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
+    
+    
 }
+

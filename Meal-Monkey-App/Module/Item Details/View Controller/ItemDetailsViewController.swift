@@ -30,6 +30,7 @@ class ItemDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setCartButton(target: self, action: #selector(cartButtonTapped))
         btnPlus.layer.cornerRadius = btnPlus.frame.height/2
         btnMinus.layer.cornerRadius = btnMinus.frame.height/2
         btnAddToCart.layer.cornerRadius = btnAddToCart.frame.height/2
@@ -40,6 +41,13 @@ class ItemDetailsViewController: UIViewController {
         configureUI()
         currentQuantity = 1
         scrollViewDetails.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 200)
+    }
+    
+    @objc func cartButtonTapped() {
+        let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
+        if let secdVc = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            navigationController?.pushViewController(secdVc, animated: true)
+        }
     }
     
     func configureUI() {
