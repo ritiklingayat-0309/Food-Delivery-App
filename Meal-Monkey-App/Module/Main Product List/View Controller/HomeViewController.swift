@@ -7,18 +7,23 @@
 
 import UIKit
 
-class HomeViewController: UIViewController , HomeTableTableViewCellDelegate{
+class HomeViewController: UIViewController , HomeTableTableViewCellDelegate , UITextFieldDelegate ,MapViewControllerDelegate{
+   
+    @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
-  
+    
+    @IBOutlet weak var btnAddressDropdown: UIButton!
     var selectedCategory: ProductCategory = .All
     var recentItems: [ProductModel] = []
     var arrProductData: [ProductModel] = ProductModel.addProductData()
     var objProductCategory: ProductModel?
+    var filteredProductData: [ProductModel] = [] 
     
     override func viewWillAppear(_ animated: Bool) {
         recentItems = RecentItemsHelper.shared.getRecentItems()
         tblView.reloadData()
+        filterProducts(with: txtSearch.text)
     }
     
     override func viewDidLoad() {
@@ -30,9 +35,16 @@ class HomeViewController: UIViewController , HomeTableTableViewCellDelegate{
         tblView.showsVerticalScrollIndicator = false
         tblView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
         
+        txtSearch.delegate = self
+        filteredProductData = arrProductData
+        
         DispatchQueue.main.async {
             self.tblView.reloadData()
         }
+    }
+    
+    func didSelectAddress(_ address: String) {
+         lblAddress.text = address
     }
     
     @objc func btnCartTapped() {
@@ -54,10 +66,36 @@ class HomeViewController: UIViewController , HomeTableTableViewCellDelegate{
         tblView.reloadData()
     }
     func HomeTableViewCell(_ cell: HomeTableViewCell, didSelectCategory category: ProductCategory) {
+        filterProducts(with: txtSearch.text) // added new
         selectedCategory = category
+    }
+    // Use this method for real-time filtering as the user types
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+           filterProducts(with: textField.text)
+       }
+       
+    
+    @IBAction func btnDropDownClick(_ sender: Any) {
+    }
+    // Method to handle filtering of products
+    func filterProducts(with searchText: String?) {
+        if let text = searchText, !text.isEmpty {
+            let lowercaseText = text.lowercased()
+            filteredProductData = arrProductData.filter { product in
+                // Check if the product name or the product category contains the search text
+                let productNameMatches = product.strProductName.lowercased().contains(lowercaseText)
+                let productCategoryMatches = product.objProductCategory.rawValue.lowercased().contains(lowercaseText)
+                return productNameMatches || productCategoryMatches
+            }
+        } else {
+            // If the search bar is empty, show all products
+            filteredProductData = arrProductData
+        }
+        
         DispatchQueue.main.async {
             self.tblView.reloadData()
         }
+        
+        
     }
-
 }

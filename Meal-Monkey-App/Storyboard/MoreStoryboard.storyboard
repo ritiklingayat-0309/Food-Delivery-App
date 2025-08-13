@@ -43,6 +43,9 @@
                                                 <color key="tintColor" name="login Background Color"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="chevron.down" catalog="system"/>
+                                                <connections>
+                                                    <action selector="btnSaveAddress:" destination="QgT-Yb-17r" eventType="touchUpInside" id="3Ih-hh-tus"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -73,6 +76,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="ic_location"/>
+                                        <connections>
+                                            <action selector="btnCurrentLocationAction:" destination="QgT-Yb-17r" eventType="touchUpInside" id="yva-ey-wWl"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -102,7 +108,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnChangeAddress" destination="fRZ-4O-H1a" id="Ifr-Bq-EbF"/>
+                        <outlet property="btnCurrentLocation" destination="fRZ-4O-H1a" id="qlG-Va-PNY"/>
                         <outlet property="btnSaveAddress" destination="f3H-hD-x6F" id="ijj-sF-2oT"/>
                         <outlet property="mapView" destination="640-1M-sew" id="Un0-BF-VYH"/>
                         <outlet property="txtSearch" destination="gca-EI-TBU" id="IfA-sa-i8S"/>
@@ -234,7 +240,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="56" id="BEy-fR-rOo"/>
                                                                 </constraints>
-                                                                <color key="textColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <connections>
@@ -281,9 +287,9 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Security Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eFe-Oi-EAl">
                                                                 <rect key="frame" x="0.0" y="150" width="351" height="56"/>
                                                                 <color key="backgroundColor" name="Text Field background"/>
-                                                                <color key="textColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="cpA-Bk-HVT" id="1BJ-qU-Jb1"/>
                                                                 </connections>
@@ -291,7 +297,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fHA-rl-0ek">
                                                                 <rect key="frame" x="0.0" y="225" width="351" height="56"/>
                                                                 <color key="backgroundColor" name="Text Field background"/>
-                                                                <color key="textColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <connections>
@@ -301,7 +307,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Thl-UQ-t6x">
                                                                 <rect key="frame" x="0.0" y="300" width="351" height="56"/>
                                                                 <color key="backgroundColor" name="Text Field background"/>
-                                                                <color key="textColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <connections>
@@ -319,10 +325,10 @@ at anytime </string>
                                                                         <color key="textColor" red="0.48627450980392156" green="0.49019607843137253" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hyf-8o-4Uh">
+                                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hyf-8o-4Uh">
                                                                         <rect key="frame" x="302" y="0.0" width="51" height="56"/>
-                                                                        <color key="onTintColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <color key="thumbTintColor" red="0.75686274509803919" green="0.75686274509803919" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="onTintColor" name="login Background Color"/>
+                                                                        <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </switch>
                                                                 </subviews>
                                                                 <constraints>
@@ -651,7 +657,7 @@ at anytime </string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4c-n5-mTo">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="245.66666666666666"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="241"/>
                                 <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3f-Id-SEg">
@@ -660,19 +666,17 @@ at anytime </string>
                                 <color key="textColor" red="0.48627450980392156" green="0.49019607843137253" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6j-hP-mBc">
-                                <rect key="frame" x="21" y="184" width="351" height="34.666666666666657"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="r6j-hP-mBc">
+                                <rect key="frame" x="21" y="184" width="351" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvt-bj-dfB">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="34.666666666666664"/>
-                                        <string key="text">653 Nostrand Ave., 
-Brooklyn, NY 11216</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvt-bj-dfB">
+                                        <rect key="frame" x="0.0" y="0.0" width="175.66666666666666" height="30"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                         <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poa-5p-gbQ">
-                                        <rect key="frame" x="300" y="0.0" width="51" height="34.666666666666664"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poa-5p-gbQ">
+                                        <rect key="frame" x="175.66666666666663" y="0.0" width="175.33333333333337" height="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="change">
                                             <color key="titleColor" name="login Background Color"/>
@@ -684,14 +688,14 @@ Brooklyn, NY 11216</string>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTY-n7-nYi">
-                                <rect key="frame" x="0.0" y="233.66666666666666" width="393" height="12"/>
+                                <rect key="frame" x="0.0" y="229" width="393" height="12"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="JCz-mk-jRw"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NL-Zg-s1b">
-                                <rect key="frame" x="21" y="266.66666666666669" width="351" height="34.333333333333314"/>
+                                <rect key="frame" x="21" y="262" width="351" height="34.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCZ-Px-c6K">
                                         <rect key="frame" x="0.0" y="0.0" width="129.33333333333334" height="34.333333333333336"/>
@@ -715,7 +719,7 @@ Brooklyn, NY 11216</string>
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="I6Y-f6-WOG">
-                                <rect key="frame" x="0.0" y="321" width="393" height="176"/>
+                                <rect key="frame" x="0.0" y="316.33333333333331" width="393" height="180.66666666666669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="r3M-dY-kbO" id="DzI-y9-AYf"/>
@@ -831,39 +835,39 @@ Brooklyn, NY 11216</string>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOM-IO-gAQ">
-                                <rect key="frame" x="0.0" y="250.66666666666669" width="393" height="601.33333333333326"/>
+                                <rect key="frame" x="0.0" y="246" width="393" height="606"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvV-Ll-Ghd">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="601.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="606"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9J-2z-rfX">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="584.33333333333337"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Credit/Debit Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NW3-k1-nSV">
-                                                        <rect key="frame" x="21" y="24.000000000000028" width="137" height="16.333333333333329"/>
+                                                        <rect key="frame" x="21" y="24" width="137" height="16.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <color key="textColor" red="0.2901960784" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3f-Tg-TGH">
-                                                        <rect key="frame" x="344.33333333333331" y="13.000000000000028" width="32.666666666666686" height="34.333333333333336"/>
+                                                        <rect key="frame" x="330.66666666666669" y="13" width="46.333333333333314" height="34.333333333333336"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="x">
-                                                            <color key="baseForegroundColor" red="0.2901960784" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system">
+                                                            <color key="baseForegroundColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="btnCrossAction:" destination="r3M-dY-kbO" eventType="touchUpInside" id="OPs-Vw-ieT"/>
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xcl-Aj-yge">
-                                                        <rect key="frame" x="21" y="59.333333333333343" width="351" height="1"/>
+                                                        <rect key="frame" x="21" y="59.333333333333314" width="351" height="1"/>
                                                         <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="BSv-QM-KBk"/>
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="9p0-3U-lNm">
-                                                        <rect key="frame" x="21" y="78.333333333333371" width="351" height="506"/>
+                                                        <rect key="frame" x="21" y="78.333333333333314" width="351" height="505.99999999999994"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BeA-sM-hTI">
                                                                 <rect key="frame" x="0.0" y="0.0" width="351" height="56"/>
@@ -871,7 +875,7 @@ Brooklyn, NY 11216</string>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="56" id="a9y-xK-TOP"/>
                                                                 </constraints>
-                                                                <color key="textColor" red="0.71372549019999998" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <connections>
@@ -918,17 +922,17 @@ Brooklyn, NY 11216</string>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Security Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VcP-x6-PMw">
                                                                 <rect key="frame" x="0.0" y="150" width="351" height="56"/>
                                                                 <color key="backgroundColor" name="Text Field background"/>
-                                                                <color key="textColor" red="0.71372549019999998" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="r3M-dY-kbO" id="B96-5J-Eag"/>
                                                                 </connections>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0bJ-KK-xKd">
-                                                                <rect key="frame" x="0.0" y="225" width="351" height="56"/>
+                                                                <rect key="frame" x="0.0" y="225.00000000000006" width="351" height="56"/>
                                                                 <color key="backgroundColor" name="Text Field background"/>
-                                                                <color key="textColor" red="0.71372549019999998" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <connections>
@@ -936,9 +940,9 @@ Brooklyn, NY 11216</string>
                                                                 </connections>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="baW-NW-Kj7">
-                                                                <rect key="frame" x="0.0" y="300" width="351" height="56"/>
+                                                                <rect key="frame" x="0.0" y="300.00000000000006" width="351" height="56"/>
                                                                 <color key="backgroundColor" name="Text Field background"/>
-                                                                <color key="textColor" red="0.71372549019999998" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <connections>
@@ -946,7 +950,7 @@ Brooklyn, NY 11216</string>
                                                                 </connections>
                                                             </textField>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3j-mc-KDe">
-                                                                <rect key="frame" x="0.0" y="375" width="351" height="56"/>
+                                                                <rect key="frame" x="0.0" y="375.00000000000006" width="351" height="56"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNf-EZ-aWB">
                                                                         <rect key="frame" x="0.0" y="0.0" width="302" height="56"/>
@@ -956,10 +960,10 @@ at anytime </string>
                                                                         <color key="textColor" red="0.48627450979999998" green="0.49019607840000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SIP-A7-lhT">
+                                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SIP-A7-lhT">
                                                                         <rect key="frame" x="302" y="0.0" width="51" height="56"/>
-                                                                        <color key="onTintColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <color key="thumbTintColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="onTintColor" name="login Background Color"/>
+                                                                        <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </switch>
                                                                 </subviews>
                                                                 <constraints>
@@ -967,7 +971,7 @@ at anytime </string>
                                                                 </constraints>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFP-N8-nNW">
-                                                                <rect key="frame" x="0.0" y="450" width="351" height="56"/>
+                                                                <rect key="frame" x="0.0" y="450.00000000000006" width="351" height="56"/>
                                                                 <color key="backgroundColor" name="login Background Color"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="56" id="NE8-c3-3P9"/>
@@ -979,6 +983,9 @@ at anytime </string>
                                                                 <buttonConfiguration key="configuration" style="plain" image="ic_btn_img" title="Add Card">
                                                                     <color key="baseForegroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="btnAddCardCardViewAction:" destination="r3M-dY-kbO" eventType="touchUpInside" id="aul-0v-amQ"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -1018,18 +1025,22 @@ at anytime </string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSO-bi-6NO">
-                                <rect key="frame" x="0.0" y="255.66666666666669" width="393" height="596.33333333333326"/>
+                                <rect key="frame" x="0.0" y="251" width="393" height="601"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uE3-Sl-BoI">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="596.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="601"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94t-Yl-cGz">
                                                 <rect key="frame" x="0.0" y="0.0" width="385" height="584.33333333333337"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NhT-tv-hgn">
-                                                        <rect key="frame" x="333.66666666666669" y="13.000000000000028" width="35.333333333333314" height="34.333333333333336"/>
+                                                        <rect key="frame" x="360" y="13" width="9" height="9"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="9" id="Y8V-wl-x1H"/>
+                                                            <constraint firstAttribute="height" constant="9" id="qm7-9v-Jc6"/>
+                                                        </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="X">
+                                                        <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system">
                                                             <color key="baseForegroundColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -1037,7 +1048,7 @@ at anytime </string>
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_ThankuPage" translatesAutoresizingMaskIntoConstraints="NO" id="UuQ-ns-skd">
-                                                        <rect key="frame" x="80" y="43.000000000000028" width="237" height="247.99999999999997"/>
+                                                        <rect key="frame" x="80" y="43" width="237" height="248"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="248" id="icY-kf-bei"/>
                                                         </constraints>
@@ -1083,7 +1094,7 @@ at anytime </string>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blx-4n-RD6">
-                                                        <rect key="frame" x="22" y="389.66666666666674" width="341" height="48.333333333333314"/>
+                                                        <rect key="frame" x="22" y="389.66666666666663" width="341" height="48.333333333333314"/>
                                                         <string key="text">Your Order is now being processed. We will let you know once the order is picked from the outlet. Check the status of your Order</string>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1188,6 +1199,7 @@ at anytime </string>
                         <outlet property="btnCross" destination="e3f-Tg-TGH" id="Apw-On-aoX"/>
                         <outlet property="btnSendOrder" destination="nrN-K7-EWi" id="UVm-KO-yOP"/>
                         <outlet property="btnTrackMyOrder" destination="pyL-9g-kqG" id="nEp-He-jz1"/>
+                        <outlet property="lblChangeAddress" destination="yvt-bj-dfB" id="XZb-ug-aYx"/>
                         <outlet property="lblDeliveryCost" destination="Rs8-SL-QXj" id="CqG-Yf-WyC"/>
                         <outlet property="lblDiscount" destination="JqD-2d-cZs" id="24C-gh-TVy"/>
                         <outlet property="lblSubTotal" destination="s9C-Pj-a7J" id="g7t-Rk-0lc"/>
@@ -1221,6 +1233,7 @@ at anytime </string>
         <image name="ic_restro" width="1024" height="1024"/>
         <image name="ic_start" width="14" height="14.333333015441895"/>
         <image name="star.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="Text Field background">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

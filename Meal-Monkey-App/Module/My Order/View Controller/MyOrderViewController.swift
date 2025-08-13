@@ -43,6 +43,11 @@ class MyOrderViewController: UIViewController {
     @IBAction func btnCheckoutAction(_ sender: Any) {
         let storyboard = UIStoryboard(name:"MoreStoryboard", bundle : nil)
         if let secondVc = storyboard.instantiateViewController(withIdentifier : "CheckOutViewController") as? CheckOutViewController{
+            let subtotal = orderProducts.reduce(0) { $0 + ($1.doubleProductPrice * Double($1.intProductQty!)) }
+                        let total = subtotal + deliveryCost
+                       secondVc.subtotal = subtotal
+                       secondVc.deliveryCost = deliveryCost
+                       secondVc.total = total
             self.navigationController?.pushViewController(secondVc, animated: true)
         }
     }

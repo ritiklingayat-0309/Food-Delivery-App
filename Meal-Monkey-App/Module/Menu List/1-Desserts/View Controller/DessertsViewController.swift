@@ -11,13 +11,17 @@ class DessertsViewController: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
     var selectedProductType: ProductType = .Desserts
+    var filteredProducts: [ProductModel] = []
     
     var arrProducts: [ProductModel] {
         return ProductModel.addProductData().filter { $0.objProductType == selectedProductType }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setCartButton(target: self, action: #selector(cartButtonTapped))
+        
         switch selectedProductType {
+            
         case .food:
             setLeftAlignedTitleWithBack(
                 "Food",
@@ -39,16 +43,21 @@ class DessertsViewController: UIViewController {
                 action: #selector(backButtonTapped)
             )
         }
+        
         tblView.register(UINib(nibName: "DessertsTableViewCell", bundle: nil), forCellReuseIdentifier: "DessertsTableViewCell")
+        tblView.dataSource = self
+        tblView.delegate = self
+        txtSearch.delegate = self
         viewStyle(textfield: [txtSearch])
         setPadding(textfield: [ txtSearch])
+        filteredProducts = arrProducts
     }
     
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc func cartTapped() {
+    @objc func cartButtonTapped() {
         print("Cart tapped")
         let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
         if let secondVC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {

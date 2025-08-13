@@ -9,6 +9,8 @@ import UIKit
 
 class GmailTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var btncircle: UIButton!
+    @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var stacViewGmail: UIStackView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +25,6 @@ class GmailTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func btnCircleAction(_ sender: Any) {
+    }
 }

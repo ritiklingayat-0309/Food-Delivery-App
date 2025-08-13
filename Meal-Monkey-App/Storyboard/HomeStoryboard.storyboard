@@ -101,31 +101,31 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wog-01-UUZ" userLabel="portionView">
                                         <rect key="frame" x="21" y="33.666666666666657" width="195" height="45"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9X-oo-QbZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="119" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="1FT-2M-Grm"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Current Location">
-                                                    <color key="titleColor" name="LabelSecondaryColor"/>
-                                                </state>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuj-DF-Hqo">
+                                                <rect key="frame" x="142.33333333333334" y="5" width="47.666666666666657" height="35"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="chevron.down" catalog="system">
+                                                    <color key="baseForegroundColor" name="login Background Color"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="btnDropDownClick:" destination="kpX-mn-g29" eventType="touchUpInside" id="qXV-Od-JZc"/>
+                                                </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Hlocation" translatesAutoresizingMaskIntoConstraints="NO" id="EyO-hc-pYA">
-                                                <rect key="frame" x="153" y="0.0" width="20" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="eWz-W7-oxK"/>
-                                                </constraints>
-                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJ5-hA-yUM">
+                                                <rect key="frame" x="5" y="5" width="39.333333333333336" height="35"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                <color key="textColor" red="0.48627450980392156" green="0.49019607843137253" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="v9X-oo-QbZ" firstAttribute="top" secondItem="Wog-01-UUZ" secondAttribute="top" id="Df5-e7-Ict"/>
-                                            <constraint firstItem="EyO-hc-pYA" firstAttribute="centerY" secondItem="v9X-oo-QbZ" secondAttribute="centerY" id="Lxs-K0-sUt"/>
+                                            <constraint firstAttribute="bottom" secondItem="qJ5-hA-yUM" secondAttribute="bottom" constant="5" id="Bd2-Q7-Bit"/>
                                             <constraint firstAttribute="height" constant="45" id="MvB-BQ-l5F"/>
-                                            <constraint firstItem="v9X-oo-QbZ" firstAttribute="leading" secondItem="Wog-01-UUZ" secondAttribute="leading" id="iiZ-j4-c4Y"/>
-                                            <constraint firstItem="EyO-hc-pYA" firstAttribute="top" secondItem="v9X-oo-QbZ" secondAttribute="top" id="qRV-et-NJr"/>
-                                            <constraint firstItem="EyO-hc-pYA" firstAttribute="leading" secondItem="v9X-oo-QbZ" secondAttribute="trailing" constant="34" id="w8x-ec-GCg"/>
+                                            <constraint firstItem="tuj-DF-Hqo" firstAttribute="top" secondItem="Wog-01-UUZ" secondAttribute="top" constant="5" id="QQ7-Fl-tb6"/>
+                                            <constraint firstItem="qJ5-hA-yUM" firstAttribute="leading" secondItem="Wog-01-UUZ" secondAttribute="leading" constant="5" id="dlu-Su-qYt"/>
+                                            <constraint firstAttribute="trailing" secondItem="tuj-DF-Hqo" secondAttribute="trailing" constant="5" id="eFK-jp-iAy"/>
+                                            <constraint firstAttribute="bottom" secondItem="tuj-DF-Hqo" secondAttribute="bottom" constant="5" id="g4K-uD-Att"/>
+                                            <constraint firstItem="qJ5-hA-yUM" firstAttribute="top" secondItem="Wog-01-UUZ" secondAttribute="top" constant="5" id="vld-51-B6i"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Shb-Sg-J61">
@@ -134,7 +134,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="lc4-Hz-D8d"/>
                                         </constraints>
-                                        <color key="textColor" red="0.9490196704864502" green="0.9490196704864502" blue="0.9490196704864502" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -178,6 +177,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="8Wp-m7-c6a"/>
                     <connections>
+                        <outlet property="btnAddressDropdown" destination="tuj-DF-Hqo" id="j3w-id-Who"/>
+                        <outlet property="lblAddress" destination="qJ5-hA-yUM" id="wHv-0C-FtJ"/>
                         <outlet property="tblView" destination="H0G-8k-Uf9" id="0fm-ou-Fes"/>
                         <outlet property="txtSearch" destination="Shb-Sg-J61" id="QSZ-Ci-hoC"/>
                     </connections>
@@ -466,6 +467,8 @@ meals and more!</string>
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.9882352941176471" green="0.37647058823529411" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="wuQ-cf-VK9" kind="relationship" relationship="viewControllers" id="eSK-xq-WRK"/>
@@ -578,7 +581,7 @@ meals and more!</string>
         </scene>
     </scenes>
     <resources>
-        <image name="ic_Hlocation" width="11.333333015441895" height="7"/>
+        <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="ic_Profile" width="94.333335876464844" height="31.666666030883789"/>
         <image name="ic_homec" width="31" height="30"/>
         <image name="ic_imgPro" width="103" height="102"/>
@@ -589,9 +592,6 @@ meals and more!</string>
         <image name="ic_pencil" width="11" height="11"/>
         <image name="ic_profile" width="38" height="35"/>
         <namedColor name="LabelOffer">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="LabelSecondaryColor">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Text Field background">

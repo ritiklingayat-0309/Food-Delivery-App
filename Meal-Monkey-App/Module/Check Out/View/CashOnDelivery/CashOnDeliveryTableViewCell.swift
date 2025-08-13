@@ -10,7 +10,6 @@ import UIKit
 class CashOnDeliveryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var stackView: UIStackView!
-    
     @IBOutlet weak var btnSelect: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()

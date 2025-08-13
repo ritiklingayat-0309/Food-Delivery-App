@@ -7,8 +7,12 @@
 
 import UIKit
 
-class CheckOutViewController: UIViewController {
+class CheckOutViewController: UIViewController,MapViewControllerDelegate {
+    
     var arrCards : [String] = ["Card -1 ", "card -2 ", "card -3 "]
+    var subtotal: Double?
+    var deliveryCost: Double?
+    var total: Double?
     //thank you Page
     @IBOutlet weak var viewThanku: UIView!
     @IBOutlet weak var btnCancelX: UIButton!
@@ -28,7 +32,7 @@ class CheckOutViewController: UIViewController {
     @IBOutlet weak var `switch`: UISwitch!
     @IBOutlet weak var btnAddCardCardView: UIButton!
     //checkout View
-    
+    @IBOutlet weak var lblChangeAddress: UILabel!
     @IBOutlet weak var btnChangeAddress: UIButton!
     @IBOutlet weak var btnSendOrder: UIButton!
     @IBOutlet weak var tblView: UITableView!
@@ -61,10 +65,24 @@ class CheckOutViewController: UIViewController {
         viewScroll.layer.shadowOpacity = 0.2
         viewScroll.layer.shadowOffset = CGSize(width: 0, height: -2)
         viewScroll.layer.shadowRadius = 10
+ 
+        if let subtotal = subtotal {
+            lblSubTotal.text = "$\(String(format: "%.2f", subtotal))"
+        }
+        if let deliveryCost = deliveryCost {
+            lblDeliveryCost.text = "$\(String(format: "%.2f", deliveryCost))"
+        }
+        if let total = total {
+            lblTotal.text = "$\(String(format: "%.2f", total))"
+        }
     }
     
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func didSelectAddress(_ address: String) {
+        lblChangeAddress.text = address
     }
     
     @IBAction func btnSendOrderAction(_ sender: Any) {
@@ -86,6 +104,7 @@ class CheckOutViewController: UIViewController {
     @IBAction func btnChangeAddressAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
         if let secondVc = storyboard.instantiateViewController(identifier: "MapViewController") as? MapViewController{
+            secondVc.delegate = self
             self.navigationController?.pushViewController(secondVc, animated: true)
         }
     }
@@ -121,4 +140,29 @@ class CheckOutViewController: UIViewController {
             self.tabBarController?.tabBar.isHidden = false
         }
     }
+    
+    @IBAction func btnAddCardCardViewAction(_ sender: Any) {
+        guard let cardNumber = txtCardNo.text, !cardNumber.isEmpty else {
+            UIAlertController.showAlert(title: "Invalid Input", message: "Please enter a card number.", viewController: self)
+            return
+        }
+        
+        let trimmedCardNumber = cardNumber.trimmingCharacters(in: .whitespacesAndNewlines)
+        let numericOnly = trimmedCardNumber.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+        if !numericOnly {
+            UIAlertController.showAlert(title: "Invalid Card Number", message: "The card number must contain only digits.", viewController: self)
+            return
+        }
+        
+        if trimmedCardNumber.count < 13 || trimmedCardNumber.count > 19 {
+            UIAlertController.showAlert(title: "Invalid Card Number", message: "The card number must be between 13 and 19 digits long.", viewController: self)
+            return
+        }
+        let newCard: [String: String] = ["cardNo": trimmedCardNumber]
+        sharedPaymentCards.append(newCard)
+        tblView.reloadData()
+        btnCrossAction(self)
+    }
+    
+    
 }

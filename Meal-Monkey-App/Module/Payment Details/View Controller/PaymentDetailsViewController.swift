@@ -6,8 +6,8 @@
 //
 
 import UIKit
-
-class PaymentDetailsViewController: UIViewController {
+var sharedPaymentCards: [[String: String]] = []
+class PaymentDetailsViewController: UIViewController,PaymentDetailsTableViewCellDelegate {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var btnAddAnotherCart: UIButton!
     @IBOutlet weak var ViewTop: UIView!
@@ -23,7 +23,12 @@ class PaymentDetailsViewController: UIViewController {
     @IBOutlet weak var btnAddCart: UIButton!
     @IBOutlet weak var viewAddCard: UIView!
     @IBOutlet weak var viewScroll: UIView!
-    var arrPayment : [PaymentModel] = PaymentModel.addcardDetails()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Reload the table to reflect any changes from other controllers.
+        tblView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +75,13 @@ class PaymentDetailsViewController: UIViewController {
     }
     
     @IBAction func btnCrossAction(_ sender: Any) {
+        txtCardNo.text = ""
+        txtSecurityCode.text = ""
+        txtFirstName.text = ""
+        txtLastName.text = ""
+        txtExpiryMonth.text = ""
+        txtExpiryYear.text = ""
+        
         UIView.animate(withDuration: 0.3, animations: {
             self.viewAddCard.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
         }) { _ in
@@ -80,5 +92,34 @@ class PaymentDetailsViewController: UIViewController {
     }
     
     @IBAction func btnAddCartAction(_ sender: Any) {
+        guard let cardNumber = txtCardNo.text, !cardNumber.isEmpty else {
+            UIAlertController.showAlert(title: "Invalid Input", message: "Please enter a card number.", viewController: self)
+            return
+        }
+        
+        let trimmedCardNumber = cardNumber.trimmingCharacters(in: .whitespacesAndNewlines)
+        let numericOnly = trimmedCardNumber.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+        
+        if !numericOnly {
+            UIAlertController.showAlert(title: "Invalid Card Number", message: "The card number must contain only digits.", viewController: self)
+            return
+        }
+        
+        if trimmedCardNumber.count < 13 || trimmedCardNumber.count > 19 {
+            UIAlertController.showAlert(title: "Invalid Card Number", message: "The card number must be between 13 and 19 digits long.", viewController: self)
+            return
+        }
+        
+        let newCard: [String: String] = ["cardNo": trimmedCardNumber]
+        sharedPaymentCards.append(newCard)
+        tblView.reloadData()
+        btnCrossAction(self)
+    }
+    
+    
+    func didTapDeleteButton(in cell: PaymentDetailsTableViewCell) {
+        guard let indexPath = tblView.indexPath(for: cell) else { return }
+        sharedPaymentCards.remove(at: indexPath.row)
+        tblView.deleteRows(at: [indexPath], with: .fade)
     }
 }
