@@ -23,6 +23,7 @@ class ItemDetailsViewController: UIViewController {
     @IBOutlet weak var btnPlus: UIButton!
     @IBOutlet weak var scrollViewDetails: UIScrollView!
     @IBOutlet weak var btnTrolly: UIButton!
+    @IBOutlet weak var viewDetailPage: UIView!
     
     private var appDelegate: AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
@@ -30,7 +31,10 @@ class ItemDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollViewDetails.showsVerticalScrollIndicator = false
         self.setCartButton(target: self, action: #selector(cartButtonTapped))
+        setLeftAlignedTitleWithBack("Food Detail",target: self,action: #selector(backButtonTapped)
+        )
         btnPlus.layer.cornerRadius = btnPlus.frame.height/2
         btnMinus.layer.cornerRadius = btnMinus.frame.height/2
         btnAddToCart.layer.cornerRadius = btnAddToCart.frame.height/2
@@ -41,8 +45,16 @@ class ItemDetailsViewController: UIViewController {
         configureUI()
         currentQuantity = 1
         scrollViewDetails.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 200)
+        navigationController?.navigationItem.hidesBackButton = true
+//        viewDetailPage.layer.cornerRadius = 42
+//        viewDetailPage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+//        viewDetailPage.clipsToBounds = true
     }
     
+    @objc func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+
     @objc func cartButtonTapped() {
         let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
         if let secdVc = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
@@ -52,7 +64,6 @@ class ItemDetailsViewController: UIViewController {
     
     func configureUI() {
         guard let product = selectedProduct else { return }
-        self.title = product.strProductName
         lblItemName.text = product.strProductName
         lblDescription.text = product.strProductDescription
         imgViewItem.image = UIImage(named: product.strProductImage)
@@ -66,6 +77,13 @@ class ItemDetailsViewController: UIViewController {
         lblPrice.text = "$\(String(format: "%.2f", product.doubleProductPrice))"
         lblTotalPrice.text = "$\(String(format: "%.2f", total))"
         Qtylbl.text = "\(currentQuantity)"
+        if currentQuantity == 1 {
+                   btnMinus.isEnabled = false
+                   btnMinus.alpha = 0.5 
+               } else {
+                   btnMinus.isEnabled = true
+                   btnMinus.alpha = 1.0
+               }
     }
     
     @IBAction func btnMinusAction(_ sender: Any) {

@@ -10,6 +10,7 @@ import UIKit
 class CartViewController: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var btnPlaceOrder: UIButton!
+    @IBOutlet weak var lblCartisEmpty: UILabel!
     
     var cartItems: [ProductModel] {
         return (UIApplication.shared.delegate as? AppDelegate)?.arrCart ?? []
@@ -19,6 +20,22 @@ class CartViewController: UIViewController {
         super.viewWillAppear(animated)
         tblView.reloadData()
         EditStyle.setborder(textfields: [btnPlaceOrder])
+        updateUI()
+    }
+    
+    private func updateUI() {
+        if cartItems.isEmpty {
+            lblCartisEmpty.isHidden = false
+            tblView.isHidden = true
+            btnPlaceOrder.isHidden = true
+            btnPlaceOrder.alpha = 0.5
+        } else {
+            lblCartisEmpty.isHidden = true
+            tblView.isHidden = false
+            btnPlaceOrder.isHidden = false
+            btnPlaceOrder.alpha = 1.0
+            tblView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
@@ -40,15 +57,14 @@ class CartViewController: UIViewController {
             appDelegate.arrOrder.append(appDelegate.arrCart)
             appDelegate.arrCart.removeAll()
         }
-    
+        appDelegate.saveOrders() 
+        appDelegate.saveCart()
+        btnPlaceOrder.isHidden = true
+        lblCartisEmpty.isHidden = false
         tblView.reloadData()
-        
-        // Show alert
         let alert = UIAlertController(title: "Order Placed", message: "Your order has been placed successfully!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
-    
-    
 }
 

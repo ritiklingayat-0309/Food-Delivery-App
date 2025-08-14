@@ -20,5 +20,4 @@ class RecentItemsCollectionViewCell: UICollectionViewCell {
         lblTotalNoOfRatings.text = "\(item.intTotalNumberOfRatings)"
         imgRecentItem.image = UIImage(named: item.strProductImage)
     }
-
 }

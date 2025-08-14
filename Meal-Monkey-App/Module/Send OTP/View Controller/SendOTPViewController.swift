@@ -34,6 +34,46 @@ class SendOTPViewController: UIViewController {
     }
     
     @IBAction func btnNextAction(_ sender: Any) {
+        let first = txtOTP1.text ?? ""
+        let Second = txtOTP2.text ?? ""
+        let third = txtOTP3.text ?? ""
+        let fourth = txtOTP4.text ?? ""
+        
+        switch true {
+        case first.isEmpty:
+            UIAlertController.showAlert(
+                title: "Error",
+                message: "Please enter OTP",
+                viewController: self
+            )
+       
+            
+        case Second.isEmpty:
+            UIAlertController.showAlert(
+                title: "Error",
+                message: "Please enter OTP",
+                viewController: self
+            )
+            
+        case third.isEmpty:
+            UIAlertController.showAlert(
+                title: "Error",
+                message: "Please enter OTP",
+                viewController: self
+            )
+            
+        case fourth.isEmpty:
+            UIAlertController.showAlert(
+                title: "Error",
+                message: "Please enter OTP",
+                viewController: self
+            )
+            
+        default:
+            print("Valid OTP entered.")
+        }
+        
+
         let storyboard = UIStoryboard(name:"LoginStoryboard", bundle : nil)
         if let secondVc = storyboard.instantiateViewController(withIdentifier : "NewPasswordViewController") as? NewPasswordViewController{
             self.navigationController?.pushViewController(secondVc, animated: true)

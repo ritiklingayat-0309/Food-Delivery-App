@@ -47,6 +47,36 @@ class NewPasswordViewController: UIViewController {
     }
     
     @IBAction func btnNextAction(_ sender: Any) {
+        
+        let password = txtNewPassword.text ?? ""
+        let confirmPassword = txtCofirmPassword.text ?? ""
+        
+        switch true {
+       
+        case password.isEmpty:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Please enter password",
+                                        viewController: self)
+            
+        case !password.isValidPassword:
+            UIAlertController.showAlert(title: "Invalid Password",
+                                        message: "Please enter a valid password.",
+                                        viewController: self)
+            
+        case confirmPassword.isEmpty:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Please enter confirm password",
+                                        viewController: self)
+            
+        case password != confirmPassword:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Confirm password does not match",
+                                        viewController: self)
+            
+        default:
+            print("All validations passed. Continue registration.")
+        }
+
         let storyboard = UIStoryboard(name:"FeaturesStoryboard", bundle : nil)
         if let secondVc = storyboard.instantiateViewController(withIdentifier : "FeaturesViewController") as? FeaturesViewController{
             self.navigationController?.pushViewController(secondVc, animated: true)

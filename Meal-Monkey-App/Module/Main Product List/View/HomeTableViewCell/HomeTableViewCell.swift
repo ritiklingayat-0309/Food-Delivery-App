@@ -50,8 +50,6 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
-  
-
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionViewHome.register(UINib(nibName: "HomeCategoryCollectionViewCell", bundle: nil),
@@ -85,7 +83,7 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-   
+        
         switch collectionType {
         case .category:
             let cell: HomeCategoryCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCategoryCollectionViewCell", for: indexPath) as! HomeCategoryCollectionViewCell
@@ -136,6 +134,6 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
             let selectedProduct = products[indexPath.row]
             delegate?.HomeTableViewCell(self, didSelectProduct: selectedProduct)
         }
-
+        
     }
 }

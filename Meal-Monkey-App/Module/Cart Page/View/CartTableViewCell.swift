@@ -8,7 +8,6 @@
 import UIKit
 
 class CartTableViewCell: UITableViewCell {
-    
     @IBOutlet weak var imgProduct: UIImageView!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblProductType: UILabel!
@@ -17,7 +16,6 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var lblQuntity: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblCategory: UILabel!
-    // Add a closure to handle the delete action.
     var onDelete: (() -> Void)?
     override func awakeFromNib() {
         super.awakeFromNib()

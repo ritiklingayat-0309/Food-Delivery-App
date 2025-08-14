@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Fudgy_Chewy_Brownies" translatesAutoresizingMaskIntoConstraints="NO" id="TSW-Wz-q2d">
-                                <rect key="frame" x="10" y="128" width="373" height="200"/>
+                                <rect key="frame" x="0.0" y="128" width="393" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="pEb-Xo-3sV"/>
                                 </constraints>
@@ -328,7 +328,7 @@
                                         </constraints>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="SAq-39-Wi1" firstAttribute="leading" secondItem="1bS-bc-WGm" secondAttribute="leading" id="EbR-ka-NKH"/>
                                     <constraint firstAttribute="trailing" secondItem="SAq-39-Wi1" secondAttribute="trailing" id="KtV-K7-qdt"/>
@@ -343,8 +343,8 @@
                             <constraint firstItem="1bS-bc-WGm" firstAttribute="trailing" secondItem="V5l-Z2-wWN" secondAttribute="trailing" id="6KU-my-GU6"/>
                             <constraint firstItem="1bS-bc-WGm" firstAttribute="leading" secondItem="V5l-Z2-wWN" secondAttribute="leading" id="PAB-J3-Axm"/>
                             <constraint firstItem="1bS-bc-WGm" firstAttribute="top" secondItem="TSW-Wz-q2d" secondAttribute="bottom" constant="20" id="emp-fs-wI4"/>
-                            <constraint firstItem="V5l-Z2-wWN" firstAttribute="trailing" secondItem="TSW-Wz-q2d" secondAttribute="trailing" constant="10" id="fgK-63-XpV"/>
-                            <constraint firstItem="TSW-Wz-q2d" firstAttribute="leading" secondItem="V5l-Z2-wWN" secondAttribute="leading" constant="10" id="hpY-nm-86e"/>
+                            <constraint firstItem="V5l-Z2-wWN" firstAttribute="trailing" secondItem="TSW-Wz-q2d" secondAttribute="trailing" id="fgK-63-XpV"/>
+                            <constraint firstItem="TSW-Wz-q2d" firstAttribute="leading" secondItem="V5l-Z2-wWN" secondAttribute="leading" id="hpY-nm-86e"/>
                             <constraint firstItem="V5l-Z2-wWN" firstAttribute="bottom" secondItem="1bS-bc-WGm" secondAttribute="bottom" id="qox-sK-sQt"/>
                             <constraint firstItem="TSW-Wz-q2d" firstAttribute="top" secondItem="V5l-Z2-wWN" secondAttribute="top" constant="10" id="yHB-xV-VLf"/>
                         </constraints>
@@ -363,6 +363,7 @@
                         <outlet property="lblTotalPrice" destination="XJG-d1-S6t" id="OWs-W1-a7K"/>
                         <outlet property="scrollViewDetails" destination="SAq-39-Wi1" id="GDV-tp-R1v"/>
                         <outlet property="viewCountPlus_Minus" destination="THt-fR-ej5" id="p8Q-9u-hsI"/>
+                        <outlet property="viewDetailPage" destination="HP3-HF-kf8" id="vJF-P9-ZXK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ziI-PV-IP6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -449,21 +450,30 @@
                                     <action selector="btnPlaceOrderAction:" destination="LxK-JZ-jeJ" eventType="touchUpInside" id="qSy-8D-MTV"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart is Empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDo-7a-aif">
+                                <rect key="frame" x="145.33333333333334" y="415.66666666666669" width="102.33333333333334" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.48627450980392156" green="0.49019607843137253" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mMX-hl-0qC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="fQm-bS-Is0" firstAttribute="trailing" secondItem="mMX-hl-0qC" secondAttribute="trailing" id="7Ca-JZ-kzr"/>
                             <constraint firstItem="mMX-hl-0qC" firstAttribute="bottom" secondItem="fQm-bS-Is0" secondAttribute="bottom" constant="100" id="7oU-dz-6nR"/>
+                            <constraint firstItem="aDo-7a-aif" firstAttribute="centerY" secondItem="nt7-n5-uXo" secondAttribute="centerY" id="DEp-Zv-J0Q"/>
                             <constraint firstItem="fQm-bS-Is0" firstAttribute="leading" secondItem="mMX-hl-0qC" secondAttribute="leading" id="GGn-d7-OdT"/>
                             <constraint firstItem="mMX-hl-0qC" firstAttribute="trailing" secondItem="XND-29-TrK" secondAttribute="trailing" constant="21" id="KmT-Ts-U5d"/>
                             <constraint firstItem="fQm-bS-Is0" firstAttribute="top" secondItem="mMX-hl-0qC" secondAttribute="top" id="WOS-dD-qjI"/>
                             <constraint firstItem="XND-29-TrK" firstAttribute="top" secondItem="fQm-bS-Is0" secondAttribute="bottom" constant="10" id="b3V-V9-pju"/>
                             <constraint firstItem="XND-29-TrK" firstAttribute="leading" secondItem="mMX-hl-0qC" secondAttribute="leading" constant="21" id="bg0-UP-Qt8"/>
+                            <constraint firstItem="aDo-7a-aif" firstAttribute="centerX" secondItem="nt7-n5-uXo" secondAttribute="centerX" id="cxh-ZZ-UKN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnPlaceOrder" destination="XND-29-TrK" id="NOq-uh-2YM"/>
+                        <outlet property="lblCartisEmpty" destination="aDo-7a-aif" id="YTc-lG-kiW"/>
                         <outlet property="tblView" destination="fQm-bS-Is0" id="z2B-1b-u8g"/>
                     </connections>
                 </viewController>
@@ -487,6 +497,12 @@
                                     <outlet property="delegate" destination="0LS-YD-tto" id="tmq-yx-zNr"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order List is Empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29w-Ej-MQN">
+                                <rect key="frame" x="124" y="415.66666666666669" width="145" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bGY-I0-Xoj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -494,10 +510,13 @@
                             <constraint firstItem="63s-r7-D6N" firstAttribute="top" secondItem="bGY-I0-Xoj" secondAttribute="top" id="EEv-1C-bfL"/>
                             <constraint firstItem="63s-r7-D6N" firstAttribute="leading" secondItem="bGY-I0-Xoj" secondAttribute="leading" id="EO1-iy-7wm"/>
                             <constraint firstItem="bGY-I0-Xoj" firstAttribute="trailing" secondItem="63s-r7-D6N" secondAttribute="trailing" id="UA5-tW-HHO"/>
+                            <constraint firstItem="29w-Ej-MQN" firstAttribute="centerY" secondItem="3bk-Y2-J6t" secondAttribute="centerY" id="VEc-L8-XHp"/>
+                            <constraint firstItem="29w-Ej-MQN" firstAttribute="centerX" secondItem="3bk-Y2-J6t" secondAttribute="centerX" id="e92-xt-6Dw"/>
                             <constraint firstItem="bGY-I0-Xoj" firstAttribute="bottom" secondItem="63s-r7-D6N" secondAttribute="bottom" id="gll-t2-COM"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblOrderListEmpt" destination="29w-Ej-MQN" id="ccu-TQ-9RS"/>
                         <outlet property="tblView" destination="63s-r7-D6N" id="YAg-v9-vlf"/>
                     </connections>
                 </viewController>

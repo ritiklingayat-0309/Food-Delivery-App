@@ -19,5 +19,4 @@ class MostPopularCollectionViewCell: UICollectionViewCell {
         lblRatings.text = "\(item.floatProductRating)"
         imgMostPopular.image = UIImage(named: item.strProductImage)
     }
-    
 }

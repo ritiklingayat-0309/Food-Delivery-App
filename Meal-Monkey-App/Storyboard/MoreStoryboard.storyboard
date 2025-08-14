@@ -43,9 +43,6 @@
                                                 <color key="tintColor" name="login Background Color"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="chevron.down" catalog="system"/>
-                                                <connections>
-                                                    <action selector="btnSaveAddress:" destination="QgT-Yb-17r" eventType="touchUpInside" id="3Ih-hh-tus"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -77,7 +74,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="ic_location"/>
                                         <connections>
-                                            <action selector="btnCurrentLocationAction:" destination="QgT-Yb-17r" eventType="touchUpInside" id="yva-ey-wWl"/>
+                                            <action selector="btnCurrentLocationAction:" destination="QgT-Yb-17r" eventType="touchUpInside" id="Bs2-dC-uDp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -126,7 +123,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AboutUsViewController" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="M30-2f-vyr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AboutUsViewController" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="M30-2f-vyr">
                                 <rect key="frame" x="0.0" y="142" width="393" height="642"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -160,6 +157,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No cards added yet " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2U-be-1xK">
+                                <rect key="frame" x="120.00000000000001" y="416" width="153.33333333333337" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.48627450980392156" green="0.49019607843137253" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVb-1p-QwM">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="202.66666666666666"/>
                                 <color key="backgroundColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -200,13 +203,13 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgw-op-jh5">
-                                <rect key="frame" x="0.0" y="196.66666666666669" width="393" height="655.33333333333326"/>
+                                <rect key="frame" x="0.0" y="196.66666666666669" width="393" height="587.33333333333326"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9S-Pr-r3X">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="655.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="587.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZK-Cq-2a0">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="584.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="594.33333333333337"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Credit/Debit Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqa-ip-O5w">
                                                         <rect key="frame" x="21" y="24" width="137" height="16.333333333333329"/>
@@ -360,10 +363,10 @@ at anytime </string>
                                                     <constraint firstItem="uzZ-4g-UL2" firstAttribute="top" secondItem="Iqa-ip-O5w" secondAttribute="bottom" constant="19" id="74X-hB-zdU"/>
                                                     <constraint firstItem="WMO-BN-5xC" firstAttribute="leading" secondItem="cZK-Cq-2a0" secondAttribute="leading" constant="21" id="9Kj-8A-Das"/>
                                                     <constraint firstItem="Iqa-ip-O5w" firstAttribute="top" secondItem="cZK-Cq-2a0" secondAttribute="top" constant="24" id="Fjb-Lm-5i4"/>
+                                                    <constraint firstAttribute="bottom" secondItem="WMO-BN-5xC" secondAttribute="bottom" constant="10" id="Lxm-SR-1pG"/>
                                                     <constraint firstItem="3Co-kM-gDS" firstAttribute="top" secondItem="cZK-Cq-2a0" secondAttribute="top" constant="13" id="RfR-RN-gsY"/>
                                                     <constraint firstAttribute="trailing" secondItem="3Co-kM-gDS" secondAttribute="trailing" constant="16" id="TaY-1s-ola"/>
                                                     <constraint firstItem="WMO-BN-5xC" firstAttribute="top" secondItem="uzZ-4g-UL2" secondAttribute="bottom" constant="18" id="aXa-nV-vCe"/>
-                                                    <constraint firstAttribute="bottom" secondItem="WMO-BN-5xC" secondAttribute="bottom" id="bdg-rI-bkx"/>
                                                     <constraint firstItem="Iqa-ip-O5w" firstAttribute="leading" secondItem="cZK-Cq-2a0" secondAttribute="leading" constant="21" id="bus-KC-ugK"/>
                                                     <constraint firstItem="uzZ-4g-UL2" firstAttribute="leading" secondItem="cZK-Cq-2a0" secondAttribute="leading" constant="21" id="bzG-lL-Id6"/>
                                                     <constraint firstAttribute="trailing" secondItem="WMO-BN-5xC" secondAttribute="trailing" constant="21" id="jtL-Tg-4D6"/>
@@ -376,6 +379,7 @@ at anytime </string>
                                             <constraint firstItem="cZK-Cq-2a0" firstAttribute="width" secondItem="Y9S-Pr-r3X" secondAttribute="width" id="2iw-x3-1v0"/>
                                             <constraint firstAttribute="bottom" secondItem="cZK-Cq-2a0" secondAttribute="bottom" id="BMn-Py-Ef2"/>
                                             <constraint firstAttribute="trailing" secondItem="cZK-Cq-2a0" secondAttribute="trailing" id="Rv8-gd-Goa"/>
+                                            <constraint firstAttribute="bottom" secondItem="cZK-Cq-2a0" secondAttribute="bottom" id="ZVR-ig-eTL"/>
                                             <constraint firstItem="cZK-Cq-2a0" firstAttribute="top" secondItem="Y9S-Pr-r3X" secondAttribute="top" id="poC-2B-rdJ"/>
                                             <constraint firstItem="cZK-Cq-2a0" firstAttribute="height" secondItem="Y9S-Pr-r3X" secondAttribute="height" priority="250" id="zuM-DW-LgH"/>
                                         </constraints>
@@ -387,14 +391,17 @@ at anytime </string>
                                     <constraint firstAttribute="trailing" secondItem="Y9S-Pr-r3X" secondAttribute="trailing" id="Kco-Ph-ZBI"/>
                                     <constraint firstAttribute="bottom" secondItem="Y9S-Pr-r3X" secondAttribute="bottom" id="Lvk-yx-szN"/>
                                     <constraint firstItem="Y9S-Pr-r3X" firstAttribute="top" secondItem="vgw-op-jh5" secondAttribute="top" id="TbG-lN-7Xe"/>
+                                    <constraint firstAttribute="bottom" secondItem="Y9S-Pr-r3X" secondAttribute="bottom" id="aEa-Cg-WEv"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ds2-xr-YTG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="A2U-be-1xK" firstAttribute="centerX" secondItem="jE6-VS-5Rm" secondAttribute="centerX" id="3v0-Ng-aOP"/>
                             <constraint firstItem="ds2-xr-YTG" firstAttribute="bottom" secondItem="V1n-dP-3mP" secondAttribute="bottom" constant="150" id="4EI-wz-paY"/>
                             <constraint firstItem="XfP-Pr-gvu" firstAttribute="top" secondItem="ds2-xr-YTG" secondAttribute="top" constant="30" id="5bj-8d-bX9"/>
+                            <constraint firstItem="A2U-be-1xK" firstAttribute="centerY" secondItem="jE6-VS-5Rm" secondAttribute="centerY" id="7dh-5o-3WO"/>
                             <constraint firstItem="S0v-Op-Lnf" firstAttribute="top" secondItem="V1n-dP-3mP" secondAttribute="bottom" constant="35" id="E6E-p9-af3"/>
                             <constraint firstItem="ds2-xr-YTG" firstAttribute="trailing" secondItem="S0v-Op-Lnf" secondAttribute="trailing" constant="21" id="G41-ET-2Dv"/>
                             <constraint firstItem="V1n-dP-3mP" firstAttribute="top" secondItem="5Jy-T5-dR2" secondAttribute="bottom" constant="18" id="Gz8-EG-r6M"/>
@@ -402,13 +409,13 @@ at anytime </string>
                             <constraint firstItem="eVb-1p-QwM" firstAttribute="leading" secondItem="ds2-xr-YTG" secondAttribute="leading" id="OmO-Hc-2iz"/>
                             <constraint firstItem="5Jy-T5-dR2" firstAttribute="top" secondItem="XfP-Pr-gvu" secondAttribute="bottom" constant="17" id="PD8-HS-O3X"/>
                             <constraint firstItem="XfP-Pr-gvu" firstAttribute="leading" secondItem="ds2-xr-YTG" secondAttribute="leading" constant="28" id="Rem-4Y-f9g"/>
-                            <constraint firstAttribute="bottom" secondItem="vgw-op-jh5" secondAttribute="bottom" id="Rnr-Rb-MDT"/>
                             <constraint firstItem="V1n-dP-3mP" firstAttribute="leading" secondItem="ds2-xr-YTG" secondAttribute="leading" id="d6o-06-Dtq"/>
                             <constraint firstItem="ds2-xr-YTG" firstAttribute="trailing" secondItem="V1n-dP-3mP" secondAttribute="trailing" id="eZw-wb-kQE"/>
                             <constraint firstAttribute="trailing" secondItem="5Jy-T5-dR2" secondAttribute="trailing" constant="20" id="eg1-PK-JfV"/>
                             <constraint firstItem="V1n-dP-3mP" firstAttribute="top" secondItem="eVb-1p-QwM" secondAttribute="bottom" id="fbj-Rf-Wqi"/>
                             <constraint firstItem="vgw-op-jh5" firstAttribute="top" secondItem="XfP-Pr-gvu" secondAttribute="bottom" constant="30" id="gKu-wJ-8Ow"/>
                             <constraint firstItem="vgw-op-jh5" firstAttribute="leading" secondItem="ds2-xr-YTG" secondAttribute="leading" id="jbJ-Qa-vnO"/>
+                            <constraint firstItem="vgw-op-jh5" firstAttribute="bottom" secondItem="ds2-xr-YTG" secondAttribute="bottom" id="rLD-wm-ppz"/>
                             <constraint firstItem="ds2-xr-YTG" firstAttribute="trailing" secondItem="vgw-op-jh5" secondAttribute="trailing" id="tQz-Kq-zcn"/>
                             <constraint firstItem="5Jy-T5-dR2" firstAttribute="leading" secondItem="jE6-VS-5Rm" secondAttribute="leading" constant="21" id="xfd-Vp-Mbv"/>
                             <constraint firstItem="eVb-1p-QwM" firstAttribute="top" secondItem="jE6-VS-5Rm" secondAttribute="top" id="ybA-bh-thZ"/>
@@ -421,6 +428,7 @@ at anytime </string>
                         <outlet property="btnAddAnotherCart" destination="S0v-Op-Lnf" id="rHd-mM-LaQ"/>
                         <outlet property="btnAddCart" destination="98P-5l-kjd" id="JyA-aI-gQg"/>
                         <outlet property="btnCross" destination="3Co-kM-gDS" id="lrv-eO-fLj"/>
+                        <outlet property="lblEmptyCard" destination="A2U-be-1xK" id="0UJ-4C-HV0"/>
                         <outlet property="tblView" destination="V1n-dP-3mP" id="kKu-4d-9Cw"/>
                         <outlet property="txtCardNo" destination="JKE-CE-fzA" id="2fu-On-ODP"/>
                         <outlet property="txtExpiryMonth" destination="Ahj-SU-Tbq" id="jzs-40-gna"/>
@@ -837,7 +845,7 @@ at anytime </string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOM-IO-gAQ">
                                 <rect key="frame" x="0.0" y="246" width="393" height="606"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvV-Ll-Ghd">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RvV-Ll-Ghd">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="606"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9J-2z-rfX">
@@ -980,7 +988,7 @@ at anytime </string>
                                                                 <state key="normal" title="Add Card" image="ic_btn_img">
                                                                     <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
-                                                                <buttonConfiguration key="configuration" style="plain" image="ic_btn_img" title="Add Card">
+                                                                <buttonConfiguration key="configuration" style="plain" image="ic_btn_img" title="  Add Card">
                                                                     <color key="baseForegroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </buttonConfiguration>
                                                                 <connections>
@@ -1027,7 +1035,7 @@ at anytime </string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSO-bi-6NO">
                                 <rect key="frame" x="0.0" y="251" width="393" height="601"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uE3-Sl-BoI">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uE3-Sl-BoI">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="601"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94t-Yl-cGz">

@@ -18,6 +18,7 @@ class DessertsViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        tblView.showsVerticalScrollIndicator = false
         self.setCartButton(target: self, action: #selector(cartButtonTapped))
         
         switch selectedProductType {

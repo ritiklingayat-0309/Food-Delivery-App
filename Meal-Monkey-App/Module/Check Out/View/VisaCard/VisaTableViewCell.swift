@@ -20,6 +20,13 @@ class VisaTableViewCell: UITableViewCell {
         stackViewVisa.layer.borderWidth = 1.0
         stackViewVisa.layer.cornerRadius = 10
         
+        btnSelect.setImage(UIImage(systemName: "circle"), for: .normal)
+        btnSelect.setImage(UIImage(systemName: "circle.fill"), for: .selected)
+        btnSelect.backgroundColor = .clear
+        btnSelect.layer.cornerRadius = btnSelect.frame.height / 2
+        btnSelect.clipsToBounds = true
+
+        self.selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

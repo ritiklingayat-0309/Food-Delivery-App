@@ -25,9 +25,10 @@ class OrderListTableViewCell: UITableViewCell {
     }
     
     func configureCell(with products: [ProductModel], orderNumber: Int) {
+        let allProductNames = products.map { $0.strProductName }.joined(separator: ", ")
         lblOrderNo.text = "Order No: \(orderNumber)"
         if let firstProduct = products.first {
-            lblProductName.text = "firstProduct : \(firstProduct.strProductName)"
+            lblProductName.text = "Items : \(allProductNames) "
             lblTotal.text = "Price : $\(String(format : "%.2f", firstProduct.doubleProductPrice))"
             imgView.image = UIImage(named: firstProduct.strProductImage)
 

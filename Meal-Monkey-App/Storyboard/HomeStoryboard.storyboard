@@ -195,7 +195,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvY-Id-X7A">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvY-Id-X7A">
                                 <rect key="frame" x="0.0" y="162" width="393" height="573"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNE-vn-Zqh">
@@ -368,7 +368,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VZB-sR-UkA">
-                                <rect key="frame" x="21" y="96" width="351" height="639"/>
+                                <rect key="frame" x="21" y="70" width="351" height="665"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="2Ek-G4-K3L" id="VOo-Vy-T1R"/>
@@ -380,7 +380,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VZB-sR-UkA" firstAttribute="leading" secondItem="GJb-Zn-e6I" secondAttribute="leading" constant="21" id="Ae6-hZ-mem"/>
-                            <constraint firstItem="VZB-sR-UkA" firstAttribute="top" secondItem="Llk-5o-JoC" secondAttribute="top" constant="96" id="TH1-cs-N0u"/>
+                            <constraint firstItem="VZB-sR-UkA" firstAttribute="top" secondItem="Llk-5o-JoC" secondAttribute="top" constant="70" id="TH1-cs-N0u"/>
                             <constraint firstItem="GJb-Zn-e6I" firstAttribute="bottom" secondItem="VZB-sR-UkA" secondAttribute="bottom" id="gY8-xE-Yry"/>
                             <constraint firstItem="GJb-Zn-e6I" firstAttribute="trailing" secondItem="VZB-sR-UkA" secondAttribute="trailing" constant="21" id="gvA-eP-SAE"/>
                         </constraints>

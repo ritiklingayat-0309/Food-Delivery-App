@@ -16,17 +16,12 @@ extension CheckOutViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            return tableView.dequeueReusableCell(
-                withIdentifier: "CashOnDeliveryTableViewCell",
-                for: indexPath
-            ) as! CashOnDeliveryTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CashOnDeliveryTableViewCell", for: indexPath) as! CashOnDeliveryTableViewCell
+            cell.btnSelect.isSelected = (selectedPaymentIndex == 0)
+            return cell
             
         case 1..<1 + sharedPaymentCards.count:
-            let cell =
-            tableView.dequeueReusableCell(
-                withIdentifier: "VisaTableViewCell",
-                for: indexPath
-            ) as! VisaTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "VisaTableViewCell", for: indexPath) as! VisaTableViewCell
             let cardIndex = indexPath.row - 1
             if cardIndex < sharedPaymentCards.count {
                 let cardDetails = sharedPaymentCards[cardIndex]
@@ -35,16 +30,45 @@ extension CheckOutViewController : UITableViewDelegate, UITableViewDataSource {
                     cell.lblCardNo.text = "**** **** **** \(lastFourDigits)"
                 }
             }
+            
+            cell.btnSelect.isSelected = (selectedPaymentIndex == indexPath.row)
             return cell
             
         case 1 + sharedPaymentCards.count:
-            return tableView.dequeueReusableCell(
-                withIdentifier: "GmailTableViewCell",
-                for: indexPath
-            ) as! GmailTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GmailTableViewCell", for: indexPath) as! GmailTableViewCell
+            cell.btncircle.isSelected = (selectedPaymentIndex == indexPath.row)
+            return cell
         default:
             return UITableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedPaymentIndex = indexPath.row
+        tblView.reloadData()
+    }
+}
+
+extension CheckOutViewController : UITextFieldDelegate
+{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        switch textField {
+            
+        case txtCardNo:
+            txtExpMonth.becomeFirstResponder()
+        case txtExpMonth:
+            txtExpYear.becomeFirstResponder()
+        case txtExpYear:
+            txtSecurityCode.becomeFirstResponder()
+        case txtSecurityCode:
+            txtFirstName.becomeFirstResponder()
+        case txtFirstName:
+            txtLastName.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return true
     }
 }
 

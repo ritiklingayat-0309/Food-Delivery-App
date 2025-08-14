@@ -54,4 +54,69 @@ class SignUpViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
+    @IBAction func btnSignUpAction(_ sender: Any) {
+        let name = txtName.text ?? ""
+        let email = txtEmail.text ?? ""
+        let mobile = txtMobileNo.text ?? ""
+        let address = txtAddress.text ?? ""
+        let password = txtPassword.text ?? ""
+        let confirmPassword = txtConfirmPassword.text ?? ""
+        
+        switch true {
+        case name.isEmpty:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Please enter name",
+                                        viewController: self)
+            
+        case email.isEmpty:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Please enter email",
+                                        viewController: self)
+            
+        case !email.isValidEmail:
+            UIAlertController.showAlert(title: "Invalid Email",
+                                        message: "Please enter a valid email address.",
+                                        viewController: self)
+            
+        case mobile.isEmpty:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Please enter mobile number",
+                                        viewController: self)
+            
+        case mobile.count != 10:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Mobile number must be exactly 10 digits.",
+                                        viewController: self)
+            
+        case address.isEmpty:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Please enter address",
+                                        viewController: self)
+            
+        case password.isEmpty:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Please enter password",
+                                        viewController: self)
+            
+        case !password.isValidPassword:
+            UIAlertController.showAlert(title: "Invalid Password",
+                                        message: "Please enter a valid password.",
+                                        viewController: self)
+            
+        case confirmPassword.isEmpty:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Please enter confirm password",
+                                        viewController: self)
+            
+        case password != confirmPassword:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Confirm password does not match",
+                                        viewController: self)
+            
+        default:
+            print("All validations passed. Continue registration.")
+        }
+        
+    }
 }

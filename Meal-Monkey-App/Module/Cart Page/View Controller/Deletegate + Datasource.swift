@@ -23,6 +23,10 @@ extension CartViewController : UITableViewDelegate, UITableViewDataSource {
             guard let self = self,
                   let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return }
             appDelegate.arrCart.remove(at: indexPath.row)
+            appDelegate.saveCart()
+            if appDelegate.arrCart.isEmpty{
+                btnPlaceOrder.isHidden = true
+            }
             self.tblView.reloadData()
         }
         return cell

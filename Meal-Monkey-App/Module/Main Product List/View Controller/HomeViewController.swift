@@ -37,6 +37,9 @@ class HomeViewController: UIViewController , HomeTableTableViewCellDelegate , UI
         
         txtSearch.delegate = self
         filteredProductData = arrProductData
+        if let savedAddress = UserDefaults.standard.string(forKey: "savedAddress") {
+               lblAddress.text = savedAddress
+           }
         
         DispatchQueue.main.async {
             self.tblView.reloadData()

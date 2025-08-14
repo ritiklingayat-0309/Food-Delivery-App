@@ -13,6 +13,7 @@ class CheckOutViewController: UIViewController,MapViewControllerDelegate {
     var subtotal: Double?
     var deliveryCost: Double?
     var total: Double?
+    var selectedPaymentIndex: Int = 0
     //thank you Page
     @IBOutlet weak var viewThanku: UIView!
     @IBOutlet weak var btnCancelX: UIButton!
@@ -65,7 +66,11 @@ class CheckOutViewController: UIViewController,MapViewControllerDelegate {
         viewScroll.layer.shadowOpacity = 0.2
         viewScroll.layer.shadowOffset = CGSize(width: 0, height: -2)
         viewScroll.layer.shadowRadius = 10
- 
+        
+        if let savedAddress = UserDefaults.standard.string(forKey: "savedAddress") {
+                lblChangeAddress.text = savedAddress
+            }
+        
         if let subtotal = subtotal {
             lblSubTotal.text = "$\(String(format: "%.2f", subtotal))"
         }
@@ -83,6 +88,7 @@ class CheckOutViewController: UIViewController,MapViewControllerDelegate {
     
     func didSelectAddress(_ address: String) {
         lblChangeAddress.text = address
+        UserDefaults.standard.set(address, forKey: "savedAddress")
     }
     
     @IBAction func btnSendOrderAction(_ sender: Any) {
@@ -163,6 +169,4 @@ class CheckOutViewController: UIViewController,MapViewControllerDelegate {
         tblView.reloadData()
         btnCrossAction(self)
     }
-    
-    
 }

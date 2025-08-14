@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController {
         EditStyle.setborder(textfields: [lblName,lblEmail,lblMobile,lblAdress,btnSave])
         let tabGesture = UITapGestureRecognizer(target: self, action: #selector(imgeTab))
         imgView.addGestureRecognizer(tabGesture)
-        imgView.layer.cornerRadius = 50
+        imgView.layer.cornerRadius = imgView.frame.height/2
         self.setLeftAlignedTitle("Profile")
         self.setCartButton(target: self, action: #selector(cartButtonTapped))
     }
@@ -49,6 +49,10 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func btnSignOutAction(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "LoginStoryboard", bundle: nil)
+        if let secondVc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+            self.navigationController?.pushViewController(secondVc, animated: true)
+        }
     }
     
     @IBAction func btnSaveAction(_ sender: Any) {

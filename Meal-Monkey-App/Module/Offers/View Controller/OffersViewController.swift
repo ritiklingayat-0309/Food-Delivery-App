@@ -14,6 +14,7 @@ class OffersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tblView.showsVerticalScrollIndicator = false
         setLeftAlignedTitle("Latest Offers")
         setCartButton(target: self, action: #selector(cartTapped))
         tblView.register(UINib(nibName: "OffersTableViewCell", bundle: nil), forCellReuseIdentifier: "OffersTableViewCell")

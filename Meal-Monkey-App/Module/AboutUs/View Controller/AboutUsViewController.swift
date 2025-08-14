@@ -14,7 +14,7 @@ class AboutUsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tblView.showsVerticalScrollIndicator = false
         switch objPageType {
         case .PaymentDetails:
             print("Navigate to My payment screen")
