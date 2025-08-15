@@ -10,6 +10,7 @@ import UIKit
 class ItemDetailsViewController: UIViewController {
     var selectedProduct: ProductModel?
     var currentQuantity: Int = 1
+    var isHeartFilled = false
     @IBOutlet weak var imgViewItem: UIImageView!
     @IBOutlet weak var lblItemName: UILabel!
     @IBOutlet weak var lblRating: UILabel!
@@ -24,17 +25,17 @@ class ItemDetailsViewController: UIViewController {
     @IBOutlet weak var scrollViewDetails: UIScrollView!
     @IBOutlet weak var btnTrolly: UIButton!
     @IBOutlet weak var viewDetailPage: UIView!
+    @IBOutlet weak var btnHeart: UIButton!
     
     private var appDelegate: AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollViewDetails.showsVerticalScrollIndicator = false
         self.setCartButton(target: self, action: #selector(cartButtonTapped))
-        setLeftAlignedTitleWithBack("Food Detail",target: self,action: #selector(backButtonTapped)
-        )
+        setLeftAlignedTitleWithBack("Food Detail",target: self,action: #selector(backButtonTapped))
         btnPlus.layer.cornerRadius = btnPlus.frame.height/2
         btnMinus.layer.cornerRadius = btnMinus.frame.height/2
         btnAddToCart.layer.cornerRadius = btnAddToCart.frame.height/2
@@ -46,9 +47,27 @@ class ItemDetailsViewController: UIViewController {
         currentQuantity = 1
         scrollViewDetails.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 200)
         navigationController?.navigationItem.hidesBackButton = true
-//        viewDetailPage.layer.cornerRadius = 42
-//        viewDetailPage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-//        viewDetailPage.clipsToBounds = true
+        viewDetailPage.layer.cornerRadius = 42
+        viewDetailPage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        viewDetailPage.clipsToBounds = true
+        viewDetailPage.layer.borderWidth = 2
+        viewDetailPage.layer.borderColor = UIColor.gray.cgColor
+        checkWishlistStatus()//mmm
+        
+    }
+    
+    private func checkWishlistStatus() {//mmmm
+        guard let appDelegate = appDelegate,
+              let product = selectedProduct else { return }
+
+        // Check if the product is in the wishlist
+        if appDelegate.arrWishlist.contains(where: { $0.intId == product.intId }) {
+            isHeartFilled = true
+            btnHeart.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            isHeartFilled = false
+            btnHeart.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
     }
     
     @objc func backButtonTapped() {
@@ -58,6 +77,7 @@ class ItemDetailsViewController: UIViewController {
     @objc func cartButtonTapped() {
         let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
         if let secdVc = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            secdVc.pagetype = .Cart
             navigationController?.pushViewController(secdVc, animated: true)
         }
     }
@@ -86,6 +106,30 @@ class ItemDetailsViewController: UIViewController {
                }
     }
     
+    @IBAction func btnHeartAction(_ sender: UIButton) {//mmmmmm
+        guard let appDelegate = appDelegate,
+              let product = selectedProduct else { return }
+        
+        isHeartFilled.toggle()
+        if isHeartFilled {
+            sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            // Add the product to the wishlist
+            if !appDelegate.arrWishlist.contains(where: { $0.intId == product.intId }) {
+                appDelegate.arrWishlist.append(product)
+//                appDelegate.saveWishlist() // Save the updated list
+                print("Added to wishlist")
+            }
+        } else {
+            sender.setImage(UIImage(systemName: "heart"), for: .normal)
+            // Remove the product from the wishlist
+            if let index = appDelegate.arrWishlist.firstIndex(where: { $0.intId == product.intId }) {
+                appDelegate.arrWishlist.remove(at: index)
+//                appDelegate.saveWishlist() // Save the updated list
+                print("Removed from wishlist")
+            }
+        }
+    }
+    
     @IBAction func btnMinusAction(_ sender: Any) {
         if currentQuantity > 1 {
             currentQuantity -= 1
@@ -101,6 +145,7 @@ class ItemDetailsViewController: UIViewController {
     @IBAction func btnTrollyAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
         if let secondVC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            secondVC.pagetype = .Cart
             navigationController?.pushViewController(secondVC, animated: true)
         }
     }

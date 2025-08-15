@@ -48,7 +48,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MenuViewController" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oVl-5h-Plu">
-                                <rect key="frame" x="21" y="297" width="351" height="438"/>
+                                <rect key="frame" x="0.0" y="297" width="393" height="438"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="uKb-3P-bUs"/>
@@ -59,7 +59,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oVl-5h-Plu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="21" id="5Y1-Jp-iYW"/>
+                            <constraint firstItem="oVl-5h-Plu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5Y1-Jp-iYW"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1Cl-sf-XVG" secondAttribute="bottom" id="Hef-pL-Cma"/>
                             <constraint firstItem="eeO-RQ-alw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="21" id="JCi-ud-VPd"/>
                             <constraint firstItem="oVl-5h-Plu" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="JrK-5e-Hnh"/>
@@ -67,7 +67,7 @@
                             <constraint firstItem="oVl-5h-Plu" firstAttribute="top" secondItem="eeO-RQ-alw" secondAttribute="bottom" constant="60" id="SPa-qm-o9A"/>
                             <constraint firstItem="1Cl-sf-XVG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bos-KP-lWj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eeO-RQ-alw" secondAttribute="trailing" constant="21" id="izV-85-8oL"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oVl-5h-Plu" secondAttribute="trailing" constant="21" id="rpW-jK-cvq"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oVl-5h-Plu" secondAttribute="trailing" id="rpW-jK-cvq"/>
                             <constraint firstItem="eeO-RQ-alw" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="vOm-jb-7Yy"/>
                         </constraints>
                     </view>

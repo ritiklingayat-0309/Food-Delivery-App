@@ -11,10 +11,10 @@ import UIKit
 extension LoginViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-            case txtEmail:
+        case txtEmail:
             txtPassword.becomeFirstResponder()
         case txtPassword:
-            btnLogin.becomeFirstResponder()
+            btnLogin.resignFirstResponder()
         default:
             textField.resignFirstResponder()
         }

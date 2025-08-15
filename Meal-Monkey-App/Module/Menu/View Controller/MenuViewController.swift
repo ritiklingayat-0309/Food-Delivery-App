@@ -19,12 +19,15 @@ class MenuViewController: UIViewController {
         tblView.register(UINib(nibName: "MenuTableViewCell", bundle: nil), forCellReuseIdentifier: "MenuTableViewCell")
         EditStyle.setPadding(textFields: [txtSearch], paddingWidth: 28)
         EditStyle.setborder(textfields: [txtSearch])
+        tblView.delegate = self
+        tblView.dataSource = self
     }
     
     @objc func cartButtonTapped() {
         print("Cart button tapped")
         let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
         if let secondVC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            secondVC.pagetype = .Cart
             navigationController?.pushViewController(secondVC, animated: true)
         }
     }

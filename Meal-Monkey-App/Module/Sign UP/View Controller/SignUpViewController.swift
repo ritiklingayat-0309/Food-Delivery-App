@@ -117,6 +117,5 @@ class SignUpViewController: UIViewController {
         default:
             print("All validations passed. Continue registration.")
         }
-        
     }
 }

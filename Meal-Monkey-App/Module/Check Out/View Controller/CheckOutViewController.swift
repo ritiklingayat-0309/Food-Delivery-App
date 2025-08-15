@@ -148,25 +148,71 @@ class CheckOutViewController: UIViewController,MapViewControllerDelegate {
     }
     
     @IBAction func btnAddCardCardViewAction(_ sender: Any) {
-        guard let cardNumber = txtCardNo.text, !cardNumber.isEmpty else {
-            UIAlertController.showAlert(title: "Invalid Input", message: "Please enter a card number.", viewController: self)
-            return
-        }
+        let cardNumber = txtCardNo.text ?? ""
+        let securityCode = txtSecurityCode.text ?? ""
+        let firstName = txtFirstName.text ?? ""
+        let lastName = txtLastName.text ?? ""
+        let expiryMonth = txtExpMonth.text ?? ""
+        let expiryYear = txtExpYear.text ?? ""
+        let allowedNameCharacters = CharacterSet.letters.union(.whitespaces)
         
-        let trimmedCardNumber = cardNumber.trimmingCharacters(in: .whitespacesAndNewlines)
-        let numericOnly = trimmedCardNumber.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
-        if !numericOnly {
-            UIAlertController.showAlert(title: "Invalid Card Number", message: "The card number must contain only digits.", viewController: self)
-            return
+        switch true {
+        case cardNumber.isEmpty:
+            UIAlertController.showAlert(title: "Invalid Input",
+                                        message: "Please enter a card number.",
+                                        viewController: self)
+            
+        case cardNumber.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) != nil:
+            UIAlertController.showAlert(title: "Invalid Card Number",
+                                        message: "The card number must contain only digits.",
+                                        viewController: self)
+            
+        case cardNumber.count != 16:
+            UIAlertController.showAlert(title: "Invalid Card Number",
+                                        message: "The card number must be exactly 16 digits long.",
+                                        viewController: self)
+            
+        case expiryMonth.isEmpty:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Please enter the expiry month.",
+                                        viewController: self)
+        case expiryYear.isEmpty:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Please enter the expiry year.",
+                                        viewController: self)
+        case securityCode.isEmpty:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Please enter the security code.",
+                                        viewController: self)
+            
+        case securityCode.count < 3 || securityCode.count > 4:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "The security code must be 3 or 4 digits long.",
+                                        viewController: self)
+            
+        case firstName.isEmpty:
+            UIAlertController.showAlert(title: "Invalid Input",
+                                        message: "Please enter the card holder's first name.",
+                                        viewController: self)
+            
+        case firstName.rangeOfCharacter(from: allowedNameCharacters.inverted) != nil:
+            UIAlertController.showAlert(title: "Invalid Input",
+                                        message: "Please enter a valid first name using letters",
+                                        viewController: self)
+        case lastName.isEmpty:
+            UIAlertController.showAlert(title: "Invalid Input",
+                                        message: "Please enter the cardholder's last name.",
+                                        viewController: self)
+            
+        case lastName.rangeOfCharacter(from: allowedNameCharacters.inverted) != nil:
+            UIAlertController.showAlert(title: "Invalid Input",
+                                        message: "Please enter a valid last name using letters.",
+                                        viewController: self)
+        default:
+            let newCard: [String: String] = ["cardNo": cardNumber]
+            sharedPaymentCards.append(newCard)
+            tblView.reloadData()
+            btnCrossAction(self)
         }
-        
-        if trimmedCardNumber.count < 13 || trimmedCardNumber.count > 19 {
-            UIAlertController.showAlert(title: "Invalid Card Number", message: "The card number must be between 13 and 19 digits long.", viewController: self)
-            return
-        }
-        let newCard: [String: String] = ["cardNo": trimmedCardNumber]
-        sharedPaymentCards.append(newCard)
-        tblView.reloadData()
-        btnCrossAction(self)
     }
 }

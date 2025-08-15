@@ -34,12 +34,21 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZb-Yg-cnf">
                                         <rect key="frame" x="0.0" y="0.0" width="304" height="34.333333333333336"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gr7-tJ-d9X">
-                                                <rect key="frame" x="0.0" y="0.0" width="256" height="34.333333333333336"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gr7-tJ-d9X">
+                                                <rect key="frame" x="0.0" y="0.0" width="109.66666666666667" height="34.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="999" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yf4-Fh-9bN">
+                                                <rect key="frame" x="109.6666666666667" y="0.0" width="146.33333333333337" height="34.333333333333336"/>
+                                                <color key="tintColor" systemColor="systemRedColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                                <connections>
+                                                    <action selector="btnLikeAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="GmW-uP-WKT"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rs8-3H-q19">
                                                 <rect key="frame" x="256" y="0.0" width="48" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
@@ -142,6 +151,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="btnDelete" destination="Rs8-3H-q19" id="1qw-UR-CjB"/>
+                <outlet property="btnLike" destination="yf4-Fh-9bN" id="6Dg-Fn-S0p"/>
                 <outlet property="imgProduct" destination="qda-WN-U2p" id="CIF-lp-DWG"/>
                 <outlet property="lblCategory" destination="M22-W3-Qvs" id="1Ey-bD-pO1"/>
                 <outlet property="lblDescription" destination="TGo-La-cdW" id="SIy-nb-9Ln"/>
@@ -154,6 +164,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="ic_adhirasam" width="832" height="448"/>
         <image name="trash" catalog="system" width="117" height="128"/>
         <namedColor name="login Background Color">
@@ -161,6 +172,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

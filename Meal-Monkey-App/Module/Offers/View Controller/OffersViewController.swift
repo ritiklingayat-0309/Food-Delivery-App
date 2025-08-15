@@ -25,6 +25,7 @@ class OffersViewController: UIViewController {
         print("Cart tapped")
         let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
         if let secondVC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            secondVC.pagetype = .Cart
             navigationController?.pushViewController(secondVC, animated: true)
         }
     }

@@ -16,6 +16,9 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var lblQuntity: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblCategory: UILabel!
+    @IBOutlet weak var btnLike: UIButton!
+    var onLike: (() -> Void)?
+    
     var onDelete: (() -> Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,5 +40,10 @@ class CartTableViewCell: UITableViewCell {
     
     @IBAction func btnDeleteAction(_ sender: Any) {
         onDelete?()
+    }
+    
+    
+    @IBAction func btnLikeAction(_ sender: Any) {
+        onLike?()
     }
 }

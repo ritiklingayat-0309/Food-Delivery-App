@@ -63,12 +63,14 @@ class PaymentDetailsViewController: UIViewController,PaymentDetailsTableViewCell
         viewScroll.layer.shadowRadius = 10
         EditStyle.setborder(textfields: [txtCardNo,txtSecurityCode,btnAddAnotherCart, txtFirstName,txtLastName,txtExpiryMonth,txtExpiryYear,btnAddCart])
         EditStyle.setPadding(textFields: [txtCardNo,txtSecurityCode, txtFirstName, txtLastName,txtExpiryMonth,txtExpiryYear], paddingWidth: 29)
+     
     }
     
     @objc func cartButtonTapped() {
         print("Cart button tapped")
         let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
         if let secondVC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            secondVC.pagetype = .Cart
             navigationController?.pushViewController(secondVC, animated: true)
         }
     }
@@ -110,38 +112,68 @@ class PaymentDetailsViewController: UIViewController,PaymentDetailsTableViewCell
         let lastName = txtLastName.text ?? ""
         let expiryMonth = txtExpiryMonth.text ?? ""
         let expiryYear = txtExpiryYear.text ?? ""
+        let allowedNameCharacters = CharacterSet.letters.union(.whitespaces)
         
         switch true {
         case cardNumber.isEmpty:
-            UIAlertController.showAlert(title: "Invalid Input", message: "Please enter a card number.", viewController: self)
+            UIAlertController.showAlert(title: "Invalid Input",
+                                        message: "Please enter a card number.",
+                                        viewController: self)
+            
         case cardNumber.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) != nil:
-            UIAlertController.showAlert(title: "Invalid Card Number", message: "The card number must contain only digits.", viewController: self)
-        case cardNumber.count != 16: // Changed condition to check for exactly 16 characters
-            UIAlertController.showAlert(title: "Invalid Card Number", message: "The card number must be exactly 16 digits long.", viewController: self)
+            UIAlertController.showAlert(title: "Invalid Card Number",
+                                        message: "The card number must contain only digits.",
+                                        viewController: self)
+            
+        case cardNumber.count != 16:
+            UIAlertController.showAlert(title: "Invalid Card Number",
+                                        message: "The card number must be exactly 16 digits long.",
+                                        viewController: self)
             
         case expiryMonth.isEmpty:
-            UIAlertController.showAlert(title: "Invalid Input", message: "Please enter the expiry month.", viewController: self)
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Please enter the expiry month.",
+                                        viewController: self)
         case expiryYear.isEmpty:
-            UIAlertController.showAlert(title: "Invalid Input", message: "Please enter the expiry year.", viewController: self)
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Please enter the expiry year.",
+                                        viewController: self)
         case securityCode.isEmpty:
-            UIAlertController.showAlert(title: "Invalid Input", message: "Please enter the security code.", viewController: self)
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Please enter the security code.",
+                                        viewController: self)
+            
         case securityCode.count < 3 || securityCode.count > 4:
-            UIAlertController.showAlert(title: "Invalid Security Code", message: "The security code must be 3 or 4 digits long.", viewController: self)
+            UIAlertController.showAlert(title: "Error",
+                                        message: "The security code must be 3 or 4 digits long.",
+                                        viewController: self)
             
         case firstName.isEmpty:
-            UIAlertController.showAlert(title: "Invalid Input", message: "Please enter the cardholder's first name.", viewController: self)
+            UIAlertController.showAlert(title: "Invalid Input",
+                                        message: "Please enter the card holder's first name.",
+                                        viewController: self)
+
+        case firstName.rangeOfCharacter(from: allowedNameCharacters.inverted) != nil:
+            UIAlertController.showAlert(title: "Invalid Input",
+                                        message: "Please enter a valid first name using letters",
+                                        viewController: self)
         case lastName.isEmpty:
-            UIAlertController.showAlert(title: "Invalid Input", message: "Please enter the cardholder's last name.", viewController: self)
-            
+            UIAlertController.showAlert(title: "Invalid Input",
+                                        message: "Please enter the cardholder's last name.",
+                                        viewController: self)
+
+        case lastName.rangeOfCharacter(from: allowedNameCharacters.inverted) != nil:
+            UIAlertController.showAlert(title: "Invalid Input",
+                                        message: "Please enter a valid last name using letters.",
+                                        viewController: self)
         default:
-            
             let newCard: [String: String] = ["cardNo": cardNumber]
             sharedPaymentCards.append(newCard)
             tblView.reloadData()
+            updateUI()
             btnCrossAction(self)
         }
     }
-    
     
     func didTapDeleteButton(in cell: PaymentDetailsTableViewCell) {
         guard let indexPath = tblView.indexPath(for: cell) else { return }

@@ -21,7 +21,8 @@ extension MoreViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
+        let selectedItem = arrMore[indexPath.row]
+        switch selectedItem.intsTag{
         case 0:
             let storyboard = UIStoryboard(name:"MoreStoryboard", bundle : nil)
             if let secondVc = storyboard.instantiateViewController(withIdentifier : "PaymentDetailsViewController") as? PaymentDetailsViewController{
@@ -60,6 +61,13 @@ extension MoreViewController: UITableViewDataSource, UITableViewDelegate {
             }
             print("fifth row selected")
             
+        case 5 :
+            let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
+            if let secondVc = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+                secondVc.pagetype = .Wishlist
+                self.navigationController?.pushViewController(secondVc, animated: true)
+            }
+            
         default:
             print("Other row selected")
         }
@@ -72,6 +80,8 @@ enum PageType {
     case Notification
     case Inbox
     case About
+    case Wishlist
+    case Cart
 }
 
 

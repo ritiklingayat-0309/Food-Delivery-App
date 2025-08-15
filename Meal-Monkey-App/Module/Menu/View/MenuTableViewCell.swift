@@ -8,12 +8,17 @@
 import UIKit
 
 class MenuTableViewCell: UITableViewCell {
+    
+    
+    @IBOutlet weak var lblFoodQuntity: UILabel!
     @IBOutlet weak var imgFood: UIImageView!
     @IBOutlet weak var lblFoodName: UILabel!
-    @IBOutlet weak var lblFoodQuntity: UILabel!
+    @IBOutlet weak var btnArrow: UIButton!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
+
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -28,5 +33,9 @@ class MenuTableViewCell: UITableViewCell {
         }
         lblFoodName.text = menu.foodName
         lblFoodQuntity.text = "\(menu.quantity) items"
+    }
+    
+    
+    @IBAction func btnArrowAction(_ sender: Any) {
     }
 }

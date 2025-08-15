@@ -43,6 +43,15 @@ class AboutUsViewController: UIViewController {
             self.setLeftAlignedTitleWithBack("About Us", target: self, action: #selector(backButtonTapped))
             setCartButton(target: self, action: #selector(cartButtonTapped))
             currentData = AboutModel.addAboutData()
+            
+        case .Wishlist:
+            print("this is wish list")
+            self.setLeftAlignedTitleWithBack("About Us", target: self, action: #selector(backButtonTapped))
+            setCartButton(target: self, action: #selector(cartButtonTapped))
+        case .Cart:
+            self.setLeftAlignedTitleWithBack("Cart", target: self, action: #selector(backButtonTapped))
+            setCartButton(target: self, action: #selector(cartButtonTapped))
+            print("this is cart page")
         }
         tblView.register(UINib(nibName: "AboutUsTableViewCell", bundle: nil), forCellReuseIdentifier: "AboutUsTableViewCell")
         self.navigationItem.hidesBackButton = true
@@ -56,6 +65,7 @@ class AboutUsViewController: UIViewController {
         print("Cart tapped")
         let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
         if let secondVC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            secondVC.pagetype = .Cart
             navigationController?.pushViewController(secondVC, animated: true)
         }
     }

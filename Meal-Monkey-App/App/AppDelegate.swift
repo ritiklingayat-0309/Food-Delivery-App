@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //for cart as global array
     var arrCart: [ProductModel] = []
     var arrOrder : [[ProductModel]] = []
+    var arrWishlist: [ProductModel] = []
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         loadCart()

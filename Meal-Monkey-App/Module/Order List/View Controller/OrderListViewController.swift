@@ -17,7 +17,8 @@ class OrderListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Order List"
+        
+        setLeftAlignedTitleWithBack("Order List",target: self,action: #selector(backButtonTapped))
         tblView.register(UINib(nibName: "OrderListTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderListTableViewCell")
         tblView.showsVerticalScrollIndicator = false
     }
@@ -36,6 +37,10 @@ class OrderListViewController: UIViewController {
             tblView.isHidden = false
             tblView.reloadData()
         }
+    }
+    
+    @objc func backButtonTapped(){
+        navigationController?.popViewController(animated: true)
     }
 }
 
