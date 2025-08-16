@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
         EditStyle.setPadding(textFields: [txtEmail,txtPassword], paddingWidth: 28)
         EditStyle.setborder(textfields: [txtEmail,btnLogin, btnForget, btnLoginWithFaceBook, btnLoginWithGoogle])
     }
-        
+    
     @IBAction func btnEyeAction(_ sender: Any) {
         isPasswordVisible = !isPasswordVisible
         txtPassword.isSecureTextEntry = !isPasswordVisible
@@ -73,6 +73,7 @@ class LoginViewController: UIViewController {
     private func showMainTabBar() {
         let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
         if let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as? UITabBarController {
+            tabBarController.selectedIndex = 2
             // Set as rootViewController
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let sceneDelegate = windowScene.delegate as? SceneDelegate {

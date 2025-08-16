@@ -14,7 +14,7 @@ class DessertsViewController: UIViewController {
     var filteredProducts: [ProductModel] = []
     
     var arrProducts: [ProductModel] {
-        return ProductModel.addProductData().filter { $0.objProductType == selectedProductType }
+        return HomeViewController.arrProductData.filter { $0.objProductType == selectedProductType }
     }
     override func viewDidLoad() {
         super.viewDidLoad()

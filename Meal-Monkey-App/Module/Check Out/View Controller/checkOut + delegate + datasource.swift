@@ -51,10 +51,8 @@ extension CheckOutViewController : UITableViewDelegate, UITableViewDataSource {
 
 extension CheckOutViewController : UITextFieldDelegate
 {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-            
         case txtCardNo:
             txtExpMonth.becomeFirstResponder()
         case txtExpMonth:

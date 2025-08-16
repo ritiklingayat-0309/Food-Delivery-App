@@ -22,8 +22,8 @@ extension MenuViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        switch indexPath.row{
+        let selectedItem = arrMenu[indexPath.row]
+        switch selectedItem.intsTag{
         case 0:
             let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
             if let plvc = storyboard.instantiateViewController(withIdentifier: "DessertsViewController") as? DessertsViewController {

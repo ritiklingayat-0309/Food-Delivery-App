@@ -48,9 +48,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             if isSearching {
                            cell.products = filteredProductData.filter { $0.floatProductRating >= 4.0 && $0.floatProductRating < 4.5 }
                        } else if selectedCategory == .All {
-                           cell.products = arrProductData.filter { $0.floatProductRating >= 4.0 && $0.floatProductRating < 4.5 }
+                           cell.products = HomeViewController.arrProductData.filter { $0.floatProductRating >= 4.0 && $0.floatProductRating < 4.5 }
                        } else {
-                           cell.products = arrProductData.filter {
+                           cell.products = HomeViewController.arrProductData.filter {
                                $0.floatProductRating >= 4.0 &&
                                $0.floatProductRating < 4.5 &&
                                $0.objProductCategory == selectedCategory
@@ -69,9 +69,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             if isSearching {
                             cell.products = filteredProductData.filter { $0.floatProductRating >= 4.5 && $0.floatProductRating <= 5.0 }
                         } else if selectedCategory == .All {
-                            cell.products = arrProductData.filter { $0.floatProductRating >= 4.5 && $0.floatProductRating <= 5.0 }
+                            cell.products = HomeViewController.arrProductData.filter { $0.floatProductRating >= 4.5 && $0.floatProductRating <= 5.0 }
                         } else {
-                            cell.products = arrProductData.filter {
+                            cell.products = HomeViewController.arrProductData.filter {
                                 $0.floatProductRating >= 4.5 &&
                                 $0.floatProductRating <= 5.0 &&
                                 $0.objProductCategory == selectedCategory

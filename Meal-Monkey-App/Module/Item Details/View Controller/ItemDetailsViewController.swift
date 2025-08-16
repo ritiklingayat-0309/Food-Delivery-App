@@ -8,10 +8,12 @@
 import UIKit
 
 class ItemDetailsViewController: UIViewController {
+    
     var selectedProduct: ProductModel?
     var currentQuantity: Int = 1
     var isHeartFilled = false
     @IBOutlet weak var imgViewItem: UIImageView!
+    @IBOutlet weak var viewDetails: UIView!
     @IBOutlet weak var lblItemName: UILabel!
     @IBOutlet weak var lblRating: UILabel!
     @IBOutlet weak var lblTotalPrice: UILabel!
@@ -26,11 +28,12 @@ class ItemDetailsViewController: UIViewController {
     @IBOutlet weak var btnTrolly: UIButton!
     @IBOutlet weak var viewDetailPage: UIView!
     @IBOutlet weak var btnHeart: UIButton!
+    @IBOutlet weak var activityIndictor: UIActivityIndicatorView!
     
     private var appDelegate: AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollViewDetails.showsVerticalScrollIndicator = false
@@ -52,15 +55,34 @@ class ItemDetailsViewController: UIViewController {
         viewDetailPage.clipsToBounds = true
         viewDetailPage.layer.borderWidth = 2
         viewDetailPage.layer.borderColor = UIColor.gray.cgColor
-        checkWishlistStatus()//mmm
+        hideUIElementsForLoading()
+        activityIndictor.startAnimating()
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.activityIndictor.stopAnimating()
+            self.showUIElementsAfterLoading()
+            self.configureUI()
+            self.checkWishlistStatus()
+            self.activityIndictor.isHidden = true
+        }
+    }
+    
+    private func hideUIElementsForLoading() {
+        viewDetails.isHidden = true
+        btnHeart.isHidden = true
+        imgViewItem.isHidden = true
+    }
+    
+    private func showUIElementsAfterLoading() {
+        viewDetails.isHidden = false
+        btnHeart.isHidden = false
+        imgViewItem.isHidden = false
     }
     
     private func checkWishlistStatus() {//mmmm
         guard let appDelegate = appDelegate,
               let product = selectedProduct else { return }
-
-        // Check if the product is in the wishlist
+        
         if appDelegate.arrWishlist.contains(where: { $0.intId == product.intId }) {
             isHeartFilled = true
             btnHeart.setImage(UIImage(systemName: "heart.fill"), for: .normal)
@@ -73,7 +95,7 @@ class ItemDetailsViewController: UIViewController {
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
-
+    
     @objc func cartButtonTapped() {
         let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
         if let secdVc = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
@@ -98,12 +120,12 @@ class ItemDetailsViewController: UIViewController {
         lblTotalPrice.text = "$\(String(format: "%.2f", total))"
         Qtylbl.text = "\(currentQuantity)"
         if currentQuantity == 1 {
-                   btnMinus.isEnabled = false
-                   btnMinus.alpha = 0.5 
-               } else {
-                   btnMinus.isEnabled = true
-                   btnMinus.alpha = 1.0
-               }
+            btnMinus.isEnabled = false
+            btnMinus.alpha = 0.5
+        } else {
+            btnMinus.isEnabled = true
+            btnMinus.alpha = 1.0
+        }
     }
     
     @IBAction func btnHeartAction(_ sender: UIButton) {//mmmmmm
@@ -113,18 +135,14 @@ class ItemDetailsViewController: UIViewController {
         isHeartFilled.toggle()
         if isHeartFilled {
             sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            // Add the product to the wishlist
             if !appDelegate.arrWishlist.contains(where: { $0.intId == product.intId }) {
                 appDelegate.arrWishlist.append(product)
-//                appDelegate.saveWishlist() // Save the updated list
                 print("Added to wishlist")
             }
         } else {
             sender.setImage(UIImage(systemName: "heart"), for: .normal)
-            // Remove the product from the wishlist
             if let index = appDelegate.arrWishlist.firstIndex(where: { $0.intId == product.intId }) {
                 appDelegate.arrWishlist.remove(at: index)
-//                appDelegate.saveWishlist() // Save the updated list
                 print("Removed from wishlist")
             }
         }
@@ -165,11 +183,22 @@ class ItemDetailsViewController: UIViewController {
     func checkProduct(productToAdd: ProductModel) {
         guard let appDelegate = appDelegate else { return }
         if let existingIndex = appDelegate.arrCart.firstIndex(where: { $0.intId == productToAdd.intId }) {
-            appDelegate.arrCart[existingIndex].intProductQty = currentQuantity
+            appDelegate.arrCart[existingIndex].intProductQty! += currentQuantity
         } else {
             let newProduct = productToAdd
             newProduct.intProductQty = currentQuantity
             appDelegate.arrCart.append(newProduct)
+            
+        }
+        for product in appDelegate.arrCart {
+            print("🛒 Cart Product:")
+            print("ID: \(product.intId)")
+            print("image: \(product.strProductImage)")
+            print("category: \(product.objProductCategory.rawValue)")
+            print("Name: \(product.strProductName)")
+            print("Qty: \(product.intProductQty)")
+            print("Category: \(product.objProductCategory.rawValue)")
+            print("---------")
         }
     }
 }

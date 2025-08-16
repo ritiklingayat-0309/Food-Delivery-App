@@ -362,13 +362,23 @@
                                     <action selector="btnHeartAction:" destination="x3l-Vg-CFt" eventType="touchUpInside" id="3QY-tc-OJf"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wLq-Lx-mnC">
+                                <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="ESh-BO-Xqw"/>
+                                    <constraint firstAttribute="height" constant="37" id="m5f-YM-dpK"/>
+                                </constraints>
+                                <color key="color" name="login Background Color"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V5l-Z2-wWN"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="V5l-Z2-wWN" firstAttribute="trailing" secondItem="GAA-Wu-mKv" secondAttribute="trailing" constant="20" id="1Q1-tF-QlO"/>
+                            <constraint firstItem="wLq-Lx-mnC" firstAttribute="centerX" secondItem="gXK-f6-EOa" secondAttribute="centerX" id="5cg-7g-dVb"/>
                             <constraint firstItem="1bS-bc-WGm" firstAttribute="trailing" secondItem="V5l-Z2-wWN" secondAttribute="trailing" id="6KU-my-GU6"/>
                             <constraint firstItem="1bS-bc-WGm" firstAttribute="leading" secondItem="V5l-Z2-wWN" secondAttribute="leading" id="PAB-J3-Axm"/>
+                            <constraint firstItem="wLq-Lx-mnC" firstAttribute="centerY" secondItem="gXK-f6-EOa" secondAttribute="centerY" id="c9c-B3-wji"/>
                             <constraint firstItem="1bS-bc-WGm" firstAttribute="top" secondItem="TSW-Wz-q2d" secondAttribute="bottom" constant="20" id="emp-fs-wI4"/>
                             <constraint firstItem="V5l-Z2-wWN" firstAttribute="trailing" secondItem="TSW-Wz-q2d" secondAttribute="trailing" id="fgK-63-XpV"/>
                             <constraint firstItem="GAA-Wu-mKv" firstAttribute="top" secondItem="TSW-Wz-q2d" secondAttribute="bottom" constant="8" id="g0V-0V-lyZ"/>
@@ -379,6 +389,7 @@
                     </view>
                     <connections>
                         <outlet property="Qtylbl" destination="fqL-iI-IeX" id="pwn-FX-yb7"/>
+                        <outlet property="activityIndictor" destination="wLq-Lx-mnC" id="QAh-Q6-zZl"/>
                         <outlet property="btnAddToCart" destination="3mc-jm-JPZ" id="k2B-oq-Ybs"/>
                         <outlet property="btnHeart" destination="GAA-Wu-mKv" id="led-sS-6kU"/>
                         <outlet property="btnMinus" destination="Pg5-hj-iB3" id="QcY-MD-AqR"/>
@@ -393,6 +404,7 @@
                         <outlet property="scrollViewDetails" destination="SAq-39-Wi1" id="GDV-tp-R1v"/>
                         <outlet property="viewCountPlus_Minus" destination="THt-fR-ej5" id="p8Q-9u-hsI"/>
                         <outlet property="viewDetailPage" destination="HP3-HF-kf8" id="vJF-P9-ZXK"/>
+                        <outlet property="viewDetails" destination="1bS-bc-WGm" id="ZXN-MZ-1KT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ziI-PV-IP6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

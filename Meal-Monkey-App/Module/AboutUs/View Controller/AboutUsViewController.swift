@@ -48,6 +48,7 @@ class AboutUsViewController: UIViewController {
             print("this is wish list")
             self.setLeftAlignedTitleWithBack("About Us", target: self, action: #selector(backButtonTapped))
             setCartButton(target: self, action: #selector(cartButtonTapped))
+            
         case .Cart:
             self.setLeftAlignedTitleWithBack("Cart", target: self, action: #selector(backButtonTapped))
             setCartButton(target: self, action: #selector(cartButtonTapped))

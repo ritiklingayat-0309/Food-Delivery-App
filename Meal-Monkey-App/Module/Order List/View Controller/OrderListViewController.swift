@@ -21,6 +21,7 @@ class OrderListViewController: UIViewController {
         setLeftAlignedTitleWithBack("Order List",target: self,action: #selector(backButtonTapped))
         tblView.register(UINib(nibName: "OrderListTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderListTableViewCell")
         tblView.showsVerticalScrollIndicator = false
+        print(orders)
     }
     
     override func viewWillAppear(_ animated: Bool) {

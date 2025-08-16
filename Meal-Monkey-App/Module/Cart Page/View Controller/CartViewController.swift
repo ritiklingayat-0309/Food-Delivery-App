@@ -18,7 +18,7 @@ class CartViewController: UIViewController {
         if pagetype == .Wishlist {
             return appDelegate?.arrWishlist ?? []
             
-        } else { // This will handle the .Cart case and any others
+        } else {
             return appDelegate?.arrCart ?? []
         }
     }
@@ -34,8 +34,7 @@ class CartViewController: UIViewController {
         updateUI()
     }
     
-    @objc func backButtonTapped()
-    {
+    @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
     
@@ -54,7 +53,6 @@ class CartViewController: UIViewController {
             tblView.reloadData()
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

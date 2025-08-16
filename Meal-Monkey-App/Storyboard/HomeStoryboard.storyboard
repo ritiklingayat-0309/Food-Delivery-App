@@ -199,7 +199,7 @@
                                 <rect key="frame" x="0.0" y="162" width="393" height="573"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNE-vn-Zqh">
-                                        <rect key="frame" x="0.0" y="0.0" width="385" height="600.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="385" height="620.66666666666663"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_imgPro" translatesAutoresizingMaskIntoConstraints="NO" id="mOB-kX-ayd">
                                                 <rect key="frame" x="137" y="31" width="111" height="102"/>
@@ -219,8 +219,8 @@
                                                     <action selector="btnEditProfileAction:" destination="RrP-bu-uW5" eventType="touchUpInside" id="LAm-YB-cCr"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi there Emilia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaj-tk-diE">
-                                                <rect key="frame" x="131" y="177" width="123" height="18.666666666666657"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi there Emilia!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaj-tk-diE">
+                                                <rect key="frame" x="131" y="177" width="129" height="18.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                                 <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -237,7 +237,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="CzI-Qu-MtO">
-                                                <rect key="frame" x="21" y="242.66666666666669" width="343" height="348.00000000000006"/>
+                                                <rect key="frame" x="21" y="262.66666666666669" width="343" height="348.00000000000006"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ooh-8z-2gn">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="56"/>
@@ -313,9 +313,9 @@
                                             <constraint firstItem="r9X-h7-Dd4" firstAttribute="leading" secondItem="dNE-vn-Zqh" secondAttribute="leading" constant="155" id="N1r-w2-wld"/>
                                             <constraint firstItem="mOB-kX-ayd" firstAttribute="leading" secondItem="dNE-vn-Zqh" secondAttribute="leading" constant="137" id="TrX-rH-kLS"/>
                                             <constraint firstItem="jaj-tk-diE" firstAttribute="top" secondItem="r9X-h7-Dd4" secondAttribute="bottom" constant="13" id="Xuy-lq-wla"/>
-                                            <constraint firstItem="CzI-Qu-MtO" firstAttribute="top" secondItem="jaj-tk-diE" secondAttribute="bottom" constant="47" id="ZhJ-A9-TgY"/>
+                                            <constraint firstItem="CzI-Qu-MtO" firstAttribute="top" secondItem="jaj-tk-diE" secondAttribute="bottom" constant="67" id="ZhJ-A9-TgY"/>
                                             <constraint firstAttribute="bottom" secondItem="CzI-Qu-MtO" secondAttribute="bottom" constant="10" id="cst-Gz-hQb"/>
-                                            <constraint firstAttribute="trailing" secondItem="jaj-tk-diE" secondAttribute="trailing" constant="131" id="ixd-HJ-gyJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="jaj-tk-diE" secondAttribute="trailing" constant="125" id="ixd-HJ-gyJ"/>
                                             <constraint firstItem="POf-bY-kUm" firstAttribute="leading" secondItem="dNE-vn-Zqh" secondAttribute="leading" constant="162" id="jNB-86-5km"/>
                                             <constraint firstItem="CzI-Qu-MtO" firstAttribute="leading" secondItem="dNE-vn-Zqh" secondAttribute="leading" constant="21" id="pY4-fy-fpr"/>
                                             <constraint firstAttribute="trailing" secondItem="CzI-Qu-MtO" secondAttribute="trailing" constant="21" id="qgQ-x7-e68"/>

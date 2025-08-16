@@ -48,6 +48,7 @@ class CheckOutViewController: UIViewController,MapViewControllerDelegate {
         setLeftAlignedTitleWithBack("CheckOut", target: self, action: #selector(backButtonTapped))
         EditStyle.setborder(textfields: [btnSendOrder,btnTrackMyOrder,btnAddCardCardView,txtExpMonth,txtExpYear,txtSecurityCode,txtFirstName,txtLastName,txtCardNo])
         EditStyle.setPadding(textFields: [txtSecurityCode,txtExpYear,txtExpMonth,txtFirstName,txtLastName,txtCardNo], paddingWidth: 28)
+        
         tblView.register(UINib(nibName: "CashOnDeliveryTableViewCell", bundle: nil), forCellReuseIdentifier: "CashOnDeliveryTableViewCell")
         tblView.register(UINib(nibName: "GmailTableViewCell", bundle: nil), forCellReuseIdentifier: "GmailTableViewCell")
         tblView.register(UINib(nibName: "VisaTableViewCell", bundle: nil), forCellReuseIdentifier: "VisaTableViewCell")
@@ -68,8 +69,8 @@ class CheckOutViewController: UIViewController,MapViewControllerDelegate {
         viewScroll.layer.shadowRadius = 10
         
         if let savedAddress = UserDefaults.standard.string(forKey: "savedAddress") {
-                lblChangeAddress.text = savedAddress
-            }
+            lblChangeAddress.text = savedAddress
+        }
         
         if let subtotal = subtotal {
             lblSubTotal.text = "$\(String(format: "%.2f", subtotal))"

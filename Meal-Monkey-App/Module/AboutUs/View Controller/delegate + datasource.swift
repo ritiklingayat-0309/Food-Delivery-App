@@ -22,8 +22,10 @@ extension AboutUsViewController : UITableViewDelegate, UITableViewDataSource {
             
         case .Notification:
             cell.configNotificationcell(about: currentData[indexPath.row])
+            
         case .Inbox:
             cell.configInboxcell(about: currentData[indexPath.row])
+            
         default:
             break
         }

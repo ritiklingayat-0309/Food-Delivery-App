@@ -12,11 +12,10 @@ extension UIViewController {
     func setLeftAlignedTitleWithBack(_ title: String,font: UIFont = .systemFont(ofSize: 29),
                                      textColor: UIColor = UIColor(named: "NavigationColor") ?? .black,
                                      target: Any?,
-                                     action: Selector
-    ) {
+                                     action: Selector) {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-        button.setTitle("  \(title)", for: .normal) // space between icon and text
+        button.setTitle("  \(title)", for: .normal)
         button.setTitleColor(textColor, for: .normal)
         button.titleLabel?.font = font
         button.tintColor = textColor
