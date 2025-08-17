@@ -6,9 +6,9 @@
 //
 
 import UIKit
+import CoreData
 
 class SignUpViewController: UIViewController {
-    
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtMobileNo: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
@@ -115,7 +115,63 @@ class SignUpViewController: UIViewController {
                                         viewController: self)
             
         default:
-            print("All validations passed. Continue registration.")
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            let managedContext = appDelegate.persistentContainer.viewContext
+            guard let userEntity = NSEntityDescription.entity(forEntityName: "User", in: managedContext) else { return }
+            let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
+            user.setValue(name, forKey: "name")
+            user.setValue(email, forKey: "email")
+            user.setValue(mobile, forKey: "mobileNo")
+            user.setValue(address, forKey: "address")
+            user.setValue(password, forKey: "password")
+            user.setValue(UUID(), forKey: "userID")
+            
+            do {
+                try managedContext.save()
+                print("✅ User saved successfully!")
+                
+                // Now, call the function (which is outside this method)
+                self.fetchAllUsersFromCoreData()
+                
+                UIAlertController.showAlert(title: "Success",
+                                            message: "Registration successful! You can now log in.",
+                                            viewController: self){
+                    self.navigationController?.popViewController(animated: true)
+                }
+            } catch let error as NSError {
+                print("❌ Could not save user. \(error), \(error.userInfo)")
+                
+                UIAlertController.showAlert(title: "Error",
+                                            message: "Registration failed. Please try again.",
+                                            viewController: self)
+                
+            }
+        }
+    }
+    
+    func fetchAllUsersFromCoreData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+        
+        do {
+            let users = try context.fetch(fetchRequest)
+            print("--- 📄 Fetched Users ---")
+            print("Total users found: \(users.count)")
+            for (index, user) in users.enumerated() {
+                let username = user.value(forKey: "name") as? String ?? "No Name"
+                let userEmail = user.value(forKey: "email") as? String ?? "No Email"
+                let userID = (user.value(forKey: "userID") as? UUID)?.uuidString ?? "No ID"
+                let userPass = (user.value(forKey: "password") as? String ?? "No Password")
+                print("--- User \(index + 1) ---")
+                print("Name: \(username)")
+                print("Email: \(userEmail)")
+                print("UserID: \(userID)")
+                print("password: \(userPass)")
+            }
+            print("-------------------------")
+        } catch {
+            print("❌ Failed to fetch users: \(error.localizedDescription)")
         }
     }
 }

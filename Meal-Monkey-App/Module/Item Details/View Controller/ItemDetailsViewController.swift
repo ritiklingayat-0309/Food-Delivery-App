@@ -6,9 +6,9 @@
 //
 
 import UIKit
+import CoreData
 
 class ItemDetailsViewController: UIViewController {
-    
     var selectedProduct: ProductModel?
     var currentQuantity: Int = 1
     var isHeartFilled = false
@@ -29,10 +29,6 @@ class ItemDetailsViewController: UIViewController {
     @IBOutlet weak var viewDetailPage: UIView!
     @IBOutlet weak var btnHeart: UIButton!
     @IBOutlet weak var activityIndictor: UIActivityIndicatorView!
-    
-    private var appDelegate: AppDelegate? {
-        return UIApplication.shared.delegate as? AppDelegate
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +59,7 @@ class ItemDetailsViewController: UIViewController {
             self.showUIElementsAfterLoading()
             self.configureUI()
             self.checkWishlistStatus()
+            self.checkWishlistStatus()
             self.activityIndictor.isHidden = true
         }
     }
@@ -79,16 +76,29 @@ class ItemDetailsViewController: UIViewController {
         imgViewItem.isHidden = false
     }
     
-    private func checkWishlistStatus() {//mmmm
-        guard let appDelegate = appDelegate,
-              let product = selectedProduct else { return }
+    private func checkWishlistStatus() {
+        guard let savedUserIDString = UserDefaults.standard.string(forKey: "loggedInUserID"),
+              let product = selectedProduct,
+              let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
-        if appDelegate.arrWishlist.contains(where: { $0.intId == product.intId }) {
-            isHeartFilled = true
-            btnHeart.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        } else {
-            isHeartFilled = false
-            btnHeart.setImage(UIImage(systemName: "heart"), for: .normal)
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Wishlist")
+        
+        // Predicate to find if the product exists in the current user's wishlist
+        let predicate = NSPredicate(format: "productID == %i AND userID == %@", product.intId, savedUserIDString)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let wishlistItems = try managedContext.fetch(fetchRequest)
+            if !wishlistItems.isEmpty {
+                isHeartFilled = true
+                btnHeart.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            } else {
+                isHeartFilled = false
+                btnHeart.setImage(UIImage(systemName: "heart"), for: .normal)
+            }
+        } catch {
+            print("Failed to fetch wishlist status: \(error.localizedDescription)")
         }
     }
     
@@ -128,22 +138,45 @@ class ItemDetailsViewController: UIViewController {
         }
     }
     
-    @IBAction func btnHeartAction(_ sender: UIButton) {//mmmmmm
-        guard let appDelegate = appDelegate,
-              let product = selectedProduct else { return }
+    @IBAction func btnHeartAction(_ sender: UIButton) {
+        guard let savedUserIDString = UserDefaults.standard.string(forKey: "loggedInUserID"),
+              let savedUserID = UUID(uuidString: savedUserIDString),
+              let product = selectedProduct,
+              let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
-        isHeartFilled.toggle()
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
         if isHeartFilled {
-            sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            if !appDelegate.arrWishlist.contains(where: { $0.intId == product.intId }) {
-                appDelegate.arrWishlist.append(product)
-                print("Added to wishlist")
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Wishlist")
+            let predicate = NSPredicate(format: "productID == %i AND userID == %@", product.intId, savedUserID as CVarArg)
+            fetchRequest.predicate = predicate
+            
+            do {
+                let result = try managedContext.fetch(fetchRequest)
+                for object in result {
+                    managedContext.delete(object)
+                }
+                try managedContext.save()
+                isHeartFilled = false
+                sender.setImage(UIImage(systemName: "heart"), for: .normal)
+                print("Removed from Core Data wishlist")
+            } catch {
+                print("Failed to remove from wishlist: \(error.localizedDescription)")
             }
         } else {
-            sender.setImage(UIImage(systemName: "heart"), for: .normal)
-            if let index = appDelegate.arrWishlist.firstIndex(where: { $0.intId == product.intId }) {
-                appDelegate.arrWishlist.remove(at: index)
-                print("Removed from wishlist")
+            guard let wishlistEntity = NSEntityDescription.entity(forEntityName: "Wishlist", in: managedContext) else { return }
+            let wishlistItem = NSManagedObject(entity: wishlistEntity, insertInto: managedContext)
+            
+            wishlistItem.setValue(product.intId, forKey: "productID")
+            wishlistItem.setValue(savedUserID, forKey: "userID")
+            
+            do {
+                try managedContext.save()
+                isHeartFilled = true
+                sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                print("Added to Core Data wishlist")
+            } catch {
+                print("Failed to add to wishlist: \(error.localizedDescription)")
             }
         }
     }
@@ -169,36 +202,50 @@ class ItemDetailsViewController: UIViewController {
     }
     
     @IBAction func btnAddToCartAction(_ sender: Any) {
-        print("add too cart from detail Page")
+        print("add to cart from detail Page")
         guard let product = selectedProduct else {
             print("Error: No product selected to add to cart.")
             return
         }
-        checkProduct(productToAdd: product)
+        
+        // Add the product to the Core Data cart
+        addToCart(productToAdd: product)
+        
         let alert = UIAlertController(title: "Success", message: "Added to cart!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
-    func checkProduct(productToAdd: ProductModel) {
-        guard let appDelegate = appDelegate else { return }
-        if let existingIndex = appDelegate.arrCart.firstIndex(where: { $0.intId == productToAdd.intId }) {
-            appDelegate.arrCart[existingIndex].intProductQty! += currentQuantity
-        } else {
-            let newProduct = productToAdd
-            newProduct.intProductQty = currentQuantity
-            appDelegate.arrCart.append(newProduct)
+    private func addToCart(productToAdd: ProductModel) {
+        guard let savedUserIDString = UserDefaults.standard.string(forKey: "loggedInUserID"),
+              let savedUserID = UUID(uuidString: savedUserIDString),
+              let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Cart")
+        let predicate = NSPredicate(format: "productID == %i AND userID == %@", productToAdd.intId, savedUserID as CVarArg)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let existingCartItems = try managedContext.fetch(fetchRequest)
             
-        }
-        for product in appDelegate.arrCart {
-            print("🛒 Cart Product:")
-            print("ID: \(product.intId)")
-            print("image: \(product.strProductImage)")
-            print("category: \(product.objProductCategory.rawValue)")
-            print("Name: \(product.strProductName)")
-            print("Qty: \(product.intProductQty)")
-            print("Category: \(product.objProductCategory.rawValue)")
-            print("---------")
+            if let existingCartItem = existingCartItems.first {
+                let newQuantity = (existingCartItem.value(forKey: "quantity") as? Int ?? 0) + currentQuantity
+                existingCartItem.setValue(newQuantity, forKey: "quantity")
+                print("Product \(productToAdd.strProductName) updated in cart. New quantity: \(newQuantity)")
+            } else {
+                guard let cartEntity = NSEntityDescription.entity(forEntityName: "Cart", in: managedContext) else { return }
+                let newCartItem = NSManagedObject(entity: cartEntity, insertInto: managedContext)
+                newCartItem.setValue(productToAdd.intId, forKey: "productID")
+                newCartItem.setValue(currentQuantity, forKey: "quantity")
+                newCartItem.setValue(savedUserID, forKey: "userID")
+                print("Product \(productToAdd.strProductName) added to cart with quantity: \(currentQuantity)")
+            }
+            
+            try managedContext.save()
+            print("Cart data saved successfully to Core Data.")
+        } catch {
+            print("Failed to save cart data: \(error.localizedDescription)")
         }
     }
 }

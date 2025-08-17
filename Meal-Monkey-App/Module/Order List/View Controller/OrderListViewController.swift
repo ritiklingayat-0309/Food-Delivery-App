@@ -11,7 +11,7 @@ class OrderListViewController: UIViewController {
     
     @IBOutlet weak var lblOrderListEmpt: UILabel!
     @IBOutlet weak var tblView: UITableView!
-    var orders : [[ProductModel]] {
+    var arrorders : [[ProductModel]] {
         return (UIApplication.shared.delegate as? AppDelegate)?.arrOrder ?? []
     }
     
@@ -21,7 +21,6 @@ class OrderListViewController: UIViewController {
         setLeftAlignedTitleWithBack("Order List",target: self,action: #selector(backButtonTapped))
         tblView.register(UINib(nibName: "OrderListTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderListTableViewCell")
         tblView.showsVerticalScrollIndicator = false
-        print(orders)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +29,7 @@ class OrderListViewController: UIViewController {
     }
     
     private func updateUI() {
-        if orders.isEmpty {
+        if arrorders.isEmpty {
             lblOrderListEmpt.isHidden = false
             tblView.isHidden = true
         } else {

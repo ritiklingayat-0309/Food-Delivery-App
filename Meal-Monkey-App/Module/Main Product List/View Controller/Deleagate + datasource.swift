@@ -46,7 +46,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.lblCollectionViewTitle.text = isSearching ? "Search Results" : "Popular" // new
             cell.delegate = self
             if isSearching {
-                           cell.products = filteredProductData.filter { $0.floatProductRating >= 4.0 && $0.floatProductRating < 4.5 }
+                           cell.products = arrfilteredProductData.filter { $0.floatProductRating >= 4.0 && $0.floatProductRating < 4.5 }
                        } else if selectedCategory == .All {
                            cell.products = HomeViewController.arrProductData.filter { $0.floatProductRating >= 4.0 && $0.floatProductRating < 4.5 }
                        } else {
@@ -67,7 +67,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.collectionViewHomeHeight.constant = 185
             cell.delegate = self
             if isSearching {
-                            cell.products = filteredProductData.filter { $0.floatProductRating >= 4.5 && $0.floatProductRating <= 5.0 }
+                            cell.products = arrfilteredProductData.filter { $0.floatProductRating >= 4.5 && $0.floatProductRating <= 5.0 }
                         } else if selectedCategory == .All {
                             cell.products = HomeViewController.arrProductData.filter { $0.floatProductRating >= 4.5 && $0.floatProductRating <= 5.0 }
                         } else {
@@ -83,7 +83,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.lblCollectionViewTitle.isHidden = false
             cell.btnViewAll.isHidden = false
             cell.lblCollectionViewTitle.text = "Recent Items"
-            cell.products = recentItems
+            cell.products = arrrecentItems
             cell.collectionViewHomeHeight.constant = cell.collectionViewHome.collectionViewLayout.collectionViewContentSize.height
         default:
             break

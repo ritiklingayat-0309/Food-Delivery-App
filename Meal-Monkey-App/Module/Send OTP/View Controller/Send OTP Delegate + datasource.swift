@@ -36,7 +36,7 @@ extension SendOTPViewController: UITextFieldDelegate {
                 break
             }
             return false
-        } else if string.isEmpty { // Backspace pressed
+        } else if string.isEmpty {
             switch textField {
             case txtOTP4:
                 txtOTP3.becomeFirstResponder()

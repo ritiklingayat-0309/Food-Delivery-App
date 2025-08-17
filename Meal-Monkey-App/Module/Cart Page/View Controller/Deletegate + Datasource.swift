@@ -7,17 +7,19 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 extension CartViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  itemsToShow.count
+        return  arritemsToShow.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as? CartTableViewCell else {
             return UITableViewCell()
         }
-        let product = itemsToShow[indexPath.row]
+        guard let product = arritemsToShow[safe: indexPath.row] else { return UITableViewCell() }
+        
         cell.configure(with: product)
         
         if pagetype == .Wishlist {
@@ -26,22 +28,15 @@ extension CartViewController : UITableViewDelegate, UITableViewDataSource {
             cell.onDelete = nil
             cell.btnLike.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             cell.onLike = { [weak self] in
-                guard let self = self,
-                      let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return }
-                appDelegate.arrWishlist.remove(at: indexPath.row)
-                self.tblView.reloadData()
-                self.updateUI()
+                self?.removeItemFromCoreData(at: indexPath)
+                self?.tblView.reloadData()// ⭐ Call the new Core Data removal method
             }
         } else {
             cell.btnDelete.isHidden = false
             cell.btnLike.isHidden = true
             cell.onDelete = { [weak self] in
-                guard let self = self,
-                      let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return }
-                
-                appDelegate.arrCart.remove(at: indexPath.row)
-                appDelegate.saveCart()
-                self.updateUI()
+                self?.removeItemFromCoreData(at: indexPath)
+                self?.tblView.reloadData()// ⭐ Call the new Core Data removal method
             }
         }
         return cell
