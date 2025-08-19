@@ -79,7 +79,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                         }
             
         case 3:
-            cell.collectionType = .RecentItems
+            cell.collectionType = .recentItems 
             cell.lblCollectionViewTitle.isHidden = false
             cell.btnViewAll.isHidden = false
             cell.lblCollectionViewTitle.text = "Recent Items"

@@ -6,33 +6,81 @@
 //
 
 import UIKit
-var sharedPaymentCards: [[String: String]] = []
-class PaymentDetailsViewController: UIViewController,PaymentDetailsTableViewCellDelegate {
-    @IBOutlet weak var tblView: UITableView!
-    @IBOutlet weak var btnAddAnotherCart: UIButton!
-    @IBOutlet weak var ViewTop: UIView!
-    @IBOutlet weak var lblEmptyCard: UILabel!
-    //inside the view
-    @IBOutlet weak var btnCross: UIButton!
-    @IBOutlet weak var txtCardNo: UITextField!
-    @IBOutlet weak var txtSecurityCode: UITextField!
-    @IBOutlet weak var txtFirstName: UITextField!
-    @IBOutlet weak var txtLastName: UITextField!
-    @IBOutlet weak var txtExpiryYear: UITextField!
-    @IBOutlet weak var txtExpiryMonth: UITextField!
-    @IBOutlet weak var Switch: UISwitch!
-    @IBOutlet weak var btnAddCart: UIButton!
-    @IBOutlet weak var viewAddCard: UIView!
-    @IBOutlet weak var viewScroll: UIView!
+
+/// Shared array to store payment card details across the app
+var arrsharedPaymentCards: [[String: String]] = []
+
+/// ViewController that manages and displays payment details
+class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCellDelegate {
     
+    // MARK: - Outlets
+    @IBOutlet weak var tblView: UITableView!                /// TableView to display added cards
+    @IBOutlet weak var btnAddAnotherCart: UIButton!         /// Button to add another card
+    @IBOutlet weak var ViewTop: UIView!                     /// Transparent top view shown during card entry
+    @IBOutlet weak var lblEmptyCard: UILabel!               /// Label shown when no cards are available
+    
+    // Inside the card entry view
+    @IBOutlet weak var btnCross: UIButton!                  /// Button to close card entry form
+    @IBOutlet weak var txtCardNo: UITextField!              /// TextField for card number
+    @IBOutlet weak var txtSecurityCode: UITextField!        /// TextField for CVV / security code
+    @IBOutlet weak var txtFirstName: UITextField!           /// TextField for cardholder's first name
+    @IBOutlet weak var txtLastName: UITextField!            /// TextField for cardholder's last name
+    @IBOutlet weak var txtExpiryYear: UITextField!          /// TextField for expiry year
+    @IBOutlet weak var txtExpiryMonth: UITextField!         /// TextField for expiry month
+    @IBOutlet weak var Switch: UISwitch!                    /// UISwitch (not used in current logic)
+    @IBOutlet weak var btnAddCart: UIButton!                /// Button to confirm card entry
+    @IBOutlet weak var viewAddCard: UIView!                 /// Container view for add card form
+    @IBOutlet weak var viewScroll: UIView!                  /// Scroll container with styling
+    
+    // MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tblView.reloadData()
         updateUI()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Register custom cell
+        tblView.register(UINib(nibName: "PaymentDetailsTableViewCell", bundle: nil),
+                         forCellReuseIdentifier: "PaymentDetailsTableViewCell")
+        
+        // Set navigation bar buttons
+        setLeftAlignedTitleWithBack("Payment Details", target: self, action: #selector(backButtonTapped))
+        setCartButton(target: self, action: #selector(cartButtonTapped))
+        
+        // Hide card entry form initially
+        ViewTop.isHidden = true
+        viewAddCard.isHidden = true
+        
+        // Style add card view
+        viewAddCard.layer.cornerRadius = 20
+        viewAddCard.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        viewAddCard.layer.shadowColor = UIColor.black.cgColor
+        viewAddCard.layer.shadowOpacity = 0.2
+        viewAddCard.layer.shadowOffset = CGSize(width: 0, height: -2)
+        viewAddCard.layer.shadowRadius = 10
+        
+        // Style scroll view
+        viewScroll.layer.cornerRadius = 20
+        viewScroll.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        viewScroll.layer.shadowColor = UIColor.black.cgColor
+        viewScroll.layer.shadowOpacity = 0.2
+        viewScroll.layer.shadowOffset = CGSize(width: 0, height: -2)
+        viewScroll.layer.shadowRadius = 10
+        
+        // Apply border & padding to textfields/buttons
+        EditStyle.setborder(textfields: [txtCardNo, txtSecurityCode, btnAddAnotherCart,
+                                         txtFirstName, txtLastName, txtExpiryMonth, txtExpiryYear, btnAddCart])
+        EditStyle.setPadding(textFields: [txtCardNo, txtSecurityCode, txtFirstName,
+                                          txtLastName, txtExpiryMonth, txtExpiryYear], paddingWidth: 29)
+    }
+    
+    // MARK: - UI Update Helper
+    /// Updates the UI depending on whether cards are available
     private func updateUI() {
-        if sharedPaymentCards.isEmpty {
+        if arrsharedPaymentCards.isEmpty {
             lblEmptyCard.isHidden = false
             tblView.isHidden = true
         } else {
@@ -42,30 +90,8 @@ class PaymentDetailsViewController: UIViewController,PaymentDetailsTableViewCell
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tblView.register(UINib(nibName: "PaymentDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "PaymentDetailsTableViewCell")
-        setLeftAlignedTitleWithBack("Payment Details", target: self, action: #selector(backButtonTapped))
-        setCartButton(target: self, action: #selector(cartButtonTapped))
-        ViewTop.isHidden = true
-        viewAddCard.isHidden = true
-        viewAddCard.layer.cornerRadius = 20
-        viewAddCard.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        viewAddCard.layer.shadowColor = UIColor.black.cgColor
-        viewAddCard.layer.shadowOpacity = 0.2
-        viewAddCard.layer.shadowOffset = CGSize(width: 0, height: -2)
-        viewAddCard.layer.shadowRadius = 10
-        viewScroll.layer.cornerRadius = 20
-        viewScroll.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        viewScroll.layer.shadowColor = UIColor.black.cgColor
-        viewScroll.layer.shadowOpacity = 0.2
-        viewScroll.layer.shadowOffset = CGSize(width: 0, height: -2)
-        viewScroll.layer.shadowRadius = 10
-        EditStyle.setborder(textfields: [txtCardNo,txtSecurityCode,btnAddAnotherCart, txtFirstName,txtLastName,txtExpiryMonth,txtExpiryYear,btnAddCart])
-        EditStyle.setPadding(textFields: [txtCardNo,txtSecurityCode, txtFirstName, txtLastName,txtExpiryMonth,txtExpiryYear], paddingWidth: 29)
-     
-    }
-    
+    // MARK: - Navigation Button Actions
+    /// Opens Cart screen
     @objc func cartButtonTapped() {
         print("Cart button tapped")
         let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
@@ -75,10 +101,13 @@ class PaymentDetailsViewController: UIViewController,PaymentDetailsTableViewCell
         }
     }
     
+    /// Goes back to previous screen
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
     
+    // MARK: - Button Actions
+    /// Opens add card form
     @IBAction func btnAddAnotherCardFromTblAction(_ sender: Any) {
         viewAddCard.isHidden = false
         ViewTop.isHidden = false
@@ -88,6 +117,7 @@ class PaymentDetailsViewController: UIViewController,PaymentDetailsTableViewCell
         }
     }
     
+    /// Closes add card form and clears textfields
     @IBAction func btnCrossAction(_ sender: Any) {
         txtCardNo.text = ""
         txtSecurityCode.text = ""
@@ -105,6 +135,7 @@ class PaymentDetailsViewController: UIViewController,PaymentDetailsTableViewCell
         }
     }
     
+    /// Validates and adds card to list
     @IBAction func btnAddCartAction(_ sender: Any) {
         let cardNumber = txtCardNo.text ?? ""
         let securityCode = txtSecurityCode.text ?? ""
@@ -134,10 +165,12 @@ class PaymentDetailsViewController: UIViewController,PaymentDetailsTableViewCell
             UIAlertController.showAlert(title: "Error",
                                         message: "Please enter the expiry month.",
                                         viewController: self)
+            
         case expiryYear.isEmpty:
             UIAlertController.showAlert(title: "Error",
                                         message: "Please enter the expiry year.",
                                         viewController: self)
+            
         case securityCode.isEmpty:
             UIAlertController.showAlert(title: "Error",
                                         message: "Please enter the security code.",
@@ -152,32 +185,36 @@ class PaymentDetailsViewController: UIViewController,PaymentDetailsTableViewCell
             UIAlertController.showAlert(title: "Invalid Input",
                                         message: "Please enter the card holder's first name.",
                                         viewController: self)
-
+            
         case firstName.rangeOfCharacter(from: allowedNameCharacters.inverted) != nil:
             UIAlertController.showAlert(title: "Invalid Input",
                                         message: "Please enter a valid first name using letters",
                                         viewController: self)
+            
         case lastName.isEmpty:
             UIAlertController.showAlert(title: "Invalid Input",
                                         message: "Please enter the cardholder's last name.",
                                         viewController: self)
-
+            
         case lastName.rangeOfCharacter(from: allowedNameCharacters.inverted) != nil:
             UIAlertController.showAlert(title: "Invalid Input",
                                         message: "Please enter a valid last name using letters.",
                                         viewController: self)
+            
         default:
             let newCard: [String: String] = ["cardNo": cardNumber]
-            sharedPaymentCards.append(newCard)
+            arrsharedPaymentCards.append(newCard)
             tblView.reloadData()
             updateUI()
             btnCrossAction(self)
         }
     }
     
+    // MARK: - PaymentDetailsTableViewCellDelegate
+    /// Handles delete action from cell
     func didTapDeleteButton(in cell: PaymentDetailsTableViewCell) {
         guard let indexPath = tblView.indexPath(for: cell) else { return }
-        sharedPaymentCards.remove(at: indexPath.row)
+        arrsharedPaymentCards.remove(at: indexPath.row)
         tblView.deleteRows(at: [indexPath], with: .fade)
     }
 }

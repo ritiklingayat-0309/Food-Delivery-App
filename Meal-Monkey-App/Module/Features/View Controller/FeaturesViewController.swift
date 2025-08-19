@@ -8,7 +8,6 @@
 import UIKit
 
 class FeaturesViewController: UIViewController {
-    
     @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var colView: UICollectionView!
@@ -32,14 +31,17 @@ class FeaturesViewController: UIViewController {
             lblTitle.text = "Find Food You Love"
             lblSubTitle.text = "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep"
             btnNext.setTitle("Next", for: .normal)
+            
         case 1:
             lblTitle.text = "Fast Delivery"
             lblSubTitle.text = "Fast food delivery to your home, office wherever you are"
             btnNext.setTitle("Next", for: .normal)
+            
         case 2:
             lblTitle.text = "Live Tracking"
             lblSubTitle.text = "Real time tracking of your food on the app once you placed the order"
             btnNext.setTitle("Done", for: .normal)
+            
         default:
             break
         }
@@ -48,7 +50,6 @@ class FeaturesViewController: UIViewController {
     @IBAction func btnNextClick(_ sender: Any) {
         let currentPage = pageController.currentPage
         if currentPage < arrService.count - 1 {
-            // Scroll to next page
             let nextPage = currentPage + 1
             let xOffset = CGFloat(nextPage) * colView.frame.width
             colView.setContentOffset(CGPoint(x: xOffset, y: 0), animated: true)

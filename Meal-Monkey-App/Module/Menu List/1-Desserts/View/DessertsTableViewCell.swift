@@ -7,12 +7,27 @@
 
 import UIKit
 
+/// A custom table view cell used to display dessert items.
 class DessertsTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
+    
+    /// Dessert image displayed at the top.
     @IBOutlet weak var imgViewTop: UIImageView!
+    
+    /// Dessert name label.
     @IBOutlet weak var lblDessertName: UILabel!
+    
+    /// Dessert rating with total number of ratings.
     @IBOutlet weak var lblRating: UILabel!
+    
+    /// Name of the restaurant serving the dessert.
     @IBOutlet weak var lblRestroName: UILabel!
+    
+    /// Category of the dessert (e.g., Cake, Ice Cream).
     @IBOutlet weak var lblCategory: UILabel!
+    
+    // MARK: - Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,10 +37,14 @@ class DessertsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    // MARK: - Configuration
+    
+    /// Configures the cell with dessert product data.
+    /// - Parameter dessert: The `ProductModel` representing a dessert.
     func configDessert(dessert: ProductModel) {
-        self.lblDessertName.text = dessert.strProductName
-        self.lblRating.text = "\(dessert.floatProductRating) (\(dessert.intTotalNumberOfRatings) ratings)"
-        self.lblCategory.text = "\(dessert.objProductCategory)"
-        self.imgViewTop.image = UIImage(named: dessert.strProductImage)
+        lblDessertName.text = dessert.strProductName
+        lblRating.text = "\(dessert.floatProductRating) (\(dessert.intTotalNumberOfRatings) ratings)"
+        lblCategory.text = "\(dessert.objProductCategory)"
+        imgViewTop.image = UIImage(named: dessert.strProductImage)
     }
 }

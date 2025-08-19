@@ -8,8 +8,24 @@
 import Foundation
 import UIKit
 
+/**
+ An extension to `UIViewController` to provide common, reusable methods for configuring the navigation bar.
+ 
+ This simplifies the process of setting a left-aligned title with a back button, a title without a back button, and a cart button on the right.
+ */
 extension UIViewController {
-    func setLeftAlignedTitleWithBack(_ title: String,font: UIFont = .systemFont(ofSize: 29),
+    /**
+     Sets a left-aligned title on the navigation bar with a custom back button.
+     
+     - Parameters:
+        - title: The string to be displayed as the title.
+        - font: The font of the title. Defaults to system font size 29.
+        - textColor: The color of the title and back button. Defaults to a custom color named "NavigationColor" or black.
+        - target: The object that receives the action message.
+        - action: The selector to be called when the back button is tapped.
+     */
+    func setLeftAlignedTitleWithBack(_ title: String,
+                                     font: UIFont = .systemFont(ofSize: 29),
                                      textColor: UIColor = UIColor(named: "NavigationColor") ?? .black,
                                      target: Any?,
                                      action: Selector) {
@@ -25,6 +41,14 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem = leftItem
     }
     
+    /**
+     Sets a left-aligned title on the navigation bar without a back button.
+     
+     - Parameters:
+        - title: The string to be displayed as the title.
+        - font: The font of the title. Defaults to system font size 29.
+        - textColor: The color of the title. Defaults to a custom color named "NavigationColor" or black.
+     */
     func setLeftAlignedTitle(_ title: String, font: UIFont = .systemFont(ofSize: 29), textColor: UIColor = UIColor(named: "NavigationColor") ?? .black) {
         let titleLabel = UILabel()
         titleLabel.text = title
@@ -35,6 +59,14 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem = leftItem
     }
     
+    /**
+     Adds a cart button to the right side of the navigation bar.
+     
+     - Parameters:
+        - target: The object that receives the action message.
+        - action: The selector to be called when the cart button is tapped.
+        - tintColor: The color of the cart icon. Defaults to a custom color named "NavigationColor" or black.
+     */
     func setCartButton(target: Any?, action: Selector, tintColor: UIColor = UIColor(named: "NavigationColor") ?? .black) {
         let cartImage = UIImage(systemName: "cart.fill")?.withRenderingMode(.alwaysTemplate)
         let cartButton = UIBarButtonItem(image: cartImage, style: .plain, target: target, action: action)

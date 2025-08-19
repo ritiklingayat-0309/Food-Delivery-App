@@ -1,57 +1,82 @@
+//
+//  HomeTableViewCell.swift
+//  Meal-Monkey-App
+//
+//  Created by Ritik Lingayat on --/--/25.
+//  A custom table view cell that holds a collection view,
+//  used to display categories, popular items, most popular items, and recent items.
+//
 
 import UIKit
 
+// MARK: - Protocol
+
+/// Delegate protocol to handle selection of products or categories from the collection view inside `HomeTableViewCell`.
 protocol HomeTableTableViewCellDelegate: AnyObject {
     func HomeTableViewCell(_ cell: HomeTableViewCell, didSelectProduct product: ProductModel)
     func HomeTableViewCell(_ cell: HomeTableViewCell, didSelectCategory category: ProductCategory)
 }
 
+// MARK: - TableView Cell
+
+/// A custom table view cell that embeds a collection view.
+/// Displays categories or different types of products depending on `collectionType`.
 class HomeTableViewCell: UITableViewCell {
     
-    weak var delegate: HomeTableTableViewCellDelegate?
+    // MARK: - Outlets
+    
     @IBOutlet weak var lblCollectionViewTitle: UILabel!
     @IBOutlet weak var btnViewAll: UIButton!
     @IBOutlet weak var collectionViewHome: UICollectionView!
     @IBOutlet weak var collectionViewHomeHeight: NSLayoutConstraint!
-    var collectionType: CollectionType = .category
-    var selectedCategory: ProductCategory = .All
     
+    // MARK: - Properties
+    
+    weak var delegate: HomeTableTableViewCellDelegate?
+    
+    /// Defines the type of collection view content displayed.
     enum CollectionType {
         case category
         case popular
         case mostPopular
-        case RecentItems
+        case recentItems
     }
     
+    /// Current collection type.
+    var collectionType: CollectionType = .category
+    
+    /// Currently selected category.
+    var selectedCategory: ProductCategory = .All
+    
+    /// List of categories to display.
     var categories: [ProductCategory] = [] {
         didSet {
-            collectionViewHome.reloadData()
-            DispatchQueue.main.async {
-                self.collectionViewHome.layoutIfNeeded()
-                self.updateCollectionHeight()
-            }
+            reloadCollection()
         }
     }
     
+    /// List of products to display.
     var products: [ProductModel] = [] {
         didSet {
-            collectionViewHome.reloadData()
-            DispatchQueue.main.async {
-                self.collectionViewHome.layoutIfNeeded()
-                self.updateCollectionHeight()
-            }
+            reloadCollection()
         }
     }
     
-    func updateCollectionHeight() {
-        if let layout = collectionViewHome.collectionViewLayout as? UICollectionViewFlowLayout,
-           layout.scrollDirection == .vertical {
-            self.collectionViewHomeHeight.constant = self.collectionViewHome.collectionViewLayout.collectionViewContentSize.height
-        }
-    }
+    // MARK: - Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupCollectionView()
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
+    // MARK: - Setup Methods
+    
+    /// Registers custom collection view cells used inside this table view cell.
+    private func setupCollectionView() {
         collectionViewHome.register(UINib(nibName: "HomeCategoryCollectionViewCell", bundle: nil),
                                     forCellWithReuseIdentifier: "HomeCategoryCollectionViewCell")
         collectionViewHome.register(UINib(nibName: "PopularCollectionViewCell", bundle: nil),
@@ -62,18 +87,36 @@ class HomeTableViewCell: UITableViewCell {
                                     forCellWithReuseIdentifier: "RecentItemsCollectionViewCell")
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    /// Reloads collection view and updates height constraint.
+    private func reloadCollection() {
+        collectionViewHome.reloadData()
+        DispatchQueue.main.async {
+            self.collectionViewHome.layoutIfNeeded()
+            self.updateCollectionHeight()
+        }
     }
     
+    /// Updates the collection view height based on its content size.
+    func updateCollectionHeight() {
+        if let layout = collectionViewHome.collectionViewLayout as? UICollectionViewFlowLayout,
+           layout.scrollDirection == .vertical {
+            self.collectionViewHomeHeight.constant =
+                self.collectionViewHome.collectionViewLayout.collectionViewContentSize.height
+        }
+    }
+    
+    // MARK: - Actions
+    
     @IBAction func btnViewAllClick(_ sender: Any) {
+        // TODO: Handle View All button action if needed
     }
 }
+
+// MARK: - CollectionView Delegate & DataSource
 
 extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         switch collectionType {
         case .category:
             return categories.count
@@ -83,57 +126,63 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         switch collectionType {
         case .category:
-            let cell: HomeCategoryCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCategoryCollectionViewCell", for: indexPath) as! HomeCategoryCollectionViewCell
-            let category = categories[indexPath.row]
-            cell.configure(with: category)
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "HomeCategoryCollectionViewCell",
+                for: indexPath
+            ) as! HomeCategoryCollectionViewCell
+            cell.configure(with: categories[indexPath.row])
             return cell
             
         case .popular:
-            let cell: PopularCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularCollectionViewCell", for: indexPath) as! PopularCollectionViewCell
-            let product = products[indexPath.row]
-            cell.configure(with: product)
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "PopularCollectionViewCell",
+                for: indexPath
+            ) as! PopularCollectionViewCell
+            cell.configure(with: products[indexPath.row])
             return cell
             
         case .mostPopular:
-            let cell: MostPopularCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MostPopularCollectionViewCell", for: indexPath) as! MostPopularCollectionViewCell
-            let product = products[indexPath.row]
-            cell.configure(with: product)
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "MostPopularCollectionViewCell",
+                for: indexPath
+            ) as! MostPopularCollectionViewCell
+            cell.configure(with: products[indexPath.row])
             return cell
             
-        case .RecentItems:
-            let cell: RecentItemsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentItemsCollectionViewCell", for: indexPath) as! RecentItemsCollectionViewCell
-            let product = products[indexPath.row]
-            cell.configure(with: product)
+        case .recentItems:
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "RecentItemsCollectionViewCell",
+                for: indexPath
+            ) as! RecentItemsCollectionViewCell
+            cell.configure(with: products[indexPath.row])
             return cell
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionType == .category {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        switch collectionType {
+        case .category:
             return CGSize(width: 88, height: 113)
-        } else if collectionType == .popular {
-            return CGSize(width:collectionViewHome.frame.width , height: 242.19)
-        } else if collectionType == .mostPopular {
+        case .popular:
+            return CGSize(width: collectionViewHome.frame.width, height: 242.19)
+        case .mostPopular:
             return CGSize(width: 228, height: 185)
-        } else if collectionType == .RecentItems {
+        case .recentItems:
             return CGSize(width: 296, height: 79)
-        } else{
-            return CGSize(width: 100, height: 100)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionType {
         case .category:
-            let selectedCategory = categories[indexPath.row]
-            delegate?.HomeTableViewCell(self, didSelectCategory: selectedCategory)
+            delegate?.HomeTableViewCell(self, didSelectCategory: categories[indexPath.row])
         default:
-            let selectedProduct = products[indexPath.row]
-            delegate?.HomeTableViewCell(self, didSelectProduct: selectedProduct)
+            delegate?.HomeTableViewCell(self, didSelectProduct: products[indexPath.row])
         }
-        
     }
 }

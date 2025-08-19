@@ -40,7 +40,7 @@
                         </connections>
                     </button>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="HY4-ah-WP5">
-                        <rect key="frame" x="123.99999999999999" y="22" width="41.333333333333329" height="34"/>
+                        <rect key="frame" x="123.99999999999999" y="30" width="41.333333333333329" height="34"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeC-cm-SwA">
                                 <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
@@ -59,7 +59,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="piE-yN-JA8" secondAttribute="bottom" constant="24" id="6zg-tE-vR4"/>
-                    <constraint firstItem="HY4-ah-WP5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="CeL-1Y-ZsR"/>
+                    <constraint firstItem="HY4-ah-WP5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="CeL-1Y-ZsR"/>
                     <constraint firstItem="cfr-2q-3kn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Dw6-Sj-5PC"/>
                     <constraint firstItem="HY4-ah-WP5" firstAttribute="leading" secondItem="cfr-2q-3kn" secondAttribute="trailing" constant="24" id="Fut-ZW-CK5"/>
                     <constraint firstItem="cfr-2q-3kn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="JQe-Zj-RPe"/>

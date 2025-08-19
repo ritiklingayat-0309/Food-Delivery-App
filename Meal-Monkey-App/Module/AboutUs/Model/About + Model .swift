@@ -7,12 +7,35 @@
 
 import Foundation
 
+/**
+ A model class that holds data for the "About," "Notifications," and "Inbox" sections.
+ 
+ This class provides static methods to generate pre-defined data arrays, which are used
+ to populate the user interface for informational and notification-based screens.
+ */
 class AboutModel {
+    
+    /// A primary string for text, used for descriptions or main messages.
     var strText: String?
+    
+    /// A string for a timestamp or time-related information.
     var strTimezone: String?
+    
+    /// A secondary string for text, often used for a title or heading.
     var strRightSideText: String?
+    
+    /// A third string for text, often used for a subtitle or a brief description.
     var strText2: String?
     
+    /**
+     Initializes an `AboutModel` instance with optional string values.
+     
+     - Parameters:
+        - strText: The main text content.
+        - strTimezone: The timezone or timestamp.
+        - strRightSideText: The text for the right side of the UI element.
+        - strText2: Additional text content.
+     */
     init(strText: String? = nil, strTimezone: String? = nil, strRightSideText: String? = nil, strText2: String? = nil) {
         self.strText = strText
         self.strTimezone = strTimezone
@@ -20,6 +43,11 @@ class AboutModel {
         self.strText2 = strText2
     }
     
+    /**
+     Generates a static array of `AboutModel` objects for the "About" section.
+     
+     - Returns: A pre-populated array of `AboutModel`s containing mission statements and other informational text.
+     */
     class func addAboutData() -> [AboutModel] {
         return [
             AboutModel(
@@ -59,6 +87,11 @@ class AboutModel {
         ]
     }
     
+    /**
+     Generates a static array of `AboutModel` objects for the "Notifications" section.
+     
+     - Returns: A pre-populated array of `AboutModel`s representing various app notifications.
+     */
     class func addNotificationData()-> [AboutModel] {
         return [
             AboutModel(strText: "Order placed successfully",
@@ -94,6 +127,11 @@ class AboutModel {
         ]
     }
     
+    /**
+     Generates a static array of `AboutModel` objects for the "Inbox" section.
+     
+     - Returns: A pre-populated array of `AboutModel`s representing messages from various promotions and updates.
+     */
     class func addInboxData() -> [AboutModel] {
         return [
             AboutModel(strText: "MealMonkey Promotions",
