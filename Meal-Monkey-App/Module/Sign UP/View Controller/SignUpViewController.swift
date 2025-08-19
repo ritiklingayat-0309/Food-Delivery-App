@@ -106,6 +106,11 @@ class SignUpViewController: UIViewController {
                                         message: "Please enter mobile number",
                                         viewController: self)
             
+        case mobile.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) != nil:
+            UIAlertController.showAlert(title: "Error",
+                                        message: "Mobile number must contain only digits",
+                                        viewController: self)
+            
         case mobile.count != 10:
             UIAlertController.showAlert(title: "Error",
                                         message: "Mobile number must be exactly 10 digits.",

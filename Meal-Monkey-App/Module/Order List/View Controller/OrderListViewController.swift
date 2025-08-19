@@ -45,13 +45,15 @@ class OrderListViewController: UIViewController {
         /// Hide vertical scroll indicator for cleaner UI.
         tblView.showsVerticalScrollIndicator = false
         
+        tblView.delegate = self
+        tblView.dataSource = self
+        
         /// Fetch orders from Core Data when view loads.
         fetchOrdersFromCoreData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         /// Refresh UI whenever the view appears.
         updateUI()
     }
@@ -97,26 +99,21 @@ class OrderListViewController: UIViewController {
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Order>(entityName: "Order")
         
-        /// Convert saved user ID string into UUID.
         guard let savedUserID = UUID(uuidString: savedUserIDString) else {
             self.arrOrders = []
             self.updateUI()
             return
         }
         
-        /// Predicate ensures only orders of the logged-in user are fetched.
         let predicate = NSPredicate(format: "userID == %@", savedUserID as CVarArg)
         fetchRequest.predicate = predicate
         
-        /// Prefetch relationships to avoid multiple fetches while displaying.
         fetchRequest.relationshipKeyPathsForPrefetching = ["orderedItems", "orderedItems.product"]
         
-        /// Sort orders by order date (latest first).
         let sortDescriptor = NSSortDescriptor(key: "orderDate", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
-            /// Perform fetch and update UI.
             self.arrOrders = try managedContext.fetch(fetchRequest)
             self.updateUI()
         } catch {
@@ -125,4 +122,5 @@ class OrderListViewController: UIViewController {
             self.updateUI()
         }
     }
+    
 }

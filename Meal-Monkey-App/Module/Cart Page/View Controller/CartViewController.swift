@@ -149,6 +149,7 @@ class CartViewController: UIViewController {
                 try managedContext.save()
                 print("✅ Successfully removed item from Core Data: \(product.strProductName)")
                 fetchItemsFromCoreData()
+                updateUI() 
             }
         } catch {
             print("❌ Failed to remove item from Core Data: \(error.localizedDescription)")
