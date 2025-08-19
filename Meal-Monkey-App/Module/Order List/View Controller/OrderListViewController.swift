@@ -110,7 +110,7 @@ class OrderListViewController: UIViewController {
         
         fetchRequest.relationshipKeyPathsForPrefetching = ["orderedItems", "orderedItems.product"]
         
-        let sortDescriptor = NSSortDescriptor(key: "orderDate", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "orderDate", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {

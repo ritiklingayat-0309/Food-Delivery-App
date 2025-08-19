@@ -183,7 +183,7 @@ class ProfileViewController: UIViewController {
                 
                 // Show success alert
                 UIAlertController.showAlert(title: "Success", message: "Profile updated successfully!", viewController: self)
-                
+                loadUserData()
                 // Disable editing after save
                 disableEditing()
             }

@@ -238,8 +238,8 @@
                                                             <constraint firstAttribute="height" constant="171" id="aWx-BP-z6Y"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_background" translatesAutoresizingMaskIntoConstraints="NO" id="9yo-c5-lNp">
-                                                        <rect key="frame" x="20" y="447" width="370" height="134"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_background" translatesAutoresizingMaskIntoConstraints="NO" id="9yo-c5-lNp">
+                                                        <rect key="frame" x="54" y="447" width="299" height="134"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSd-uf-AtW">
                                                         <rect key="frame" x="166" y="470" width="56.333333333333343" height="14"/>
@@ -311,8 +311,8 @@
                                                     <constraint firstItem="bSd-uf-AtW" firstAttribute="top" secondItem="A3r-te-TT0" secondAttribute="bottom" constant="68" id="Csf-sZ-BVJ"/>
                                                     <constraint firstItem="pF9-gM-cRg" firstAttribute="leading" secondItem="HP3-HF-kf8" secondAttribute="leading" constant="22" id="DPA-i5-8I1"/>
                                                     <constraint firstItem="A3r-te-TT0" firstAttribute="leading" secondItem="LxC-Pm-ThJ" secondAttribute="trailing" constant="40" id="Dfm-6C-iEv"/>
-                                                    <constraint firstItem="9yo-c5-lNp" firstAttribute="leading" secondItem="HP3-HF-kf8" secondAttribute="leading" constant="20" id="Ejt-Zq-ovU"/>
-                                                    <constraint firstAttribute="trailing" secondItem="9yo-c5-lNp" secondAttribute="trailing" constant="3" id="Hfe-Wo-xak"/>
+                                                    <constraint firstItem="9yo-c5-lNp" firstAttribute="leading" secondItem="HP3-HF-kf8" secondAttribute="leading" constant="54" id="Ejt-Zq-ovU"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9yo-c5-lNp" secondAttribute="trailing" constant="40" id="Hfe-Wo-xak"/>
                                                     <constraint firstItem="WAA-1o-SCd" firstAttribute="leading" secondItem="HP3-HF-kf8" secondAttribute="leading" constant="22" id="Ihw-UO-zbQ"/>
                                                     <constraint firstAttribute="bottom" secondItem="Hze-WA-qb0" secondAttribute="bottom" id="LMu-p6-wfK"/>
                                                     <constraint firstItem="zbw-v0-ndy" firstAttribute="top" secondItem="uHq-FR-g4h" secondAttribute="bottom" constant="21" id="LX7-Rq-S0c"/>
@@ -365,10 +365,10 @@
                                 </constraints>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wLq-Lx-mnC">
-                                <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
+                                <rect key="frame" x="166.66666666666666" y="396" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="37" id="ESh-BO-Xqw"/>
-                                    <constraint firstAttribute="height" constant="37" id="m5f-YM-dpK"/>
+                                    <constraint firstAttribute="width" constant="60" id="ESh-BO-Xqw"/>
+                                    <constraint firstAttribute="height" constant="60" id="m5f-YM-dpK"/>
                                 </constraints>
                                 <color key="color" name="login Background Color"/>
                             </activityIndicatorView>
@@ -409,7 +409,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ziI-PV-IP6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1208.3969465648854" y="-8.4507042253521139"/>
+            <point key="canvasLocation" x="-1494" y="-140"/>
         </scene>
         <!--Desserts View Controller-->
         <scene sceneID="s0d-6b-0kx">

@@ -40,6 +40,9 @@ class MyOrderViewController: UIViewController {
         // Apply border styling on checkout button
         EditStyle.setborder(textfields: [btnCheckout])
         
+        // hide scroll indicator
+        tblView.showsVerticalScrollIndicator = false
+        
         // Load ordered items and refresh UI
         fetchOrderedItems()
     }

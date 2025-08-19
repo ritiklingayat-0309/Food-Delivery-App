@@ -45,8 +45,11 @@ extension OrderListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderListTableViewCell", for: indexPath) as? OrderListTableViewCell else {
             return UITableViewCell()
         }
+        // Calculate the index for the reversed order
+        let reversedIndex = arrOrders.count - 1 - indexPath.row
         
-        let order = arrOrders[indexPath.row]
+        // Get the order object using the reversed index
+        let order = arrOrders[reversedIndex]
         
         // ⭐ FIX: Force Core Data to resolve the relationships for all items
         guard let orderedItems = order.orderedItems as? Set<OrderedItem>, !orderedItems.isEmpty else {
@@ -63,9 +66,10 @@ extension OrderListViewController: UITableViewDelegate, UITableViewDataSource {
         
         // Use the already calculated total amount from Core Data
         let totalAmount = order.totalAmount
+        let orderNumber = reversedIndex + 1
         
         // Configure the cell with the fully loaded data
-        cell.configureCell(with: orderedItemsArray, orderNumber: indexPath.row + 1)
+        cell.configureCell(with: orderedItemsArray, orderNumber: orderNumber)
         return cell
     }
     
