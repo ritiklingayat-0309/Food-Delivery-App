@@ -8,7 +8,6 @@
 import UIKit
 
 /// `NewPasswordViewController`
-///
 /// Screen for setting a new password and confirming it.
 /// Includes validation, password visibility toggle, and navigation
 /// to the features screen once the password setup is complete.
@@ -61,7 +60,6 @@ class NewPasswordViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
     /// Toggle confirm password visibility (eye button)
     @IBAction func btnEyeConfirmPasAction(_ sender: Any) {
         isConfirmPasswordVisible.toggle()

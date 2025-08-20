@@ -10,7 +10,6 @@ import Foundation
 
 /**
  A helper class for securely storing and retrieving data from the Keychain.
- 
  The Keychain is a secure, encrypted storage for small bits of user data
  like passwords, tokens, and certificates. This class provides a simple API
  to interact with the Keychain for generic password items.
@@ -19,13 +18,12 @@ class KeychainHelper {
     
     /**
      Saves a string value to the Keychain with a specified key.
-     
      This method will first attempt to delete any existing item with the same key
      before saving the new one, ensuring that the value is always up-to-date.
      
      - Parameters:
-        - key: The unique key used to identify the item in the Keychain.
-        - value: The string value to be stored securely.
+     - key: The unique key used to identify the item in the Keychain.
+     - value: The string value to be stored securely.
      */
     class func save(key: String, value: String) {
         if let data = value.data(using: .utf8) {
@@ -41,7 +39,6 @@ class KeychainHelper {
     
     /**
      Retrieves a string value from the Keychain using a specified key.
-     
      - Parameter key: The unique key associated with the item.
      - Returns: The string value stored in the Keychain, or `nil` if the item is not found.
      */
@@ -62,7 +59,6 @@ class KeychainHelper {
     
     /**
      Deletes an item from the Keychain using its key.
-     
      - Parameter key: The unique key of the item to be deleted.
      */
     class func delete(key: String) {

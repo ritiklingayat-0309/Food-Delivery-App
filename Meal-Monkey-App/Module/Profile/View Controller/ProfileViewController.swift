@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Apply padding and border styles to text fields and buttons
         EditStyle.setPadding(textFields: [lblName, lblEmail, lblMobile, lblAdress], paddingWidth: 28)
         EditStyle.setborder(textfields: [lblName, lblEmail, lblMobile, lblAdress, btnSave])
@@ -87,7 +87,6 @@ class ProfileViewController: UIViewController {
     }
     
     // MARK: - Load User Data
-    
     /// Loads user profile data from Core Data based on logged-in user ID.
     func loadUserData() {
         guard let savedUserIDString = UserDefaults.standard.string(forKey: "loggedInUserID"),

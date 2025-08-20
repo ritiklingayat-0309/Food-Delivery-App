@@ -35,7 +35,6 @@ extension MoreViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    
     // MARK: - UITableViewDelegate
     
     /// Handles selection of rows in the "More" table view.

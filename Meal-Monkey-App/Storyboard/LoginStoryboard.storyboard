@@ -283,7 +283,7 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsQ-uY-16x">
                                                 <rect key="frame" x="34" y="293.33333333333331" width="372" height="56"/>
-                                                <color key="backgroundColor" red="0.9882352941176471" green="0.37647058823529411" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="login Background Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="3T3-b8-Dec"/>
                                                 </constraints>

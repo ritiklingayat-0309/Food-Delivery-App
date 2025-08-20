@@ -44,7 +44,6 @@ class offer: NSObject {
     // MARK: - Initializer
     
     /// Initializes a new `offer` object with given details.
-    ///
     /// - Parameters:
     ///   - imageCafe: Café image name from assets.
     ///   - strCafeName: Name of the café.
@@ -66,11 +65,8 @@ class offer: NSObject {
     }
     
     // MARK: - Static Data
-    
     /// Returns a list of pre-defined offers.
-    ///
     /// Used for demo or testing purposes, representing available café offers.
-    ///
     /// - Returns: Array of `offer` objects.
     class func getAllOffers() -> [offer] {
         return [

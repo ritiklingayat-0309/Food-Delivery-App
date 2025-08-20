@@ -11,7 +11,6 @@ import CoreData
 
 /**
  Extension for `OrderListViewController` to conform to `UITableViewDelegate` and `UITableViewDataSource`.
- 
  This extension handles displaying the list of orders in a table view, configuring cells, and
  navigating to order details when a row is selected.
  */
@@ -21,10 +20,9 @@ extension OrderListViewController: UITableViewDelegate, UITableViewDataSource {
     
     /**
      Returns the number of rows in the table view based on the number of orders.
-     
      - Parameters:
-        - tableView: The UITableView requesting this information
-        - section: Section index
+     - tableView: The UITableView requesting this information
+     - section: Section index
      - Returns: Number of orders in the list
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,12 +31,10 @@ extension OrderListViewController: UITableViewDelegate, UITableViewDataSource {
     
     /**
      Returns the cell for a given index path.
-     
      Configures the cell with order details including order number, product names, total price, and first product image.
-     
      - Parameters:
-        - tableView: The UITableView requesting the cell
-        - indexPath: IndexPath of the cell
+     - tableView: The UITableView requesting the cell
+     - indexPath: IndexPath of the cell
      - Returns: Configured `OrderListTableViewCell`
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,8 +77,8 @@ extension OrderListViewController: UITableViewDelegate, UITableViewDataSource {
      Navigates to the `MyOrderViewController` to show detailed information for the selected order.
      
      - Parameters:
-        - tableView: The UITableView where the selection occurred
-        - indexPath: IndexPath of the selected row
+     - tableView: The UITableView where the selection occurred
+     - indexPath: IndexPath of the selected row
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)

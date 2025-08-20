@@ -18,7 +18,6 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource, UI
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DessertsTableViewCell",
                                                        for: indexPath) as? DessertsTableViewCell else {
             return UITableViewCell()
@@ -47,7 +46,6 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource, UI
     }
     
     // MARK: - UITextField Delegate (Search)
-    
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if let searchText = textField.text, !searchText.isEmpty {
             filteredProducts = arrProducts.filter { product in

@@ -53,10 +53,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,
         goToCurrentLocation()
     }
     
-    /// Triggered when "Current Location" button is tapped (duplicate IBAction).
-    @IBAction func btnCurrentLocationTapped(_ sender: Any) {
-        goToCurrentLocation()
-    }
+//    /// Triggered when "Current Location" button is tapped (duplicate IBAction).
+//    @IBAction func btnCurrentLocationTapped(_ sender: Any) {
+//        goToCurrentLocation()
+//    }
     
     /// Triggered when back button is tapped.
     @objc func BackBtnTapped() {

@@ -16,7 +16,6 @@ import UIKit
 class OffersViewController: UIViewController {
     
     // MARK: - Properties
-    
     /// Array of offers retrieved from the model.
     var arrOffer: [offer] = offer.getAllOffers()
     
@@ -53,7 +52,6 @@ class OffersViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
     /// Triggered when the cart button is tapped in the navigation bar.
     @objc func cartTapped() {
         print("Cart tapped")
@@ -67,7 +65,6 @@ class OffersViewController: UIViewController {
     }
     
     /// Action triggered when the "Check Offer" button is tapped.
-    ///
     /// - Parameter sender: The button instance triggering the action.
     @IBAction func btnCheckOfferAction(_ sender: Any) {
         // TODO: Implement navigation or feature for checking offers.

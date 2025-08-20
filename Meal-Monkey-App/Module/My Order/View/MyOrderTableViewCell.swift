@@ -38,7 +38,6 @@ class MyOrderTableViewCell: UITableViewCell {
     }
     
     // MARK: - Configuration
-    
     /// Configures the cell with ordered item and its associated product.
     /// - Parameters:
     ///   - orderedItem: The `OrderedItem` object containing quantity and price info.

@@ -29,6 +29,12 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
     /// Index of the selected payment method
     var selectedPaymentIndex: Int = 0
     
+    /// Default line color (#F6F6F6)
+    let originalLineColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1.0)
+    
+    /// Selected line color (#707070)
+    let selectedLineColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1.0)
+    
     // MARK: - IBOutlets
     
     // Thank You page
@@ -61,11 +67,13 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
     @IBOutlet weak var lblSubTotal: UILabel!
     @IBOutlet weak var lblTotal: UILabel!
     @IBOutlet weak var lblDeliveryCost: UILabel!
+    @IBOutlet weak var viewLineDummy: UIView!
     
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        arrsharedPaymentCards = UserDefaults.standard.loadPaymentCards()
         
         // Set navigation title with back button
         setLeftAlignedTitleWithBack("CheckOut", target: self, action: #selector(backButtonTapped))
@@ -138,6 +146,8 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
         viewAddCard.isHidden = true
         viewTop.isHidden = false
         viewThanku.isHidden = false
+        btnChangeAddress.isHidden = true
+        viewLineDummy.backgroundColor = selectedLineColor
         UIView.animate(withDuration: 0.3) {
             self.viewAddCard.transform = .identity
             self.tabBarController?.tabBar.isHidden = true
@@ -165,6 +175,9 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
     @IBAction func btnAddCardAction(_ sender: Any) {
         viewAddCard.isHidden = false
         viewTop.isHidden = false
+        btnChangeAddress.isHidden = true
+        // Change color
+        viewLineDummy.backgroundColor = selectedLineColor
         viewThanku.isHidden = true
         UIView.animate(withDuration: 0.3) {
             self.viewAddCard.transform = .identity
@@ -180,7 +193,9 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
             self.viewAddCard.isHidden = true
             self.viewTop.isHidden = true
             self.viewThanku.isHidden = true
+            self.btnChangeAddress.isHidden = false
             self.tabBarController?.tabBar.isHidden = false
+            self.viewLineDummy.backgroundColor = self.originalLineColor
         }
     }
     
@@ -192,7 +207,9 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
             self.viewAddCard.isHidden = true
             self.viewTop.isHidden = true
             self.viewThanku.isHidden = true
+            self.btnChangeAddress.isHidden = false
             self.tabBarController?.tabBar.isHidden = false
+            self.viewLineDummy.backgroundColor = self.originalLineColor
         }
     }
     
@@ -257,6 +274,7 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
             let newCard: [String: String] = ["cardNo": cardNumber]
             arrsharedPaymentCards.append(newCard)
             tblView.reloadData()
+            UserDefaults.standard.savePaymentCards(arrsharedPaymentCards)
             btnCrossAction(self)
         }
     }

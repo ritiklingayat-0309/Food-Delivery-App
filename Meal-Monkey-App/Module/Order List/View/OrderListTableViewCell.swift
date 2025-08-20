@@ -45,13 +45,10 @@ class OrderListTableViewCell: UITableViewCell {
     }
     
     // MARK: - Configuration
-    
     /**
      Configures the cell with the given ordered items and order number.
-     
      This method sets the product names, total price, order number, and the image of the first product.
      If no image is available, a placeholder image is used.
-     
      - Parameters:
         - orderedItems: An array of `OrderedItem` objects representing products in the order
         - orderNumber: The order number to display
@@ -68,7 +65,7 @@ class OrderListTableViewCell: UITableViewCell {
         // Set the labels with the order number, product names, and total price
         lblOrderNo.text = "Order No: \(orderNumber)"
         lblProductName.text = "Items: \(allProductNames.isEmpty ? "N/A" : allProductNames)"
-        lblTotal.text = "Total Price Bill: $\(String(format: "%.2f", totalAmount))"
+        lblTotal.text = "Total Bill: $\(String(format: "%.2f", totalAmount))"
         
         // Set the image view with the first product's image or a placeholder
         if let firstProduct = orderedItems.first?.product,
@@ -77,7 +74,6 @@ class OrderListTableViewCell: UITableViewCell {
         } else {
             imgView.image = UIImage(named: "placeholder")
         }
-        
         // Round the corners of the image view
         imgView.layer.cornerRadius = 10
     }

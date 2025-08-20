@@ -24,23 +24,23 @@
                             <constraint firstAttribute="height" constant="100" id="ght-Fp-Z6g"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="DOb-20-Z2U">
-                        <rect key="frame" x="120" y="10" width="192" height="55"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DOb-20-Z2U">
+                        <rect key="frame" x="120" y="10" width="192" height="106"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order No :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uT-hC-qMF">
-                                <rect key="frame" x="0.0" y="0.0" width="192" height="16.333333333333332"/>
+                                <rect key="frame" x="0.0" y="0.0" width="192" height="22"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name :" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V13-pm-plZ">
-                                <rect key="frame" x="0.0" y="19.333333333333336" width="192" height="16.333333333333336"/>
+                                <rect key="frame" x="0.0" y="42" width="192" height="22"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="su0-Ma-RC9">
-                                <rect key="frame" x="0.0" y="38.666666666666664" width="192" height="16.333333333333336"/>
+                                <rect key="frame" x="0.0" y="84" width="192" height="22"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                 <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -51,7 +51,6 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="DOb-20-Z2U" secondAttribute="bottom" constant="10" id="CcN-OH-CPm"/>
                     <constraint firstAttribute="trailing" secondItem="DOb-20-Z2U" secondAttribute="trailing" constant="10" id="FkU-EU-uDG"/>
-                    <constraint firstAttribute="bottom" secondItem="kec-e6-1ir" secondAttribute="bottom" constant="10" id="H91-tV-1MA"/>
                     <constraint firstItem="DOb-20-Z2U" firstAttribute="leading" secondItem="kec-e6-1ir" secondAttribute="trailing" constant="10" id="Phw-hU-5mN"/>
                     <constraint firstItem="kec-e6-1ir" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Wf8-Za-SYq"/>
                     <constraint firstItem="DOb-20-Z2U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="YR6-Eh-tcB"/>

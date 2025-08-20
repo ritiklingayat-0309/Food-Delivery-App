@@ -62,14 +62,11 @@ class SendOTPViewController: UIViewController {
             tf.keyboardType = .numberPad
             tf.textAlignment = .center
         }
-        
         // Hide back button from navigation bar
         self.navigationItem.hidesBackButton = true
     }
     
-    
     // MARK: - IBActions
-    
     /// Action triggered when "Next" button is tapped.
     /// - Validates OTP fields and shows an alert if any digit is missing.
     /// - Navigates to `NewPasswordViewController` upon successful OTP entry.
@@ -87,7 +84,7 @@ class SendOTPViewController: UIViewController {
                 message: "Please enter OTP",
                 viewController: self
             )
-       
+            
         case Second.isEmpty:
             UIAlertController.showAlert(
                 title: "Error",

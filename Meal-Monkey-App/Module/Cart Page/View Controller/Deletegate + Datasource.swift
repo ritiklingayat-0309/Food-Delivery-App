@@ -38,6 +38,7 @@ extension CartViewController : UITableViewDelegate, UITableViewDataSource {
         
         // Configure cell based on page type
         if pagetype == .Wishlist {
+            cell.lblQuntity.isHidden = true
             cell.btnDelete.isHidden = true
             cell.btnLike.isHidden = false
             cell.onDelete = nil

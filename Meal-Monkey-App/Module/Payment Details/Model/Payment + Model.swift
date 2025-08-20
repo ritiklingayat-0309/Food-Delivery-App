@@ -56,7 +56,6 @@ class PaymentModel: NSObject {
     }
     
     // MARK: - Static Data (Mock Cards)
-    
     /// Returns a sample list of predefined payment cards.
     /// - Note: This is mock/demo data for testing.
     class func addcardDetails() -> [PaymentModel] {

@@ -9,16 +9,13 @@ import Foundation
 import UIKit
 
 /// Extension of `OffersViewController` to handle `UITableViewDelegate` and `UITableViewDataSource`.
-///
 /// This manages:
 /// - Displaying the list of offers in a table view.
 /// - Providing the data (number of rows, cell configuration).
 extension OffersViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - TableView DataSource
-    
     /// Returns the number of rows in the table view.
-    ///
     /// - Parameters:
     ///   - tableView: The table view requesting the information.
     ///   - section: The section index (only one section used here).
@@ -28,7 +25,6 @@ extension OffersViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     /// Configures and returns a cell for the given row at the specified index path.
-    ///
     /// - Parameters:
     ///   - tableView: The table view requesting the cell.
     ///   - indexPath: The index path specifying the row.

@@ -7,10 +7,11 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 /// The main home screen controller responsible for displaying categories, recent items,
 /// product list, and handling search & address selection.
-class HomeViewController: UIViewController, HomeTableTableViewCellDelegate, UITextFieldDelegate, MapViewControllerDelegate {
+class HomeViewController: UIViewController, HomeTableTableViewCellDelegate, UITextFieldDelegate, MapViewControllerDelegate,UNUserNotificationCenterDelegate{
     
     // MARK: - Outlets
     @IBOutlet weak var lblAddress: UILabel!
@@ -30,6 +31,11 @@ class HomeViewController: UIViewController, HomeTableTableViewCellDelegate, UITe
         arrrecentItems = RecentItemsHelper.shared.getRecentItems()
         tblView.reloadData()
         filterProducts(with: txtSearch.text)
+        
+        // Load saved address and call delegate method
+        if let savedAddress = UserDefaults.standard.string(forKey: "savedAddress") {
+            didSelectAddress(savedAddress)
+        }
     }
     
     override func viewDidLoad() {
@@ -49,13 +55,7 @@ class HomeViewController: UIViewController, HomeTableTableViewCellDelegate, UITe
         tblView.showsVerticalScrollIndicator = false
         tblView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
         txtSearch.delegate = self
-        
         arrfilteredProductData = HomeViewController.arrProductData
-        
-        // Load saved address from UserDefaults
-        if let savedAddress = UserDefaults.standard.string(forKey: "savedAddress") {
-            lblAddress.text = savedAddress
-        }
         
         DispatchQueue.main.async {
             self.tblView.reloadData()
@@ -63,6 +63,66 @@ class HomeViewController: UIViewController, HomeTableTableViewCellDelegate, UITe
         
         // Fetch product data
         fetchProductDataFromAPI()
+        
+        // 🔔 Ask for Notification Permission when Home loads
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if granted {
+                print("✅ Notification permission granted")
+                UNUserNotificationCenter.current().delegate = self
+                self.scheduleMultipleNotifications() // 🔔 Send 5 notifications automatically
+            } else {
+                print("❌ Permission denied")
+            }
+        }
+    }
+    
+    private func scheduleMultipleNotifications() {
+        let messages = [
+            "📢 Notification 1: Welcome to Meal Monkey!",
+            "🔥 Notification 2: Don't miss today’s offers.",
+            "⭐️ Notification 3: Try our top-rated dishes!",
+            "🚀 Notification 4: Hungry? Order now!",
+            "✅ Notification 5: Thank you for using our app!"
+        ]
+        
+        for (index, message) in messages.enumerated() {
+            let content = UNMutableNotificationContent()
+            content.title = "Meal Monkey 🍔"
+            content.body = message
+            content.sound = .default
+            content.badge = NSNumber(value: index + 1)
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval((index + 1) * 3), repeats: false)
+            
+            let request = UNNotificationRequest(
+                identifier: "mealMonkeyNotification\(index)",
+                content: content,
+                trigger: trigger
+            )
+            
+            UNUserNotificationCenter.current().add(request) { error in
+                if let error = error {
+                    print("⚠️ Error scheduling notification \(index + 1): \(error)")
+                } else {
+                    print("✅ Scheduled notification \(index + 1) after \((index + 1) * 3) sec")
+                }
+            }
+        }
+    }
+    
+    // 🔔 Show notification even in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound, .badge])
+    }
+    
+    // 🔔 Handle notification tap
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("📩 User tapped: \(response.notification.request.identifier)")
+        completionHandler()
     }
     
     // MARK: - Core Data Fetching
@@ -175,44 +235,44 @@ class HomeViewController: UIViewController, HomeTableTableViewCellDelegate, UITe
         }
     }
     
-    // MARK: - Core Data Saving
-    /// Save fetched product data into Core Data after clearing old data.
+    // MARK: - Core Data Saving (CHANGED ✅)
+    /// Save fetched product data into Core Data after checking duplicates by productID.
     private func saveProductDataToCoreData(_ products: [ProductModel]) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        // Delete old product data
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-        
-        do {
-            try managedContext.execute(deleteRequest)
-            try managedContext.save()
-            print("✅ Successfully cleared old product data from Core Data.")
-        } catch let error as NSError {
-            print("❌ Failed to clear old product data: \(error), \(error.userInfo)")
-            return
-        }
-        
-        // Insert new product data
         for productModel in products {
-            guard let productEntity = NSEntityDescription.entity(forEntityName: "Product", in: managedContext) else { continue }
-            let product = NSManagedObject(entity: productEntity, insertInto: managedContext)
+            // ✅ Check if product already exists in Core Data
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Product")
+            fetchRequest.predicate = NSPredicate(format: "productID == %d", productModel.intId)
             
-            product.setValue(productModel.objProductCategory.rawValue, forKey: "category")
-            product.setValue(productModel.strProductImage, forKey: "imagePath")
-            product.setValue(productModel.strProductName, forKey: "name")
-            product.setValue(productModel.doubleProductPrice, forKey: "price")
-            product.setValue(productModel.strProductDescription, forKey: "productDescription")
-            product.setValue(productModel.intId, forKey: "productID")
-            product.setValue(productModel.objProductType.rawValue, forKey: "productType")
-            product.setValue(productModel.floatProductRating, forKey: "rating")
-            product.setValue(productModel.intTotalNumberOfRatings, forKey: "totalRatings")
+            do {
+                let existingProducts = try managedContext.fetch(fetchRequest)
+                if existingProducts.isEmpty {
+                    // Only insert if product does NOT exist
+                    guard let productEntity = NSEntityDescription.entity(forEntityName: "Product", in: managedContext) else { continue }
+                    let product = NSManagedObject(entity: productEntity, insertInto: managedContext)
+                    product.setValue(productModel.objProductCategory.rawValue, forKey: "category")
+                    product.setValue(productModel.strProductImage, forKey: "imagePath")
+                    product.setValue(productModel.strProductName, forKey: "name")
+                    product.setValue(productModel.doubleProductPrice, forKey: "price")
+                    product.setValue(productModel.strProductDescription, forKey: "productDescription")
+                    product.setValue(productModel.intId, forKey: "productID")
+                    product.setValue(productModel.objProductType.rawValue, forKey: "productType")
+                    product.setValue(productModel.floatProductRating, forKey: "rating")
+                    product.setValue(productModel.intTotalNumberOfRatings, forKey: "totalRatings")
+                    print("✅ Added new product: \(productModel.strProductName)")
+                } else {
+                    print("⏩ Skipped duplicate product: \(productModel.strProductName)")
+                }
+            } catch {
+                print("❌ Error checking product existence: \(error.localizedDescription)")
+            }
         }
         
         do {
             try managedContext.save()
-            print("✅ Successfully saved all new API product data to Core Data.")
+            print("✅ Successfully saved new products to Core Data (duplicates skipped).")
         } catch let error as NSError {
             print("❌ Could not save new product data. \(error), \(error.userInfo)")
         }

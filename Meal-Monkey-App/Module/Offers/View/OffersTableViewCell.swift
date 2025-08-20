@@ -48,7 +48,6 @@ class OffersTableViewCell: UITableViewCell {
     }
     
     // MARK: - Configuration
-    
     /// Configures the cell with given offer data.
     ///
     /// - Parameter offer: The `offer` model containing details of the café/restaurant.

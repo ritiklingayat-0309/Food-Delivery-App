@@ -146,7 +146,6 @@ class SignUpViewController: UIViewController {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
             let managedContext = appDelegate.persistentContainer.viewContext
             guard let userEntity = NSEntityDescription.entity(forEntityName: "User", in: managedContext) else { return }
-            
             let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
             user.setValue(name, forKey: "name")
             user.setValue(email, forKey: "email")

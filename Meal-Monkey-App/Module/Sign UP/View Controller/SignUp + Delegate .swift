@@ -19,27 +19,27 @@ extension SignUpViewController : UITextFieldDelegate {
         
         switch textField {
             
-        /// If Name field is active → move to Email field
+            /// If Name field is active → move to Email field
         case txtName:
             txtEmail.becomeFirstResponder()
             
-        /// If Email field is active → move to Mobile No field
+            /// If Email field is active → move to Mobile No field
         case txtEmail:
             txtMobileNo.becomeFirstResponder()
             
-        /// If Mobile No field is active → move to Address field
+            /// If Mobile No field is active → move to Address field
         case txtMobileNo:
             txtAddress.becomeFirstResponder()
             
-        /// If Address field is active → move to Password field
+            /// If Address field is active → move to Password field
         case txtAddress:
             txtPassword.becomeFirstResponder()
             
-        /// If Password field is active → move to Confirm Password field
+            /// If Password field is active → move to Confirm Password field
         case txtPassword:
             txtConfirmPassword.resignFirstResponder()
             
-        /// Default case → resign first responder for any other text field
+            /// Default case → resign first responder for any other text field
         default:
             textField.resignFirstResponder()
         }

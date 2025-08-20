@@ -9,7 +9,7 @@ import Foundation
 
 /**
  A utility class for making generic API calls.
-
+ 
  This class provides a static method to fetch data from a given URL,
  which is then decoded into a specified Codable model.
  */
@@ -22,9 +22,9 @@ class APICalls {
      an array of a `Codable` type. It handles common network errors and decoding failures.
      
      - Parameters:
-        - urlString: The URL string of the API endpoint.
-        - completion: A closure that is called when the API request is complete.
-                      It returns an array of the decoded Codable objects.
+     - urlString: The URL string of the API endpoint.
+     - completion: A closure that is called when the API request is complete.
+     It returns an array of the decoded Codable objects.
      */
     class func getData<T: Codable>(from urlString: String, completion: @escaping ([T]) -> Void) {
         guard let url = URL(string: urlString) else {

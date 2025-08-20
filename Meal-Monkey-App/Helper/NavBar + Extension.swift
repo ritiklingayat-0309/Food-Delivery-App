@@ -10,7 +10,6 @@ import UIKit
 
 /**
  An extension to `UIViewController` to provide common, reusable methods for configuring the navigation bar.
- 
  This simplifies the process of setting a left-aligned title with a back button, a title without a back button, and a cart button on the right.
  */
 extension UIViewController {

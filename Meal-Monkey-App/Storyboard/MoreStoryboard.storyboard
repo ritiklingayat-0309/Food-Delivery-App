@@ -205,7 +205,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgw-op-jh5">
                                 <rect key="frame" x="0.0" y="196.66666666666669" width="393" height="587.33333333333326"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9S-Pr-r3X">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9S-Pr-r3X">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="587.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZK-Cq-2a0">
@@ -1221,6 +1221,7 @@ at anytime </string>
                         <outlet property="txtLastName" destination="baW-NW-Kj7" id="Y1u-0k-s74"/>
                         <outlet property="txtSecurityCode" destination="VcP-x6-PMw" id="eqK-Vi-AWg"/>
                         <outlet property="viewAddCard" destination="MOM-IO-gAQ" id="Jmo-ch-D3Q"/>
+                        <outlet property="viewLineDummy" destination="gTY-n7-nYi" id="0Ec-91-dkQ"/>
                         <outlet property="viewScroll" destination="T9J-2z-rfX" id="qur-bW-jLb"/>
                         <outlet property="viewThanku" destination="ZSO-bi-6NO" id="6Dg-hy-1Tf"/>
                         <outlet property="viewTop" destination="u4c-n5-mTo" id="2pA-dz-1mb"/>

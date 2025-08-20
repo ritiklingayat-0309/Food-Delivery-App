@@ -9,7 +9,6 @@ import Foundation
 
 /**
  A singleton helper class for managing a list of recently viewed products.
- 
  This class maintains a list of the most recent `ProductModel` objects,
  ensuring that the list does not exceed a maximum item count.
  */
@@ -29,10 +28,8 @@ class RecentItemsHelper {
     
     /**
      Adds a new product to the list of recent items.
-     
      If the product already exists in the list, it is moved to the top.
      If the list exceeds the maximum number of items, the oldest item is removed.
-     
      - Parameter product: The `ProductModel` object to be added.
      */
     func addProduct(_ product: ProductModel) {
@@ -53,7 +50,6 @@ class RecentItemsHelper {
     func getRecentItems() -> [ProductModel] {
         return recentItems
     }
-    
     /**
      Clears all items from the recent items list.
      */

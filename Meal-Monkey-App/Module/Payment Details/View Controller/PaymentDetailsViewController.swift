@@ -41,6 +41,7 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        arrsharedPaymentCards = UserDefaults.standard.loadPaymentCards()
         
         // Register custom cell
         tblView.register(UINib(nibName: "PaymentDetailsTableViewCell", bundle: nil),
@@ -204,6 +205,7 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
         default:
             let newCard: [String: String] = ["cardNo": cardNumber]
             arrsharedPaymentCards.append(newCard)
+            UserDefaults.standard.savePaymentCards(arrsharedPaymentCards)
             tblView.reloadData()
             updateUI()
             btnCrossAction(self)
@@ -215,6 +217,8 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
     func didTapDeleteButton(in cell: PaymentDetailsTableViewCell) {
         guard let indexPath = tblView.indexPath(for: cell) else { return }
         arrsharedPaymentCards.remove(at: indexPath.row)
+        UserDefaults.standard.savePaymentCards(arrsharedPaymentCards)
         tblView.deleteRows(at: [indexPath], with: .fade)
+        updateUI()
     }
 }

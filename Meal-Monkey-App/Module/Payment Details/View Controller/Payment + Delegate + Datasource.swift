@@ -44,7 +44,6 @@ extension PaymentDetailsViewController: UITableViewDelegate, UITableViewDataSour
         if let cardNumber = cardDetails["cardNo"] {
             cell.configure(with: cardNumber)
         }
-        
         return cell
     }
 }

@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 /// Extension to handle `UITextFieldDelegate` methods for `NewPasswordViewController`.
-///
 /// This extension manages the keyboard return key navigation between
 /// password text fields (new password and confirm password).
 extension NewPasswordViewController: UITextFieldDelegate {

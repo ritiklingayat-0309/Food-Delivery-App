@@ -63,13 +63,12 @@ class More {
                  title: "About Us",
                  intsTag: 4),
             
-            More(
-                image: UIImage(systemName: "heart.fill")?.withTintColor(
-                    UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1),
-                    renderingMode: .alwaysOriginal
-                ) ?? UIImage(),
-                title: "Wish List",
-                intsTag: 5
+            More(image: UIImage(systemName: "heart.fill")?.withTintColor(
+                UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1),
+                renderingMode: .alwaysOriginal
+            ) ?? UIImage(),
+                 title: "Wish List",
+                 intsTag: 5
             )
         ]
     }
