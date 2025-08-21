@@ -201,10 +201,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNE-vn-Zqh">
                                         <rect key="frame" x="0.0" y="0.0" width="385" height="619.33333333333337"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mOB-kX-ayd">
-                                                <rect key="frame" x="137" y="31.666666666666664" width="111" height="100.66666666666669"/>
+                                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_imgPro" translatesAutoresizingMaskIntoConstraints="NO" id="mOB-kX-ayd">
+                                                <rect key="frame" x="141.66666666666666" y="31" width="102" height="102"/>
                                                 <color key="tintColor" name="login Background Color"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" constant="102" id="6sL-No-pKe"/>
                                                     <constraint firstAttribute="height" constant="102" id="PJ9-n0-K91"/>
                                                 </constraints>
                                             </imageView>
@@ -306,12 +307,11 @@
                                             <constraint firstAttribute="trailing" secondItem="r9X-h7-Dd4" secondAttribute="trailing" constant="149" id="1N9-eZ-bfM"/>
                                             <constraint firstItem="r9X-h7-Dd4" firstAttribute="top" secondItem="mOB-kX-ayd" secondAttribute="bottom" constant="19" id="2VG-bW-7cZ"/>
                                             <constraint firstAttribute="trailing" secondItem="POf-bY-kUm" secondAttribute="trailing" constant="162" id="2fX-Ix-oEk"/>
-                                            <constraint firstAttribute="trailing" secondItem="mOB-kX-ayd" secondAttribute="trailing" constant="137" id="6dR-so-IAZ"/>
+                                            <constraint firstItem="mOB-kX-ayd" firstAttribute="centerX" secondItem="dNE-vn-Zqh" secondAttribute="centerX" id="5P3-Mx-Fnc"/>
                                             <constraint firstItem="LqG-Qd-RQ9" firstAttribute="centerX" secondItem="dNE-vn-Zqh" secondAttribute="centerX" id="BDe-Yg-1H9"/>
                                             <constraint firstItem="mOB-kX-ayd" firstAttribute="top" secondItem="dNE-vn-Zqh" secondAttribute="top" constant="31" id="KH9-N9-PHb"/>
                                             <constraint firstItem="POf-bY-kUm" firstAttribute="top" secondItem="jaj-tk-diE" secondAttribute="bottom" constant="6" id="Mgg-Mu-rJ5"/>
                                             <constraint firstItem="r9X-h7-Dd4" firstAttribute="leading" secondItem="dNE-vn-Zqh" secondAttribute="leading" constant="155" id="N1r-w2-wld"/>
-                                            <constraint firstItem="mOB-kX-ayd" firstAttribute="leading" secondItem="dNE-vn-Zqh" secondAttribute="leading" constant="137" id="TrX-rH-kLS"/>
                                             <constraint firstItem="jaj-tk-diE" firstAttribute="top" secondItem="r9X-h7-Dd4" secondAttribute="bottom" constant="13" id="Xuy-lq-wla"/>
                                             <constraint firstItem="CzI-Qu-MtO" firstAttribute="top" secondItem="jaj-tk-diE" secondAttribute="bottom" constant="67" id="ZhJ-A9-TgY"/>
                                             <constraint firstAttribute="bottom" secondItem="CzI-Qu-MtO" secondAttribute="bottom" constant="10" id="cst-Gz-hQb"/>
@@ -584,13 +584,13 @@ meals and more!</string>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="ic_Profile" width="94.333335876464844" height="31.666666030883789"/>
         <image name="ic_homec" width="31" height="30"/>
+        <image name="ic_imgPro" width="103" height="102"/>
         <image name="ic_menu" width="33" height="33"/>
         <image name="ic_menu_sideImg" width="98" height="486"/>
         <image name="ic_more" width="31" height="35"/>
         <image name="ic_offers" width="37" height="35"/>
         <image name="ic_pencil" width="11" height="11"/>
         <image name="ic_profile" width="38" height="35"/>
-        <image name="person.circle" catalog="system" width="128" height="123"/>
         <namedColor name="LabelOffer">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

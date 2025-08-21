@@ -43,7 +43,6 @@ class OrderListViewController: UIViewController {
         
         /// Hide vertical scroll indicator for cleaner UI.
         tblView.showsVerticalScrollIndicator = false
-        
         tblView.delegate = self
         tblView.dataSource = self
         

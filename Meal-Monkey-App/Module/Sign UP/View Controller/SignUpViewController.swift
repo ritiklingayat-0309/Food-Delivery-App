@@ -43,7 +43,6 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
     /// Toggle password visibility with eye icon button
     @IBAction func btnPasswordEyeAction(_ sender: Any) {
         isPasswordVisible = !isPasswordVisible
@@ -157,7 +156,7 @@ class SignUpViewController: UIViewController {
             do {
                 /// Try saving user to Core Data
                 try managedContext.save()
-                print("✅ User saved successfully!")
+                print("User saved successfully!")
                 
                 /// Show success alert and pop back to login
                 UIAlertController.showAlert(title: "Success",
@@ -167,7 +166,7 @@ class SignUpViewController: UIViewController {
                 }
             } catch let error as NSError {
                 /// Handle error in saving user
-                print("❌ Could not save user. \(error), \(error.userInfo)")
+                print("Could not save user. \(error), \(error.userInfo)")
                 
                 UIAlertController.showAlert(title: "Error",
                                             message: "Registration failed. Please try again.",

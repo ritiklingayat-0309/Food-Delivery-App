@@ -9,7 +9,6 @@ import UIKit
 
 /**
  A custom table view cell used to display content for the "About Us," "Notifications," and "Inbox" screens.
- 
  This cell is designed with multiple labels and a button that can be configured to show different types of data, depending on the screen.
  */
 class AboutUsTableViewCell: UITableViewCell {
@@ -34,9 +33,7 @@ class AboutUsTableViewCell: UITableViewCell {
     
     /**
      Configures the cell to display data for the "About Us" screen.
-     
      This method shows only the main title label and hides all other UI elements to present a clean, text-based cell.
-     
      - Parameter about: The `AboutModel` object containing the data to display.
      */
     func configaboutcell(about: AboutModel) {
@@ -49,9 +46,7 @@ class AboutUsTableViewCell: UITableViewCell {
     
     /**
      Configures the cell to display data for the "Notifications" screen.
-     
      This method shows the main title and a time-related label, hiding other elements.
-     
      - Parameter about: The `AboutModel` object containing the data to display.
      */
     func configNotificationcell(about: AboutModel) {
@@ -63,9 +58,7 @@ class AboutUsTableViewCell: UITableViewCell {
     
     /**
      Configures the cell to display data for the "Inbox" screen.
-     
      This method shows multiple labels and a star button to represent a message with a subject, date, and subtitle.
-     
      - Parameter about: The `AboutModel` object containing the data to display.
      */
     func configInboxcell(about: AboutModel) {

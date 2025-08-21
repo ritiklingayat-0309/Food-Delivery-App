@@ -9,7 +9,6 @@ import Foundation
 
 /**
  A model class that holds data for the "About," "Notifications," and "Inbox" sections.
- 
  This class provides static methods to generate pre-defined data arrays, which are used
  to populate the user interface for informational and notification-based screens.
  */
@@ -45,7 +44,6 @@ class AboutModel {
     
     /**
      Generates a static array of `AboutModel` objects for the "About" section.
-     
      - Returns: A pre-populated array of `AboutModel`s containing mission statements and other informational text.
      */
     class func addAboutData() -> [AboutModel] {
@@ -89,7 +87,6 @@ class AboutModel {
     
     /**
      Generates a static array of `AboutModel` objects for the "Notifications" section.
-     
      - Returns: A pre-populated array of `AboutModel`s representing various app notifications.
      */
     class func addNotificationData()-> [AboutModel] {
@@ -129,7 +126,6 @@ class AboutModel {
     
     /**
      Generates a static array of `AboutModel` objects for the "Inbox" section.
-     
      - Returns: A pre-populated array of `AboutModel`s representing messages from various promotions and updates.
      */
     class func addInboxData() -> [AboutModel] {

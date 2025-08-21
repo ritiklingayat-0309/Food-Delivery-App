@@ -42,7 +42,6 @@ extension UIView {
     
     /**
      Applies a corner radius, border width, and border color to a view.
-     
      - Parameters:
      - cornerRadius: The radius of the view's corners.
      - borderWidth: The width of the view's border.
@@ -86,7 +85,6 @@ extension UITextField {
 class Style {
     /**
      Applies a border and corner radius to a list of UIViews.
-     
      - Parameter stackViews: An array of `UIView` objects to be styled.
      */
     class func addStackBorder(stackViews: [UIView]) {

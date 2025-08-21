@@ -13,7 +13,6 @@ import UIKit
 class Features {
     
     // MARK: - Properties
-    
     /// Image representing the feature
     let image: UIImage
     

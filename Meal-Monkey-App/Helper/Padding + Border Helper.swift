@@ -16,7 +16,6 @@ import UIKit
 class EditStyle {
     /**
      Applies a border, corner radius, and clips to bounds for a list of UIViews.
-     
      This method is useful for applying a consistent visual style to multiple
      text fields or other view containers.
      
@@ -34,10 +33,10 @@ class EditStyle {
      Adds a left padding view to a list of `UITextField` objects.
      This method iterates through the provided views and, if the view is a `UITextField`,
      it adds a transparent view to the left side to create visual padding.
-
+     
      - Parameters:
-        - textFields: An array of `UIView` objects, some of which may be `UITextField`s.
-        - paddingWidth: The desired width of the padding on the left side.
+     - textFields: An array of `UIView` objects, some of which may be `UITextField`s.
+     - paddingWidth: The desired width of the padding on the left side.
      */
     class func setPadding(textFields: [UIView], paddingWidth: CGFloat) {
         for view in textFields {
@@ -58,9 +57,7 @@ class EditStyle {
     
     /**
      Applies a border, corner radius, and clips to bounds for a list of stack views.
-     
      This method is useful for styling `UIStackView` containers with a consistent border.
-     
      - Parameter stackViews: An array of `UIView` objects, typically `UIStackView`s.
      */
     class func addStackBorder(stackViews: [UIView]) {

@@ -13,7 +13,6 @@ import UIKit
 class CheckOutViewController: UIViewController, MapViewControllerDelegate {
     
     // MARK: - Properties
-    
     /// Array of saved card names
     var arrCards : [String] = ["Card -1 ", "card -2 ", "card -3 "]
     
@@ -28,6 +27,8 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
     
     /// Index of the selected payment method
     var selectedPaymentIndex: Int = 0
+    
+    var paymentDetails: [PaymentDetails] = []
     
     /// Default line color (#F6F6F6)
     let originalLineColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1.0)
@@ -71,9 +72,13 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
     
     // MARK: - Lifecycle Methods
     
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            fetchPaymentDetails() // **Change:** Fetch data from Core Data when the view appears
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        arrsharedPaymentCards = UserDefaults.standard.loadPaymentCards()
         
         // Set navigation title with back button
         setLeftAlignedTitleWithBack("CheckOut", target: self, action: #selector(backButtonTapped))
@@ -91,22 +96,8 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
         viewThanku.isHidden = true
         viewTop.isHidden = true
         viewAddCard.isHidden = true
-        
-        // Customize card addition view appearance
-        viewAddCard.layer.cornerRadius = 20
-        viewAddCard.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        viewAddCard.layer.shadowColor = UIColor.black.cgColor
-        viewAddCard.layer.shadowOpacity = 0.2
-        viewAddCard.layer.shadowOffset = CGSize(width: 0, height: -2)
-        viewAddCard.layer.shadowRadius = 10
-        
-        // Customize scroll view appearance
-        viewScroll.layer.cornerRadius = 20
-        viewScroll.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        viewScroll.layer.shadowColor = UIColor.black.cgColor
-        viewScroll.layer.shadowOpacity = 0.2
-        viewScroll.layer.shadowOffset = CGSize(width: 0, height: -2)
-        viewScroll.layer.shadowRadius = 10
+        styleCardLikeView(viewAddCard)
+        styleCardLikeView(viewScroll)
         
         // Set saved address if available
         if let savedAddress = UserDefaults.standard.string(forKey: "savedAddress") {
@@ -123,6 +114,22 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
         if let total = total {
             lblTotal.text = "$\(String(format: "%.2f", total))"
         }
+    }
+    
+    private func fetchPaymentDetails() {
+           self.paymentDetails = CoreDataManager.shared.fetchPaymentDetails()
+           tblView.reloadData()
+       }
+    
+    /// Applies rounded top corners and shadow to a given view.
+    /// - Parameter view: The UIView to apply the styling
+    func styleCardLikeView(_ view: UIView) {
+        view.layer.cornerRadius = 20
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.2
+        view.layer.shadowOffset = CGSize(width: 0, height: -2)
+        view.layer.shadowRadius = 10
     }
     
     // MARK: - Navigation
@@ -187,15 +194,9 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
     
     /// Cancels Add Card view
     @IBAction func btnCancelAction(_ sender: Any) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.viewAddCard.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
-        }) { _ in
-            self.viewAddCard.isHidden = true
-            self.viewTop.isHidden = true
-            self.viewThanku.isHidden = true
-            self.btnChangeAddress.isHidden = false
-            self.tabBarController?.tabBar.isHidden = false
-            self.viewLineDummy.backgroundColor = self.originalLineColor
+       let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
+        if let secondVc = storyboard.instantiateViewController(withIdentifier: "OrderListViewController") as? OrderListViewController{
+            self.navigationController?.pushViewController(secondVc, animated: true)
         }
     }
     
@@ -271,10 +272,16 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
                                         viewController: self)
         default:
             // Add new card to shared payment cards and reload table
-            let newCard: [String: String] = ["cardNo": cardNumber]
-            arrsharedPaymentCards.append(newCard)
+            CoreDataManager.shared.savePaymentDetails(cardNumber: cardNumber,
+                                                                  securityCode: securityCode,
+                                                                  firstName: firstName,
+                                                                  lastName: lastName,
+                                                                  expiryMonth: expiryMonth,
+                                                                  expiryYear: expiryYear)
+                        
+                        // **Change:** Fetch the updated list of payment details
+            fetchPaymentDetails()
             tblView.reloadData()
-            UserDefaults.standard.savePaymentCards(arrsharedPaymentCards)
             btnCrossAction(self)
         }
     }

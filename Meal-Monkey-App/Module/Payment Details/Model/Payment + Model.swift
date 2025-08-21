@@ -11,7 +11,6 @@ import Foundation
 class PaymentModel: NSObject {
     
     // MARK: - Properties
-    
     /// Card number (stored as `Int64` for 16-digit support).
     var intCardNumber: Int64?
     

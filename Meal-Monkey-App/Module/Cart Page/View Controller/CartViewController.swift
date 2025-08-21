@@ -147,12 +147,12 @@ class CartViewController: UIViewController {
             if let objectToDelete = result.first {
                 managedContext.delete(objectToDelete)
                 try managedContext.save()
-                print("✅ Successfully removed item from Core Data: \(product.strProductName)")
+                print("Successfully removed item from Core Data: \(product.strProductName)")
                 fetchItemsFromCoreData()
-                updateUI() 
+                updateUI()
             }
         } catch {
-            print("❌ Failed to remove item from Core Data: \(error.localizedDescription)")
+            print("Failed to remove item from Core Data: \(error.localizedDescription)")
         }
     }
     
@@ -215,6 +215,7 @@ class CartViewController: UIViewController {
                 managedContext.delete(cartItem)
             }
             try managedContext.save()
+            CartManager.shared.notifyCartUpdated()
             print("Cart cleared successfully.")
             
             fetchItemsFromCoreData()

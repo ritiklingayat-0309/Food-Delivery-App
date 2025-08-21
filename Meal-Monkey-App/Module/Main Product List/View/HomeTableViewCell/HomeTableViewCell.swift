@@ -18,20 +18,17 @@ protocol HomeTableTableViewCellDelegate: AnyObject {
 }
 
 // MARK: - TableView Cell
-
 /// A custom table view cell that embeds a collection view.
 /// Displays categories or different types of products depending on `collectionType`.
 class HomeTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
-    
     @IBOutlet weak var lblCollectionViewTitle: UILabel!
     @IBOutlet weak var btnViewAll: UIButton!
     @IBOutlet weak var collectionViewHome: UICollectionView!
     @IBOutlet weak var collectionViewHomeHeight: NSLayoutConstraint!
     
     // MARK: - Properties
-    
     weak var delegate: HomeTableTableViewCellDelegate?
     
     /// Defines the type of collection view content displayed.
@@ -63,7 +60,6 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     // MARK: - Lifecycle
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
@@ -74,7 +70,6 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     // MARK: - Setup Methods
-    
     /// Registers custom collection view cells used inside this table view cell.
     private func setupCollectionView() {
         collectionViewHome.register(UINib(nibName: "HomeCategoryCollectionViewCell", bundle: nil),

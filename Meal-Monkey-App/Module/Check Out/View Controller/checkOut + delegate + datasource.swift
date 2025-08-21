@@ -9,14 +9,13 @@ import Foundation
 import UIKit
 
 // MARK: - UITableView Delegate & DataSource
-
 /// Extension to manage table view delegate and data source methods for `CheckOutViewController`.
 extension CheckOutViewController : UITableViewDelegate, UITableViewDataSource {
     
     /// Returns the number of rows in the table view
     /// Includes shared payment cards plus Cash on Delivery and Gmail options
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrsharedPaymentCards.count + 2
+        return paymentDetails.count + 2
     }
     
     /// Configures and returns the cell for a given index path
@@ -31,21 +30,20 @@ extension CheckOutViewController : UITableViewDelegate, UITableViewDataSource {
             return cell
             
             // Visa / Card cells
-        case 1..<1 + arrsharedPaymentCards.count:
+        case 1..<1 + paymentDetails.count:
             let cell = tableView.dequeueReusableCell(withIdentifier: "VisaTableViewCell", for: indexPath) as! VisaTableViewCell
             let cardIndex = indexPath.row - 1
-            if cardIndex < arrsharedPaymentCards.count {
-                let cardDetails = arrsharedPaymentCards[cardIndex]
-                if let fullCardNumber = cardDetails["cardNo"] {
-                    let lastFourDigits = String(fullCardNumber.suffix(4))
-                    cell.lblCardNo.text = "**** **** **** \(lastFourDigits)"
-                }
-            }
-            cell.btnSelect.isSelected = (selectedPaymentIndex == indexPath.row)
-            return cell
+            let cardDetails = paymentDetails[cardIndex] // **Change:** Get the object from the Core Data array
+            
+            let fullCardNumber = String(cardDetails.cardNumber)
+                       let lastFourDigits = String(fullCardNumber.suffix(4))
+                       cell.lblCardNo.text = "**** **** **** \(lastFourDigits)"
+                       
+                       cell.btnSelect.isSelected = (selectedPaymentIndex == indexPath.row)
+                       return cell
             
             // Gmail payment option cell
-        case 1 + arrsharedPaymentCards.count:
+        case 1 + paymentDetails.count:
             let cell = tableView.dequeueReusableCell(withIdentifier: "GmailTableViewCell", for: indexPath) as! GmailTableViewCell
             cell.btncircle.isSelected = (selectedPaymentIndex == indexPath.row)
             return cell

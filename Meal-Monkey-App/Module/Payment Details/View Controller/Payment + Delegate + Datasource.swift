@@ -19,7 +19,7 @@ extension PaymentDetailsViewController: UITableViewDelegate, UITableViewDataSour
     ///   - section: The section index (always `0` in this case).
     /// - Returns: The total number of payment cards in `arrsharedPaymentCards`.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrsharedPaymentCards.count
+        return paymentDetails.count
     }
     
     /// Provides a cell to display a payment card at a specific index.
@@ -38,12 +38,11 @@ extension PaymentDetailsViewController: UITableViewDelegate, UITableViewDataSour
         cell.delegate = self
         
         // Get card details from shared array
-        let cardDetails = arrsharedPaymentCards[indexPath.row]
+        let cardDetail = paymentDetails[indexPath.row]
         
         // If card number exists, configure the cell
-        if let cardNumber = cardDetails["cardNo"] {
-            cell.configure(with: cardNumber)
-        }
-        return cell
+        // **Change:** Configure the cell with the card number from the Core Data object
+                cell.configure(with: String(cardDetail.cardNumber))
+                return cell
     }
 }

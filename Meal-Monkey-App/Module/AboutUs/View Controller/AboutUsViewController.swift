@@ -9,7 +9,6 @@ import UIKit
 
 /**
  A multi-purpose view controller that can display different types of information based on its `objPageType` property.
- 
  This class is designed to handle the UI and logic for "About Us," "Notifications," "Inbox," and other informational screens.
  It dynamically configures the navigation bar and loads the appropriate data for each page type.
  */
@@ -86,7 +85,6 @@ class AboutUsViewController: UIViewController {
     
     /**
      Handles the action for the back button in the navigation bar.
-     
      This method pops the current view controller from the navigation stack.
      */
     @objc func backButtonTapped() {
@@ -95,7 +93,6 @@ class AboutUsViewController: UIViewController {
     
     /**
      Handles the action for the cart button in the navigation bar.
-     
      This method navigates the user to the `CartViewController`.
      */
     @objc func cartButtonTapped() {

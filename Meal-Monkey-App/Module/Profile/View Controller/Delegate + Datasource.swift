@@ -16,15 +16,26 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
     ///   - picker: The UIImagePickerController instance
     ///   - info: A dictionary containing the picked image and other metadata
     func imagePickerController(
-        _ picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
-    ) {
-        // Set the selected/edited image to the profile image view
-        imgView.image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+            _ picker: UIImagePickerController,
+            didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
+        ) {
+            // **Change:** Capture the edited or original image
+            if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+                self.imgView.image = editedImage
+                self.selectedImage = editedImage // **Change:** Store the selected image in the property
+            } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                self.imgView.image = originalImage
+                self.selectedImage = originalImage // **Change:** Store the selected image in the property
+            }
+            
+            // Dismiss the image picker after selection
+            dismiss(animated: true)
+        }
         
-        // Dismiss the image picker after selection
-        dismiss(animated: true)
-    }
+        // **Change:** Add this delegate method to handle image picker cancellation
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            picker.dismiss(animated: true, completion: nil)
+        }
 }
 
 // MARK: - UITextFieldDelegate

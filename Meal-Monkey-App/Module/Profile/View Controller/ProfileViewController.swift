@@ -34,6 +34,11 @@ class ProfileViewController: UIViewController {
     /// Save button (saves updated profile).
     @IBOutlet weak var btnSave: UIButton!
     
+    var originalEmail: String? //  New property to store the original email
+    
+    var selectedImage: UIImage? //  New property to temporarily hold the selected image
+    
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +52,8 @@ class ProfileViewController: UIViewController {
         imgView.addGestureRecognizer(tabGesture)
         
         // Make profile image circular
-        imgView.layer.cornerRadius = imgView.frame.height / 2
+        imgView.layer.cornerRadius = imgView.frame.size.width / 2
+        imgView.layer.borderWidth = 2
         
         // Set navigation bar title and cart button
         self.setLeftAlignedTitle("Profile")
@@ -107,6 +113,13 @@ class ProfileViewController: UIViewController {
                 lblMobile.text = user.value(forKey: "mobileNo") as? String
                 lblAdress.text = user.value(forKey: "address") as? String
                 lblTitleUser.text = "Hi there, \(lblName.text ?? "User")!"
+                
+                // **Change:** Store the original email to revert later if needed
+                self.originalEmail = user.value(forKey: "email") as? String
+                // **Change:** Load and display the user image from Core Data
+                if let imageData = user.value(forKey: "userImg") as? Data {
+                    imgView.image = UIImage(data: imageData)
+                }
             }
         } catch {
             print("Failed to fetch user data: \(error.localizedDescription)")
@@ -157,26 +170,83 @@ class ProfileViewController: UIViewController {
     
     /// Save button tapped → updates user profile in Core Data.
     @IBAction func btnSaveAction(_ sender: Any) {
+        // **Change:** Retrieve values
+        let name = lblName.text ?? ""
+        let email = lblEmail.text ?? ""
+        let mobile = lblMobile.text ?? ""
+        let address = lblAdress.text ?? ""
+        
+        // **Change:** Use a switch statement for validation
+        switch true {
+        case name.isEmpty:
+            UIAlertController.showAlert(title: "Error", message: "Please enter name", viewController: self)
+            return
+        case email.isEmpty:
+            UIAlertController.showAlert(title: "Error", message: "Please enter email", viewController: self)
+            return
+        case !email.isValidEmail:
+            UIAlertController.showAlert(title: "Invalid Email", message: "Please enter a valid email address.", viewController: self)
+            return
+        case mobile.isEmpty:
+            UIAlertController.showAlert(title: "Error", message: "Please enter mobile number", viewController: self)
+            return
+        case mobile.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) != nil:
+            UIAlertController.showAlert(title: "Error", message: "Mobile number must contain only digits", viewController: self)
+            return
+        case mobile.count != 10:
+            UIAlertController.showAlert(title: "Error", message: "Mobile number must be exactly 10 digits.", viewController: self)
+            return
+        case address.isEmpty:
+            UIAlertController.showAlert(title: "Error", message: "Please enter address", viewController: self)
+            return
+        default:
+            // All validations passed, proceed with saving
+            break
+        }
         guard let savedUserIDString = UserDefaults.standard.string(forKey: "loggedInUserID"),
               let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let newEmail = lblEmail.text ?? ""
+        let fetchRequestExistingEmail = NSFetchRequest<NSManagedObject>(entityName: "User")
+        let predicateExistingEmail = NSPredicate(format: "email == %@ AND userID != %@", newEmail, savedUserIDString)
+        fetchRequestExistingEmail.predicate = predicateExistingEmail
+        do {
+            let existingUsers = try managedContext.fetch(fetchRequestExistingEmail)
+            
+            if !existingUsers.isEmpty {
+                // **Change 2:** If an existing user is found with the new email, show an alert
+                UIAlertController.showAlert(title: "Email Already Exists", message: "This email address is already in use by another user.", viewController: self)
+                lblEmail.text = originalEmail
+                return
+            }
+        } catch {
+            print("Failed to check for existing email: \(error.localizedDescription)")
+            UIAlertController.showAlert(title: "Error", message: "An error occurred while validating the email.", viewController: self)
+            return
+        }
+        
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
         let predicate = NSPredicate(format: "userID == %@", savedUserIDString)
         fetchRequest.predicate = predicate
         
         do {
             let users = try managedContext.fetch(fetchRequest)
-            
             if let userToUpdate = users.first {
                 // Update values
                 userToUpdate.setValue(lblName.text, forKey: "name")
                 userToUpdate.setValue(lblEmail.text, forKey: "email")
                 userToUpdate.setValue(lblMobile.text, forKey: "mobileNo")
                 userToUpdate.setValue(lblAdress.text, forKey: "address")
-                
+                // **Change:** Save the new image to Core Data if a new one was selected
+                            if let newImage = self.selectedImage {
+                                if let imageData = newImage.jpegData(compressionQuality: 1.0) {
+                                    userToUpdate.setValue(imageData, forKey: "userImg")
+                                }
+                            }
                 // Save context
                 try managedContext.save()
                 

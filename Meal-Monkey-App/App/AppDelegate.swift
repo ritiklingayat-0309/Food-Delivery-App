@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {
-                print("✅ Notification permission granted")
+                print("Notification permission granted")
             } else {
-                print("❌ Notification permission denied")
+                print("Notification permission denied")
             }
         }
         
@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             willPresent notification: UNNotification,
             withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
         ) {
-            print("📩 Notification received in foreground: \(notification.request.content.body)")
+            print("Notification received in foreground: \(notification.request.content.body)")
             completionHandler([.banner, .sound])
         }
     
@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
            didReceive response: UNNotificationResponse,
            withCompletionHandler completionHandler: @escaping () -> Void
        ) {
-           print("👆 Notification tapped: \(response.notification.request.content.body)")
+           print("Notification tapped: \(response.notification.request.content.body)")
            completionHandler()
        }
     

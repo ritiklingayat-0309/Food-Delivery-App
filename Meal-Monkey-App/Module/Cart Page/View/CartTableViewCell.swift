@@ -9,7 +9,6 @@ import UIKit
 
 /**
  A custom table view cell used to display a single product in the user's shopping cart or wishlist.
- 
  This cell is responsible for displaying the product's image, name, price, and other details. It also
  contains action buttons for deleting or liking an item, handled by closures.
  */
@@ -54,7 +53,6 @@ class CartTableViewCell: UITableViewCell {
     
     /**
      Configures the cell with a `ProductModel` object.
-     
      This method populates all the labels and the image view of the cell
      using the data from the provided product model.
      
@@ -78,9 +76,7 @@ class CartTableViewCell: UITableViewCell {
     
     /**
      Handles the action for the delete button.
-     
      This method calls the `onDelete` closure if it is not nil.
-     
      - Parameter sender: The button that triggered the action.
      */
     @IBAction func btnDeleteAction(_ sender: Any) {
@@ -89,9 +85,7 @@ class CartTableViewCell: UITableViewCell {
     
     /**
      Handles the action for the like button.
-     
      This method calls the `onLike` closure if it is not nil.
-     
      - Parameter sender: The button that triggered the action.
      */
     @IBAction func btnLikeAction(_ sender: Any) {

@@ -31,7 +31,7 @@ class HomeViewController: UIViewController, HomeTableTableViewCellDelegate, UITe
         arrrecentItems = RecentItemsHelper.shared.getRecentItems()
         tblView.reloadData()
         filterProducts(with: txtSearch.text)
-        
+        self.setGoodMoringName()
         // Load saved address and call delegate method
         if let savedAddress = UserDefaults.standard.string(forKey: "savedAddress") {
             didSelectAddress(savedAddress)
@@ -40,14 +40,7 @@ class HomeViewController: UIViewController, HomeTableTableViewCellDelegate, UITe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Set greeting with user name if available
-        if let userName = fetchLoggedInUserName() {
-            setLeftAlignedTitle("Good morning \(userName)!")
-        } else {
-            setLeftAlignedTitle("Good morning!")
-        }
-        
+        self.setGoodMoringName()
         // Setup UI components
         setCartButton(target: self, action: #selector(btnCartTapped))
         EditStyle.setborder(textfields: [txtSearch])
@@ -73,6 +66,15 @@ class HomeViewController: UIViewController, HomeTableTableViewCellDelegate, UITe
             } else {
                 print("❌ Permission denied")
             }
+        }
+    }
+    
+    private func setGoodMoringName() {
+        // Set greeting with user name if available
+        if let userName = fetchLoggedInUserName() {
+            setLeftAlignedTitle("Good morning \(userName)!")
+        } else {
+            setLeftAlignedTitle("Good morning!")
         }
     }
     

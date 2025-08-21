@@ -10,14 +10,12 @@ import UIKit
 
 /**
  An extension to `AboutUsViewController` to conform to the `UITableViewDelegate` and `UITableViewDataSource` protocols.
- 
  This extension handles the data and presentation logic for the table view, dynamically configuring cells based on the current page type.
  */
 extension AboutUsViewController: UITableViewDelegate, UITableViewDataSource {
     
     /**
      Determines the number of rows to display in the table view.
-     
      - Parameter tableView: The table view requesting this information.
      - Parameter section: An index number identifying a section in the table view.
      - Returns: The number of items in the `currentData` array.
@@ -28,12 +26,11 @@ extension AboutUsViewController: UITableViewDelegate, UITableViewDataSource {
     
     /**
      Configures and returns a table view cell for a specified row.
-     
      The cell's appearance is determined by the `objPageType` property, which selects the appropriate configuration method on the `AboutUsTableViewCell`.
      
      - Parameters:
-        - tableView: The table view requesting the cell.
-        - indexPath: An index path that specifies the location of the row.
+     - tableView: The table view requesting the cell.
+     - indexPath: An index path that specifies the location of the row.
      - Returns: A configured `AboutUsTableViewCell` instance.
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

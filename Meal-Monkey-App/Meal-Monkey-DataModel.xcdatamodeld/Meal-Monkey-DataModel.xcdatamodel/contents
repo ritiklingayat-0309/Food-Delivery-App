@@ -52,6 +52,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="userID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="userImg" optional="YES" attributeType="Binary"/>
         <relationship name="cartItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Cart" inverseName="user" inverseEntity="Cart"/>
         <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Order" inverseName="user" inverseEntity="Order"/>
         <relationship name="paymentDetails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PaymentDetails" inverseName="user" inverseEntity="PaymentDetails"/>

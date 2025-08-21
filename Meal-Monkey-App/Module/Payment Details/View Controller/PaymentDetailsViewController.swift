@@ -7,8 +7,7 @@
 
 import UIKit
 
-/// Shared array to store payment card details across the app
-var arrsharedPaymentCards: [[String: String]] = []
+
 
 /// ViewController that manages and displays payment details
 class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCellDelegate {
@@ -32,16 +31,18 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
     @IBOutlet weak var viewAddCard: UIView!                 /// Container view for add card form
     @IBOutlet weak var viewScroll: UIView!                  /// Scroll container with styling
     
+    var paymentDetails: [PaymentDetails] = []
+    
     // MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tblView.reloadData()
+        fetchPaymentDetails()
         updateUI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        arrsharedPaymentCards = UserDefaults.standard.loadPaymentCards()
         
         // Register custom cell
         tblView.register(UINib(nibName: "PaymentDetailsTableViewCell", bundle: nil),
@@ -55,21 +56,8 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
         ViewTop.isHidden = true
         viewAddCard.isHidden = true
         
-        // Style add card view
-        viewAddCard.layer.cornerRadius = 20
-        viewAddCard.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        viewAddCard.layer.shadowColor = UIColor.black.cgColor
-        viewAddCard.layer.shadowOpacity = 0.2
-        viewAddCard.layer.shadowOffset = CGSize(width: 0, height: -2)
-        viewAddCard.layer.shadowRadius = 10
-        
-        // Style scroll view
-        viewScroll.layer.cornerRadius = 20
-        viewScroll.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        viewScroll.layer.shadowColor = UIColor.black.cgColor
-        viewScroll.layer.shadowOpacity = 0.2
-        viewScroll.layer.shadowOffset = CGSize(width: 0, height: -2)
-        viewScroll.layer.shadowRadius = 10
+        styleCardLikeView(viewAddCard)
+        styleCardLikeView(viewScroll)
         
         // Apply border & padding to textfields/buttons
         EditStyle.setborder(textfields: [txtCardNo, txtSecurityCode, btnAddAnotherCart,
@@ -78,10 +66,15 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
                                           txtLastName, txtExpiryMonth, txtExpiryYear], paddingWidth: 29)
     }
     
+    private func fetchPaymentDetails() {
+            self.paymentDetails = CoreDataManager.shared.fetchPaymentDetails()
+            updateUI()
+        }
+    
     // MARK: - UI Update Helper
     /// Updates the UI depending on whether cards are available
     private func updateUI() {
-        if arrsharedPaymentCards.isEmpty {
+        if paymentDetails.isEmpty {
             lblEmptyCard.isHidden = false
             tblView.isHidden = true
         } else {
@@ -89,6 +82,15 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
             tblView.isHidden = false
             tblView.reloadData()
         }
+    }
+    
+    func styleCardLikeView(_ view: UIView){
+        view.layer.cornerRadius = 20
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.2
+        view.layer.shadowOffset = CGSize(width: 0, height: -2)
+        view.layer.shadowRadius = 10
     }
     
     // MARK: - Navigation Button Actions
@@ -203,11 +205,16 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
                                         viewController: self)
             
         default:
-            let newCard: [String: String] = ["cardNo": cardNumber]
-            arrsharedPaymentCards.append(newCard)
-            UserDefaults.standard.savePaymentCards(arrsharedPaymentCards)
+            // **Change:** Call CoreDataManager to save the data
+            CoreDataManager.shared.savePaymentDetails(cardNumber: cardNumber,
+                                                         securityCode: securityCode,
+                                                         firstName: firstName,
+                                                         lastName: lastName,
+                                                         expiryMonth: expiryMonth,
+                                                         expiryYear: expiryYear)
             tblView.reloadData()
             updateUI()
+            self.fetchPaymentDetails()
             btnCrossAction(self)
         }
     }
@@ -216,9 +223,10 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
     /// Handles delete action from cell
     func didTapDeleteButton(in cell: PaymentDetailsTableViewCell) {
         guard let indexPath = tblView.indexPath(for: cell) else { return }
-        arrsharedPaymentCards.remove(at: indexPath.row)
-        UserDefaults.standard.savePaymentCards(arrsharedPaymentCards)
-        tblView.deleteRows(at: [indexPath], with: .fade)
-        updateUI()
+        let paymentDetailToDelete = paymentDetails[indexPath.row]
+        CoreDataManager.shared.deletePaymentDetail(paymentDetailToDelete)
+        paymentDetails.remove(at: indexPath.row)
+                tblView.deleteRows(at: [indexPath], with: .fade)
+                updateUI()
     }
 }

@@ -44,7 +44,6 @@ class RecentItemsHelper {
     
     /**
      Retrieves the current list of recent items.
-     
      - Returns: An array of `ProductModel` objects representing the recent items.
      */
     func getRecentItems() -> [ProductModel] {

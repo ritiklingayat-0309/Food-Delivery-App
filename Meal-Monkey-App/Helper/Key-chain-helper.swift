@@ -20,7 +20,6 @@ class KeychainHelper {
      Saves a string value to the Keychain with a specified key.
      This method will first attempt to delete any existing item with the same key
      before saving the new one, ensuring that the value is always up-to-date.
-     
      - Parameters:
      - key: The unique key used to identify the item in the Keychain.
      - value: The string value to be stored securely.

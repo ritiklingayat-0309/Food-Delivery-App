@@ -73,7 +73,6 @@ extension OrderListViewController: UITableViewDelegate, UITableViewDataSource {
     
     /**
      Handles the event when a row is selected in the table view.
-     
      Navigates to the `MyOrderViewController` to show detailed information for the selected order.
      
      - Parameters:

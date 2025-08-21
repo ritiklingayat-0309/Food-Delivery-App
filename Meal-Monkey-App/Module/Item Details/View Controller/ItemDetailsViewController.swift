@@ -47,11 +47,11 @@ class ItemDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setCartButton(target: self, action: #selector(cartButtonTapped))
         scrollViewDetails.showsVerticalScrollIndicator = false
         
         // Setup navigation and cart buttons
-        self.setCartButton(target: self, action: #selector(cartButtonTapped))
+        //        self.setCartButton(target: self, action: #selector(cartButtonTapped))
         setLeftAlignedTitleWithBack("Food Detail", target: self, action: #selector(backButtonTapped))
         
         // Round corners for buttons and views
@@ -89,6 +89,7 @@ class ItemDetailsViewController: UIViewController {
             self.activityIndictor.isHidden = true
         }
     }
+    
     
     // MARK: - UI Handling
     
@@ -132,7 +133,6 @@ class ItemDetailsViewController: UIViewController {
     }
     
     // MARK: - Button Actions
-    
     /// Handle back button tap
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
@@ -283,5 +283,6 @@ class ItemDetailsViewController: UIViewController {
         } catch {
             print("Failed to save cart data: \(error.localizedDescription)")
         }
+        CartManager.shared.notifyCartUpdated()
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		A3489A2B2E5760A400D1A2E2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		A3489A2C2E5760A400D1A2E2 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		A3C74D1C2E3BA1960030AA51 /* Meal-Monkey-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal-Monkey-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -42,10 +44,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A3489A2A2E5760A300D1A2E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3489A2B2E5760A400D1A2E2 /* libsqlite3.tbd */,
+				A3489A2C2E5760A400D1A2E2 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A3C74D132E3BA1960030AA51 = {
 			isa = PBXGroup;
 			children = (
 				A3C74D1E2E3BA1960030AA51 /* Meal-Monkey-App */,
+				A3489A2A2E5760A300D1A2E2 /* Frameworks */,
 				A3C74D1D2E3BA1960030AA51 /* Products */,
 			);
 			sourceTree = "<group>";

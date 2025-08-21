@@ -8,7 +8,6 @@
 import UIKit
 
 /// `SplashScreenViewController`
-///
 /// This controller is responsible for displaying the splash screen when the app launches.
 /// After a short delay, it checks the user's login status (stored in Keychain) and decides
 /// whether to show the main tab bar (if logged in) or navigate to the login screen.
@@ -43,7 +42,6 @@ class SplashScreenViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    
     /// Loads the main tab bar from `HomeStoryboard`
     /// and sets it as the root view controller of the app's window.
     private func showMainTabBar() {
