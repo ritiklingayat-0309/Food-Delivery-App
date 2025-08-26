@@ -98,7 +98,7 @@
                                                                         <color key="backgroundColor" name="Text Field background"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system">
-                                                                            <color key="baseForegroundColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="baseForegroundColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </buttonConfiguration>
                                                                         <connections>
                                                                             <action selector="btnPasswordEyeAction:" destination="qG2-vW-1az" eventType="touchUpInside" id="DI4-Bf-I0r"/>
@@ -123,7 +123,7 @@
                                                                         <color key="backgroundColor" name="Text Field background"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system">
-                                                                            <color key="baseForegroundColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="baseForegroundColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </buttonConfiguration>
                                                                         <connections>
                                                                             <action selector="btnConfirPassEyeAction:" destination="qG2-vW-1az" eventType="touchUpInside" id="My8-ma-TQG"/>
@@ -394,7 +394,7 @@
                                                         <color key="backgroundColor" name="Text Field background"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system">
-                                                            <color key="baseForegroundColor" red="0.2901960784" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="baseForegroundColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="btnEyeAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rBb-gz-HpH"/>
@@ -734,7 +734,7 @@ continue to reset your password</string>
                                         <color key="backgroundColor" name="Text Field background"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system">
-                                            <color key="baseForegroundColor" red="0.2901960784" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseForegroundColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="btnEyeNewPasswordAction:" destination="47F-JU-mPz" eventType="touchUpInside" id="az6-lU-DMh"/>
@@ -776,7 +776,7 @@ continue to reset your password</string>
                                         <color key="backgroundColor" name="Text Field background"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system">
-                                            <color key="baseForegroundColor" red="0.2901960784" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseForegroundColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="btnEyeConfirmPasAction:" destination="47F-JU-mPz" eventType="touchUpInside" id="ROU-u9-Uj2"/>

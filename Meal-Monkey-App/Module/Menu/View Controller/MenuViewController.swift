@@ -16,6 +16,9 @@ class MenuViewController: UIViewController {
     /// Array of menu items (preloaded using `Menu.addMenuList()`)
     var arrMenu: [Menu] = Menu.addMenuList()
     
+    /// Filtered menu list based on search text
+    var filteredMenu: [Menu] = []
+    
     // MARK: - Outlets
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
@@ -23,6 +26,10 @@ class MenuViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Copy original menu into filtered menu at start
+        filteredMenu = arrMenu
+
         
         // Setup navigation bar
         self.setLeftAlignedTitle("Menu")

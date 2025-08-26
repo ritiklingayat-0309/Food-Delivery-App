@@ -16,7 +16,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     /// Returns the number of rows in the menu section.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrMenu.count
+        return filteredMenu.count
     }
     
     /// Configures and returns the cell for a given row at indexPath.
@@ -26,7 +26,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
             for: indexPath
         ) as! MenuTableViewCell
         cell.selectionStyle = .none
-        cell.configMenu(menu: arrMenu[indexPath.row])
+        cell.configMenu(menu: filteredMenu[indexPath.row])
         cell.backgroundColor = .clear
         return cell
     }
@@ -35,7 +35,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     /// Handles row selection and navigates based on selected menu item.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedItem = arrMenu[indexPath.row]
+        let selectedItem = filteredMenu[indexPath.row]
         
         switch selectedItem.intsTag {
         case 0:
@@ -78,7 +78,20 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MenuViewController : UITextFieldDelegate
-{
+extension MenuViewController: UITextFieldDelegate {
     
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let searchText = textField.text?.lowercased() ?? ""
+        
+        if searchText.isEmpty {
+            // Reset to full list if search is empty
+            filteredMenu = arrMenu
+        } else {
+            // Filter menu items by name
+            filteredMenu = arrMenu.filter { $0.foodName.lowercased().contains(searchText) }
+        }
+        
+        // Reload table with filtered data
+        tblView.reloadData()
+    }
 }
