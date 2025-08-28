@@ -1,0 +1,942 @@
+[
+    {
+        "intId": 1,
+        "strProductName": "Masala Dosa",
+        "strProductDescription":
+            "A crispy, golden crepe made from fermented rice and lentil batter, filled with a spiced potato mash and served with sambar and coconut chutney.",
+        "floatProductRating": 4.8,
+        "doubleProductPrice": 120,
+        "strProductImage": "ic_masaladosa",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 350,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "food"
+    },
+    {
+        "intId": 2,
+        "strProductName": "Idli Sambar",
+        "strProductDescription":
+            "Soft and fluffy steamed rice cakes served with a hearty lentil and vegetable stew, seasoned with aromatic spices.",
+        "floatProductRating": 4.5,
+        "doubleProductPrice": 90,
+        "strProductImage": "ic_idlisambar",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 280,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "food"
+    },
+    {
+        "intId": 3,
+        "strProductName": "Vada",
+        "strProductDescription":
+            "A savory, deep-fried fritter made from lentil batter, crispy on the outside and soft on the inside, best enjoyed with sambar or chutney.",
+        "floatProductRating": 4.4,
+        "doubleProductPrice": 70,
+        "strProductImage": "ic_vada",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 210,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "food"
+    },
+    {
+        "intId": 4,
+        "strProductName": "Uttapam",
+        "strProductDescription":
+            "A thick, savory pancake made from fermented rice batter, topped with finely chopped vegetables like onions, tomatoes, and chillies.",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 110,
+        "strProductImage": "ic_uttapam",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 240,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "food"
+    },
+    {
+        "intId": 5,
+        "strProductName": "Rava Upma",
+        "strProductDescription":
+            "A delicious and healthy breakfast dish made from roasted semolina and a mix of vegetables, seasoned with mustard seeds and curry leaves.",
+        "floatProductRating": 4.3,
+        "doubleProductPrice": 85,
+        "strProductImage": "ic_ravaupma",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 180,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "food"
+    },
+    {
+        "intId": 6,
+        "strProductName": "Payasam",
+        "strProductDescription":
+            "A traditional creamy and sweet pudding made from rice, milk, jaggery, and flavored with cardamom and nuts, perfect for any celebration.",
+        "floatProductRating": 4.7,
+        "doubleProductPrice": 100,
+        "strProductImage": "ic_payasam",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 150,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 7,
+        "strProductName": "Kesari Bath",
+        "strProductDescription":
+            "A rich, sweet dish made from semolina, ghee, sugar, and saffron, garnished with cashews and raisins for a delightful treat.",
+        "floatProductRating": 4.5,
+        "doubleProductPrice": 80,
+        "strProductImage": "ic_kesaribath",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 130,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 8,
+        "strProductName": "Mysore Pak",
+        "strProductDescription":
+            "A classic sweet made from chickpea flour, sugar, and generous amounts of ghee, offering a dense, fudge-like texture that melts in your mouth.",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 150,
+        "strProductImage": "ic_mysorepak",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 170,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 9,
+        "strProductName": "Coconut Burfi",
+        "strProductDescription":
+            "A simple yet delicious fudge made from grated coconut, sugar, and milk, often flavored with cardamom and decorated with edible silver leaf.",
+        "floatProductRating": 4.4,
+        "doubleProductPrice": 120,
+        "strProductImage": "ic_coconutburfi",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 110,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 10,
+        "strProductName": "Adhirasam",
+        "strProductDescription":
+            "A traditional sweet pastry made from rice flour and jaggery, deep-fried to a golden-brown finish, with a slightly chewy and crunchy texture.",
+        "floatProductRating": 4.2,
+        "doubleProductPrice": 90,
+        "strProductImage": "ic_adhirasam",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 95,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 11,
+        "strProductName": "Filter Coffee",
+        "strProductDescription":
+            "A strong, aromatic coffee decoction brewed with a traditional filter and mixed with frothy, hot milk, a perfect start to the day.",
+        "floatProductRating": 4.9,
+        "doubleProductPrice": 60,
+        "strProductImage": "ic_filtercoffee",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 400,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 12,
+        "strProductName": "Madras Kapi",
+        "strProductDescription":
+            "A distinct type of South Indian coffee known for its strong, full-bodied flavor and unique brewing style, served with a perfect foam.",
+        "floatProductRating": 4.8,
+        "doubleProductPrice": 65,
+        "strProductImage": "ic_madraskapi",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 250,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 13,
+        "strProductName": "Neer Mor",
+        "strProductDescription":
+            "A refreshing buttermilk drink seasoned with ginger, green chillies, curry leaves, and a pinch of asafoetida, perfect for a hot day.",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 50,
+        "strProductImage": "ic_neermor",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 180,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 14,
+        "strProductName": "Jigarthanda",
+        "strProductDescription":
+            "A famous cold beverage from Madurai, made with milk, almond gum, sarsaparilla syrup, and a scoop of ice cream, offering a rich and creamy taste.",
+        "floatProductRating": 4.7,
+        "doubleProductPrice": 110,
+        "strProductImage": "ic_jigarthanda",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 220,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 15,
+        "strProductName": "Sundaikkai Mor Kulambu",
+        "strProductDescription":
+            "A spicy and tangy buttermilk-based curry with sundakkai (turkey berry), offering a unique flavor profile and served with rice.",
+        "floatProductRating": 4.4,
+        "doubleProductPrice": 130,
+        "strProductImage": "Ic_sundaikkai_morkulambu",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 100,
+        "objProductCategory": "SouthIndian",
+        "objProductType": "food"
+    },
+    {
+        "intId": 16,
+        "strProductName": "Hakka Noodles",
+        "strProductDescription":
+            "Delicious stir-fried noodles tossed with fresh vegetables, flavorful sauces, and aromatic spices, giving a perfect balance of taste and texture in every bite.",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 150,
+        "strProductImage": "ic_hakkanoodles",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 220,
+        "objProductCategory": "Chinese",
+        "objProductType": "food"
+    },
+    {
+        "intId": 17,
+        "strProductName": "Manchurian",
+        "strProductDescription":
+            "Crispy vegetable balls cooked in a tangy and spicy Manchurian sauce, packed with bold flavors and perfect for both rice and noodles lovers.",
+        "floatProductRating": 4.3,
+        "doubleProductPrice": 180,
+        "strProductImage": "ic_manchurian",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 180,
+        "objProductCategory": "Chinese",
+        "objProductType": "food"
+    },
+    {
+        "intId": 18,
+        "strProductName": "Spring Rolls",
+        "strProductDescription":
+            "Golden-fried rolls stuffed with a savory mix of vegetables, noodles, and seasonings, served with a sweet and spicy dipping sauce for extra flavor.",
+        "floatProductRating": 4.4,
+        "doubleProductPrice": 120,
+        "strProductImage": "ic_springrolls",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 150,
+        "objProductCategory": "Chinese",
+        "objProductType": "food"
+    },
+    {
+        "intId": 19,
+        "strProductName": "Schezwan Fried Rice",
+        "strProductDescription":
+            "Fragrant fried rice cooked with colorful vegetables, tossed in fiery Schezwan sauce, and loaded with irresistible spicy flavors for a satisfying meal.",
+        "floatProductRating": 4.5,
+        "doubleProductPrice": 160,
+        "strProductImage": "ic_schezwanfriedrice",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 210,
+        "objProductCategory": "Chinese",
+        "objProductType": "food"
+    },
+    {
+        "intId": 20,
+        "strProductName": "Kung Pao Tofu",
+        "strProductDescription":
+            "Soft tofu cubes stir-fried with crunchy peanuts, vegetables, and a flavorful Kung Pao sauce, creating a perfect mix of sweet, spicy, and savory flavors.",
+        "floatProductRating": 4.2,
+        "doubleProductPrice": 200,
+        "strProductImage": "ic_kungpaotofu",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 140,
+        "objProductCategory": "Chinese",
+        "objProductType": "food"
+    },
+    {
+        "intId": 21,
+        "strProductName": "Mango Pudding",
+        "strProductDescription":
+            "Smooth and creamy pudding made from fresh mangoes, milk, and a hint of sweetness, chilled to perfection for a refreshing dessert experience.",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 100,
+        "strProductImage": "ic_mangopudding",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 95,
+        "objProductCategory": "Chinese",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 22,
+        "strProductName": "Sesame Balls",
+        "strProductDescription":
+            "Crispy golden sesame-coated balls with a sweet red bean paste filling, offering a delightful combination of nutty, crunchy, and soft textures.",
+        "floatProductRating": 4.3,
+        "doubleProductPrice": 110,
+        "strProductImage": "ic_sesameballs",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 105,
+        "objProductCategory": "Chinese",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 23,
+        "strProductName": "Egg Tart",
+        "strProductDescription":
+            "Flaky pastry shell filled with smooth, sweet egg custard, baked until golden brown and perfect for enjoying with tea or coffee.",
+        "floatProductRating": 4.5,
+        "doubleProductPrice": 90,
+        "strProductImage": "ic_eggtart",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 120,
+        "objProductCategory": "Chinese",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 24,
+        "strProductName": "Almond Cookies",
+        "strProductDescription":
+            "Crispy and buttery cookies with a rich almond flavor, perfect for a light snack or as a sweet companion to your tea.",
+        "floatProductRating": 4.4,
+        "doubleProductPrice": 85,
+        "strProductImage": "ic_almondcookies",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 110,
+        "objProductCategory": "Chinese",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 25,
+        "strProductName": "Lychee Jelly",
+        "strProductDescription":
+            "Soft and wobbly jelly infused with the tropical sweetness of fresh lychee, served chilled for a refreshing dessert treat.",
+        "floatProductRating": 4.2,
+        "doubleProductPrice": 95,
+        "strProductImage": "ic_lycheejelly",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 90,
+        "objProductCategory": "Chinese",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 26,
+        "strProductName": "Bubble Tea",
+        "strProductDescription":
+            "Refreshing milk tea served with chewy tapioca pearls, blending creamy, sweet, and fun textures into every delicious sip.",
+        "floatProductRating": 4.7,
+        "doubleProductPrice": 150,
+        "strProductImage": "ic_bubbletea",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 300,
+        "objProductCategory": "Chinese",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 27,
+        "strProductName": "Jasmine Tea",
+        "strProductDescription":
+            "A fragrant green tea infused with the delicate aroma of jasmine flowers, offering a soothing and calming tea experience.",
+        "floatProductRating": 4.5,
+        "doubleProductPrice": 80,
+        "strProductImage": "ic_jasminetea",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 200,
+        "objProductCategory": "Chinese",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 28,
+        "strProductName": "Soy Milk",
+        "strProductDescription":
+            "Smooth and slightly sweet beverage made from soybeans, rich in protein and perfect for a healthy drink option.",
+        "floatProductRating": 4.3,
+        "doubleProductPrice": 60,
+        "strProductImage": "ic_soymilk",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 150,
+        "objProductCategory": "Chinese",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 29,
+        "strProductName": "Chrysanthemum Tea",
+        "strProductDescription":
+            "A light, floral herbal tea made from dried chrysanthemum flowers, naturally caffeine-free and enjoyed hot or cold.",
+        "floatProductRating": 4.4,
+        "doubleProductPrice": 70,
+        "strProductImage": "ic_chrysanthemumtea",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 130,
+        "objProductCategory": "Chinese",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 30,
+        "strProductName": "Iced Lemon Tea",
+        "strProductDescription":
+            "Refreshing black tea served over ice with fresh lemon juice, offering a perfect balance of citrusy tang and sweetness.",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 90,
+        "strProductImage": "ic_icedlemontea",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 170,
+        "objProductCategory": "Chinese",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 31,
+        "strProductName": "Paneer Tikka Masala",
+        "strProductDescription": "Very tasty Punjabi dish",
+        "floatProductRating": 4.5,
+        "doubleProductPrice": 200,
+        "strProductImage": "ic_paneertikka",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 120,
+        "objProductCategory": "Punjabi",
+        "objProductType": "food"
+    },
+    {
+        "intId": 32,
+        "strProductName": "Chole Bhature",
+        "strProductDescription": "Spicy and rich Punjabi food",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 150,
+        "strProductImage": "ic_cholebhature",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 200,
+        "objProductCategory": "Punjabi",
+        "objProductType": "food"
+    },
+    {
+        "intId": 33,
+        "strProductName": "Butter Naan",
+        "strProductDescription": "Soft naan with butter",
+        "floatProductRating": 4.4,
+        "doubleProductPrice": 40,
+        "strProductImage": "ic_butternaan",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 300,
+        "objProductCategory": "Punjabi",
+        "objProductType": "food"
+    },
+    {
+        "intId": 34,
+        "strProductName": "Dal Makhani",
+        "strProductDescription": "Slow cooked dal with butter",
+        "floatProductRating": 4.7,
+        "doubleProductPrice": 180,
+        "strProductImage": "ic_dalmakhani",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 250,
+        "objProductCategory": "Punjabi",
+        "objProductType": "food"
+    },
+    {
+        "intId": 35,
+        "strProductName": "Aloo Paratha",
+        "strProductDescription": "Stuffed paratha with butter",
+        "floatProductRating": 4.5,
+        "doubleProductPrice": 100,
+        "strProductImage": "ic_alooparatha",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 180,
+        "objProductCategory": "Punjabi",
+        "objProductType": "food"
+    },
+    {
+        "intId": 36,
+        "strProductName": "Gulab Jamun",
+        "strProductDescription": "Soft sweet balls in syrup",
+        "floatProductRating": 4.8,
+        "doubleProductPrice": 90,
+        "strProductImage": "ic_gulabjamun",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 300,
+        "objProductCategory": "Punjabi",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 37,
+        "strProductName": "Rasgulla",
+        "strProductDescription": "Spongy sweet balls",
+        "floatProductRating": 4.7,
+        "doubleProductPrice": 85,
+        "strProductImage": "ic_rasgulla",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 250,
+        "objProductCategory": "Punjabi",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 38,
+        "strProductName": "Jalebi",
+        "strProductDescription": "Crispy and sweet",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 70,
+        "strProductImage": "ic_jalebi",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 280,
+        "objProductCategory": "Punjabi",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 39,
+        "strProductName": "Kheer",
+        "strProductDescription": "Sweet rice pudding",
+        "floatProductRating": 4.5,
+        "doubleProductPrice": 110,
+        "strProductImage": "ic_kheer",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 200,
+        "objProductCategory": "Punjabi",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 40,
+        "strProductName": "Ladoo",
+        "strProductDescription": "Traditional Indian sweet",
+        "floatProductRating": 4.4,
+        "doubleProductPrice": 60,
+        "strProductImage": "ic_ladoo",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 150,
+        "objProductCategory": "Punjabi",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 41,
+        "strProductName": "Lassi",
+        "strProductDescription": "Sweet Punjabi yogurt drink",
+        "floatProductRating": 4.8,
+        "doubleProductPrice": 50,
+        "strProductImage": "ic_lassi",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 400,
+        "objProductCategory": "Punjabi",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 42,
+        "strProductName": "Masala Chai",
+        "strProductDescription": "Spicy Indian tea",
+        "floatProductRating": 4.7,
+        "doubleProductPrice": 30,
+        "strProductImage": "ic_masalachai",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 350,
+        "objProductCategory": "Punjabi",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 43,
+        "strProductName": "Badam Milk",
+        "strProductDescription": "Sweet almond flavored milk",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 60,
+        "strProductImage": "ic_badammilk",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 250,
+        "objProductCategory": "Punjabi",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 44,
+        "strProductName": "Rose Sharbat",
+        "strProductDescription": "Refreshing rose drink",
+        "floatProductRating": 4.5,
+        "doubleProductPrice": 40,
+        "strProductImage": "ic_rosesharbat",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 200,
+        "objProductCategory": "Punjabi",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 45,
+        "strProductName": "Cold Coffee",
+        "strProductDescription": "Chilled coffee drink",
+        "floatProductRating": 4.4,
+        "doubleProductPrice": 80,
+        "strProductImage": "ic_coldcoffee",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 180,
+        "objProductCategory": "Punjabi",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 46,
+        "strProductName": "Undhiyu",
+        "strProductDescription": "Traditional Gujarati mixed vegetable curry",
+        "floatProductRating": 4.5,
+        "doubleProductPrice": 150,
+        "strProductImage": "Ic_Undhiyu",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 120,
+        "objProductCategory": "Gujarati",
+        "objProductType": "food"
+    },
+    {
+        "intId": 47,
+        "strProductName": "Khaman Dhokla",
+        "strProductDescription": "Soft and fluffy steamed gram flour snack",
+        "floatProductRating": 4.7,
+        "doubleProductPrice": 50,
+        "strProductImage": "Ic_Khaman_Dhokla",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 200,
+        "objProductCategory": "Gujarati",
+        "objProductType": "food"
+    },
+    {
+        "intId": 48,
+        "strProductName": "Thepla",
+        "strProductDescription": "Spiced flatbread made from whole wheat flour",
+        "floatProductRating": 4.4,
+        "doubleProductPrice": 40,
+        "strProductImage": "Ic_Thepla",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 180,
+        "objProductCategory": "Gujarati",
+        "objProductType": "food"
+    },
+    {
+        "intId": 49,
+        "strProductName": "Sev Tameta Nu Shaak",
+        "strProductDescription": "Sweet-tangy tomato curry topped with sev",
+        "floatProductRating": 4.3,
+        "doubleProductPrice": 90,
+        "strProductImage": "Ic_Sev_Tameta",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 110,
+        "objProductCategory": "Gujarati",
+        "objProductType": "food"
+    },
+    {
+        "intId": 50,
+        "strProductName": "Bajra Rotla + Ringan olo",
+        "strProductDescription":
+            "Pearl millet flatbread served with jaggery & ghee",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 60,
+        "strProductImage": "ic_Bajra_Rotla_Ringan_Olo",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 95,
+        "objProductCategory": "Gujarati",
+        "objProductType": "food"
+    },
+    {
+        "intId": 51,
+        "strProductName": "Basundi",
+        "strProductDescription": "Sweetened thickened milk with cardamom",
+        "floatProductRating": 4.8,
+        "doubleProductPrice": 120,
+        "strProductImage": "Ic_Basundi",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 130,
+        "objProductCategory": "Gujarati",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 52,
+        "strProductName": "Shrikhand",
+        "strProductDescription": "Sweet yogurt dessert flavored with saffron",
+        "floatProductRating": 4.9,
+        "doubleProductPrice": 100,
+        "strProductImage": "Ic_Shrikhand",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 150,
+        "objProductCategory": "Gujarati",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 53,
+        "strProductName": "Mohanthal",
+        "strProductDescription": "Gram flour fudge with ghee & dry fruits",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 140,
+        "strProductImage": "Ic_Mohanthal",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 85,
+        "objProductCategory": "Gujarati",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 54,
+        "strProductName": "Sutarfeni",
+        "strProductDescription":
+            "Flaky sweet made from rice flour & sugar syrup",
+        "floatProductRating": 4.5,
+        "doubleProductPrice": 150,
+        "strProductImage": "Ic_SutarFeni",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 75,
+        "objProductCategory": "Gujarati",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 55,
+        "strProductName": "Ghari",
+        "strProductDescription": "Sweet made from mawa & dry fruits",
+        "floatProductRating": 4.4,
+        "doubleProductPrice": 160,
+        "strProductImage": "Ic_Ghari",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 60,
+        "objProductCategory": "Gujarati",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 56,
+        "strProductName": "Chaas",
+        "strProductDescription": "Refreshing buttermilk with spices",
+        "floatProductRating": 4.7,
+        "doubleProductPrice": 20,
+        "strProductImage": "Ic_Chaas",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 210,
+        "objProductCategory": "Gujarati",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 57,
+        "strProductName": "Masala Chai",
+        "strProductDescription": "Spiced Indian tea brewed with milk",
+        "floatProductRating": 4.8,
+        "doubleProductPrice": 25,
+        "strProductImage": "Ic_Masala_Chai",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 300,
+        "objProductCategory": "Gujarati",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 58,
+        "strProductName": "Kokum Sharbat",
+        "strProductDescription": "Sweet-sour drink made from kokum fruit",
+        "floatProductRating": 4.5,
+        "doubleProductPrice": 30,
+        "strProductImage": "Ic_Kokum_Sharbat",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 90,
+        "objProductCategory": "Gujarati",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 59,
+        "strProductName": "Limbu Pani",
+        "strProductDescription": "Fresh lemon water with sugar and salt",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 15,
+        "strProductImage": "Ic_Limbu_Pani",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 250,
+        "objProductCategory": "Gujarati",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 60,
+        "strProductName": "Thandai",
+        "strProductDescription": "Cold milk drink with spices & nuts",
+        "floatProductRating": 4.7,
+        "doubleProductPrice": 50,
+        "strProductImage": "Ic_Thandai",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 80,
+        "objProductCategory": "Gujarati",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 61,
+        "strProductName": "Margherita Pizza",
+        "strProductDescription":
+            "Classic pizza with tomato sauce, mozzarella, and basil",
+        "floatProductRating": 4.8,
+        "doubleProductPrice": 300,
+        "strProductImage": "ic_margherita_pizza",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 500,
+        "objProductCategory": "WesternFood",
+        "objProductType": "food"
+    },
+    {
+        "intId": 62,
+        "strProductName": "Spaghetti Carbonara",
+        "strProductDescription": "Pasta with creamy sauce, bacon, and parmesan",
+        "floatProductRating": 4.7,
+        "doubleProductPrice": 280,
+        "strProductImage": "ic_spaghetti_carbonara",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 420,
+        "objProductCategory": "WesternFood",
+        "objProductType": "food"
+    },
+    {
+        "intId": 63,
+        "strProductName": "Cheeseburger",
+        "strProductDescription":
+            "Juicy beef patty with cheese, lettuce, and tomato",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 250,
+        "strProductImage": "ic_cheese_burger",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 600,
+        "objProductCategory": "WesternFood",
+        "objProductType": "food"
+    },
+    {
+        "intId": 64,
+        "strProductName": "Grilled Chicken",
+        "strProductDescription":
+            "Tender chicken breast seasoned and grilled to perfection",
+        "floatProductRating": 4.5,
+        "doubleProductPrice": 270,
+        "strProductImage": "ic_grilled_chicken",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 350,
+        "objProductCategory": "WesternFood",
+        "objProductType": "food"
+    },
+    {
+        "intId": 65,
+        "strProductName": "Fish and Chips",
+        "strProductDescription": "Crispy battered fish served with fries",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 320,
+        "strProductImage": "ic_fish_and_chips",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 280,
+        "objProductCategory": "WesternFood",
+        "objProductType": "food"
+    },
+    {
+        "intId": 66,
+        "strProductName": "Chocolate Brownie",
+        "strProductDescription": "Rich chocolate dessert with a fudgy texture",
+        "floatProductRating": 4.9,
+        "doubleProductPrice": 120,
+        "strProductImage": "ic_chocolate_brownie",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 500,
+        "objProductCategory": "WesternFood",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 67,
+        "strProductName": "Cheesecake",
+        "strProductDescription":
+            "Creamy dessert with biscuit base and fruit topping",
+        "floatProductRating": 4.8,
+        "doubleProductPrice": 180,
+        "strProductImage": "ic_cheesecake",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 450,
+        "objProductCategory": "WesternFood",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 68,
+        "strProductName": "Apple Pie",
+        "strProductDescription":
+            "Classic pastry with cinnamon-spiced apple filling",
+        "floatProductRating": 4.7,
+        "doubleProductPrice": 150,
+        "strProductImage": "ic_apple_pie",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 400,
+        "objProductCategory": "WesternFood",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 69,
+        "strProductName": "Panna Cotta",
+        "strProductDescription":
+            "Italian creamy dessert served with fruit coulis",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 170,
+        "strProductImage": "ic_panna_cotta",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 320,
+        "objProductCategory": "WesternFood",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 70,
+        "strProductName": "Tiramisu",
+        "strProductDescription":
+            "Coffee-flavored Italian dessert with mascarpone",
+        "floatProductRating": 4.9,
+        "doubleProductPrice": 200,
+        "strProductImage": "ic_tiramisu",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 480,
+        "objProductCategory": "WesternFood",
+        "objProductType": "Desserts"
+    },
+    {
+        "intId": 71,
+        "strProductName": "Cappuccino",
+        "strProductDescription": "Espresso-based coffee with steamed milk foam",
+        "floatProductRating": 4.8,
+        "doubleProductPrice": 90,
+        "strProductImage": "ic_cappuccino",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 550,
+        "objProductCategory": "WesternFood",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 72,
+        "strProductName": "Latte",
+        "strProductDescription": "Creamy espresso drink with steamed milk",
+        "floatProductRating": 4.7,
+        "doubleProductPrice": 100,
+        "strProductImage": "ic_latte",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 500,
+        "objProductCategory": "WesternFood",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 73,
+        "strProductName": "Hot Chocolate",
+        "strProductDescription":
+            "Rich and creamy cocoa drink topped with whipped cream",
+        "floatProductRating": 4.9,
+        "doubleProductPrice": 110,
+        "strProductImage": "ic_hot_chocolate",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 450,
+        "objProductCategory": "WesternFood",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 74,
+        "strProductName": "Iced Coffee",
+        "strProductDescription": "Chilled coffee drink served over ice",
+        "floatProductRating": 4.6,
+        "doubleProductPrice": 80,
+        "strProductImage": "ic_iced_coffee",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 400,
+        "objProductCategory": "WesternFood",
+        "objProductType": "Beverages"
+    },
+    {
+        "intId": 75,
+        "strProductName": "Lemon Iced Tea",
+        "strProductDescription": "Refreshing tea served cold with lemon flavor",
+        "floatProductRating": 4.5,
+        "doubleProductPrice": 70,
+        "strProductImage": "ic_lemon_iced_tea",
+        "intProductQty": null,
+        "intTotalNumberOfRatings": 380,
+        "objProductCategory": "WesternFood",
+        "objProductType": "Beverages"
+    }
+]

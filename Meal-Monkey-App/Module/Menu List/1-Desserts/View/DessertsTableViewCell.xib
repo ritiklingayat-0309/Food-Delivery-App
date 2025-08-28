@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="DessertsTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="231" id="KGk-i7-Jjw" customClass="DessertsTableViewCell" customModule="Meal_Monkey_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="462" height="231"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="462" height="231"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dGZ-MK-obT">
+                        <rect key="frame" x="0.0" y="4" width="462" height="227"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="227" id="Fbq-5Z-GF0"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_common" translatesAutoresizingMaskIntoConstraints="NO" id="kEc-sa-Fw5">
+                        <rect key="frame" x="0.0" y="90" width="462" height="141"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mQ-jm-vaX">
+                        <rect key="frame" x="21" y="157.33333333333334" width="441" height="18.666666666666657"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMe-zL-ZQf">
+                        <rect key="frame" x="21" y="185" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="F3z-0y-ZOG"/>
+                            <constraint firstAttribute="width" constant="20" id="ljv-kl-E8e"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="ic_start"/>
+                    </button>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MOX-6b-eFf">
+                        <rect key="frame" x="45" y="180" width="165" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.9" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9E-TW-hCe">
+                                <rect key="frame" x="0.0" y="0.0" width="15.333333333333334" height="30"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
+                                <color key="textColor" red="0.9882352941176471" green="0.37647058823529411" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minute by tuk tuk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWW-mY-RFQ">
+                                <rect key="frame" x="20.333333333333329" y="0.0" width="91" height="30"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_dot" translatesAutoresizingMaskIntoConstraints="NO" id="qnh-6o-hsA">
+                                <rect key="frame" x="116.33333333333334" y="0.0" width="2" height="30"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dessert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3G-fx-NlE">
+                                <rect key="frame" x="123.33333333333336" y="0.0" width="41.666666666666671" height="30"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="7mQ-jm-vaX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="1hC-ta-yR3"/>
+                    <constraint firstAttribute="bottom" secondItem="dGZ-MK-obT" secondAttribute="bottom" id="62J-JX-2gn"/>
+                    <constraint firstAttribute="trailing" secondItem="7mQ-jm-vaX" secondAttribute="trailing" id="BMQ-cb-H1E"/>
+                    <constraint firstItem="vMe-zL-ZQf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="FEq-u3-TOc"/>
+                    <constraint firstItem="vMe-zL-ZQf" firstAttribute="top" secondItem="7mQ-jm-vaX" secondAttribute="bottom" constant="9" id="K5V-cT-Yqo"/>
+                    <constraint firstItem="MOX-6b-eFf" firstAttribute="top" secondItem="7mQ-jm-vaX" secondAttribute="bottom" constant="4" id="Klt-pL-bsm"/>
+                    <constraint firstAttribute="trailing" secondItem="dGZ-MK-obT" secondAttribute="trailing" id="NHd-th-k0N"/>
+                    <constraint firstItem="MOX-6b-eFf" firstAttribute="leading" secondItem="vMe-zL-ZQf" secondAttribute="trailing" constant="4" id="YEx-hS-vnU"/>
+                    <constraint firstItem="vMe-zL-ZQf" firstAttribute="centerY" secondItem="V9E-TW-hCe" secondAttribute="centerY" id="a2U-Dz-2jQ"/>
+                    <constraint firstItem="dGZ-MK-obT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="k8O-7p-JU1"/>
+                    <constraint firstItem="dGZ-MK-obT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tUF-27-uVD"/>
+                    <constraint firstAttribute="bottom" secondItem="MOX-6b-eFf" secondAttribute="bottom" constant="21" id="ufb-ix-oxe"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgViewTop" destination="dGZ-MK-obT" id="Uc3-tJ-r86"/>
+                <outlet property="lblCategory" destination="P3G-fx-NlE" id="wSc-4G-2h3"/>
+                <outlet property="lblDessertName" destination="7mQ-jm-vaX" id="gsc-pL-8um"/>
+                <outlet property="lblRating" destination="V9E-TW-hCe" id="7fh-KF-oqB"/>
+                <outlet property="lblRestroName" destination="CWW-mY-RFQ" id="NZc-of-VIe"/>
+            </connections>
+            <point key="canvasLocation" x="140.45801526717557" y="22.887323943661972"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_common" width="375" height="103"/>
+        <image name="ic_dot" width="2" height="2"/>
+        <image name="ic_start" width="14" height="14.333333015441895"/>
+    </resources>
+</document>
