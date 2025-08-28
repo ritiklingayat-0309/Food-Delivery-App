@@ -1,38 +1,64 @@
 //
-//  Menu Model .swift
+//  Menu Model.swift
 //  Meal-Monkey-App
 //
 //  Created by Ritik Lingayat on 05/08/25.
 //
 
-
-import Foundation
 import Foundation
 
+/// Model class representing a menu category in the Meal-Monkey app.
 class Menu {
-    var foodName: String
-    var quantity: Int
-    var img: String?   // Image name (from asset catalog)
     
-    init(foodName: String, quantity: Int, img: String? = nil) {
+    // MARK: - Properties
+    
+    /// The name of the food category.
+    var foodName: String
+    
+    /// The total quantity of items available in this category.
+    var quantity: Int
+    
+    /// Optional image name representing the category.
+    var img: String?
+    
+    /// Tag used to identify the menu item (used for navigation logic).
+    let intsTag: Int
+    
+    // MARK: - Initializer
+    
+    /// Initializes a new `Menu` instance.
+    /// - Parameters:
+    ///   - foodName: The name of the food category.
+    ///   - quantity: The number of items available in this category.
+    ///   - img: The optional image name for the category.
+    ///   - intsTag: The tag identifier for the category.
+    init(foodName: String, quantity: Int, img: String? = nil, intsTag: Int) {
         self.foodName = foodName
         self.quantity = quantity
         self.img = img
+        self.intsTag = intsTag
     }
     
-    // Class method to return an array of Menu items
+    // MARK: - Static Methods
+    
+    /// Provides a default list of menu categories for the app.
+    /// - Returns: An array of `Menu` objects with sample data.
     class func addMenuList() -> [Menu] {
         return [
             Menu(foodName: "Food",
                  quantity: 25,
-                 img: "ic_Food"),
+                 img: "ic_Food",
+                 intsTag: 0),
+            
             Menu(foodName: "Beverages",
                  quantity: 25,
-                 img: "ic_Beverages"),
+                 img: "ic_Beverages",
+                 intsTag: 1),
+            
             Menu(foodName: "Desserts",
-                 quantity: 20, img:
-                    "ic_Desert"),
+                 quantity: 20,
+                 img: "ic_Desert",
+                 intsTag: 2),
         ]
     }
 }
-

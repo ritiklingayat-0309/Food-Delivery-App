@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +20,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="go4-1J-Hxn">
                         <rect key="frame" x="20" y="10" width="280" height="43"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  johndoe@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vf-iv-aeD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   ritik.lingayat@brainvire.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vf-iv-aeD">
                                 <rect key="frame" x="0.0" y="0.0" width="230.33333333333334" height="43"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
@@ -33,6 +32,9 @@
                                 <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system">
                                     <color key="baseForegroundColor" name="login Background Color"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnCircleAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bKi-xX-OCQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,6 +52,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btncircle" destination="yWO-uV-Lwq" id="pay-mc-pO7"/>
+                <outlet property="lblEmail" destination="4vf-iv-aeD" id="TTS-vd-TY5"/>
                 <outlet property="stacViewGmail" destination="go4-1J-Hxn" id="kKL-aH-r1N"/>
             </connections>
             <point key="canvasLocation" x="30.534351145038165" y="29.577464788732396"/>

@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJt-pu-fxw">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJt-pu-fxw">
                                 <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xB-k3-wUR">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="807.33333333333337"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lZz-Kg-RNP">
-                                                <rect key="frame" x="75" y="92" width="243" height="313"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lZz-Kg-RNP">
+                                                <rect key="frame" x="0.0" y="92" width="393" height="313"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="313" id="RSy-9h-PNL"/>
@@ -86,14 +86,14 @@
                                             <constraint firstAttribute="trailing" secondItem="kbm-XF-yoi" secondAttribute="trailing" constant="34" id="3Aa-HA-EjI"/>
                                             <constraint firstItem="kbm-XF-yoi" firstAttribute="top" secondItem="1QL-AP-wIE" secondAttribute="bottom" constant="41" id="Bhu-I9-8zp"/>
                                             <constraint firstItem="byN-QJ-Qif" firstAttribute="top" secondItem="lZz-Kg-RNP" secondAttribute="bottom" constant="30" id="OWG-rH-VZK"/>
-                                            <constraint firstItem="lZz-Kg-RNP" firstAttribute="leading" secondItem="8xB-k3-wUR" secondAttribute="leading" constant="75" id="QPm-at-YO4"/>
+                                            <constraint firstItem="lZz-Kg-RNP" firstAttribute="leading" secondItem="8xB-k3-wUR" secondAttribute="leading" id="QPm-at-YO4"/>
                                             <constraint firstAttribute="trailing" secondItem="LYB-b8-s9b" secondAttribute="trailing" constant="50" id="SP8-fO-IZh"/>
                                             <constraint firstItem="lZz-Kg-RNP" firstAttribute="top" secondItem="8xB-k3-wUR" secondAttribute="top" constant="92" id="VJZ-ut-TIL"/>
                                             <constraint firstItem="kbm-XF-yoi" firstAttribute="leading" secondItem="8xB-k3-wUR" secondAttribute="leading" constant="34" id="VoG-6u-WER"/>
                                             <constraint firstItem="LYB-b8-s9b" firstAttribute="top" secondItem="byN-QJ-Qif" secondAttribute="bottom" constant="34" id="XVs-Uz-bkc"/>
                                             <constraint firstItem="byN-QJ-Qif" firstAttribute="leading" secondItem="8xB-k3-wUR" secondAttribute="leading" constant="95" id="Y3Y-JT-Et4"/>
                                             <constraint firstAttribute="bottom" secondItem="kbm-XF-yoi" secondAttribute="bottom" constant="110" id="bqZ-9n-01D"/>
-                                            <constraint firstAttribute="trailing" secondItem="lZz-Kg-RNP" secondAttribute="trailing" constant="75" id="co3-pX-Urm"/>
+                                            <constraint firstAttribute="trailing" secondItem="lZz-Kg-RNP" secondAttribute="trailing" id="co3-pX-Urm"/>
                                             <constraint firstAttribute="trailing" secondItem="byN-QJ-Qif" secondAttribute="trailing" constant="95" id="czh-c1-FDb"/>
                                             <constraint firstItem="1QL-AP-wIE" firstAttribute="leading" secondItem="8xB-k3-wUR" secondAttribute="leading" constant="52" id="hCD-qo-SU0"/>
                                             <constraint firstItem="1QL-AP-wIE" firstAttribute="top" secondItem="LYB-b8-s9b" secondAttribute="bottom" constant="33" id="hnJ-Lb-NN2"/>
@@ -138,7 +138,7 @@
             <color red="0.48600000143051147" green="0.49000000953674316" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="login Background Color">
-            <color red="0.98799997568130493" green="0.37599998712539673" blue="0.067000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.9882352941176471" green="0.37647058823529411" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

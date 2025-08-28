@@ -21,26 +21,26 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbi-Fi-sdr">
                                 <rect key="frame" x="0.0" y="124" width="440" height="764"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nwm-RN-tqh">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwm-RN-tqh">
                                         <rect key="frame" x="0.0" y="0.0" width="440" height="764"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BV4-N4-6U3">
-                                                <rect key="frame" x="0.0" y="0.0" width="440" height="786"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="440" height="766"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yca-dM-xAq">
-                                                        <rect key="frame" x="129" y="42" width="178" height="34.666666666666657"/>
+                                                        <rect key="frame" x="129" y="21.999999999999996" width="178" height="34.666666666666657"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
                                                         <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add your details to sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ch3-xK-Z5Z">
-                                                        <rect key="frame" x="96" y="89.666666666666657" width="243" height="16.333333333333329"/>
+                                                        <rect key="frame" x="96" y="69.666666666666657" width="243" height="16.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <color key="textColor" name="Font Color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="CHd-p7-9Rg">
-                                                        <rect key="frame" x="34" y="141" width="372" height="560"/>
+                                                        <rect key="frame" x="34" y="121" width="372" height="560"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="grI-DQ-SBi">
                                                                 <rect key="frame" x="0.0" y="0.0" width="372" height="56"/>
@@ -98,7 +98,7 @@
                                                                         <color key="backgroundColor" name="Text Field background"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system">
-                                                                            <color key="baseForegroundColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="baseForegroundColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </buttonConfiguration>
                                                                         <connections>
                                                                             <action selector="btnPasswordEyeAction:" destination="qG2-vW-1az" eventType="touchUpInside" id="DI4-Bf-I0r"/>
@@ -123,7 +123,7 @@
                                                                         <color key="backgroundColor" name="Text Field background"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system">
-                                                                            <color key="baseForegroundColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="baseForegroundColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </buttonConfiguration>
                                                                         <connections>
                                                                             <action selector="btnConfirPassEyeAction:" destination="qG2-vW-1az" eventType="touchUpInside" id="My8-ma-TQG"/>
@@ -138,11 +138,14 @@
                                                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up">
                                                                     <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="btnSignUpAction:" destination="qG2-vW-1az" eventType="touchUpInside" id="BM3-yp-biu"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Yu-Z1-UcS">
-                                                        <rect key="frame" x="77" y="726" width="286" height="17"/>
+                                                        <rect key="frame" x="77" y="706" width="286" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="vNm-e7-tTg"/>
                                                         </constraints>
@@ -188,7 +191,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="9Yu-Z1-UcS" secondAttribute="bottom" constant="43" id="QfW-e8-sbc"/>
                                                     <constraint firstAttribute="trailing" secondItem="9Yu-Z1-UcS" secondAttribute="trailing" constant="77" id="UKW-ZK-d0O"/>
                                                     <constraint firstItem="9Yu-Z1-UcS" firstAttribute="top" secondItem="CHd-p7-9Rg" secondAttribute="bottom" constant="25" id="ZXn-zV-zlg"/>
-                                                    <constraint firstItem="Yca-dM-xAq" firstAttribute="top" secondItem="BV4-N4-6U3" secondAttribute="top" constant="42" id="cMU-s1-BKH"/>
+                                                    <constraint firstItem="Yca-dM-xAq" firstAttribute="top" secondItem="BV4-N4-6U3" secondAttribute="top" constant="22" id="cMU-s1-BKH"/>
                                                     <constraint firstAttribute="trailing" secondItem="ch3-xK-Z5Z" secondAttribute="trailing" constant="101" id="qEA-TX-g96"/>
                                                     <constraint firstItem="ch3-xK-Z5Z" firstAttribute="top" secondItem="Yca-dM-xAq" secondAttribute="bottom" constant="13" id="voq-EE-Clv"/>
                                                 </constraints>
@@ -280,7 +283,7 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsQ-uY-16x">
                                                 <rect key="frame" x="34" y="293.33333333333331" width="372" height="56"/>
-                                                <color key="backgroundColor" red="0.9882352941176471" green="0.37647058823529411" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="login Background Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="3T3-b8-Dec"/>
                                                 </constraints>
@@ -391,7 +394,7 @@
                                                         <color key="backgroundColor" name="Text Field background"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system">
-                                                            <color key="baseForegroundColor" red="0.2901960784" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="baseForegroundColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="btnEyeAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rBb-gz-HpH"/>
@@ -570,43 +573,39 @@ continue to reset your password</string>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="316-ge-Rz8">
                                 <rect key="frame" x="34" y="329" width="372" height="56"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2zc-WY-GlY">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2zc-WY-GlY">
                                         <rect key="frame" x="0.0" y="0.0" width="72" height="56"/>
                                         <color key="backgroundColor" name="Text Field background"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="1uX-MW-4bx"/>
                                         </constraints>
-                                        <color key="textColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="39"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="Hte-F7-pE0" id="zqN-Aq-Usx"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W5y-KI-cnN">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W5y-KI-cnN">
                                         <rect key="frame" x="100" y="0.0" width="72" height="56"/>
                                         <color key="backgroundColor" name="Text Field background"/>
-                                        <color key="textColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="39"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="Hte-F7-pE0" id="Px4-od-mo5"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kqR-oo-qLC">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kqR-oo-qLC">
                                         <rect key="frame" x="200" y="0.0" width="72" height="56"/>
                                         <color key="backgroundColor" name="Text Field background"/>
-                                        <color key="textColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="Hte-F7-pE0" id="zEr-VM-otX"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1E6-xd-1yr">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1E6-xd-1yr">
                                         <rect key="frame" x="300" y="0.0" width="72" height="56"/>
                                         <color key="backgroundColor" name="Text Field background"/>
-                                        <color key="textColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -735,7 +734,7 @@ continue to reset your password</string>
                                         <color key="backgroundColor" name="Text Field background"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system">
-                                            <color key="baseForegroundColor" red="0.2901960784" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseForegroundColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="btnEyeNewPasswordAction:" destination="47F-JU-mPz" eventType="touchUpInside" id="az6-lU-DMh"/>
@@ -777,7 +776,7 @@ continue to reset your password</string>
                                         <color key="backgroundColor" name="Text Field background"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system">
-                                            <color key="baseForegroundColor" red="0.2901960784" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseForegroundColor" red="0.71372549019607845" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="btnEyeConfirmPasAction:" destination="47F-JU-mPz" eventType="touchUpInside" id="ROU-u9-Uj2"/>

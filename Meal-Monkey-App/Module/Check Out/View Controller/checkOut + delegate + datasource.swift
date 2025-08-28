@@ -8,39 +8,84 @@
 import Foundation
 import UIKit
 
+// MARK: - UITableView Delegate & DataSource
+/// Extension to manage table view delegate and data source methods for `CheckOutViewController`.
 extension CheckOutViewController : UITableViewDelegate, UITableViewDataSource {
+    
+    /// Returns the number of rows in the table view
+    /// Includes shared payment cards plus Cash on Delivery and Gmail options
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return paymentDetails.count + 2
     }
     
+    /// Configures and returns the cell for a given index path
+    /// - Parameter indexPath: IndexPath of the cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
-        case 0:
-            return tableView.dequeueReusableCell(
-                withIdentifier: "CashOnDeliveryTableViewCell",
-                for: indexPath
-            ) as! CashOnDeliveryTableViewCell
             
-        case 1, 2, 3:
-            let cell =
-            tableView.dequeueReusableCell(
-                withIdentifier: "VisaTableViewCell",
-                for: indexPath
-            ) as! VisaTableViewCell
-            let cardIndex = indexPath.row - 1
-            if cardIndex < arrCards.count {
-                cell.lblCardNo.text = arrCards[cardIndex]
-            }
+            // Cash on Delivery cell
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CashOnDeliveryTableViewCell", for: indexPath) as! CashOnDeliveryTableViewCell
+            cell.btnSelect.isSelected = (selectedPaymentIndex == 0)
             return cell
             
-        case 4:
-            return tableView.dequeueReusableCell(
-                withIdentifier: "GmailTableViewCell",
-                for: indexPath
-            ) as! GmailTableViewCell
+            // Visa / Card cells
+        case 1..<1 + paymentDetails.count:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "VisaTableViewCell", for: indexPath) as! VisaTableViewCell
+            let cardIndex = indexPath.row - 1
+            let cardDetails = paymentDetails[cardIndex] // **Change:** Get the object from the Core Data array
+            
+            let fullCardNumber = cardDetails.cardNumber
+            let lastFourDigits = fullCardNumber?.suffix(4)
+            cell.lblCardNo.text = "**** **** **** \(lastFourDigits ?? "")"
+                       
+                       cell.btnSelect.isSelected = (selectedPaymentIndex == indexPath.row)
+                       return cell
+            
+            // Gmail payment option cell
+        case 1 + paymentDetails.count:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GmailTableViewCell", for: indexPath) as! GmailTableViewCell
+            cell.btncircle.isSelected = (selectedPaymentIndex == indexPath.row)
+            return cell
+            
         default:
             return UITableViewCell()
         }
     }
+    
+    /// Handles selection of a table view row
+    /// Updates the selected payment method index and reloads the table
+    /// - Parameter indexPath: IndexPath of the selected row
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedPaymentIndex = indexPath.row
+        tblView.reloadData()
+    }
 }
 
+// MARK: - UITextField Delegate
+
+/// Extension to handle keyboard return key navigation between text fields
+extension CheckOutViewController : UITextFieldDelegate {
+    
+    /// Handles the Return key press for text fields
+    /// Moves focus to the next text field or dismisses keyboard
+    /// - Parameter textField: Current active UITextField
+    /// - Returns: Bool indicating if the action was handled
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case txtCardNo:
+            txtExpMonth.becomeFirstResponder()
+        case txtExpMonth:
+            txtExpYear.becomeFirstResponder()
+        case txtExpYear:
+            txtSecurityCode.becomeFirstResponder()
+        case txtSecurityCode:
+            txtFirstName.becomeFirstResponder()
+        case txtFirstName:
+            txtLastName.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+}
