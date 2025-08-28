@@ -215,7 +215,11 @@ class HomeViewController: UIViewController, HomeTableTableViewCellDelegate, UITe
     
     // MARK: - Actions
     @IBAction func btnDropDownClick(_ sender: Any) {
-        // TODO: Implement address dropdown logic
+        let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+        if let secondVc = storyboard.instantiateViewController(withIdentifier:"MapViewController") as? MapViewController {
+            secondVc.delegate = self  
+            navigationController?.pushViewController(secondVc, animated: true)
+        }
     }
     
     // MARK: - Filtering

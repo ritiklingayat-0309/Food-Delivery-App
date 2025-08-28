@@ -22,6 +22,7 @@ class MenuViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
+    @IBOutlet weak var lblEmpty: UILabel!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -49,6 +50,8 @@ class MenuViewController: UIViewController {
         // Set delegates
         tblView.delegate = self
         tblView.dataSource = self
+        lblEmpty.text = "No Result found"
+        lblEmpty.isHidden = true
     }
     
     // MARK: - Navigation Actions

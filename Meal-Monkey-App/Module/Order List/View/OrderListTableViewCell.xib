@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,44 +18,56 @@
                 <rect key="frame" x="0.0" y="0.0" width="322" height="126"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_burger" translatesAutoresizingMaskIntoConstraints="NO" id="kec-e6-1ir">
-                        <rect key="frame" x="10" y="10" width="100" height="100"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="100" id="FrB-6F-PwH"/>
-                            <constraint firstAttribute="height" constant="100" id="ght-Fp-Z6g"/>
-                        </constraints>
-                    </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DOb-20-Z2U">
-                        <rect key="frame" x="120" y="10" width="192" height="106"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CW8-Zq-3dp">
+                        <rect key="frame" x="0.0" y="0.0" width="322" height="106"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order No :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uT-hC-qMF">
-                                <rect key="frame" x="0.0" y="0.0" width="192" height="22"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name :" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V13-pm-plZ">
-                                <rect key="frame" x="0.0" y="42" width="192" height="22"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="su0-Ma-RC9">
-                                <rect key="frame" x="0.0" y="84" width="192" height="22"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
-                                <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_burger" translatesAutoresizingMaskIntoConstraints="NO" id="kec-e6-1ir">
+                                <rect key="frame" x="10" y="10" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="FwT-53-ns8"/>
+                                    <constraint firstAttribute="height" constant="80" id="Yrj-BR-Vqc"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="DOb-20-Z2U">
+                                <rect key="frame" x="100" y="10" width="212" height="86"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Order No :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uT-hC-qMF">
+                                        <rect key="frame" x="0.0" y="0.0" width="212" height="16.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Product Name :" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V13-pm-plZ">
+                                        <rect key="frame" x="0.0" y="19.333333333333332" width="212" height="13.999999999999996"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                        <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Total :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="su0-Ma-RC9">
+                                        <rect key="frame" x="0.0" y="36.333333333333343" width="212" height="49.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                    </stackView>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kec-e6-1ir" firstAttribute="top" secondItem="CW8-Zq-3dp" secondAttribute="top" constant="10" id="2Pd-u0-Vvq"/>
+                            <constraint firstItem="kec-e6-1ir" firstAttribute="leading" secondItem="CW8-Zq-3dp" secondAttribute="leading" constant="10" id="Eue-eP-jeh"/>
+                            <constraint firstAttribute="bottom" secondItem="DOb-20-Z2U" secondAttribute="bottom" constant="10" id="K1A-H6-ZWf"/>
+                            <constraint firstAttribute="trailing" secondItem="DOb-20-Z2U" secondAttribute="trailing" constant="10" id="mrc-Q9-usA"/>
+                            <constraint firstItem="DOb-20-Z2U" firstAttribute="top" secondItem="CW8-Zq-3dp" secondAttribute="top" constant="10" id="y9P-ct-MqY"/>
+                            <constraint firstItem="DOb-20-Z2U" firstAttribute="leading" secondItem="kec-e6-1ir" secondAttribute="trailing" constant="10" id="yQ8-LI-SvP"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="DOb-20-Z2U" secondAttribute="bottom" constant="10" id="CcN-OH-CPm"/>
-                    <constraint firstAttribute="trailing" secondItem="DOb-20-Z2U" secondAttribute="trailing" constant="10" id="FkU-EU-uDG"/>
-                    <constraint firstItem="DOb-20-Z2U" firstAttribute="leading" secondItem="kec-e6-1ir" secondAttribute="trailing" constant="10" id="Phw-hU-5mN"/>
-                    <constraint firstItem="kec-e6-1ir" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Wf8-Za-SYq"/>
-                    <constraint firstItem="DOb-20-Z2U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="YR6-Eh-tcB"/>
-                    <constraint firstItem="kec-e6-1ir" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ksR-aq-CPr"/>
+                    <constraint firstItem="CW8-Zq-3dp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8Y4-qw-btj"/>
+                    <constraint firstAttribute="bottom" secondItem="CW8-Zq-3dp" secondAttribute="bottom" constant="20" id="Rkk-4N-2iO"/>
+                    <constraint firstAttribute="trailing" secondItem="CW8-Zq-3dp" secondAttribute="trailing" id="apz-IE-0lQ"/>
+                    <constraint firstItem="CW8-Zq-3dp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="zl7-Q7-YHO"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -69,5 +82,8 @@
     </objects>
     <resources>
         <image name="ic_burger" width="80" height="80"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

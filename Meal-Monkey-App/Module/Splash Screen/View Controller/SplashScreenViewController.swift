@@ -27,19 +27,23 @@ class SplashScreenViewController: UIViewController {
         
         // Show splash screen for 3 seconds
         sleep(3)
-        
-        // Check login status from Keychain
-        if KeychainHelper.get(key: "LoginStatus") == "true" {
-            // If logged in, navigate to Home tab bar
-            self.showMainTabBar()
-        } else {
-            // If not logged in, navigate to Login screen
-            let storyboard = UIStoryboard(name: "LoginStoryboard", bundle: nil)
-            if let secondVc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-                self.navigationController?.pushViewController(secondVc, animated: true)
+        self.checkLoginStatus()
+    }
+    
+    private func checkLoginStatus() {
+            let isLoggedIn = UserDefaults.standard.string(forKey: "LoginStatus") == "true"
+            
+            if isLoggedIn {
+                // If logged in → go to Home TabBar
+                self.showMainTabBar()
+            } else {
+                // If not logged in → go to Login screen
+                let storyboard = UIStoryboard(name: "LoginStoryboard", bundle: nil)
+                if let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                    self.navigationController?.pushViewController(loginVC, animated: true)
+                }
             }
         }
-    }
     
     // MARK: - Navigation
     /// Loads the main tab bar from `HomeStoryboard`

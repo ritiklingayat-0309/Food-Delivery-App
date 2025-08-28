@@ -67,9 +67,9 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
     }
     
     private func fetchPaymentDetails() {
-            self.paymentDetails = CoreDataManager.shared.fetchPaymentDetails()
-            updateUI()
-        }
+        self.paymentDetails = CoreDataManager.shared.fetchPaymentDetails()
+        updateUI()
+    }
     
     // MARK: - UI Update Helper
     /// Updates the UI depending on whether cards are available
@@ -179,6 +179,11 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
                                         message: "Please enter the security code.",
                                         viewController: self)
             
+        case securityCode.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) != nil:
+            UIAlertController.showAlert(title: "Invalid security code",
+                                        message: "security code number must contain only digits.",
+                                        viewController: self)
+            
         case securityCode.count < 3 || securityCode.count > 4:
             UIAlertController.showAlert(title: "Error",
                                         message: "The security code must be 3 or 4 digits long.",
@@ -205,13 +210,23 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
                                         viewController: self)
             
         default:
+            // Check for duplicate card
+            if CoreDataManager.shared.isCardAlreadyExists(cardNumber: cardNumber) {
+                UIAlertController.showAlert(
+                    title: "Duplicate Card",
+                    message: "This card number is already saved.",
+                    viewController: self
+                )
+                return
+            }
+            
             // **Change:** Call CoreDataManager to save the data
             CoreDataManager.shared.savePaymentDetails(cardNumber: cardNumber,
-                                                         securityCode: securityCode,
-                                                         firstName: firstName,
-                                                         lastName: lastName,
-                                                         expiryMonth: expiryMonth,
-                                                         expiryYear: expiryYear)
+                                                      securityCode: securityCode,
+                                                      firstName: firstName,
+                                                      lastName: lastName,
+                                                      expiryMonth: expiryMonth,
+                                                      expiryYear: expiryYear)
             tblView.reloadData()
             updateUI()
             self.fetchPaymentDetails()
@@ -226,7 +241,7 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
         let paymentDetailToDelete = paymentDetails[indexPath.row]
         CoreDataManager.shared.deletePaymentDetail(paymentDetailToDelete)
         paymentDetails.remove(at: indexPath.row)
-                tblView.deleteRows(at: [indexPath], with: .fade)
-                updateUI()
+        tblView.deleteRows(at: [indexPath], with: .fade)
+        updateUI()
     }
 }

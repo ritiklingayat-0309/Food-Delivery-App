@@ -35,9 +35,9 @@ extension CheckOutViewController : UITableViewDelegate, UITableViewDataSource {
             let cardIndex = indexPath.row - 1
             let cardDetails = paymentDetails[cardIndex] // **Change:** Get the object from the Core Data array
             
-            let fullCardNumber = String(cardDetails.cardNumber)
-                       let lastFourDigits = String(fullCardNumber.suffix(4))
-                       cell.lblCardNo.text = "**** **** **** \(lastFourDigits)"
+            let fullCardNumber = cardDetails.cardNumber
+            let lastFourDigits = fullCardNumber?.suffix(4)
+            cell.lblCardNo.text = "**** **** **** \(lastFourDigits ?? "")"
                        
                        cell.btnSelect.isSelected = (selectedPaymentIndex == indexPath.row)
                        return cell

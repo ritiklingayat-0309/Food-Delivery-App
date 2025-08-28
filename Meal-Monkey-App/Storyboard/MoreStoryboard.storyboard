@@ -189,7 +189,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0v-Op-Lnf">
-                                <rect key="frame" x="21" y="669" width="351" height="56"/>
+                                <rect key="frame" x="21" y="718" width="351" height="56"/>
                                 <color key="backgroundColor" name="login Background Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Pcl-wV-Rb1"/>
@@ -401,8 +401,8 @@ at anytime </string>
                             <constraint firstItem="A2U-be-1xK" firstAttribute="centerX" secondItem="jE6-VS-5Rm" secondAttribute="centerX" id="3v0-Ng-aOP"/>
                             <constraint firstItem="ds2-xr-YTG" firstAttribute="bottom" secondItem="V1n-dP-3mP" secondAttribute="bottom" constant="150" id="4EI-wz-paY"/>
                             <constraint firstItem="XfP-Pr-gvu" firstAttribute="top" secondItem="ds2-xr-YTG" secondAttribute="top" constant="30" id="5bj-8d-bX9"/>
+                            <constraint firstItem="ds2-xr-YTG" firstAttribute="bottom" secondItem="S0v-Op-Lnf" secondAttribute="bottom" constant="10" id="6jE-Ap-FGH"/>
                             <constraint firstItem="A2U-be-1xK" firstAttribute="centerY" secondItem="jE6-VS-5Rm" secondAttribute="centerY" id="7dh-5o-3WO"/>
-                            <constraint firstItem="S0v-Op-Lnf" firstAttribute="top" secondItem="V1n-dP-3mP" secondAttribute="bottom" constant="35" id="E6E-p9-af3"/>
                             <constraint firstItem="ds2-xr-YTG" firstAttribute="trailing" secondItem="S0v-Op-Lnf" secondAttribute="trailing" constant="21" id="G41-ET-2Dv"/>
                             <constraint firstItem="V1n-dP-3mP" firstAttribute="top" secondItem="5Jy-T5-dR2" secondAttribute="bottom" constant="18" id="Gz8-EG-r6M"/>
                             <constraint firstItem="S0v-Op-Lnf" firstAttribute="leading" secondItem="ds2-xr-YTG" secondAttribute="leading" constant="21" id="LVW-6w-Z88"/>
@@ -849,7 +849,7 @@ at anytime </string>
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="606"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9J-2z-rfX">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="584.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="594.33333333333337"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Credit/Debit Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NW3-k1-nSV">
                                                         <rect key="frame" x="21" y="24" width="137" height="16.333333333333329"/>
@@ -1008,7 +1008,7 @@ at anytime </string>
                                                     <constraint firstAttribute="trailing" secondItem="9p0-3U-lNm" secondAttribute="trailing" constant="21" id="Fs7-aI-2Cp"/>
                                                     <constraint firstAttribute="trailing" secondItem="Xcl-Aj-yge" secondAttribute="trailing" constant="21" id="JrK-MW-GLG"/>
                                                     <constraint firstItem="NW3-k1-nSV" firstAttribute="top" secondItem="T9J-2z-rfX" secondAttribute="top" constant="24" id="NhM-U7-elf"/>
-                                                    <constraint firstAttribute="bottom" secondItem="9p0-3U-lNm" secondAttribute="bottom" id="Rrb-71-gqY"/>
+                                                    <constraint firstAttribute="bottom" secondItem="9p0-3U-lNm" secondAttribute="bottom" constant="10" id="Rrb-71-gqY"/>
                                                     <constraint firstItem="Xcl-Aj-yge" firstAttribute="top" secondItem="NW3-k1-nSV" secondAttribute="bottom" constant="19" id="uQE-km-Jeo"/>
                                                     <constraint firstItem="NW3-k1-nSV" firstAttribute="leading" secondItem="T9J-2z-rfX" secondAttribute="leading" constant="21" id="z5y-qE-zSc"/>
                                                 </constraints>
@@ -1042,15 +1042,15 @@ at anytime </string>
                                                 <rect key="frame" x="0.0" y="0.0" width="385" height="584.33333333333337"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NhT-tv-hgn">
-                                                        <rect key="frame" x="360" y="13" width="9" height="9"/>
+                                                        <rect key="frame" x="349" y="13" width="20" height="20"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="9" id="Y8V-wl-x1H"/>
-                                                            <constraint firstAttribute="height" constant="9" id="qm7-9v-Jc6"/>
+                                                            <constraint firstAttribute="width" constant="20" id="Y8V-wl-x1H"/>
+                                                            <constraint firstAttribute="height" constant="20" id="qm7-9v-Jc6"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system">
-                                                            <color key="baseForegroundColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </buttonConfiguration>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="X">
+                                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="btnCancelAction:" destination="r3M-dY-kbO" eventType="touchUpInside" id="TRR-Sz-jcl"/>
                                                         </connections>

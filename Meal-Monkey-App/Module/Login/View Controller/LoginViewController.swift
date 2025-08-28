@@ -120,7 +120,7 @@ class LoginViewController: UIViewController {
                         UserDefaults.standard.set(userID.uuidString, forKey: "loggedInUserID")
                     }
                     self.showMainTabBar()
-                    KeychainHelper.save(key: "LoginStatus", value: "true")
+                    UserDefaults.standard.set("true", forKey: "LoginStatus")
                 } else {
                     UIAlertController.showAlert(title: "Error",
                                                 message: "User not found. Please check your credentials or sign up.",

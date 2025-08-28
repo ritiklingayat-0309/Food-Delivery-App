@@ -42,7 +42,7 @@ extension PaymentDetailsViewController: UITableViewDelegate, UITableViewDataSour
         
         // If card number exists, configure the cell
         // **Change:** Configure the cell with the card number from the Core Data object
-                cell.configure(with: String(cardDetail.cardNumber))
+        cell.configure(with: cardDetail.cardNumber ?? "")
                 return cell
     }
 }

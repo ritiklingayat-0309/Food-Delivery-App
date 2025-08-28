@@ -73,9 +73,9 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
     // MARK: - Lifecycle Methods
     
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            fetchPaymentDetails() // **Change:** Fetch data from Core Data when the view appears
-        }
+        super.viewWillAppear(animated)
+        fetchPaymentDetails() // **Change:** Fetch data from Core Data when the view appears
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,9 +117,9 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
     }
     
     private func fetchPaymentDetails() {
-           self.paymentDetails = CoreDataManager.shared.fetchPaymentDetails()
-           tblView.reloadData()
-       }
+        self.paymentDetails = CoreDataManager.shared.fetchPaymentDetails()
+        tblView.reloadData()
+    }
     
     /// Applies rounded top corners and shadow to a given view.
     /// - Parameter view: The UIView to apply the styling
@@ -167,6 +167,11 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
     
     /// Returns to home page (implementation empty)
     @IBAction func btnBackToHomeAction(_ sender: Any) {
+        self.tabBarController?.tabBar.isHidden = false
+        let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
+        if let secodVc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController{
+            navigationController?.pushViewController(secodVc, animated: true)
+        }
     }
     
     /// Opens MapViewController to change address
@@ -178,8 +183,18 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
         }
     }
     
+    private func clearCardForm() {
+        txtCardNo.text = ""
+        txtExpMonth.text = ""
+        txtExpYear.text = ""
+        txtSecurityCode.text = ""
+        txtFirstName.text = ""
+        txtLastName.text = ""
+    }
+    
     /// Shows the Add Card view
     @IBAction func btnAddCardAction(_ sender: Any) {
+        clearCardForm()
         viewAddCard.isHidden = false
         viewTop.isHidden = false
         btnChangeAddress.isHidden = true
@@ -194,10 +209,8 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
     
     /// Cancels Add Card view
     @IBAction func btnCancelAction(_ sender: Any) {
-       let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
-        if let secondVc = storyboard.instantiateViewController(withIdentifier: "OrderListViewController") as? OrderListViewController{
-            self.navigationController?.pushViewController(secondVc, animated: true)
-        }
+        self.tabBarController?.tabBar.isHidden = false
+        navigationController?.popViewController(animated: true)
     }
     
     /// Handles cross button tap to close Add Card view
@@ -230,6 +243,7 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
             UIAlertController.showAlert(title: "Invalid Input",
                                         message: "Please enter a card number.",
                                         viewController: self)
+            
         case cardNumber.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) != nil:
             UIAlertController.showAlert(title: "Invalid Card Number",
                                         message: "The card number must contain only digits.",
@@ -250,6 +264,12 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
             UIAlertController.showAlert(title: "Error",
                                         message: "Please enter the security code.",
                                         viewController: self)
+            
+        case securityCode.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) != nil:
+            UIAlertController.showAlert(title: "Invalid security code",
+                                        message: "security code number must contain only digits.",
+                                        viewController: self)
+            
         case securityCode.count < 3 || securityCode.count > 4:
             UIAlertController.showAlert(title: "Error",
                                         message: "The security code must be 3 or 4 digits long.",
@@ -258,6 +278,7 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
             UIAlertController.showAlert(title: "Invalid Input",
                                         message: "Please enter the card holder's first name.",
                                         viewController: self)
+            
         case firstName.rangeOfCharacter(from: allowedNameCharacters.inverted) != nil:
             UIAlertController.showAlert(title: "Invalid Input",
                                         message: "Please enter a valid first name using letters",
@@ -271,15 +292,25 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
                                         message: "Please enter a valid last name using letters.",
                                         viewController: self)
         default:
+            // Check for duplicate card
+            if CoreDataManager.shared.isCardAlreadyExists(cardNumber: cardNumber) {
+                UIAlertController.showAlert(
+                    title: "Duplicate Card",
+                    message: "This card number is already saved.",
+                    viewController: self
+                )
+                return
+            }
+            
             // Add new card to shared payment cards and reload table
             CoreDataManager.shared.savePaymentDetails(cardNumber: cardNumber,
-                                                                  securityCode: securityCode,
-                                                                  firstName: firstName,
-                                                                  lastName: lastName,
-                                                                  expiryMonth: expiryMonth,
-                                                                  expiryYear: expiryYear)
-                        
-                        // **Change:** Fetch the updated list of payment details
+                                                      securityCode: securityCode,
+                                                      firstName: firstName,
+                                                      lastName: lastName,
+                                                      expiryMonth: expiryMonth,
+                                                      expiryYear: expiryYear)
+            
+            // **Change:** Fetch the updated list of payment details
             fetchPaymentDetails()
             tblView.reloadData()
             btnCrossAction(self)

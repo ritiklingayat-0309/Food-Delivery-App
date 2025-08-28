@@ -82,7 +82,8 @@ extension OrderListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
         if let detailVC = storyboard.instantiateViewController(withIdentifier: "MyOrderViewController") as? MyOrderViewController {
-            let selectedOrder = arrOrders[indexPath.row]
+            let reversedIndex = arrOrders.count - 1 - indexPath.row
+            let selectedOrder = arrOrders[reversedIndex]
             detailVC.selectedOrder = selectedOrder
             self.navigationController?.pushViewController(detailVC, animated: true)
         }

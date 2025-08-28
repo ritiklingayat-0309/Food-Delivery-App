@@ -57,10 +57,18 @@ class FeaturesViewController: UIViewController {
         // Configure page control
         pageController.numberOfPages = arrFeatures.count
         pageController.currentPage = 0
+        pageController.addTarget(self, action: #selector(pageControlTapped(_:)), for: .valueChanged)
+        
+    }
+    
+    @objc func pageControlTapped(_ sender: UIPageControl) {
+        let page = sender.currentPage
+        let xOffset = CGFloat(page) * colView.frame.width
+        colView.setContentOffset(CGPoint(x: xOffset, y: 0), animated: true)
+        updateLabels(for: page)
     }
     
     // MARK: - UI Update
-    
     /// Updates the title, subtitle, and button text for the given feature page.
     /// - Parameter page: The index of the current feature.
     func updateLabels(for page: Int) {

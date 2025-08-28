@@ -62,24 +62,22 @@ class ItemDetailsViewController: UIViewController {
         viewCountPlus_Minus.layer.borderColor = UIColor(red: 252/255, green: 96/255, blue: 17/255, alpha: 1.0).cgColor
         viewCountPlus_Minus.layer.borderWidth = 1.0
         viewCountPlus_Minus.clipsToBounds = true
-        
         configureUI()
         currentQuantity = 1
-        
         scrollViewDetails.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 200)
-        
         navigationController?.navigationItem.hidesBackButton = true
         
         // Setup detail page view styling
         viewDetailPage.layer.cornerRadius = 42
-        viewDetailPage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        viewDetailPage.clipsToBounds = true
-        viewDetailPage.layer.borderWidth = 2
-        viewDetailPage.layer.borderColor = UIColor.gray.cgColor
+        viewDetailPage.layer.shadowColor = UIColor.gray.cgColor
+        viewDetailPage.layer.shadowOpacity = 1
+        viewDetailPage.layer.shadowOffset = CGSize(width: 0, height: -2)
+        viewDetailPage.layer.shadowRadius = 4
         
         // Show loading indicator while data loads
         hideUIElementsForLoading()
         activityIndictor.startAnimating()
+        activityIndictor.transform = CGAffineTransform(scaleX: 2.0, y: 2.0) 
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.activityIndictor.stopAnimating()

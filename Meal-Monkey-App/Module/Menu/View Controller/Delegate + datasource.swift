@@ -84,13 +84,14 @@ extension MenuViewController: UITextFieldDelegate {
         let searchText = textField.text?.lowercased() ?? ""
         
         if searchText.isEmpty {
-            // Reset to full list if search is empty
+            
             filteredMenu = arrMenu
         } else {
             // Filter menu items by name
             filteredMenu = arrMenu.filter { $0.foodName.lowercased().contains(searchText) }
         }
         
+        lblEmpty.isHidden = !filteredMenu.isEmpty
         // Reload table with filtered data
         tblView.reloadData()
     }

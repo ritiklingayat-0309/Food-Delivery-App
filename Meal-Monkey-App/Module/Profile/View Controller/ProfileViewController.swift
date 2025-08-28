@@ -159,7 +159,7 @@ class ProfileViewController: UIViewController {
     @IBAction func btnSignOutAction(_ sender: Any) {
         // Remove saved user session
         UserDefaults.standard.removeObject(forKey: "loggedInUserID")
-        KeychainHelper.save(key: "LoginStatus", value: "false")
+      
         
         // Navigate to Login screen
         let storyboard = UIStoryboard(name: "LoginStoryboard", bundle: nil)

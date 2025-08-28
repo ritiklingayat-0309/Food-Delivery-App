@@ -24,7 +24,7 @@
         <relationship name="product" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="ordereditem" inverseEntity="Product"/>
     </entity>
     <entity name="PaymentDetails" representedClassName="PaymentDetails" syncable="YES" codeGenerationType="class">
-        <attribute name="cardNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cardNumber" optional="YES" attributeType="String"/>
         <attribute name="expiryMonth" optional="YES" attributeType="String"/>
         <attribute name="expiryYear" optional="YES" attributeType="String"/>
         <attribute name="firstName" optional="YES" attributeType="String"/>

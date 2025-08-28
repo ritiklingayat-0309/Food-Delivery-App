@@ -64,7 +64,7 @@ class CoreDataManager {
         }
         
         let paymentDetail = PaymentDetails(context: managedContext)
-        paymentDetail.cardNumber = Int32(cardNumber) ?? 0
+        paymentDetail.cardNumber = cardNumber
         paymentDetail.securityCode = Int32(securityCode) ?? 0
         paymentDetail.firstName = firstName
         paymentDetail.lastName = lastName
@@ -109,6 +109,21 @@ class CoreDataManager {
             print("Payment details deleted successfully.")
         } catch let error as NSError {
             print("Could not delete payment details. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func isCardAlreadyExists(cardNumber: String) -> Bool {
+        guard let user = getLoggedInUser() else { return false }
+        
+        let fetchRequest: NSFetchRequest<PaymentDetails> = PaymentDetails.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "cardNumber == %@ AND user == %@", cardNumber, user)
+        
+        do {
+            let count = try managedContext.count(for: fetchRequest)
+            return count > 0
+        } catch {
+            print("Error checking duplicate card: \(error)")
+            return false
         }
     }
 }
