@@ -157,12 +157,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No cards added yet " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2U-be-1xK">
-                                <rect key="frame" x="120.00000000000001" y="416" width="153.33333333333337" height="20.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.48627450980392156" green="0.49019607843137253" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVb-1p-QwM">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="202.66666666666666"/>
                                 <color key="backgroundColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -398,11 +392,9 @@ at anytime </string>
                         <viewLayoutGuide key="safeArea" id="ds2-xr-YTG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="A2U-be-1xK" firstAttribute="centerX" secondItem="jE6-VS-5Rm" secondAttribute="centerX" id="3v0-Ng-aOP"/>
                             <constraint firstItem="ds2-xr-YTG" firstAttribute="bottom" secondItem="V1n-dP-3mP" secondAttribute="bottom" constant="150" id="4EI-wz-paY"/>
                             <constraint firstItem="XfP-Pr-gvu" firstAttribute="top" secondItem="ds2-xr-YTG" secondAttribute="top" constant="30" id="5bj-8d-bX9"/>
                             <constraint firstItem="ds2-xr-YTG" firstAttribute="bottom" secondItem="S0v-Op-Lnf" secondAttribute="bottom" constant="10" id="6jE-Ap-FGH"/>
-                            <constraint firstItem="A2U-be-1xK" firstAttribute="centerY" secondItem="jE6-VS-5Rm" secondAttribute="centerY" id="7dh-5o-3WO"/>
                             <constraint firstItem="ds2-xr-YTG" firstAttribute="trailing" secondItem="S0v-Op-Lnf" secondAttribute="trailing" constant="21" id="G41-ET-2Dv"/>
                             <constraint firstItem="V1n-dP-3mP" firstAttribute="top" secondItem="5Jy-T5-dR2" secondAttribute="bottom" constant="18" id="Gz8-EG-r6M"/>
                             <constraint firstItem="S0v-Op-Lnf" firstAttribute="leading" secondItem="ds2-xr-YTG" secondAttribute="leading" constant="21" id="LVW-6w-Z88"/>
@@ -428,7 +420,6 @@ at anytime </string>
                         <outlet property="btnAddAnotherCart" destination="S0v-Op-Lnf" id="rHd-mM-LaQ"/>
                         <outlet property="btnAddCart" destination="98P-5l-kjd" id="JyA-aI-gQg"/>
                         <outlet property="btnCross" destination="3Co-kM-gDS" id="lrv-eO-fLj"/>
-                        <outlet property="lblEmptyCard" destination="A2U-be-1xK" id="0UJ-4C-HV0"/>
                         <outlet property="tblView" destination="V1n-dP-3mP" id="kKu-4d-9Cw"/>
                         <outlet property="txtCardNo" destination="JKE-CE-fzA" id="2fu-On-ODP"/>
                         <outlet property="txtExpiryMonth" destination="Ahj-SU-Tbq" id="jzs-40-gna"/>

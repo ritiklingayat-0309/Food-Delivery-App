@@ -7,6 +7,8 @@
 
 import UIKit
 import CoreData
+import Lottie
+
 
 /// `OrderListViewController`
 /// This view controller is responsible for displaying the list of orders placed
@@ -18,9 +20,6 @@ class OrderListViewController: UIViewController {
     
     // MARK: - Outlets
     
-    /// Label shown when no orders are available.
-    @IBOutlet weak var lblOrderListEmpt: UILabel!
-    
     /// Table view used to display the list of orders.
     @IBOutlet weak var tblView: UITableView!
     
@@ -28,6 +27,10 @@ class OrderListViewController: UIViewController {
     
     /// Stores the list of fetched orders for the logged-in user.
     var arrOrders: [Order] = []
+    
+    ///For Animation
+    private var emptyOrdersAnimationView: LottieAnimationView?
+    private var emptyOrdersLabel: UILabel?
     
     // MARK: - Lifecycle Methods
     
@@ -48,6 +51,42 @@ class OrderListViewController: UIViewController {
         
         /// Fetch orders from Core Data when view loads.
         fetchOrdersFromCoreData()
+        
+        setupAni()
+    }
+    
+    func setupAni() {
+        emptyOrdersAnimationView = LottieAnimationView(name: "Delivery Riding")
+        if let emptyOrdersAnimationView = emptyOrdersAnimationView {
+            emptyOrdersAnimationView.contentMode = .scaleAspectFit
+            emptyOrdersAnimationView.loopMode = .loop
+            emptyOrdersAnimationView.isHidden = true
+            emptyOrdersAnimationView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(emptyOrdersAnimationView)
+            
+            NSLayoutConstraint.activate([
+                emptyOrdersAnimationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                emptyOrdersAnimationView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
+                emptyOrdersAnimationView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+                emptyOrdersAnimationView.heightAnchor.constraint(equalToConstant: 250)
+            ])
+            
+            // 👇 Add label below animation
+            let label = UILabel()
+            label.text = "You haven’t placed any orders yet"
+            label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+            label.textColor = .darkGray
+            label.textAlignment = .center
+            label.isHidden = true
+            label.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(label)
+            
+            NSLayoutConstraint.activate([
+                label.topAnchor.constraint(equalTo: emptyOrdersAnimationView.bottomAnchor, constant: 12),
+                label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+            emptyOrdersLabel = label
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,12 +101,16 @@ class OrderListViewController: UIViewController {
     /// whether any orders exist.
     private func updateUI() {
         if arrOrders.isEmpty {
-            lblOrderListEmpt.isHidden = false
             tblView.isHidden = true
+            emptyOrdersAnimationView?.isHidden = false
+            emptyOrdersAnimationView?.play()
+            emptyOrdersLabel?.isHidden = false
         } else {
-            lblOrderListEmpt.isHidden = true
             tblView.isHidden = false
             tblView.reloadData()
+            emptyOrdersAnimationView?.stop()
+            emptyOrdersAnimationView?.isHidden = true
+            emptyOrdersLabel?.isHidden = true
         }
     }
     

@@ -26,7 +26,7 @@ class SplashScreenViewController: UIViewController {
         super.viewDidAppear(animated)
         
         // Show splash screen for 3 seconds
-        sleep(3)
+        //sleep(3)
         self.checkLoginStatus()
     }
     

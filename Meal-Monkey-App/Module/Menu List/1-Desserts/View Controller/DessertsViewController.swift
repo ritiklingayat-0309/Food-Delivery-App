@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 /// ViewController responsible for displaying dessert items (or other product categories).
 /// Handles search, filtering, navigation, and styling for product listing.
@@ -14,11 +15,16 @@ class DessertsViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
+    var noResultLabel: UILabel?
     
     // MARK: - Properties
     
     /// Currently selected product type (e.g., Food, Beverages, Desserts)
     var selectedProductType: ProductType = .Desserts
+    
+    /// For animation
+     var emptySearchAnimationView: LottieAnimationView?
+
     
     /// Stores filtered products based on search or full list by default
     var filteredProducts: [ProductModel] = []
@@ -77,7 +83,46 @@ class DessertsViewController: UIViewController {
         
         // Load products initially
         filteredProducts = arrProducts
+        
+        //setupAnimation
+        setupAnima()
     }
+    
+    func setupAnima() {
+            emptySearchAnimationView = LottieAnimationView(name: "Walking Orange")
+            if let emptySearchAnimationView = emptySearchAnimationView {
+                emptySearchAnimationView.contentMode = .scaleAspectFit
+                emptySearchAnimationView.loopMode = .loop
+                emptySearchAnimationView.isHidden = true
+                emptySearchAnimationView.translatesAutoresizingMaskIntoConstraints = false
+                view.addSubview(emptySearchAnimationView)
+                view.bringSubviewToFront(emptySearchAnimationView)
+
+                NSLayoutConstraint.activate([
+                    emptySearchAnimationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                    emptySearchAnimationView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
+                    emptySearchAnimationView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6),
+                    emptySearchAnimationView.heightAnchor.constraint(equalToConstant: 250)
+                ])
+                
+                // 👇 Add label below animation
+                let label = UILabel()
+                label.text = "No Result Found"
+                label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+                label.textColor = .darkGray
+                label.textAlignment = .center
+                label.isHidden = true
+                label.translatesAutoresizingMaskIntoConstraints = false
+                view.addSubview(label)
+                
+                NSLayoutConstraint.activate([
+                    label.topAnchor.constraint(equalTo: emptySearchAnimationView.bottomAnchor, constant: 12),
+                    label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+                ])
+                
+                self.noResultLabel = label // 👈 store reference
+            }
+        }
     
     // MARK: - Navigation Actions
     

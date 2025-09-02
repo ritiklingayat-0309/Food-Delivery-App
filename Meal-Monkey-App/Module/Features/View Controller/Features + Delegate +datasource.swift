@@ -25,7 +25,7 @@ extension FeaturesViewController : UICollectionViewDelegate, UICollectionViewDat
     ///   - indexPath: The index path of the item.
     /// - Returns: A configured `FeaturesCollectionViewCell`.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell : FeaturesCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeaturesCollectionViewCell", for: indexPath) as! FeaturesCollectionViewCell
+        let cell : FeaturesCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Main.CellIdentifier.FeaturesCollectionViewCell, for: indexPath) as! FeaturesCollectionViewCell
         let obj = arrFeatures[indexPath.row]
         cell.configFeature(features: obj)
         return cell

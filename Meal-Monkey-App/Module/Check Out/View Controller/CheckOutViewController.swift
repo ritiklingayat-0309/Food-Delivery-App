@@ -88,9 +88,9 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
         EditStyle.setPadding(textFields: [txtSecurityCode,txtExpYear,txtExpMonth,txtFirstName,txtLastName,txtCardNo], paddingWidth: 28)
         
         // Register table view cells
-        tblView.register(UINib(nibName: "CashOnDeliveryTableViewCell", bundle: nil), forCellReuseIdentifier: "CashOnDeliveryTableViewCell")
-        tblView.register(UINib(nibName: "GmailTableViewCell", bundle: nil), forCellReuseIdentifier: "GmailTableViewCell")
-        tblView.register(UINib(nibName: "VisaTableViewCell", bundle: nil), forCellReuseIdentifier: "VisaTableViewCell")
+        tblView.register(UINib(nibName: Main.CellIdentifier.CashOnDeliveryTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifier.CashOnDeliveryTableViewCell)
+        tblView.register(UINib(nibName: Main.CellIdentifier.GmailTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifier.GmailTableViewCell)
+        tblView.register(UINib(nibName: Main.CellIdentifier.VisaTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifier.VisaTableViewCell)
         
         // Hide certain views initially
         viewThanku.isHidden = true
@@ -168,7 +168,7 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
     /// Returns to home page (implementation empty)
     @IBAction func btnBackToHomeAction(_ sender: Any) {
         self.tabBarController?.tabBar.isHidden = false
-        let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryboardIdentifier.HomeStoryboard, bundle: nil)
         if let secodVc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController{
             navigationController?.pushViewController(secodVc, animated: true)
         }
@@ -176,7 +176,7 @@ class CheckOutViewController: UIViewController, MapViewControllerDelegate {
     
     /// Opens MapViewController to change address
     @IBAction func btnChangeAddressAction(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryboardIdentifier.MoreStoryboard, bundle: nil)
         if let secondVc = storyboard.instantiateViewController(identifier: "MapViewController") as? MapViewController{
             secondVc.delegate = self
             self.navigationController?.pushViewController(secondVc, animated: true)

@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import Lottie
 
 /// Controller to display Cart or Wishlist items
 class CartViewController: UIViewController {
@@ -14,7 +15,9 @@ class CartViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var btnPlaceOrder: UIButton!
-    @IBOutlet weak var lblCartisEmpty: UILabel!
+    private var emptyAnimationView: LottieAnimationView?
+    private var emptyLabel: UILabel?
+    
     
     // MARK: - Properties
     var pagetype: PageType = .Wishlist             // Determines if controller shows Cart or Wishlist
@@ -40,10 +43,51 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         
         // Register table view cell
-        tblView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")
+        tblView.register(UINib(nibName: Main.CellIdentifier.CartTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifier.CartTableViewCell)
         
         // Style button
         EditStyle.setborder(textfields: [btnPlaceOrder])
+        setupEmptyAnimation()
+    }
+    
+    // MARK: - Setup Empty Animation
+    private func setupEmptyAnimation() {
+        // Select animation based on page type
+        let animationFile = (pagetype == .Wishlist) ? "Flying heart" : "Empty box"
+        
+        emptyAnimationView = LottieAnimationView(name: animationFile)
+        if let emptyAnimationView = emptyAnimationView {
+            emptyAnimationView.contentMode = .scaleAspectFit
+            emptyAnimationView.loopMode = .loop
+            emptyAnimationView.isHidden = true
+            emptyAnimationView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(emptyAnimationView)
+            
+            NSLayoutConstraint.activate([
+                emptyAnimationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                emptyAnimationView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
+                emptyAnimationView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6),
+                emptyAnimationView.heightAnchor.constraint(equalToConstant: 250)
+            ])
+            
+            // 👇 Add label below animation
+            let label = UILabel()
+            label.text = (pagetype == .Wishlist) ? "Your wishlist is empty" : "Your cart is empty"
+            label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+            label.textColor = .darkGray
+            label.textAlignment = .center
+            label.isHidden = true
+            label.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(label)
+            
+            NSLayoutConstraint.activate([
+                label.topAnchor.constraint(equalTo: emptyAnimationView.bottomAnchor, constant: 12),
+                label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+            
+            // Store reference so we can show/hide later
+            emptyLabel = label
+        }
     }
     
     // MARK: - Navigation
@@ -55,16 +99,26 @@ class CartViewController: UIViewController {
     /// Shows/hides table view, empty message and place order button based on items
     func updateUI() {
         if arritemsToShow.isEmpty {
-            lblCartisEmpty.isHidden = false
-            lblCartisEmpty.text = (pagetype == .Wishlist) ? "Your wishlist is empty." : "Your cart is empty."
             tblView.isHidden = true
             btnPlaceOrder.isHidden = true
+            emptyAnimationView?.isHidden = false
+            emptyAnimationView?.play()
+            
+            // Show label
+            emptyLabel?.isHidden = false
+            emptyLabel?.text = (pagetype == .Wishlist) ? "Your wishlist is empty" : "Your cart is empty"
         } else {
-            lblCartisEmpty.isHidden = true
             tblView.isHidden = false
             btnPlaceOrder.isHidden = (pagetype == .Wishlist)
             btnPlaceOrder.alpha = (pagetype == .Wishlist) ? 0.0 : 1.0
+            
             tblView.reloadData()
+            
+            emptyAnimationView?.stop()
+            emptyAnimationView?.isHidden = true
+            
+            // Hide label
+            emptyLabel?.isHidden = true
         }
     }
     

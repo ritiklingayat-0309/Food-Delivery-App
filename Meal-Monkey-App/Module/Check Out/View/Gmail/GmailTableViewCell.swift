@@ -32,8 +32,8 @@ class GmailTableViewCell: UITableViewCell {
         stacViewGmail.layer.cornerRadius = 10
         
         // Configure selection button appearance
-        btncircle.setImage(UIImage(systemName: "circle"), for: .normal)
-        btncircle.setImage(UIImage(systemName: "circle.fill"), for: .selected)
+        btncircle.setImage(UIImage(systemName: Main.ImageName.circle), for: .normal)
+        btncircle.setImage(UIImage(systemName: Main.ImageName.circlefill), for: .selected)
         btncircle.backgroundColor = .clear
         btncircle.layer.cornerRadius = btncircle.frame.height / 2
         btncircle.clipsToBounds = true

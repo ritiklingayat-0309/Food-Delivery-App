@@ -25,13 +25,13 @@ extension CheckOutViewController : UITableViewDelegate, UITableViewDataSource {
             
             // Cash on Delivery cell
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CashOnDeliveryTableViewCell", for: indexPath) as! CashOnDeliveryTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifier.CashOnDeliveryTableViewCell, for: indexPath) as! CashOnDeliveryTableViewCell
             cell.btnSelect.isSelected = (selectedPaymentIndex == 0)
             return cell
             
             // Visa / Card cells
         case 1..<1 + paymentDetails.count:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "VisaTableViewCell", for: indexPath) as! VisaTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifier.VisaTableViewCell, for: indexPath) as! VisaTableViewCell
             let cardIndex = indexPath.row - 1
             let cardDetails = paymentDetails[cardIndex] // **Change:** Get the object from the Core Data array
             
@@ -44,7 +44,7 @@ extension CheckOutViewController : UITableViewDelegate, UITableViewDataSource {
             
             // Gmail payment option cell
         case 1 + paymentDetails.count:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "GmailTableViewCell", for: indexPath) as! GmailTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifier.GmailTableViewCell, for: indexPath) as! GmailTableViewCell
             cell.btncircle.isSelected = (selectedPaymentIndex == indexPath.row)
             return cell
             

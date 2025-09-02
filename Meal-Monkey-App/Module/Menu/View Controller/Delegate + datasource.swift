@@ -91,8 +91,9 @@ extension MenuViewController: UITextFieldDelegate {
             filteredMenu = arrMenu.filter { $0.foodName.lowercased().contains(searchText) }
         }
         
-        lblEmpty.isHidden = !filteredMenu.isEmpty
+     
         // Reload table with filtered data
         tblView.reloadData()
+        updateUIForSearchResult()
     }
 }

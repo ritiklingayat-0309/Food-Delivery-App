@@ -34,7 +34,7 @@ extension AboutUsViewController: UITableViewDelegate, UITableViewDataSource {
      - Returns: A configured `AboutUsTableViewCell` instance.
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: AboutUsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "AboutUsTableViewCell", for: indexPath) as! AboutUsTableViewCell
+        let cell: AboutUsTableViewCell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifier.AboutUsTableViewCell, for: indexPath) as! AboutUsTableViewCell
         
         switch objPageType {
         case .About:

@@ -29,8 +29,8 @@ class CashOnDeliveryTableViewCell: UITableViewCell {
         stackView.layer.cornerRadius = 10
         
         // Configure selection button appearance
-        btnSelect.setImage(UIImage(systemName: "circle"), for: .normal)
-        btnSelect.setImage(UIImage(systemName: "circle.fill"), for: .selected)
+        btnSelect.setImage(UIImage(systemName: Main.ImageName.circle), for: .normal)
+        btnSelect.setImage(UIImage(systemName: Main.ImageName.circlefill), for: .selected)
         btnSelect.backgroundColor = .clear
         btnSelect.layer.cornerRadius = btnSelect.frame.height / 2
         btnSelect.clipsToBounds = true

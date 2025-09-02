@@ -570,52 +570,18 @@ continue to reset your password</string>
                                 <color key="textColor" red="0.48627450980392156" green="0.49019607843137253" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="316-ge-Rz8">
-                                <rect key="frame" x="34" y="329" width="372" height="56"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2zc-WY-GlY">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="56"/>
-                                        <color key="backgroundColor" name="Text Field background"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="1uX-MW-4bx"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="39"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="Hte-F7-pE0" id="zqN-Aq-Usx"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W5y-KI-cnN">
-                                        <rect key="frame" x="100" y="0.0" width="72" height="56"/>
-                                        <color key="backgroundColor" name="Text Field background"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="39"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="Hte-F7-pE0" id="Px4-od-mo5"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kqR-oo-qLC">
-                                        <rect key="frame" x="200" y="0.0" width="72" height="56"/>
-                                        <color key="backgroundColor" name="Text Field background"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="Hte-F7-pE0" id="zEr-VM-otX"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1E6-xd-1yr">
-                                        <rect key="frame" x="300" y="0.0" width="72" height="56"/>
-                                        <color key="backgroundColor" name="Text Field background"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="Hte-F7-pE0" id="dHL-3j-G8t"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
-                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UpW-YX-EDg" customClass="DPOTPView" customModule="DPOTPView">
+                                <rect key="frame" x="34" y="332" width="372" height="56"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="eEz-30-RqE"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCR-yD-sy4">
-                                <rect key="frame" x="34" y="421" width="372" height="56"/>
+                                <rect key="frame" x="34" y="424" width="372" height="56"/>
                                 <color key="backgroundColor" name="login Background Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="zxO-Im-Etv"/>
@@ -630,7 +596,7 @@ continue to reset your password</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ES-Wm-XFA">
-                                <rect key="frame" x="65" y="510" width="310" height="31"/>
+                                <rect key="frame" x="65" y="513" width="310" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedSubtitle">
@@ -660,19 +626,20 @@ continue to reset your password</string>
                         <constraints>
                             <constraint firstItem="Dac-hr-O2o" firstAttribute="trailing" secondItem="PYw-Vx-Nnx" secondAttribute="trailing" constant="52" id="0jt-Yy-efF"/>
                             <constraint firstItem="n47-hS-cgD" firstAttribute="top" secondItem="PYw-Vx-Nnx" secondAttribute="bottom" constant="13" id="0wU-hm-xqg"/>
+                            <constraint firstItem="Dac-hr-O2o" firstAttribute="trailing" secondItem="UpW-YX-EDg" secondAttribute="trailing" constant="34" id="2uO-Lj-pLL"/>
+                            <constraint firstItem="XCR-yD-sy4" firstAttribute="top" secondItem="UpW-YX-EDg" secondAttribute="bottom" constant="36" id="4gk-Lg-4Ge"/>
                             <constraint firstItem="Dac-hr-O2o" firstAttribute="trailing" secondItem="6ES-Wm-XFA" secondAttribute="trailing" constant="65" id="4tA-l7-cly"/>
-                            <constraint firstItem="6ES-Wm-XFA" firstAttribute="top" secondItem="XCR-yD-sy4" secondAttribute="bottom" constant="33" id="6qv-aN-ypQ"/>
                             <constraint firstItem="Dac-hr-O2o" firstAttribute="trailing" secondItem="XCR-yD-sy4" secondAttribute="trailing" constant="34" id="8hG-H2-YbP"/>
-                            <constraint firstItem="Dac-hr-O2o" firstAttribute="trailing" secondItem="316-ge-Rz8" secondAttribute="trailing" constant="34" id="E4X-w2-xl8"/>
+                            <constraint firstItem="UpW-YX-EDg" firstAttribute="top" secondItem="n47-hS-cgD" secondAttribute="bottom" constant="56" id="BEP-bo-D8x"/>
                             <constraint firstItem="Dac-hr-O2o" firstAttribute="trailing" secondItem="n47-hS-cgD" secondAttribute="trailing" constant="18" id="MI8-oT-RIw"/>
                             <constraint firstItem="XCR-yD-sy4" firstAttribute="leading" secondItem="Dac-hr-O2o" secondAttribute="leading" constant="34" id="MZz-GR-hh8"/>
-                            <constraint firstItem="316-ge-Rz8" firstAttribute="top" secondItem="n47-hS-cgD" secondAttribute="bottom" constant="53" id="NWH-2E-Ma8"/>
                             <constraint firstItem="n47-hS-cgD" firstAttribute="leading" secondItem="Dac-hr-O2o" secondAttribute="leading" constant="18" id="P9b-ZV-sEt"/>
                             <constraint firstItem="PYw-Vx-Nnx" firstAttribute="leading" secondItem="Dac-hr-O2o" secondAttribute="leading" constant="39" id="VEq-tI-AqM"/>
-                            <constraint firstItem="XCR-yD-sy4" firstAttribute="top" secondItem="316-ge-Rz8" secondAttribute="bottom" constant="36" id="XQA-nn-pry"/>
+                            <constraint firstItem="UpW-YX-EDg" firstAttribute="leading" secondItem="Dac-hr-O2o" secondAttribute="leading" constant="34" id="VmH-sZ-8ad"/>
+                            <constraint firstItem="Dac-hr-O2o" firstAttribute="bottom" secondItem="6ES-Wm-XFA" secondAttribute="bottom" constant="344" id="Vze-8t-BqB"/>
                             <constraint firstItem="PYw-Vx-Nnx" firstAttribute="top" secondItem="Dac-hr-O2o" secondAttribute="top" constant="42" id="YiS-YD-If8"/>
+                            <constraint firstItem="6ES-Wm-XFA" firstAttribute="top" secondItem="XCR-yD-sy4" secondAttribute="bottom" constant="33" id="aRv-bf-7k1"/>
                             <constraint firstItem="6ES-Wm-XFA" firstAttribute="leading" secondItem="Dac-hr-O2o" secondAttribute="leading" constant="65" id="kwy-aG-3Kj"/>
-                            <constraint firstItem="316-ge-Rz8" firstAttribute="leading" secondItem="Dac-hr-O2o" secondAttribute="leading" constant="34" id="myO-aU-gtt"/>
                         </constraints>
                     </view>
                     <connections>
@@ -680,15 +647,12 @@ continue to reset your password</string>
                         <outlet property="btnNext" destination="XCR-yD-sy4" id="xhL-m1-gTF"/>
                         <outlet property="lblSubtitile" destination="n47-hS-cgD" id="VZy-Mc-cjB"/>
                         <outlet property="lblTitle" destination="PYw-Vx-Nnx" id="XR1-2C-Yhd"/>
-                        <outlet property="txtOTP1" destination="2zc-WY-GlY" id="egh-lp-yUh"/>
-                        <outlet property="txtOTP2" destination="W5y-KI-cnN" id="F6H-jW-m3z"/>
-                        <outlet property="txtOTP3" destination="kqR-oo-qLC" id="9vH-k2-a0T"/>
-                        <outlet property="txtOTP4" destination="1E6-xd-1yr" id="Ift-jb-mFo"/>
+                        <outlet property="otpView" destination="UpW-YX-EDg" id="VQX-8B-y3x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="923-OR-tUV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1654" y="74"/>
+            <point key="canvasLocation" x="1652.7272727272727" y="73.43096234309624"/>
         </scene>
         <!--New Password View Controller-->
         <scene sceneID="wOI-IM-ndY">

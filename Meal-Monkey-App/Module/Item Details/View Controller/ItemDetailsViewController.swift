@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import NVActivityIndicatorView
 
 /// `ItemDetailsViewController` handles the detailed view of a selected product, including
 /// displaying product information, managing quantity, adding to cart, and wishlist management.
@@ -41,7 +42,8 @@ class ItemDetailsViewController: UIViewController {
     @IBOutlet weak var btnTrolly: UIButton!
     @IBOutlet weak var viewDetailPage: UIView!
     @IBOutlet weak var btnHeart: UIButton!
-    @IBOutlet weak var activityIndictor: UIActivityIndicatorView!
+    var activityLoader : NVActivityIndicatorView?
+    
     
     // MARK: - View Lifecycle
     
@@ -75,28 +77,15 @@ class ItemDetailsViewController: UIViewController {
         viewDetailPage.layer.shadowRadius = 4
         
         // Show loading indicator while data loads
-        hideUIElementsForLoading()
-        activityIndictor.startAnimating()
-        activityIndictor.transform = CGAffineTransform(scaleX: 2.0, y: 2.0) 
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.activityIndictor.stopAnimating()
-            self.showUIElementsAfterLoading()
-            self.configureUI()
-            self.checkWishlistStatus()
-            self.activityIndictor.isHidden = true
-        }
+        showLoadingState()
     }
     
     
     // MARK: - UI Handling
     
     /// Hide UI elements while loading
-    private func hideUIElementsForLoading() {
-        viewDetails.isHidden = true
-        btnHeart.isHidden = true
-        imgViewItem.isHidden = true
-    }
+   
     
     /// Show UI elements after loading is complete
     private func showUIElementsAfterLoading() {
@@ -248,6 +237,57 @@ class ItemDetailsViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+    
+    func showLoadingState() {
+            // Hide content first
+        viewDetailPage.isHidden = true
+            imgViewItem.isHidden = true
+            btnHeart.isHidden = true
+
+            // Create loader frame (centered in the screen)
+            let loaderFrame = CGRect(
+                x: (view.frame.width - 50) / 2,
+                y: (view.frame.height - 50) / 2,
+                width: 50,
+                height: 50
+            )
+
+            // Initialize loader only once
+            if activityLoader == nil {
+                activityLoader = NVActivityIndicatorView(
+                    frame: loaderFrame,
+                    type: .ballScaleRippleMultiple,
+                    color: .loginBackground,
+                    padding: 0
+                )
+                if let loader = activityLoader {
+                    view.addSubview(loader)
+                }
+            }
+
+            // Start loader animation
+            activityLoader?.startAnimating()
+
+            // Simulate loading delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
+                guard let self = self else { return }
+
+                // Stop loader and hide it
+                self.activityLoader?.stopAnimating()
+                self.activityLoader?.removeFromSuperview()
+                self.activityLoader = nil
+
+                // Show product details after loading
+                self.viewDetailPage.isHidden = false
+                self.imgViewItem.isHidden = false
+                self.btnHeart.isHidden = false
+
+
+                
+            }
+        }
+
+
     
     /// Add product to Core Data cart or update existing quantity
     /// - Parameter productToAdd: ProductModel to add/update in cart

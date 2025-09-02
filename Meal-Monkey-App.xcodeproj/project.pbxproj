@@ -6,10 +6,17 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E54250139AD0178C6AE5E532 /* libPods-Meal-Monkey-App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FE00C26F88248E9DF951F2 /* libPods-Meal-Monkey-App.a */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		19D852261FFCD7DBE82844FD /* Pods-Meal-Monkey-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal-Monkey-App.debug.xcconfig"; path = "Target Support Files/Pods-Meal-Monkey-App/Pods-Meal-Monkey-App.debug.xcconfig"; sourceTree = "<group>"; };
+		84FE00C26F88248E9DF951F2 /* libPods-Meal-Monkey-App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Meal-Monkey-App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3489A2B2E5760A400D1A2E2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A3489A2C2E5760A400D1A2E2 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		A3C74D1C2E3BA1960030AA51 /* Meal-Monkey-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal-Monkey-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2C42139C521C4F8609D10C /* Pods-Meal-Monkey-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meal-Monkey-App.release.xcconfig"; path = "Target Support Files/Pods-Meal-Monkey-App/Pods-Meal-Monkey-App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -38,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E54250139AD0178C6AE5E532 /* libPods-Meal-Monkey-App.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +57,7 @@
 			children = (
 				A3489A2B2E5760A400D1A2E2 /* libsqlite3.tbd */,
 				A3489A2C2E5760A400D1A2E2 /* libsqlite3.0.tbd */,
+				84FE00C26F88248E9DF951F2 /* libPods-Meal-Monkey-App.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -59,6 +68,7 @@
 				A3C74D1E2E3BA1960030AA51 /* Meal-Monkey-App */,
 				A3489A2A2E5760A300D1A2E2 /* Frameworks */,
 				A3C74D1D2E3BA1960030AA51 /* Products */,
+				C00B88D1B063E961335B388C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +80,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C00B88D1B063E961335B388C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				19D852261FFCD7DBE82844FD /* Pods-Meal-Monkey-App.debug.xcconfig */,
+				BA2C42139C521C4F8609D10C /* Pods-Meal-Monkey-App.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3C74D2F2E3BA1990030AA51 /* Build configuration list for PBXNativeTarget "Meal-Monkey-App" */;
 			buildPhases = (
+				569AD1766B60EC6BC7125D39 /* [CP] Check Pods Manifest.lock */,
 				A3C74D182E3BA1960030AA51 /* Sources */,
 				A3C74D192E3BA1960030AA51 /* Frameworks */,
 				A3C74D1A2E3BA1960030AA51 /* Resources */,
+				B919B609EA60456A1B8CE3CB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -89,8 +110,6 @@
 				A3C74D1E2E3BA1960030AA51 /* Meal-Monkey-App */,
 			);
 			name = "Meal-Monkey-App";
-			packageProductDependencies = (
-			);
 			productName = "Meal-Monkey-App";
 			productReference = A3C74D1C2E3BA1960030AA51 /* Meal-Monkey-App.app */;
 			productType = "com.apple.product-type.application";
@@ -139,6 +158,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		569AD1766B60EC6BC7125D39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Meal-Monkey-App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B919B609EA60456A1B8CE3CB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Meal-Monkey-App/Pods-Meal-Monkey-App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A3C74D182E3BA1960030AA51 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -152,11 +215,13 @@
 /* Begin XCBuildConfiguration section */
 		A3C74D302E3BA1990030AA51 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19D852261FFCD7DBE82844FD /* Pods-Meal-Monkey-App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Meal-Monkey-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -184,11 +249,13 @@
 		};
 		A3C74D312E3BA1990030AA51 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA2C42139C521C4F8609D10C /* Pods-Meal-Monkey-App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Meal-Monkey-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

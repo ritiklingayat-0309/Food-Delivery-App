@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 /// ViewController responsible for displaying the menu list.
 /// Handles search, table view population, and navigation to cart.
@@ -19,10 +20,15 @@ class MenuViewController: UIViewController {
     /// Filtered menu list based on search text
     var filteredMenu: [Menu] = []
     
+    /// For Animation
+    private var noResultAnimationView: LottieAnimationView?
+    
+    /// For Lable
+    private var noResultLabel: UILabel?
+    
     // MARK: - Outlets
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
-    @IBOutlet weak var lblEmpty: UILabel!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -50,8 +56,46 @@ class MenuViewController: UIViewController {
         // Set delegates
         tblView.delegate = self
         tblView.dataSource = self
-        lblEmpty.text = "No Result found"
-        lblEmpty.isHidden = true
+        setupNoResultAnimation()
+    }
+    
+    // MARK: - Setup Lottie
+    private func setupNoResultAnimation() {
+        // Animation
+        noResultAnimationView = LottieAnimationView(name: "Search") // your JSON name
+        if let noResultAnimationView = noResultAnimationView {
+            noResultAnimationView.translatesAutoresizingMaskIntoConstraints = false
+            noResultAnimationView.contentMode = .scaleAspectFit
+            noResultAnimationView.loopMode = .loop
+            noResultAnimationView.isHidden = true
+            view.addSubview(noResultAnimationView)
+            
+            // Constraints for animation
+            NSLayoutConstraint.activate([
+                noResultAnimationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                noResultAnimationView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -40),
+                noResultAnimationView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+                noResultAnimationView.heightAnchor.constraint(equalToConstant: 250)
+            ])
+        }
+        
+        // Label
+        noResultLabel = UILabel()
+        if let noResultLabel = noResultLabel {
+            noResultLabel.text = "No Result Found"
+            noResultLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+            noResultLabel.textColor = .darkGray
+            noResultLabel.textAlignment = .center
+            noResultLabel.isHidden = true
+            noResultLabel.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(noResultLabel)
+            
+            // Constraints for label (below animation)
+            NSLayoutConstraint.activate([
+                noResultLabel.topAnchor.constraint(equalTo: noResultAnimationView!.bottomAnchor, constant: 16),
+                noResultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+        }
     }
     
     // MARK: - Navigation Actions
@@ -63,6 +107,20 @@ class MenuViewController: UIViewController {
         if let secondVC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
             secondVC.pagetype = .Cart
             navigationController?.pushViewController(secondVC, animated: true)
+        }
+    }
+    
+    func updateUIForSearchResult() {
+        if filteredMenu.isEmpty {
+            tblView.isHidden = true
+            noResultAnimationView?.isHidden = false
+            noResultAnimationView?.play()
+            noResultLabel?.isHidden = false
+        } else {
+            tblView.isHidden = false
+            noResultAnimationView?.stop()
+            noResultAnimationView?.isHidden = true
+            noResultLabel?.isHidden = true
         }
     }
 }

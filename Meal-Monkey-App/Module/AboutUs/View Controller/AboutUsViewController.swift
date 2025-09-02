@@ -79,7 +79,7 @@ class AboutUsViewController: UIViewController {
             print("this is cart page")
         }
         
-        tblView.register(UINib(nibName: "AboutUsTableViewCell", bundle: nil), forCellReuseIdentifier: "AboutUsTableViewCell")
+        tblView.register(UINib(nibName: Main.CellIdentifier.AboutUsTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifier.AboutUsTableViewCell)
         self.navigationItem.hidesBackButton = true
     }
     

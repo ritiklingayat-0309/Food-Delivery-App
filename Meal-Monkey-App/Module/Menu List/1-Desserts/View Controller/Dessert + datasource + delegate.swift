@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Lottie
 
 extension DessertsViewController: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
@@ -54,6 +55,17 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource, UI
         } else {
             filteredProducts = arrProducts
         }
+        if filteredProducts.isEmpty {
+                tblView.isHidden = true
+                emptySearchAnimationView?.isHidden = false
+            noResultLabel?.isHidden = false
+                emptySearchAnimationView?.play()
+            } else {
+                tblView.isHidden = false
+                emptySearchAnimationView?.stop()
+                emptySearchAnimationView?.isHidden = true
+                noResultLabel?.isHidden = true  
+            }
         tblView.reloadData()
     }
 }

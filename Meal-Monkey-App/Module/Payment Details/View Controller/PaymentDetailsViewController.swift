@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 
 
@@ -16,7 +17,6 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
     @IBOutlet weak var tblView: UITableView!                /// TableView to display added cards
     @IBOutlet weak var btnAddAnotherCart: UIButton!         /// Button to add another card
     @IBOutlet weak var ViewTop: UIView!                     /// Transparent top view shown during card entry
-    @IBOutlet weak var lblEmptyCard: UILabel!               /// Label shown when no cards are available
     
     // Inside the card entry view
     @IBOutlet weak var btnCross: UIButton!                  /// Button to close card entry form
@@ -32,6 +32,11 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
     @IBOutlet weak var viewScroll: UIView!                  /// Scroll container with styling
     
     var paymentDetails: [PaymentDetails] = []
+    
+    // For Animation
+    private var emptyCardAnimationView: LottieAnimationView?
+    private var emptyCardLabel: UILabel?
+
     
     // MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +69,43 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
                                          txtFirstName, txtLastName, txtExpiryMonth, txtExpiryYear, btnAddCart])
         EditStyle.setPadding(textFields: [txtCardNo, txtSecurityCode, txtFirstName,
                                           txtLastName, txtExpiryMonth, txtExpiryYear], paddingWidth: 29)
+        
+        setUpAnimations()
+    }
+    
+    func setUpAnimations() {
+        // MARK: Setup Lottie Animation for Empty State
+        emptyCardAnimationView = LottieAnimationView(name: "Payment Failed") // 👈 your JSON
+        if let emptyCardAnimationView = emptyCardAnimationView {
+            emptyCardAnimationView.contentMode = .scaleAspectFit
+            emptyCardAnimationView.loopMode = .loop
+            emptyCardAnimationView.isHidden = true
+            emptyCardAnimationView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(emptyCardAnimationView)
+            
+            NSLayoutConstraint.activate([
+                emptyCardAnimationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                emptyCardAnimationView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
+                emptyCardAnimationView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+                emptyCardAnimationView.heightAnchor.constraint(equalToConstant: 220)
+            ])
+            
+            // 👇 Add label under animation
+            let label = UILabel()
+            label.text = "No saved cards yet"
+            label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+            label.textColor = .darkGray
+            label.textAlignment = .center
+            label.isHidden = true
+            label.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(label)
+            
+            NSLayoutConstraint.activate([
+                label.topAnchor.constraint(equalTo: emptyCardAnimationView.bottomAnchor, constant: 12),
+                label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+            emptyCardLabel = label
+        }
     }
     
     private func fetchPaymentDetails() {
@@ -75,12 +117,16 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
     /// Updates the UI depending on whether cards are available
     private func updateUI() {
         if paymentDetails.isEmpty {
-            lblEmptyCard.isHidden = false
             tblView.isHidden = true
+            emptyCardAnimationView?.isHidden = false
+            emptyCardAnimationView?.play()
+            emptyCardLabel?.isHidden = false
         } else {
-            lblEmptyCard.isHidden = true
             tblView.isHidden = false
             tblView.reloadData()
+            emptyCardAnimationView?.stop()
+            emptyCardAnimationView?.isHidden = true
+            emptyCardLabel?.isHidden = true
         }
     }
     
@@ -114,6 +160,9 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
     @IBAction func btnAddAnotherCardFromTblAction(_ sender: Any) {
         viewAddCard.isHidden = false
         ViewTop.isHidden = false
+        emptyCardAnimationView?.stop()
+        emptyCardAnimationView?.isHidden = true
+        emptyCardLabel?.isHidden = true
         UIView.animate(withDuration: 0.3) {
             self.viewAddCard.transform = .identity
             self.tabBarController?.tabBar.isHidden = true
@@ -128,7 +177,7 @@ class PaymentDetailsViewController: UIViewController, PaymentDetailsTableViewCel
         txtLastName.text = ""
         txtExpiryMonth.text = ""
         txtExpiryYear.text = ""
-        
+        updateUI()
         UIView.animate(withDuration: 0.3, animations: {
             self.viewAddCard.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
         }) { _ in

@@ -52,7 +52,7 @@ class FeaturesViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         
         // Register collection view cell
-        colView.register(UINib(nibName: "FeaturesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeaturesCollectionViewCell")
+        colView.register(UINib(nibName: Main.CellIdentifier.FeaturesCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: Main.CellIdentifier.FeaturesCollectionViewCell)
         
         // Configure page control
         pageController.numberOfPages = arrFeatures.count
@@ -102,7 +102,7 @@ class FeaturesViewController: UIViewController {
             
             // If last page, navigate to Login screen
         } else {
-            let storyboard = UIStoryboard(name: "LoginStoryboard", bundle: nil)
+            let storyboard = UIStoryboard(name: Main.StoryboardIdentifier.LoginStoryboard, bundle: nil)
             if let signUpVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
                 self.navigationController?.pushViewController(signUpVC, animated: true)
             }
