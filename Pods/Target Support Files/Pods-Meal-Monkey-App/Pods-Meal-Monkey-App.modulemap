@@ -1,0 +1,6 @@
+module Pods_Meal_Monkey_App {
+  umbrella header "Pods-Meal-Monkey-App-umbrella.h"
+
+  export *
+  module * { export * }
+}
