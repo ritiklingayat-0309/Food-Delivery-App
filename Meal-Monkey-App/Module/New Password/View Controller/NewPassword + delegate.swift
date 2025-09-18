@@ -12,7 +12,7 @@ import UIKit
 /// This extension manages the keyboard return key navigation between
 /// password text fields (new password and confirm password).
 extension NewPasswordViewController: UITextFieldDelegate {
-    
+
     /// Called when the return key is pressed on the keyboard.
     ///
     /// - Parameter textField: The text field where the return key was pressed.
@@ -27,11 +27,11 @@ extension NewPasswordViewController: UITextFieldDelegate {
         case txtNewPassword:
             // Move focus to confirm password field
             txtCofirmPassword.becomeFirstResponder()
-            
+
         case txtCofirmPassword:
             // Dismiss keyboard when confirm password field is done
             txtCofirmPassword.resignFirstResponder()
-            
+
         default:
             // Default case: dismiss keyboard
             textField.resignFirstResponder()

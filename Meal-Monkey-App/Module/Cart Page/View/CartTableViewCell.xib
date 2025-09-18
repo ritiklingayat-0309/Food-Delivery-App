@@ -149,6 +149,9 @@
                 <outlet property="btnLike" destination="yf4-Fh-9bN" id="6Dg-Fn-S0p"/>
                 <outlet property="imgProduct" destination="qda-WN-U2p" id="CIF-lp-DWG"/>
                 <outlet property="lblCategory" destination="M22-W3-Qvs" id="1Ey-bD-pO1"/>
+                <outlet property="lblLocalizeCategory" destination="ld3-yd-pj0" id="4Ko-0g-cuo"/>
+                <outlet property="lblLocalizePrice" destination="395-mJ-xNh" id="mn4-Vl-VIV"/>
+                <outlet property="lblLocalizeType" destination="Zav-CJ-whI" id="gNp-pO-X1g"/>
                 <outlet property="lblPrice" destination="M37-6H-A25" id="n8R-tt-67U"/>
                 <outlet property="lblProductName" destination="Gr7-tJ-d9X" id="XRy-in-1Zc"/>
                 <outlet property="lblProductType" destination="1oY-nv-1Qk" id="aj8-Ku-Zjz"/>
@@ -168,7 +171,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

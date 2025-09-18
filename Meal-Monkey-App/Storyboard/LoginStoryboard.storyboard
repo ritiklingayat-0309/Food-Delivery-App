@@ -228,6 +228,8 @@
                     <connections>
                         <outlet property="btnAlreadyHaveAccount" destination="9Yu-Z1-UcS" id="KmI-Ee-7CV"/>
                         <outlet property="btnSignUp" destination="VJ5-7l-nKg" id="CaZ-8d-zlR"/>
+                        <outlet property="lblAddYourDetailsToSignUp" destination="ch3-xK-Z5Z" id="TH9-oz-iUS"/>
+                        <outlet property="lblSignUp" destination="Yca-dM-xAq" id="cWR-LS-J33"/>
                         <outlet property="stackConfirmPaseye" destination="8DN-Od-cDa" id="D9A-YN-bTM"/>
                         <outlet property="stackPasswordeye" destination="6Th-rI-0ws" id="b20-Lu-Jm0"/>
                         <outlet property="txtAddress" destination="2Ae-Th-rlY" id="HTu-KV-uc3"/>
@@ -464,6 +466,9 @@
                         <outlet property="btnLoginWithFaceBook" destination="9if-zm-YDK" id="6rd-Rr-4fN"/>
                         <outlet property="btnLoginWithGoogle" destination="MMl-XJ-UGO" id="uY2-mo-sTy"/>
                         <outlet property="btnSignIn" destination="mhZ-FR-n0F" id="bEp-rr-UIw"/>
+                        <outlet property="lblAddyouDetails" destination="h8Q-VO-Gop" id="KbO-OR-wQc"/>
+                        <outlet property="lblLogin" destination="wya-Pf-mdz" id="h17-SP-sOh"/>
+                        <outlet property="lblOrWith" destination="RUK-mF-oBL" id="Fve-uS-eIe"/>
                         <outlet property="stackViewPass" destination="TJX-ja-IdT" id="JpJ-4h-8Sr"/>
                         <outlet property="txtEmail" destination="hDO-bx-9kC" id="LB2-uC-mpZ"/>
                         <outlet property="txtPassword" destination="DwS-RD-QmZ" id="vhm-Jk-DSs"/>
@@ -539,6 +544,8 @@
                     </view>
                     <connections>
                         <outlet property="btnSend" destination="JkO-I4-lVb" id="fIY-D1-t0d"/>
+                        <outlet property="lblEnteryorEmail" destination="KbH-wQ-cjK" id="flN-pa-aNL"/>
+                        <outlet property="lblResetPassword" destination="1bb-tZ-Zbn" id="yuL-rP-dVl"/>
                         <outlet property="txtEmail" destination="Y8h-GS-9x6" id="Gvg-1F-sUa"/>
                     </connections>
                 </viewController>
@@ -773,6 +780,8 @@ continue to reset your password</string>
                         <outlet property="btnEyeConfirmPas" destination="Hib-Oa-29n" id="UQc-M6-AWL"/>
                         <outlet property="btnNext" destination="jAy-vn-Jd2" id="V2K-6z-PJ4"/>
                         <outlet property="btneyeNewPass" destination="kJa-SH-G2i" id="zEN-rs-JFk"/>
+                        <outlet property="lblEnterEmailToReviewPass" destination="5pT-L0-WFn" id="yed-hL-kpZ"/>
+                        <outlet property="lblNewPassword" destination="rgK-eO-jtY" id="7xS-C5-STo"/>
                         <outlet property="stackConfimPass" destination="azO-Yy-FP4" id="L2r-U7-WXi"/>
                         <outlet property="stackNewPass" destination="9IC-yu-IwB" id="MwU-DX-V11"/>
                         <outlet property="txtCofirmPassword" destination="05e-cN-Y1c" id="zSG-pk-mbi"/>

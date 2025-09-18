@@ -11,17 +11,17 @@ import UIKit
 
 /// A custom collection view cell to represent a food category with an image and label.
 class HomeCategoryCollectionViewCell: UICollectionViewCell {
-    
+
     // MARK: - Outlets
-    
+
     /// Image view to display the category image.
     @IBOutlet weak var imgCategory: UIImageView!
-    
+
     /// Label to display the category name.
     @IBOutlet weak var lblCategory: UILabel!
-    
+
     // MARK: - Lifecycle Methods
-    
+
     /// Called after the cell has been loaded from the nib.
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,30 +29,30 @@ class HomeCategoryCollectionViewCell: UICollectionViewCell {
         imgCategory.layer.borderColor = UIColor.systemGray.cgColor
         imgCategory.layer.borderWidth = 0
     }
-    
+
     // MARK: - Configuration
-    
+
     /**
      Configures the cell with a given product category.
-     
+    
      - Parameter category: The product category used to set the label and image.
      */
     func configure(with category: ProductCategory) {
         lblCategory.text = category.rawValue
-        
+
         switch category {
         case .All:
-            imgCategory.image = UIImage(named: "ic_butternaan")
+            imgCategory.image = UIImage(named: Main.ImageName.all)
         case .Punjabi:
-            imgCategory.image = UIImage(named: "ic_paneertikka")
+            imgCategory.image = UIImage(named: Main.ImageName.paneertikka)
         case .Chinese:
-            imgCategory.image = UIImage(named: "ic_hakkanoodles")
+            imgCategory.image = UIImage(named: Main.ImageName.hakkanoodles)
         case .Gujarati:
-            imgCategory.image = UIImage(named: "Ic_Khaman_Dhokla")
+            imgCategory.image = UIImage(named: Main.ImageName.khamanDhokla)
         case .SouthIndian:
-            imgCategory.image = UIImage(named: "ic_masaladosa")
+            imgCategory.image = UIImage(named: Main.ImageName.masalaDosa)
         case .WesternFood:
-            imgCategory.image = UIImage(named: "ic_margherita_pizza")
+            imgCategory.image = UIImage(named: Main.ImageName.margheritaPizza)
         }
     }
 }

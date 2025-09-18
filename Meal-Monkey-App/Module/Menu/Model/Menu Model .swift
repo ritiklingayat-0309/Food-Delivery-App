@@ -7,58 +7,56 @@
 
 import Foundation
 
-/// Model class representing a menu category in the Meal-Monkey app.
 class Menu {
-    
-    // MARK: - Properties
-    
-    /// The name of the food category.
-    var foodName: String
-    
-    /// The total quantity of items available in this category.
-    var quantity: Int
-    
-    /// Optional image name representing the category.
+
+    // Store keys instead of localized strings
+    let foodKey: String
+    let quantityKey: String
     var img: String?
-    
-    /// Tag used to identify the menu item (used for navigation logic).
     let intsTag: Int
-    
-    // MARK: - Initializer
-    
-    /// Initializes a new `Menu` instance.
-    /// - Parameters:
-    ///   - foodName: The name of the food category.
-    ///   - quantity: The number of items available in this category.
-    ///   - img: The optional image name for the category.
-    ///   - intsTag: The tag identifier for the category.
-    init(foodName: String, quantity: Int, img: String? = nil, intsTag: Int) {
-        self.foodName = foodName
-        self.quantity = quantity
+
+    init(foodKey: String, quantityKey: String, img: String? = nil, intsTag: Int)
+    {
+        self.foodKey = foodKey
+        self.quantityKey = quantityKey
         self.img = img
         self.intsTag = intsTag
     }
-    
-    // MARK: - Static Methods
-    
-    /// Provides a default list of menu categories for the app.
-    /// - Returns: An array of `Menu` objects with sample data.
+
+    // Computed property: always fetch latest localization
+    var foodName: String {
+        return LocalizationManager.shared.localizedString(forKey: foodKey)
+    }
+
+    var quantityText: String {
+        let rawQuantity = LocalizationManager.shared.localizedString(
+            forKey: quantityKey
+        )
+        return String(format: rawQuantity, Main.menu.rowQ)  // or actual quantity
+    }
+
     class func addMenuList() -> [Menu] {
         return [
-            Menu(foodName: "Food",
-                 quantity: 25,
-                 img: "ic_Food",
-                 intsTag: 0),
-            
-            Menu(foodName: "Beverages",
-                 quantity: 25,
-                 img: "ic_Beverages",
-                 intsTag: 1),
-            
-            Menu(foodName: "Desserts",
-                 quantity: 20,
-                 img: "ic_Desert",
-                 intsTag: 2),
+            Menu(
+                foodKey: Main.menu.food,
+                quantityKey: Main.menu.foodQ,
+                img: Main.ImageName.food,
+                intsTag: 0
+            ),
+
+            Menu(
+                foodKey: Main.menu.beverages,
+                quantityKey: Main.menu.foodQ,
+                img: Main.ImageName.beverages,
+                intsTag: 1
+            ),
+
+            Menu(
+                foodKey: Main.menu.desserts,
+                quantityKey: Main.menu.foodQ,
+                img: Main.ImageName.desserts,
+                intsTag: 2
+            ),
         ]
     }
 }

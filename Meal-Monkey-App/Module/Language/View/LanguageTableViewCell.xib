@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="123" id="KGk-i7-Jjw" customClass="LanguageTableViewCell" customModule="Meal_Monkey_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="354" height="123"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="354" height="123"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4MW-sx-TKj">
+                        <rect key="frame" x="10" y="10" width="334" height="103"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_righ_img" translatesAutoresizingMaskIntoConstraints="NO" id="vrv-xG-6xa">
+                                <rect key="frame" x="262" y="26" width="58" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="l7Y-BN-7AN"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTw-WR-J8b">
+                                <rect key="frame" x="21" y="41" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="More page cell color"/>
+                        <constraints>
+                            <constraint firstItem="zTw-WR-J8b" firstAttribute="leading" secondItem="4MW-sx-TKj" secondAttribute="leading" constant="21" id="EII-tN-BrM"/>
+                            <constraint firstItem="vrv-xG-6xa" firstAttribute="centerY" secondItem="4MW-sx-TKj" secondAttribute="centerY" id="Uma-SB-9DX"/>
+                            <constraint firstItem="zTw-WR-J8b" firstAttribute="centerY" secondItem="vrv-xG-6xa" secondAttribute="centerY" id="oNt-rn-bTd"/>
+                            <constraint firstAttribute="trailing" secondItem="vrv-xG-6xa" secondAttribute="trailing" constant="14" id="rtJ-Rk-2es"/>
+                            <constraint firstItem="vrv-xG-6xa" firstAttribute="top" secondItem="4MW-sx-TKj" secondAttribute="top" constant="26" id="vw0-bo-i1r"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="4MW-sx-TKj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="R2A-G0-gri"/>
+                    <constraint firstAttribute="bottom" secondItem="4MW-sx-TKj" secondAttribute="bottom" constant="10" id="YgD-zb-4S7"/>
+                    <constraint firstItem="4MW-sx-TKj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="gXq-AB-rju"/>
+                    <constraint firstAttribute="trailing" secondItem="4MW-sx-TKj" secondAttribute="trailing" constant="10" id="klh-wD-k6R"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="ViewCell" destination="4MW-sx-TKj" id="E1W-xG-e7g"/>
+                <outlet property="imgCheckmark" destination="vrv-xG-6xa" id="f7u-lE-wJ4"/>
+                <outlet property="lblLang" destination="zTw-WR-J8b" id="zpF-2t-XJc"/>
+            </connections>
+            <point key="canvasLocation" x="232.06106870229007" y="5.2816901408450709"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_righ_img" width="24.666666030883789" height="22.333333969116211"/>
+        <namedColor name="More page cell color">
+            <color red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

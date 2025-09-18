@@ -388,12 +388,19 @@
                         <outlet property="btnPlus" destination="CLR-HL-J3n" id="hk5-1t-ZD7"/>
                         <outlet property="btnTrolly" destination="IHn-Rh-Lh9" id="avJ-uc-vuF"/>
                         <outlet property="imgViewItem" destination="TSW-Wz-q2d" id="VB1-TY-SYL"/>
+                        <outlet property="lblCustomizedYourOrder" destination="uHq-FR-g4h" id="SjB-8c-M9Z"/>
                         <outlet property="lblDescription" destination="fdf-jH-RuK" id="CKL-tT-f5f"/>
                         <outlet property="lblItemName" destination="WAA-1o-SCd" id="kqY-Kt-jhz"/>
+                        <outlet property="lblNumberOfPortions" destination="LxC-Pm-ThJ" id="o2r-oC-aH4"/>
                         <outlet property="lblPrice" destination="6qq-qm-0FK" id="rZ3-ME-Bed"/>
                         <outlet property="lblRating" destination="fg4-YA-Hzi" id="P2G-xa-l4C"/>
+                        <outlet property="lblSelectTheIngredients" destination="Arj-PO-WQx" id="Cza-hL-giY"/>
+                        <outlet property="lblSelectTheSizeOfPortion" destination="iVT-Ns-1cp" id="Iq0-R7-mlA"/>
                         <outlet property="lblTotalPrice" destination="XJG-d1-S6t" id="OWs-W1-a7K"/>
+                        <outlet property="lbllocDescription" destination="pF9-gM-cRg" id="QDo-AV-lJ1"/>
+                        <outlet property="lbllocTotalPrice" destination="bSd-uf-AtW" id="3gU-K7-ybb"/>
                         <outlet property="scrollViewDetails" destination="SAq-39-Wi1" id="GDV-tp-R1v"/>
+                        <outlet property="stackRating" destination="y0K-gB-PTy" id="JgA-FQ-Epu"/>
                         <outlet property="viewCountPlus_Minus" destination="THt-fR-ej5" id="p8Q-9u-hsI"/>
                         <outlet property="viewDetailPage" destination="HP3-HF-kf8" id="vJF-P9-ZXK"/>
                         <outlet property="viewDetails" destination="1bS-bc-WGm" id="ZXN-MZ-1KT"/>

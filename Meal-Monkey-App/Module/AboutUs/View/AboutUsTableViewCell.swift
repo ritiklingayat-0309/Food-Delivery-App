@@ -7,30 +7,49 @@
 
 import UIKit
 
-/**
- A custom table view cell used to display content for the "About Us," "Notifications," and "Inbox" screens.
- This cell is designed with multiple labels and a button that can be configured to show different types of data, depending on the screen.
- */
+/// A custom table view cell used to display content for the "About Us," "Notifications," and "Inbox" screens.
+/// This cell is designed with multiple labels and a button that can be configured to show different types of data, depending on the screen.
 class AboutUsTableViewCell: UITableViewCell {
-    
+
     // MARK: - Outlets
     @IBOutlet weak var lbltitle: UILabel!
     @IBOutlet weak var lbltitle2: UILabel!
     @IBOutlet weak var lblRightSidetitle: UILabel!
     @IBOutlet weak var btnStar: UIButton!
-    @IBOutlet weak var lblRightSidetitleHeight:
-    NSLayoutConstraint!
-    
+    @IBOutlet weak var lblRightSidetitleHeight: NSLayoutConstraint!
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        //        applyTheme()
+
+        // Listen for theme change
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(themeChanged),
+            name: NSNotification.Name("themeChanged"),
+            object: nil
+        )
     }
-    
+
+    @objc private func themeChanged() {
+        applyTheme()
+    }
+
+    func applyTheme() {
+        let theme = ThemeManager.currentTheme
+        contentView.backgroundColor = theme.backgroundColor
+        lbltitle.textColor = theme.primaryFontColor
+        lbltitle2.textColor = theme.secondaryFontColor
+        lblRightSidetitle.textColor = theme.labelColor
+        btnStar.tintColor = theme.buttonColor
+    }
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
+
     // MARK: - Configuration Methods
-    
+
     /**
      Configures the cell to display data for the "About Us" screen.
      This method shows only the main title label and hides all other UI elements to present a clean, text-based cell.
@@ -43,7 +62,7 @@ class AboutUsTableViewCell: UITableViewCell {
         lblRightSidetitleHeight.constant = 0
         btnStar.isHidden = true
     }
-    
+
     /**
      Configures the cell to display data for the "Notifications" screen.
      This method shows the main title and a time-related label, hiding other elements.
@@ -55,7 +74,7 @@ class AboutUsTableViewCell: UITableViewCell {
         lblRightSidetitle.isHidden = true
         lbltitle2.text = about.strTimezone
     }
-    
+
     /**
      Configures the cell to display data for the "Inbox" screen.
      This method shows multiple labels and a star button to represent a message with a subject, date, and subtitle.

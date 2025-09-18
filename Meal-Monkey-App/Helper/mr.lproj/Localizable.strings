@@ -1,0 +1,444 @@
+/* 
+  Localizable.strings
+  Meal-Monkey-App
+
+  Created by Ritik Lingayat on 06/09/25.
+  
+*/
+
+/* Login Screen Titles */
+"login_title" = "लॉगिन";
+"login_subtitle" = "लॉगिन करण्यासाठी तुमची माहिती भरा";
+"login_or_with" = "किंवा यासह लॉगिन करा";
+
+/* Buttons */
+"login_button" = "लॉगिन";
+"forgot_password_button" = "पासवर्ड विसरलात का?";
+"login_with_facebook" = "फेसबुकने लॉगिन करा";
+"login_with_google" = "गुगलने लॉगिन करा";
+"signup_button" = "खाते नाहीये? साइन अप करा";
+
+/* Text Fields */
+"email_placeholder" = "तुमचा ई-मेल";
+"password_placeholder" = "पासवर्ड";
+
+
+/* SignUP Screen Titles */
+/* Labels */
+"signup_title_03" = "साइन अप";
+"signup_subtitle_03" = "साइन अप करण्यासाठी आपले तपशील भरा";
+
+/* Text Fields */
+"name_placeholder_03" = "तुमचे नाव";
+"mobile_placeholder_03" = "मोबाईल नंबर";
+"email_placeholder_03" = "ईमेल पत्ता";
+"address_placeholder_03" = "पत्ता";
+"password_placeholder_03" = "पासवर्ड";
+"confirm_password_placeholder_03" = "पासवर्डची पुष्टी करा";
+
+/* Buttons */
+"signup_button_03" = "साइन अप";
+"already_have_account_03" = "आधीच खाते आहे? लॉगिन करा";
+
+
+/* Reset Password Screen Titles */
+/* Labels */
+"reset_password_title_03" = "पासवर्ड रीसेट करा";
+"enter_your_email_title_03" = "कृपया आपला ईमेल प्रविष्ट करा जेणेकरून नवीन पासवर्ड सेट करण्यासाठी लिंक प्राप्त होईल";
+/* Text Fields */
+"email_placeholder_03" = "ईमेल पत्ता";
+/* Buttons */
+"send_button_03" = "पाठवा";
+
+
+/* OTP Screen */
+"verify_otp_title_03" = "आम्ही तुमच्या मोबाईलवर OTP पाठवले आहे";
+"enter_otp_subtitle_03" = "कृपया तुमचा मोबाईल नंबर 071*****12 तपासा आणि पासवर्ड रीसेट सुरू ठेवा";
+"click_here_button_03" = "येथे क्लिक करा";
+"next_button_03" = "पुढे";
+
+
+/* NewPassword Screen */
+"enter_email_to_reset_pass_title_03" = "कृपया नवीन पासवर्ड रीसेटसाठी दुवा मिळवण्यासाठी तुमचा ईमेल प्रविष्ट करा";
+"new_password_title_03" = "नवीन पासवर्ड";
+"confirm_password_title_03" = "पासवर्डची पुष्टी करा";
+
+/* New Password Screen - TextField Placeholders */
+"new_password_placeholder_03" = "नवीन पासवर्ड प्रविष्ट करा";
+"confirm_password_placeholder_03" = "पासवर्डची पुष्टी करा";
+
+/* New Password Screen - Buttons */
+"next_button_03" = "पुढे";
+
+
+/* Features Screen - Titles */
+"features_title_1_03" = "आवडता जेवण शोधा";
+"features_title_2_03" = "जलद डिलिव्हरी";
+"features_title_3_03" = "थेट ट्रॅकिंग";
+
+/* Features Screen - Subtitles */
+"features_subtitle_1_03" = "1,000 हून अधिक रेस्टॉरंटमधून सर्वोत्तम जेवण शोधा";
+"features_subtitle_2_03" = "तुमच्या घरी, ऑफिसमध्ये आणि जिथे कुठे असाल तिथे जलद फूड डिलिव्हरी";
+"features_subtitle_3_03" = "ऑर्डर केल्यानंतर अॅपवर तुमच्या जेवणाचे थेट ट्रॅकिंग करा";
+
+"features_next_button_03" = "पुढे";        // Marathi
+"features_done_button_03" = "पूर्ण";       // Marathi
+
+
+/* Menu Screen - Titles */
+"menu_food_03" = "अन्न";
+"menu_beverages_03" = "पेय";
+"menu_desserts_03" = "गोड पदार्थ";
+"menu_quantity_items_03" = "२५ वस्तू";
+"menu_nav_title" = "मेनू";
+"no_result_found" = "कोणताही निकाल सापडला नाही";
+"search_placeholder" = "अन्न शोधा";
+
+
+// offerpage - Marathi
+"offers_nav_title_03" = "नवीन ऑफर";
+"offers_lbl_latest_03" = "सवलती, विशेष जेवण आणि बरेच काही शोधा!";
+"offers_btn_check_03" = "ऑफर तपासा";
+"offers_cafe_03_0" = "कॅफे डी नोएरेस";
+"offers_cafe_03_1" = "इस्सो";
+"offers_cafe_03_2" = "कॅफे बीन";
+"offers_rating_03" = "(१२४ रेटिंग्स)";
+"offers_restrotype_03" = "कॅफे";
+"offers_foodtype_03" = "पाश्चिमात्य जेवण";
+"offers_four_point_nine_03" = "४.९";
+
+
+/* Profile Page - Marathi */
+"profile_nav_title_03" = "प्रोफाइल";
+"profile_lbl_title_user_03" = "हॅलो, %@!";
+"profile_lbl_name_placeholder_03" = "नाव";
+"profile_lbl_email_placeholder_03" = "ई-मेल";
+"profile_lbl_mobile_placeholder_03" = "मोबाईल नंबर";
+"profile_lbl_address_placeholder_03" = "पत्ता";
+"profile_btn_edit_03" = "प्रोफाइल संपादित करा";
+"profile_btn_save_03" = "साठवा";
+"profile_btn_signout_03" = "साइन आउट";
+"profile_update_success_msg_03" = "प्रोफाइल यशस्वीरीत्या अपडेट झाली!";
+"profile_update_error_msg_03" = "प्रोफाइल अपडेट करण्यात अयशस्वी.";
+"email_exists_title_03" = "ईमेल आधीच अस्तित्वात आहे";
+"email_exists_msg_03" = "हा ईमेल पत्ता आधीच इतर वापरकर्त्याद्वारे वापरला जात आहे.";
+
+
+/* More Menu */
+"more_payment_details_03" = "पेमेंट तपशील";
+"more_my_orders_03" = "माझी ऑर्डर्स";
+"more_notification_03" = "सूचना";
+"more_inbox_03" = "इनबॉक्स";
+"more_about_us_03" = "आमच्याबद्दल";
+"more_wishlist_03" = "विशलिस्ट";
+"more_language_03" = "भाषा";
+"more_theme_03" = "थीम";
+"more_title_03" = "अधिक";
+
+
+/* Payment Screen Titles */
+"payment_details_title" = "पेमेंट तपशील";
+"customize_payment_method_label" = "आपली पेमेंट पद्धत सानुकूलित करा";
+"add_card_button_title" = "कार्ड जोडा";
+"add_another_card_button_title" = "आणखी एक कार्ड जोडा";
+
+/* Empty State */
+"no_saved_cards_msg" = "अजून कोणतेही कार्ड जतन केलेले नाहीत";
+"card_number_placeholder_03" = "कार्ड क्रमांक टाका";
+"security_code_placeholder_03" = "सुरक्षा कोड टाका";
+"first_name_placeholder_03" = "पहिले नाव टाका";
+"last_name_placeholder_03" = "आडनाव टाका";
+"expiry_month_placeholder_03" = "महिना";
+"expiry_year_placeholder_03" = "वर्ष";
+/* Payment Screen Labels - Marathi */
+"add_credit_label_03" = "क्रेडिट/डेबिट कार्ड जोडा";
+"expiry_label_03" = "कालबाह्य";
+"you_can_remove_label_03" = "आपण हा कार्ड कधीही काढू शकता";
+"other_method_label_03" = "इतर पेमेंट पद्धत";
+"cash_on_delivery_label_03" = "कॅश ऑन डिलिव्हरी";
+"delete_card_button_title_03" = "कार्ड हटवा";
+
+
+
+/* cart Screen Titles */
+"cart_category_label_03" = "वर्ग";
+"cart_price_label_03" = "किंमत";
+"cart_type_label_03" = "प्रकार";
+/* cart Screen Titles */
+"cart_nav_title_wishlist_03" = "इच्छित यादी";
+"cart_nav_title_cart_03" = "कार्ट";
+"place_order_button_title_03" = "ऑर्डर करा";
+"empty_wishlist_message_03" = "तुमची विहीष्ट सूची रिकामी आहे";    // Marathi
+"empty_cart_message_03" = "तुमचा कार्ट रिकामा आहे";
+"ok_button" = "ठीक आहे";
+
+
+
+"order_list_title_03" = "ऑर्डर यादी"; 
+
+
+"my_order_title_03" = "माझा ऑर्डर";
+"delivery_instructions_03" = "डिलिव्हरी सूचना";
+"subtotal_03" = "उप-एकूण";
+"delivery_cost_03" = "डिलिव्हरी खर्च";
+"total_03" = "एकूण";
+"king_burger_03" = "किंग बर्गर";
+"rating_03" = "(१२४ रेटिंग्ज)";
+"rating_value_03" = "४.५";
+"address_03" = "क्र. ०३, चौथा मार्ग, न्यूयॉर्क";
+"add_note_03" = "टीप जोडा";
+"checkout_03" = "चेकआउट";
+
+
+"checkout_title" = "चेकआउट";
+"checkout_delivery_address" = "डिलिव्हरी पत्ता";
+"checkout_change_address" = "पत्ता बदला";
+"checkout_send_order" = "ऑर्डर पाठवा";
+"checkout_payment_method" = "पेमेंट पद्धत";
+"checkout_total" = "एकूण";
+"checkout_discount" = "सवलत";
+"checkout_delivery_cost" = "डिलिव्हरी शुल्क";
+"checkout_subtotal" = "उप-मूळ रक्कम";
+"checkout_add_card" = "कार्ड जोडा";
+"thank_you_03" = "धन्यवाद!";
+"for_your_order_03" = "तुमच्या ऑर्डरसाठी";
+"your_order_03" = "तुमचा ऑर्डर आता प्रक्रिया करण्यात आला आहे. जेव्हा ऑर्डर आउटलेटमधून उचलली जाईल तेव्हा आम्ही तुम्हाला कळवू. तुमच्या ऑर्डरची स्थिती तपासा.";
+"track_my_order_03" = "माझा ऑर्डर ट्रॅक करा";
+"back_to_home_03" = "मुख्य पृष्ठावर परत जा";
+
+"add_card_debit_03" = "डेबिट / क्रेडिट कार्ड जोडा";
+"expiry_03" = "समाप्ती";
+"you_can_03" = "आपण जलद चेकआउटसाठी आपले कार्ड जतन करू शकता";
+
+"placeholder_card_number_03" = "कार्ड क्रमांक";
+"placeholder_exp_month_03" = "महिना";
+"placeholder_exp_year_03" = "वर्ष";
+"placeholder_security_code_03" = "सुरक्षा कोड";
+"placeholder_first_name_03" = "पहिले नाव";
+"placeholder_last_name_03" = "आडनाव";
+
+"add_card_button_03" = "कार्ड जोडा";
+"change_address_03" = " बदला";
+
+
+// =======================
+// About Us Page Localization - Marathi
+// =======================
+"about_us_text1_03" = "आमचे ध्येय म्हणजे वापरकर्त्यांना अखंड आणि सोपा खरेदीचा अनुभव देणे. आमच्या सोप्या इंटरफेस आणि विश्वासार्ह सेवेच्या मदतीने ब्राउझिंग, खरेदी आणि प्रॉडक्ट व्यवस्थापन सहजसोपे वाटेल.";
+"about_us_text2_03" = "आम्ही उच्च कार्यक्षमता, पारदर्शकता आणि विश्वास कायम ठेवण्यासाठी कटिबद्ध आहोत. आमची टीम सतत अॅपची कार्यक्षमता वाढवण्यासाठी, डेटा प्रायव्हसी सुनिश्चित करण्यासाठी आणि ग्राहक सहाय्य देण्यासाठी कार्यरत असते.";
+"about_us_text3_03" = "तुमचा अभिप्राय आमच्यासाठी महत्वाचा आहे. तुम्हाला काही प्रश्न, सूचना किंवा समस्या असल्यास आमच्याशी संपर्क साधा. आम्ही मदतीसाठी सदैव तयार आहोत.";
+"about_us_text4_03" = "आम्ही मानतो की तंत्रज्ञानाने लोकांची सेवा करायला हवी. म्हणूनच आम्ही आमचे प्लॅटफॉर्म वापरकर्त्यांच्या गरजेनुसार सतत सुधारतो.";
+"about_us_text5_03" = "सुरक्षितता आमची पहिली प्राथमिकता आहे. तुमची वैयक्तिक माहिती सुरक्षित ठेवण्यासाठी आम्ही उद्योगमान्य प्रोटोकॉल वापरतो.";
+"about_us_text6_03" = "आम्ही सर्वांसाठी उपलब्धता आणि समावेशकतेला महत्त्व देतो. आमचे प्लॅटफॉर्म सर्व पार्श्वभूमी, डिव्हाइस आणि तांत्रिक क्षमतांच्या लोकांना वापरता येईल अशा पद्धतीने डिझाइन केले आहे.";
+"about_us_text7_03" = "शाश्वतता आमच्यासाठी महत्त्वाची आहे. आम्ही पर्यावरणपूरक पद्धतींना समर्थन देतो आणि पर्यावरणावर परिणाम कमी करण्यासाठी प्रयत्न करतो.";
+
+// =======================
+// Inbox Page Localization - Marathi
+// =======================
+"inbox_promotions_title_03" = "मीलमंकी प्रोमोशन्स";
+"inbox_promotions_date_03" = "६ जुलै";
+"inbox_promotions_desc_03" = "तुमच्या पुढच्या जेवणावर २०% सूट मिळवा!";
+
+"inbox_order_update_title_03" = "ऑर्डर अपडेट";
+"inbox_order_update_date_03" = "६ जुलै";
+"inbox_order_update_desc_03" = "तुमची ऑर्डर रेस्टॉरंटमध्ये तयार केली जात आहे.";
+
+"inbox_delivery_reminder_title_03" = "डिलिव्हरी रिमाइंडर";
+"inbox_delivery_reminder_date_03" = "६ जुलै";
+"inbox_delivery_reminder_desc_03" = "तुमचा डिलिव्हरी एजंट येत आहे.";
+
+"inbox_welcome_title_03" = "मीलमंकी मध्ये स्वागत आहे";
+"inbox_welcome_date_03" = "६ जुलै";
+"inbox_welcome_desc_03" = "आमच्याशी जोडल्याबद्दल धन्यवाद! स्वादिष्ट जेवणांचा आनंद घ्या.";
+
+"inbox_experience_title_03" = "तुमचा अनुभव रेट करा";
+"inbox_experience_date_03" = "६ जुलै";
+"inbox_experience_desc_03" = "तुमचा अलीकडील ऑर्डर कसा होता?";
+
+"inbox_flash_sale_title_03" = "फ्लॅश सेल";
+"inbox_flash_sale_date_03" = "६ जुलै";
+"inbox_flash_sale_desc_03" = "फक्त आज सर्व पास्ता ऑर्डरवर ३०% सूट.";
+
+"inbox_new_restaurants_title_03" = "नवीन रेस्टॉरंट्स";
+"inbox_new_restaurants_date_03" = "६ जुलै";
+"inbox_new_restaurants_desc_03" = "तुमच्या भागातील नवीन रेस्टॉरंट्स शोधा.";
+
+"inbox_refer_earn_title_03" = "रेफर करा आणि कमवा";
+"inbox_refer_earn_date_03" = "६ जुलै";
+"inbox_refer_earn_desc_03" = "मित्रांना आमंत्रित करा आणि ₹१०० क्रेडिट्स मिळवा!";
+
+"inbox_weekend_special_title_03" = "वीकेंड स्पेशल";
+"inbox_weekend_special_date_03" = "६ जुलै";
+"inbox_weekend_special_desc_03" = "₹४९९ पेक्षा जास्त ऑर्डरवर मोफत डेझर्ट.";
+
+"inbox_tips_title_03" = "मीलमंकी टिप्स";
+"inbox_tips_date_03" = "६ जुलै";
+"inbox_tips_desc_03" = "विशेष सूचना देऊन तुमच्या ऑर्डरला कस्टमाइझ करा.";
+
+"inbox_order_cancel_title_03" = "ऑर्डर रद्द केली";
+"inbox_order_cancel_date_03" = "६ जुलै";
+"inbox_order_cancel_desc_03" = "तुमची ऑर्डर तुमच्या विनंतीनुसार रद्द केली आहे.";
+
+"inbox_loyalty_program_title_03" = "निष्ठा कार्यक्रम";
+"inbox_loyalty_program_date_03" = "६ जुलै";
+"inbox_loyalty_program_desc_03" = "प्रत्येक खरेदीसोबत मंकी पॉइंट्स मिळवा.";
+
+"inbox_security_update_title_03" = "सुरक्षा अपडेट";
+"inbox_security_update_date_03" = "६ जुलै";
+"inbox_security_update_desc_03" = "तुमचा पासवर्ड अलीकडेच बदलला गेला आहे.";
+
+"inbox_account_verified_title_03" = "अकाउंट व्हेरिफाइड";
+"inbox_account_verified_date_03" = "६ जुलै";
+"inbox_account_verified_desc_03" = "तुमचे अकाउंट यशस्वीरित्या सत्यापित झाले आहे.";
+
+"inbox_limited_deal_title_03" = "मर्यादित काळाची ऑफर";
+"inbox_limited_deal_date_03" = "६ जुलै";
+"inbox_limited_deal_desc_03" = "आज बिर्याणी ऑर्डरवर ₹५० सूट.";
+
+// =======================
+// Notifications Page Localization - Marathi
+// =======================
+"notification_order_placed_03" = "ऑर्डर यशस्वीरित्या दिली";
+"notification_order_placed_time_03" = "आत्ताच";
+
+"notification_payment_confirmed_03" = "तुमचे पेमेंट पुष्टी झाले आहे";
+"notification_payment_confirmed_time_03" = "५ मिनिटांपूर्वी";
+
+"notification_food_prepared_03" = "तुमचे जेवण तयार होत आहे";
+"notification_food_prepared_time_03" = "१० मिनिटांपूर्वी";
+
+"notification_agent_assigned_03" = "डिलिव्हरी एजंट नेमण्यात आला आहे";
+"notification_agent_assigned_time_03" = "३० मिनिटांपूर्वी";
+
+"notification_order_on_way_03" = "तुमची ऑर्डर येत आहे";
+"notification_order_on_way_time_03" = "१ तासापूर्वी";
+
+"notification_discount_03" = "विशेष सूट उपलब्ध आहे!";
+"notification_discount_time_03" = "२ तासांपूर्वी";
+
+"notification_app_update_03" = "आमचा नवीन अॅप अपडेट डाउनलोड करा";
+"notification_app_update_time_03" = "३ तासांपूर्वी";
+
+"notification_refer_friend_03" = "मित्राला रेफर करा आणि कमवा";
+"notification_refer_friend_time_03" = "५ तासांपूर्वी";
+
+"notification_limited_deal_03" = "मर्यादित काळाची ऑफर संपत आली आहे";
+"notification_limited_deal_time_03" = "१२ तासांपूर्वी";
+
+"notification_delivery_done_03" = "डिलिव्हरी पूर्ण झाली";
+"notification_delivery_done_time_03" = "१ दिवसापूर्वी";
+
+"notification_rate_meal_03" = "तुमच्या शेवटच्या जेवणाला रेट करा";
+"notification_rate_meal_time_03" = "२ दिवसांपूर्वी";
+
+"notification_weekend_offer_03" = "फक्त तुमच्यासाठी वीकेंड ऑफर";
+"notification_weekend_offer_time_03" = "३ दिवसांपूर्वी";
+
+"notification_free_delivery_03" = "₹२९९ पेक्षा जास्त ऑर्डरवर मोफत डिलिव्हरी";
+"notification_free_delivery_time_03" = "५ दिवसांपूर्वी";
+
+"notification_thanks_03" = "आमच्यासोबत राहिल्याबद्दल धन्यवाद!";
+"notification_thanks_time_03" = "६ दिवसांपूर्वी";
+
+"notification_new_restaurants_03" = "तुमच्या जवळ नवीन रेस्टॉरंट्स जोडले गेले आहेत";
+"notification_new_restaurants_time_03" = "१ आठवड्यापूर्वी";
+"title_notification_03" = "सूचना";
+"title_inbox_03" = "इनबॉक्स";
+"title_about_us_03" = "आमच्याबद्दल";
+
+
+"greeting_good_morning" = "सुप्रभात %@!";
+"search_food_03" = "अन्न शोधा";
+"label_delivering_to_03" = "पोचविण्यात येत आहे";
+
+
+// Marathi
+"title_food_03" = "अन्न";
+"title_beverages_03" = "पेय";
+"title_desserts_03" = "डेसर्ट";
+
+"title_food_detail_03" = "अन्न तपशील";
+
+
+"label_select_ingredients_03" = "साहित्य निवडा";
+"label_select_portion_size_03" = "भागाचा आकार निवडा";
+"label_total_price_03" = "एकूण किंमत";
+"label_number_of_portions_03" = "भागांची संख्या";
+"label_customize_order_03" = "आपल्या ऑर्डर सानुकूल करा";
+"label_description_03" = "वर्णन";
+"button_add_to_cart_03" = "कार्टमध्ये जोडा";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Alert Titles */
+"error" = "त्रुटी";
+"invalid_email_title" = "अवैध ई-मेल";
+"invalid_password_title" = "अवैध पासवर्ड";
+"success" = "यश";
+"otp_title" = "ओटीपी पाठविला";
+
+/* Card Titles */
+"invalid_input_title" = "अवैध इनपुट";
+"invalid_card_number_title" = "अवैध कार्ड नंबर";
+"invalid_security_code_title" = "अवैध सुरक्षा कोड";
+"duplicate_card_title" = "कार्ड आधीच आहे";
+
+/* Cart Titles */
+"order_placed_title" = "ऑर्डर दिला";
+"empty_cart_title" = "रिकामा कार्ट";
+
+/* Alert Messages */
+"enter_name_msg" = "कृपया नाव प्रविष्ट करा";
+"enter_email_msg" = "कृपया ई-मेल प्रविष्ट करा";
+"invalid_email_msg" = "कृपया वैध ई-मेल पत्ता प्रविष्ट करा.";
+"enter_mobile_msg" = "कृपया मोबाइल नंबर प्रविष्ट करा";
+"digits_only_msg" = "मोबाइल नंबरमध्ये फक्त अंक असावेत";
+"mobile_length_msg" = "मोबाइल नंबर नक्की 10 अंकांचा असावा.";
+"enter_address_msg" = "कृपया पत्ता प्रविष्ट करा";
+"enter_password_msg" = "कृपया पासवर्ड प्रविष्ट करा";
+"invalid_password_msg" = "पासवर्ड किमान 8 अक्षरे असणे आवश्यक आहे, त्यात 1 मोठा अक्षर, 1 लहान अक्षर, 1 अंक आणि 1 विशेष चिन्ह असावे.";
+"enter_confirm_password_msg" = "कृपया पुष्टी पासवर्ड प्रविष्ट करा";
+"password_mismatch_msg" = "पुष्टी पासवर्ड जुळत नाही";
+"registration_success_msg" = "नोंदणी यशस्वी! तुम्ही आता लॉगिन करू शकता.";
+"registration_failed_msg" = "नोंदणी अयशस्वी. कृपया पुन्हा प्रयत्न करा.";
+"otp_message_msg" = "नोंदणीकृत मोबाइल नंबरवर नवीन ओटीपी पाठविला गेला आहे.";
+"user_not_found_msg" = "वापरकर्ता सापडला नाही. कृपया तपासा किंवा साइन अप करा.";
+"login_failed_msg" = "लॉगिन अयशस्वी. कृपया नंतर प्रयत्न करा.";
+
+/* Card Messages */
+"empty_card_number_msg" = "कृपया कार्ड नंबर प्रविष्ट करा.";
+"invalid_card_digits_msg" = "कार्ड नंबरमध्ये फक्त अंक असावेत.";
+"invalid_card_length_msg" = "कार्ड नंबर नक्की 16 अंकांचा असावा.";
+"empty_expiry_month_msg" = "कृपया मुदत समाप्ती महिना प्रविष्ट करा.";
+"empty_expiry_year_msg" = "कृपया मुदत समाप्ती वर्ष प्रविष्ट करा.";
+"empty_security_code_msg" = "कृपया सुरक्षा कोड प्रविष्ट करा.";
+"invalid_security_code_digits_msg" = "सुरक्षा कोडमध्ये फक्त अंक असावेत.";
+"invalid_security_code_length_msg" = "सुरक्षा कोड 3 किंवा 4 अंकांचा असावा.";
+"empty_first_name_msg" = "कृपया कार्डधारकाचे पहिले नाव प्रविष्ट करा.";
+"invalid_first_name_msg" = "कृपया वैध पहिले नाव फक्त अक्षरे वापरून प्रविष्ट करा.";
+"empty_last_name_msg" = "कृपया कार्डधारकाचे शेवटचे नाव प्रविष्ट करा.";
+"invalid_last_name_msg" = "कृपया वैध शेवटचे नाव फक्त अक्षरे वापरून प्रविष्ट करा.";
+"duplicate_card_msg" = "हा कार्ड नंबर आधीच जतन केला आहे.";
+"card_expiry_date_msg" = "कार्ड मुदत समाप्तीची तारीख भविष्यातील असावी.";
+"expiry_month_validate_msg" = "मुदत समाप्ती महिना 2-अंकी असावा (उदा. 01–12).";
+"expiry_year_validate_msg" = "मुदत समाप्ती वर्ष 4-अंकी असावे (उदा. 2026).";
+"invalid_expiry_month_range_msg" = "मुदत समाप्ती महिना 01 ते 12 दरम्यान असावा.";
+
+/* Cart Messages */
+"added_to_cart_03" = "कार्टमध्ये जोडले!";
+"order_placed_success_msg" = "तुमचा ऑर्डर यशस्वीरित्या दिला गेला!";
+"failed_to_place_order_msg" = "ऑर्डर देण्यात अयशस्वी. कृपया पुन्हा प्रयत्न करा.";
+"add_item_before_placing_order_msg" = "ऑर्डर देण्यापूर्वी कृपया वस्तू जोडा.";

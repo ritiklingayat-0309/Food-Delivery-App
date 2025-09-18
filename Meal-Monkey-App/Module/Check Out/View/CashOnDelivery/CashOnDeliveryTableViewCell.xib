@@ -53,6 +53,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="btnSelect" destination="GJa-5p-h98" id="NwU-cX-cH9"/>
+                <outlet property="lbllocCashOnDelivery" destination="wvS-eK-FIA" id="efE-yz-Rc0"/>
                 <outlet property="stackView" destination="9iM-Md-YUI" id="bRc-rD-yvC"/>
             </connections>
             <point key="canvasLocation" x="-43.511450381679388" y="31.690140845070424"/>

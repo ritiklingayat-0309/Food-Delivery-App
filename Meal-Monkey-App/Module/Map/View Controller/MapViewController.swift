@@ -5,8 +5,8 @@
 //  Created by Ritik Lingayat on 12/08/25.
 //
 
-import UIKit
 import MapKit
+import UIKit
 
 /// Protocol to notify delegate when an address is selected.
 protocol MapViewControllerDelegate: AnyObject {
@@ -15,29 +15,28 @@ protocol MapViewControllerDelegate: AnyObject {
 
 /// Controller responsible for displaying and interacting with the map view.
 class MapViewController: UIViewController, CLLocationManagerDelegate,
-                         UISearchBarDelegate, MKMapViewDelegate {
-    
+    UISearchBarDelegate, MKMapViewDelegate {
     /// Delegate to pass the selected address back.
     weak var delegate: MapViewControllerDelegate?
-    
+
     /// Search text field for entering addresses.
     @IBOutlet weak var txtSearch: UITextField!
-    
+
     /// Main map view for location selection.
     @IBOutlet weak var mapView: MKMapView!
-    
+
     /// Button to save the selected address.
     @IBOutlet weak var btnSaveAddress: UIButton!
-    
+
     /// Button to jump to current location.
     @IBOutlet weak var btnCurrentLocation: UIButton!
-    
+
     /// Location manager for handling location updates and permissions.
     let locationManager = CLLocationManager()
-    
+
     /// Geocoder for converting between coordinates and human-readable addresses.
     let geocoder = CLGeocoder()
-    
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,18 +45,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,
         setupLocation()
         setupMap()
     }
-    
+
     // MARK: - Actions
     /// Triggered when "Current Location" button is tapped.
     @IBAction func btnCurrentLocationAction(_ sender: Any) {
         goToCurrentLocation()
     }
-    
-//    /// Triggered when "Current Location" button is tapped (duplicate IBAction).
-//    @IBAction func btnCurrentLocationTapped(_ sender: Any) {
-//        goToCurrentLocation()
-//    }
-    
+
+    //    /// Triggered when "Current Location" button is tapped (duplicate IBAction).
+    //    @IBAction func btnCurrentLocationTapped(_ sender: Any) {
+    //        goToCurrentLocation()
+    //    }
+
     /// Triggered when back button is tapped.
     @objc func BackBtnTapped() {
         if let selectedAnnotation = mapView.annotations.first(where: {
@@ -69,7 +68,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,
         }
         navigationController?.popViewController(animated: true)
     }
-    
+
     // MARK: - Setup Methods
     /// Configures UI elements such as search field, navigation title, gestures.
     private func setupUI() {
@@ -81,27 +80,27 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,
             target: self,
             action: #selector(BackBtnTapped)
         )
-        
+
         let tapGesture = UITapGestureRecognizer(
             target: self,
             action: #selector(mapTapped(_:))
         )
         mapView.addGestureRecognizer(tapGesture)
-        
+
         txtSearch.addTarget(
             self,
             action: #selector(searchAddress),
             for: .editingDidEndOnExit
         )
     }
-    
+
     /// Sets up location manager configurations and permissions.
     private func setupLocation() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         checkLocationPermission()
     }
-    
+
     /// Sets up default map configuration and adds initial pin.
     private func setupMap() {
         mapView.showsUserLocation = true
@@ -113,7 +112,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,
         centerMap(on: defaultLocation)
         addPinAtCenterAndReverseGeocode()
     }
-    
+
     // MARK: - Map Handling
     /// Handles map tap gesture and updates pin/address.
     @objc func mapTapped(_ gesture: UITapGestureRecognizer) {
@@ -121,27 +120,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,
         let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         updatePinAndAddress(at: coordinate)
     }
-    
+
     /// Updates pin annotation and performs reverse geocoding.
     private func updatePinAndAddress(at coordinate: CLLocationCoordinate2D) {
         mapView.removeAnnotations(
             mapView.annotations.filter { !($0 is MKUserLocation) }
         )
-        
+
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
-        annotation.title = "Loading address..."
+        annotation.title = Main.Map.AnnotaionTitle
         mapView.addAnnotation(annotation)
-        
+
         let location = CLLocation(
             latitude: coordinate.latitude,
             longitude: coordinate.longitude
         )
-        
-        geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
+
+        geocoder.reverseGeocodeLocation(location) {
+            [weak self] placemarks, error in
             guard let self = self else { return }
-            var fullAddress = "Unknown Location"
-            
+            var fullAddress = Main.Map.fullAddress
+
             if let placemark = placemarks?.first {
                 let name = placemark.name ?? ""
                 let city = placemark.locality ?? ""
@@ -150,29 +150,29 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,
                 annotation.title = name
                 annotation.subtitle = "\(city), \(country)"
             }
-            
+
             self.mapView.selectAnnotation(annotation, animated: true)
             self.delegate?.didSelectAddress(fullAddress)
         }
     }
-    
+
     /// Searches for address using entered text and updates the map.
     @objc func searchAddress() {
         guard let query = txtSearch.text, !query.isEmpty else { return }
-        
+
         geocoder.geocodeAddressString(query) { [weak self] placemarks, error in
             guard let self = self,
-                  let placemark = placemarks?.first,
-                  let location = placemark.location
+                let placemark = placemarks?.first,
+                let location = placemark.location
             else { return }
-            
+
             let coordinate = location.coordinate
             self.centerMap(on: coordinate)
             self.updatePinAndAddress(at: coordinate)
         }
         txtSearch.resignFirstResponder()
     }
-    
+
     /// Moves map to user's current location.
     func goToCurrentLocation() {
         if let coordinate = locationManager.location?.coordinate {
@@ -182,7 +182,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,
             locationManager.startUpdatingLocation()
         }
     }
-    
+
     /// Centers map on given coordinate with specified radius.
     func centerMap(
         on location: CLLocationCoordinate2D,
@@ -195,13 +195,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,
         )
         mapView.setRegion(region, animated: true)
     }
-    
+
     /// Adds pin at map center and reverse geocodes it.
     func addPinAtCenterAndReverseGeocode() {
         let centerCoord = mapView.centerCoordinate
         updatePinAndAddress(at: centerCoord)
     }
-    
+
     // MARK: - Location Permissions
     /// Checks and requests location permission if needed.
     func checkLocationPermission() {
@@ -227,22 +227,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,
             }
         }
     }
-    
+
     /// Shows alert if location permission is denied.
     func showPermissionAlert() {
         let alert = UIAlertController(
-            title: "Location Permission Needed",
-            message: "Please enable location access in Settings to use this feature.",
+            title: Main.Map.permissiontitle,
+            message: Main.Map.permissionmessage,
             preferredStyle: .alert
         )
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        alert.addAction(
+            UIAlertAction(title: Main.Map.alertCancel, style: .cancel)
+        )
         alert.addAction(
             UIAlertAction(
-                title: "Open Settings",
+                title: Main.Map.alertTitleOpenSettings,
                 style: .default,
                 handler: { _ in
-                    if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                    if let settingsURL = URL(
+                        string: UIApplication.openSettingsURLString
+                    ) {
                         UIApplication.shared.open(settingsURL)
                     }
                 }
@@ -250,7 +254,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,
         )
         present(alert, animated: true)
     }
-    
+
     // MARK: - CLLocationManagerDelegate
     func locationManager(
         _ manager: CLLocationManager,
@@ -261,36 +265,38 @@ class MapViewController: UIViewController, CLLocationManagerDelegate,
         updatePinAndAddress(at: location.coordinate)
         locationManager.stopUpdatingLocation()
     }
-    
+
     func locationManager(
         _ manager: CLLocationManager,
         didFailWithError error: Error
     ) {
         print("Failed to get location: \(error.localizedDescription)")
     }
-    
+
     // MARK: - MKMapViewDelegate
     func mapView(
         _ mapView: MKMapView,
         viewFor annotation: MKAnnotation
     ) -> MKAnnotationView? {
-        
+
         if annotation is MKUserLocation {
             return nil
         }
-        
+
         let identifier = "CustomPin"
         var annotationView = mapView.dequeueReusableAnnotationView(
             withIdentifier: identifier
         )
-        
+
         if annotationView == nil {
             annotationView = MKAnnotationView(
                 annotation: annotation,
                 reuseIdentifier: identifier
             )
             annotationView?.canShowCallout = true
-            annotationView?.image = UIImage(named: "Ic_Location_Pin")
+            annotationView?.image = UIImage(
+                named: Main.ImageName.addressCustomPin
+            )
             annotationView?.centerOffset = CGPoint(
                 x: 0,
                 y: -(annotationView?.image?.size.height ?? 0) / 2

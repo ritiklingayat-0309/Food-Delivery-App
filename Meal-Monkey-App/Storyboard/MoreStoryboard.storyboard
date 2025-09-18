@@ -157,10 +157,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVb-1p-QwM">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="202.66666666666666"/>
-                                <color key="backgroundColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customize your payment method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfP-Pr-gvu">
                                 <rect key="frame" x="28" y="148" width="235" height="18.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
@@ -197,16 +193,16 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgw-op-jh5">
-                                <rect key="frame" x="0.0" y="196.66666666666669" width="393" height="587.33333333333326"/>
+                                <rect key="frame" x="0.0" y="233.66666666666669" width="393" height="618.33333333333326"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9S-Pr-r3X">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="587.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="618.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZK-Cq-2a0">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="594.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="618.33333333333337"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Credit/Debit Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqa-ip-O5w">
-                                                        <rect key="frame" x="21" y="24" width="137" height="16.333333333333329"/>
+                                                        <rect key="frame" x="21" y="24.000000000000028" width="137" height="16.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -231,7 +227,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="WMO-BN-5xC">
                                                         <rect key="frame" x="21" y="78.333333333333371" width="351" height="506"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JKE-CE-fzA">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JKE-CE-fzA">
                                                                 <rect key="frame" x="0.0" y="0.0" width="351" height="56"/>
                                                                 <color key="backgroundColor" name="Text Field background"/>
                                                                 <constraints>
@@ -253,7 +249,7 @@
                                                                         <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ahj-SU-Tbq">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Month" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ahj-SU-Tbq">
                                                                         <rect key="frame" x="116" y="0.0" width="103" height="56"/>
                                                                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
@@ -266,7 +262,7 @@
                                                                             <outlet property="delegate" destination="cpA-Bk-HVT" id="pir-k8-W5R"/>
                                                                         </connections>
                                                                     </textField>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M28-z8-BqX">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M28-z8-BqX">
                                                                         <rect key="frame" x="248" y="0.0" width="103" height="56"/>
                                                                         <color key="backgroundColor" name="Text Field background"/>
                                                                         <constraints>
@@ -357,7 +353,7 @@ at anytime </string>
                                                     <constraint firstItem="uzZ-4g-UL2" firstAttribute="top" secondItem="Iqa-ip-O5w" secondAttribute="bottom" constant="19" id="74X-hB-zdU"/>
                                                     <constraint firstItem="WMO-BN-5xC" firstAttribute="leading" secondItem="cZK-Cq-2a0" secondAttribute="leading" constant="21" id="9Kj-8A-Das"/>
                                                     <constraint firstItem="Iqa-ip-O5w" firstAttribute="top" secondItem="cZK-Cq-2a0" secondAttribute="top" constant="24" id="Fjb-Lm-5i4"/>
-                                                    <constraint firstAttribute="bottom" secondItem="WMO-BN-5xC" secondAttribute="bottom" constant="10" id="Lxm-SR-1pG"/>
+                                                    <constraint firstAttribute="bottom" secondItem="WMO-BN-5xC" secondAttribute="bottom" constant="34" id="Lxm-SR-1pG"/>
                                                     <constraint firstItem="3Co-kM-gDS" firstAttribute="top" secondItem="cZK-Cq-2a0" secondAttribute="top" constant="13" id="RfR-RN-gsY"/>
                                                     <constraint firstAttribute="trailing" secondItem="3Co-kM-gDS" secondAttribute="trailing" constant="16" id="TaY-1s-ola"/>
                                                     <constraint firstItem="WMO-BN-5xC" firstAttribute="top" secondItem="uzZ-4g-UL2" secondAttribute="bottom" constant="18" id="aXa-nV-vCe"/>
@@ -371,9 +367,8 @@ at anytime </string>
                                         <constraints>
                                             <constraint firstItem="cZK-Cq-2a0" firstAttribute="leading" secondItem="Y9S-Pr-r3X" secondAttribute="leading" id="1oZ-aW-vSW"/>
                                             <constraint firstItem="cZK-Cq-2a0" firstAttribute="width" secondItem="Y9S-Pr-r3X" secondAttribute="width" id="2iw-x3-1v0"/>
-                                            <constraint firstAttribute="bottom" secondItem="cZK-Cq-2a0" secondAttribute="bottom" id="BMn-Py-Ef2"/>
                                             <constraint firstAttribute="trailing" secondItem="cZK-Cq-2a0" secondAttribute="trailing" id="Rv8-gd-Goa"/>
-                                            <constraint firstAttribute="bottom" secondItem="cZK-Cq-2a0" secondAttribute="bottom" id="ZVR-ig-eTL"/>
+                                            <constraint firstAttribute="bottom" secondItem="cZK-Cq-2a0" secondAttribute="bottom" constant="34" id="ZVR-ig-eTL"/>
                                             <constraint firstItem="cZK-Cq-2a0" firstAttribute="top" secondItem="Y9S-Pr-r3X" secondAttribute="top" id="poC-2B-rdJ"/>
                                             <constraint firstItem="cZK-Cq-2a0" firstAttribute="height" secondItem="Y9S-Pr-r3X" secondAttribute="height" priority="250" id="zuM-DW-LgH"/>
                                         </constraints>
@@ -383,10 +378,13 @@ at anytime </string>
                                 <constraints>
                                     <constraint firstItem="Y9S-Pr-r3X" firstAttribute="leading" secondItem="vgw-op-jh5" secondAttribute="leading" id="7gp-ga-Sum"/>
                                     <constraint firstAttribute="trailing" secondItem="Y9S-Pr-r3X" secondAttribute="trailing" id="Kco-Ph-ZBI"/>
-                                    <constraint firstAttribute="bottom" secondItem="Y9S-Pr-r3X" secondAttribute="bottom" id="Lvk-yx-szN"/>
                                     <constraint firstItem="Y9S-Pr-r3X" firstAttribute="top" secondItem="vgw-op-jh5" secondAttribute="top" id="TbG-lN-7Xe"/>
                                     <constraint firstAttribute="bottom" secondItem="Y9S-Pr-r3X" secondAttribute="bottom" id="aEa-Cg-WEv"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVb-1p-QwM">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="233.66666666666666"/>
+                                <color key="backgroundColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ds2-xr-YTG"/>
@@ -395,31 +393,35 @@ at anytime </string>
                             <constraint firstItem="ds2-xr-YTG" firstAttribute="bottom" secondItem="V1n-dP-3mP" secondAttribute="bottom" constant="150" id="4EI-wz-paY"/>
                             <constraint firstItem="XfP-Pr-gvu" firstAttribute="top" secondItem="ds2-xr-YTG" secondAttribute="top" constant="30" id="5bj-8d-bX9"/>
                             <constraint firstItem="ds2-xr-YTG" firstAttribute="bottom" secondItem="S0v-Op-Lnf" secondAttribute="bottom" constant="10" id="6jE-Ap-FGH"/>
+                            <constraint firstItem="ds2-xr-YTG" firstAttribute="trailing" secondItem="eVb-1p-QwM" secondAttribute="trailing" id="8F9-2I-Shi"/>
                             <constraint firstItem="ds2-xr-YTG" firstAttribute="trailing" secondItem="S0v-Op-Lnf" secondAttribute="trailing" constant="21" id="G41-ET-2Dv"/>
                             <constraint firstItem="V1n-dP-3mP" firstAttribute="top" secondItem="5Jy-T5-dR2" secondAttribute="bottom" constant="18" id="Gz8-EG-r6M"/>
                             <constraint firstItem="S0v-Op-Lnf" firstAttribute="leading" secondItem="ds2-xr-YTG" secondAttribute="leading" constant="21" id="LVW-6w-Z88"/>
-                            <constraint firstItem="eVb-1p-QwM" firstAttribute="leading" secondItem="ds2-xr-YTG" secondAttribute="leading" id="OmO-Hc-2iz"/>
+                            <constraint firstItem="eVb-1p-QwM" firstAttribute="top" secondItem="jE6-VS-5Rm" secondAttribute="top" id="Nyy-uc-L8S"/>
                             <constraint firstItem="5Jy-T5-dR2" firstAttribute="top" secondItem="XfP-Pr-gvu" secondAttribute="bottom" constant="17" id="PD8-HS-O3X"/>
                             <constraint firstItem="XfP-Pr-gvu" firstAttribute="leading" secondItem="ds2-xr-YTG" secondAttribute="leading" constant="28" id="Rem-4Y-f9g"/>
+                            <constraint firstItem="eVb-1p-QwM" firstAttribute="leading" secondItem="ds2-xr-YTG" secondAttribute="leading" id="aRu-2W-m6E"/>
+                            <constraint firstItem="vgw-op-jh5" firstAttribute="top" secondItem="eVb-1p-QwM" secondAttribute="bottom" id="bgL-WU-n1Z"/>
                             <constraint firstItem="V1n-dP-3mP" firstAttribute="leading" secondItem="ds2-xr-YTG" secondAttribute="leading" id="d6o-06-Dtq"/>
                             <constraint firstItem="ds2-xr-YTG" firstAttribute="trailing" secondItem="V1n-dP-3mP" secondAttribute="trailing" id="eZw-wb-kQE"/>
                             <constraint firstAttribute="trailing" secondItem="5Jy-T5-dR2" secondAttribute="trailing" constant="20" id="eg1-PK-JfV"/>
-                            <constraint firstItem="V1n-dP-3mP" firstAttribute="top" secondItem="eVb-1p-QwM" secondAttribute="bottom" id="fbj-Rf-Wqi"/>
-                            <constraint firstItem="vgw-op-jh5" firstAttribute="top" secondItem="XfP-Pr-gvu" secondAttribute="bottom" constant="30" id="gKu-wJ-8Ow"/>
                             <constraint firstItem="vgw-op-jh5" firstAttribute="leading" secondItem="ds2-xr-YTG" secondAttribute="leading" id="jbJ-Qa-vnO"/>
-                            <constraint firstItem="vgw-op-jh5" firstAttribute="bottom" secondItem="ds2-xr-YTG" secondAttribute="bottom" id="rLD-wm-ppz"/>
+                            <constraint firstItem="vgw-op-jh5" firstAttribute="bottom" secondItem="jE6-VS-5Rm" secondAttribute="bottom" id="rLD-wm-ppz"/>
                             <constraint firstItem="ds2-xr-YTG" firstAttribute="trailing" secondItem="vgw-op-jh5" secondAttribute="trailing" id="tQz-Kq-zcn"/>
                             <constraint firstItem="5Jy-T5-dR2" firstAttribute="leading" secondItem="jE6-VS-5Rm" secondAttribute="leading" constant="21" id="xfd-Vp-Mbv"/>
-                            <constraint firstItem="eVb-1p-QwM" firstAttribute="top" secondItem="jE6-VS-5Rm" secondAttribute="top" id="ybA-bh-thZ"/>
-                            <constraint firstItem="eVb-1p-QwM" firstAttribute="trailing" secondItem="ds2-xr-YTG" secondAttribute="trailing" id="zSa-I2-FSi"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="Switch" destination="hyf-8o-4Uh" id="RV0-DY-COg"/>
-                        <outlet property="ViewTop" destination="eVb-1p-QwM" id="2lv-OE-thr"/>
+                        <outlet property="ViewTop" destination="eVb-1p-QwM" id="YLt-BX-dWX"/>
                         <outlet property="btnAddAnotherCart" destination="S0v-Op-Lnf" id="rHd-mM-LaQ"/>
                         <outlet property="btnAddCart" destination="98P-5l-kjd" id="JyA-aI-gQg"/>
                         <outlet property="btnCross" destination="3Co-kM-gDS" id="lrv-eO-fLj"/>
+                        <outlet property="lblAddCredit" destination="Iqa-ip-O5w" id="XLQ-QD-2qL"/>
+                        <outlet property="lblCustmizeYourPaymentMethod" destination="XfP-Pr-gvu" id="zuJ-N1-qiP"/>
+                        <outlet property="lblExpiry" destination="Z5a-JB-sce" id="YBO-YC-rPp"/>
+                        <outlet property="lblYouCanRemove" destination="k03-KA-OuS" id="uwl-rw-AEE"/>
+                        <outlet property="scrollview" destination="Y9S-Pr-r3X" id="RBy-Em-ULJ"/>
                         <outlet property="tblView" destination="V1n-dP-3mP" id="kKu-4d-9Cw"/>
                         <outlet property="txtCardNo" destination="JKE-CE-fzA" id="2fu-On-ODP"/>
                         <outlet property="txtExpiryMonth" destination="Ahj-SU-Tbq" id="jzs-40-gna"/>
@@ -637,9 +639,17 @@ at anytime </string>
                     <connections>
                         <outlet property="btnAddNote" destination="0TE-b3-FUB" id="vL8-xP-JPo"/>
                         <outlet property="btnCheckout" destination="IvZ-v1-82v" id="hrr-M0-QLj"/>
+                        <outlet property="lblAddress" destination="nlk-uW-3JQ" id="gVW-lx-LHu"/>
                         <outlet property="lblDeliveryCost" destination="aVF-fC-6zY" id="Miy-KC-4wF"/>
                         <outlet property="lblSubTotal" destination="uxa-6c-EoP" id="fYj-UF-66F"/>
                         <outlet property="lblTotal" destination="gpx-ZV-UPM" id="v5o-TD-0xx"/>
+                        <outlet property="lblfourPointFive" destination="Fsb-kq-KNu" id="8aU-Yp-PZ3"/>
+                        <outlet property="lbllocDeliveryCost" destination="ROL-gP-l9W" id="bq7-kd-Qhp"/>
+                        <outlet property="lbllocKingBurger" destination="ed7-I3-jcP" id="K8A-AO-L6m"/>
+                        <outlet property="lbllocRating" destination="6V0-Uh-isu" id="M3B-8X-pus"/>
+                        <outlet property="lbllocSubTotal" destination="Aye-CH-kNP" id="Isv-dx-IuH"/>
+                        <outlet property="lbllocTotal" destination="Oy5-G9-0Sb" id="brS-wG-Yon"/>
+                        <outlet property="lglDelveryInstructions" destination="gk0-uX-jQE" id="0Sh-Eb-5SX"/>
                         <outlet property="tblView" destination="D8J-aD-uaf" id="G7n-kT-Vv0"/>
                     </connections>
                 </viewController>
@@ -868,7 +878,7 @@ at anytime </string>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="9p0-3U-lNm">
                                                         <rect key="frame" x="21" y="78.333333333333314" width="351" height="505.99999999999994"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BeA-sM-hTI">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BeA-sM-hTI">
                                                                 <rect key="frame" x="0.0" y="0.0" width="351" height="56"/>
                                                                 <color key="backgroundColor" name="Text Field background"/>
                                                                 <constraints>
@@ -890,7 +900,7 @@ at anytime </string>
                                                                         <color key="textColor" red="0.2901960784" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CCm-gc-rKv">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Month" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CCm-gc-rKv">
                                                                         <rect key="frame" x="116" y="0.0" width="103" height="56"/>
                                                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
@@ -903,7 +913,7 @@ at anytime </string>
                                                                             <outlet property="delegate" destination="r3M-dY-kbO" id="jYI-0W-SZb"/>
                                                                         </connections>
                                                                     </textField>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Nj-3b-zAh">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Nj-3b-zAh">
                                                                         <rect key="frame" x="248" y="0.0" width="103" height="56"/>
                                                                         <color key="backgroundColor" name="Text Field background"/>
                                                                         <constraints>
@@ -1203,6 +1213,18 @@ at anytime </string>
                         <outlet property="lblDiscount" destination="JqD-2d-cZs" id="24C-gh-TVy"/>
                         <outlet property="lblSubTotal" destination="s9C-Pj-a7J" id="g7t-Rk-0lc"/>
                         <outlet property="lblTotal" destination="NjH-SM-xgp" id="tlq-F5-DOL"/>
+                        <outlet property="lbllocAddCartdebit" destination="NW3-k1-nSV" id="zA7-g1-GGx"/>
+                        <outlet property="lbllocDeliveryAddress" destination="G3f-Id-SEg" id="bpZ-Ij-2o8"/>
+                        <outlet property="lbllocDeliveryCost" destination="P0e-PK-p37" id="8k0-YO-HJn"/>
+                        <outlet property="lbllocDiscount" destination="ZqX-4z-rMa" id="nLH-fY-Oa2"/>
+                        <outlet property="lbllocExpiry" destination="VpO-hg-Fdf" id="wMX-0q-keF"/>
+                        <outlet property="lbllocForYourOrder" destination="o17-yV-FXX" id="zdZ-xW-ar1"/>
+                        <outlet property="lbllocPaymentMethod" destination="bCZ-Px-c6K" id="O1B-7j-Gzf"/>
+                        <outlet property="lbllocSubTotal" destination="HGZ-4d-43J" id="GkU-J5-DBq"/>
+                        <outlet property="lbllocThankYou" destination="Ibt-a2-k4R" id="xf6-t3-2wq"/>
+                        <outlet property="lbllocTotal" destination="hNJ-AH-JOD" id="m7v-Oe-Te0"/>
+                        <outlet property="lbllocYourOrder" destination="blx-4n-RD6" id="v4p-hc-ews"/>
+                        <outlet property="lblocYouCan" destination="oNf-EZ-aWB" id="awN-2d-VTa"/>
                         <outlet property="switch" destination="SIP-A7-lhT" id="aKO-7r-kUE"/>
                         <outlet property="tblView" destination="I6Y-f6-WOG" id="qsU-sw-lxX"/>
                         <outlet property="txtCardNo" destination="BeA-sM-hTI" id="6se-Ug-AOC"/>
@@ -1221,6 +1243,40 @@ at anytime </string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TI2-hR-ewF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2469.4656488549617" y="28.87323943661972"/>
+        </scene>
+        <!--Language View Controller-->
+        <scene sceneID="CfJ-3F-HzX">
+            <objects>
+                <viewController storyboardIdentifier="LanguageViewController" id="NVG-WC-16n" customClass="LanguageViewController" customModule="Meal_Monkey_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x2M-OI-1sT">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="T9T-Mg-kPJ">
+                                <rect key="frame" x="10" y="128" width="373" height="646"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="NVG-WC-16n" id="8cS-go-r2p"/>
+                                    <outlet property="delegate" destination="NVG-WC-16n" id="zv9-1d-qIV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="O1x-Jr-Uv4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="O1x-Jr-Uv4" firstAttribute="trailing" secondItem="T9T-Mg-kPJ" secondAttribute="trailing" constant="10" id="GOw-wz-Gw1"/>
+                            <constraint firstItem="T9T-Mg-kPJ" firstAttribute="top" secondItem="O1x-Jr-Uv4" secondAttribute="top" constant="10" id="UK8-bP-k0F"/>
+                            <constraint firstItem="O1x-Jr-Uv4" firstAttribute="bottom" secondItem="T9T-Mg-kPJ" secondAttribute="bottom" constant="10" id="VuY-y1-upd"/>
+                            <constraint firstItem="T9T-Mg-kPJ" firstAttribute="leading" secondItem="O1x-Jr-Uv4" secondAttribute="leading" constant="10" id="tyb-jI-pCG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tblView" destination="T9T-Mg-kPJ" id="Vgd-xd-d0r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yk1-j0-X5G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3211" y="29"/>
         </scene>
     </scenes>
     <resources>

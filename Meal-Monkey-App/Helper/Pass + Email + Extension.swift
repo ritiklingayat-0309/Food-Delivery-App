@@ -8,10 +8,8 @@
 import Foundation
 import UIKit
 
-/**
- An extension to `String` to provide common validation methods for emails and passwords.
- These computed properties simplify the process of validating user input against predefined regular expressions.
- */
+/// An extension to `String` to provide common validation methods for emails and passwords.
+/// These computed properties simplify the process of validating user input against predefined regular expressions.
 extension String {
     /// A computed property that returns `true` if the string is a valid password, otherwise `false`.
     /// A valid password must be at least 8 characters long and contain at least one uppercase letter,
@@ -21,7 +19,7 @@ extension String {
         let predicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return predicate.evaluate(with: self)
     }
-    
+
     /// A computed property that returns `true` if the string is a valid email, otherwise `false`.
     /// The validation is performed on a trimmed version of the string to ignore leading and trailing whitespace.
     var isValidEmail: Bool {

@@ -10,50 +10,99 @@ import UIKit
 /// View controller responsible for displaying the "More" section of the app.
 /// This section usually contains additional options/settings (e.g., Profile, Orders, Help).
 class MoreViewController: UIViewController {
-    
+
     // MARK: - Properties
-    
+
     /// Data source array containing `More` objects to populate the table view.
     var arrMore: [More] = More.addData()
-    
+
     // MARK: - IBOutlets
-    
+
     /// Table view used to display the list of "More" options.
     @IBOutlet weak var tblView: UITableView!
-    
+
     // MARK: - Lifecycle Methods
-    
+
     /// Called after the view is loaded into memory.
     /// Responsible for registering the table view cell and setting up navigation items.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Register custom table view cell
-        tblView.register(UINib(nibName: "MoreTableViewCell", bundle: nil),
-                         forCellReuseIdentifier: "MoreTableViewCell")
-        
-        // Set navigation title
-        self.setLeftAlignedTitle("More")
-        
+        tblView.register(
+            UINib(nibName: Main.CellIdentifier.MoreTableViewCell, bundle: nil),
+            forCellReuseIdentifier: Main.CellIdentifier.MoreTableViewCell
+        )
+
         // Add cart button to navigation bar
         self.setCartButton(target: self, action: #selector(cartButtonTapped))
+
+        languageDidChange()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(languageDidChange),
+            name: .languageChanged,
+            object: nil
+        )
+        tblView.showsVerticalScrollIndicator = false
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: NSNotification.Name("themeChanged"),
+            object: nil
+        )
     }
-    
+
+    @objc func applyTheme() {
+        let theme = ThemeManager.currentTheme
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: theme.primaryFontColor
+        ]
+
+        // Reload table to apply text color changes
+        tblView.reloadData()
+    }
+
+    @objc func languageDidChange() {
+        arrMore = More.addData()
+        tblView.reloadData()
+        // also update navigation title
+        self.setLeftAlignedTitle(
+            LocalizationManager.shared.localizedString(
+                forKey: Main.more.navMore
+            )
+        )
+    }
+
     // MARK: - Actions
-    
+
     /// Handles tap action on the cart button in the navigation bar.
     @objc func cartButtonTapped() {
         print("Cart button tapped")
-        
+
         // Navigate to Cart screen
-        let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
-        if let secondVC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
-            
+        let storyboard = UIStoryboard(
+            name: Main.StoryboardIdentifier.MenuListStoryboard,
+            bundle: nil
+        )
+        if let secondVC = storyboard.instantiateViewController(
+            withIdentifier: Main.ViewControllerIdentifier.CartViewController
+        ) as? CartViewController {
+
             // Pass `.Cart` as the page type
             secondVC.pagetype = .Cart
-            
+
             // Push the CartViewController onto the navigation stack
             navigationController?.pushViewController(secondVC, animated: true)
         }
     }
+
+    deinit {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: NSNotification.Name("themeChanged"),
+            object: nil
+        )
+    }
+
 }

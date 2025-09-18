@@ -12,40 +12,47 @@
 //  Created by Ritik Lingayat on 21/08/25.
 //
 
-import Foundation
 import CoreData
+import Foundation
 import UIKit
 
 class CoreDataManager {
-    
+
     // MARK: - Properties
     static let shared = CoreDataManager()
-    
+
     // **Change:** Remove the redundant Core Data stack
     // The Core Data stack should be managed by AppDelegate
-    
+
     // MARK: - Core Data Context
-    
+
     // **Change:** Use the managed context from the AppDelegate's persistent container
     var managedContext: NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
-    
+
     // MARK: - Helper Methods
-    
+
     /// Fetches the currently logged-in user from Core Data.
     /// - Returns: The `User` object for the logged-in user, or `nil` if not found.
     func getLoggedInUser() -> User? {
-        guard let loggedInUserIDString = UserDefaults.standard.string(forKey: "loggedInUserID"),
-              let loggedInUserID = UUID(uuidString: loggedInUserIDString) else {
+        guard
+            let loggedInUserIDString = UserDefaults.standard.string(
+                forKey: "loggedInUserID"
+            ),
+            let loggedInUserID = UUID(uuidString: loggedInUserIDString)
+        else {
             print("No logged-in user found in UserDefaults.")
             return nil
         }
-        
+
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "userID == %@", loggedInUserID as CVarArg)
-        
+        fetchRequest.predicate = NSPredicate(
+            format: "userID == %@",
+            loggedInUserID as CVarArg
+        )
+
         do {
             let users = try managedContext.fetch(fetchRequest)
             return users.first
@@ -54,15 +61,22 @@ class CoreDataManager {
             return nil
         }
     }
-    
+
     /// Saves a new payment detail for the logged-in user.
-    func savePaymentDetails(cardNumber: String, securityCode: String, firstName: String, lastName: String, expiryMonth: String, expiryYear: String) {
-        
+    func savePaymentDetails(
+        cardNumber: String,
+        securityCode: String,
+        firstName: String,
+        lastName: String,
+        expiryMonth: String,
+        expiryYear: String
+    ) {
+
         guard let user = getLoggedInUser() else {
             print("Error: No logged-in user to associate with payment details.")
             return
         }
-        
+
         let paymentDetail = PaymentDetails(context: managedContext)
         paymentDetail.cardNumber = cardNumber
         paymentDetail.securityCode = Int32(securityCode) ?? 0
@@ -72,7 +86,7 @@ class CoreDataManager {
         paymentDetail.expiryYear = expiryYear
         paymentDetail.userID = user.userID
         paymentDetail.user = user
-        
+
         do {
             try managedContext.save()
             print("Payment details saved successfully.")
@@ -80,26 +94,29 @@ class CoreDataManager {
             print("Could not save payment details. \(error), \(error.userInfo)")
         }
     }
-    
+
     /// Fetches all payment details for the logged-in user.
     /// - Returns: An array of `PaymentDetails` objects.
     func fetchPaymentDetails() -> [PaymentDetails] {
         guard let user = getLoggedInUser() else {
             return []
         }
-        
-        let fetchRequest: NSFetchRequest<PaymentDetails> = PaymentDetails.fetchRequest()
+
+        let fetchRequest: NSFetchRequest<PaymentDetails> =
+            PaymentDetails.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "user == %@", user)
-        
+
         do {
             let paymentDetails = try managedContext.fetch(fetchRequest)
             return paymentDetails
         } catch let error as NSError {
-            print("Could not fetch payment details. \(error), \(error.userInfo)")
+            print(
+                "Could not fetch payment details. \(error), \(error.userInfo)"
+            )
             return []
         }
     }
-    
+
     /// Deletes a payment detail object from Core Data.
     /// - Parameter paymentDetail: The `PaymentDetails` object to delete.
     func deletePaymentDetail(_ paymentDetail: PaymentDetails) {
@@ -108,16 +125,23 @@ class CoreDataManager {
             try managedContext.save()
             print("Payment details deleted successfully.")
         } catch let error as NSError {
-            print("Could not delete payment details. \(error), \(error.userInfo)")
+            print(
+                "Could not delete payment details. \(error), \(error.userInfo)"
+            )
         }
     }
-    
+
     func isCardAlreadyExists(cardNumber: String) -> Bool {
         guard let user = getLoggedInUser() else { return false }
-        
-        let fetchRequest: NSFetchRequest<PaymentDetails> = PaymentDetails.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "cardNumber == %@ AND user == %@", cardNumber, user)
-        
+
+        let fetchRequest: NSFetchRequest<PaymentDetails> =
+            PaymentDetails.fetchRequest()
+        fetchRequest.predicate = NSPredicate(
+            format: "cardNumber == %@ AND user == %@",
+            cardNumber,
+            user
+        )
+
         do {
             let count = try managedContext.count(for: fetchRequest)
             return count > 0

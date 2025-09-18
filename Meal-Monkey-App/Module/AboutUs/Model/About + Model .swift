@@ -12,168 +12,361 @@ import Foundation
  This class provides static methods to generate pre-defined data arrays, which are used
  to populate the user interface for informational and notification-based screens.
  */
+
 class AboutModel {
     
-    /// A primary string for text, used for descriptions or main messages.
     var strText: String?
-    
-    /// A string for a timestamp or time-related information.
     var strTimezone: String?
-    
-    /// A secondary string for text, often used for a title or heading.
     var strRightSideText: String?
-    
-    /// A third string for text, often used for a subtitle or a brief description.
     var strText2: String?
-    
-    /**
-     Initializes an `AboutModel` instance with optional string values.
-     
-     - Parameters:
-        - strText: The main text content.
-        - strTimezone: The timezone or timestamp.
-        - strRightSideText: The text for the right side of the UI element.
-        - strText2: Additional text content.
-     */
-    init(strText: String? = nil, strTimezone: String? = nil, strRightSideText: String? = nil, strText2: String? = nil) {
+
+    init(
+        strText: String? = nil,
+        strTimezone: String? = nil,
+        strRightSideText: String? = nil,
+        strText2: String? = nil
+    ) {
         self.strText = strText
         self.strTimezone = strTimezone
         self.strRightSideText = strRightSideText
         self.strText2 = strText2
     }
-    
-    /**
-     Generates a static array of `AboutModel` objects for the "About" section.
-     - Returns: A pre-populated array of `AboutModel`s containing mission statements and other informational text.
-     */
+
+    // MARK: - About Section
     class func addAboutData() -> [AboutModel] {
         return [
             AboutModel(
-                strText:
-                    "Our mission is to deliver a seamless and intuitive shopping experience that prioritizes user satisfaction. We aim to create a platform where browsing, purchasing, and managing products feels effortless, thanks to our simple user interface and reliable service."
-            ),
-            
-            AboutModel(
-                strText:
-                    "We are dedicated to maintaining high standards of performance, transparency, and trust. Our team continuously works to enhance app functionality, ensure data privacy, and provide responsive customer support, making your shopping journey smooth and secure."
-            ),
-            
-            AboutModel(
-                strText:
-                    "Your feedback matters. If you have any questions, suggestions, or encounter any issues, we’re here to help. Reach out through our support page or email us directly. Together, we strive to build a better and more inclusive experience for everyone."
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.aboutUsModel.strText1
+                )
             ),
             AboutModel(
-                strText:
-                    "We believe that technology should serve people. That’s why we constantly refine our platform based on real user behavior and needs, aiming to make every interaction faster, simpler, and more enjoyable."
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.aboutUsModel.strText2
+                )
             ),
-            
             AboutModel(
-                strText:
-                    "Security is our priority. We use industry-standard protocols to safeguard your personal information and provide a safe and secure shopping environment at all times."
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.aboutUsModel.strText3
+                )
             ),
-            
             AboutModel(
-                strText:
-                    "We value accessibility and inclusiveness. Our platform is designed to be usable by people of all backgrounds, devices, and technical abilities, ensuring that everyone can benefit from our services."
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.aboutUsModel.strText4
+                )
             ),
-            
             AboutModel(
-                strText:
-                    "Sustainability matters to us. We support eco-friendly business practices and work with partners who share our values to reduce our environmental impact."
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.aboutUsModel.strText5
+                )
             ),
-            
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.aboutUsModel.strText6
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.aboutUsModel.strText7
+                )
+            ),
         ]
     }
-    
-    /**
-     Generates a static array of `AboutModel` objects for the "Notifications" section.
-     - Returns: A pre-populated array of `AboutModel`s representing various app notifications.
-     */
-    class func addNotificationData()-> [AboutModel] {
+
+    // MARK: - Notifications Section
+    class func addNotificationData() -> [AboutModel] {
         return [
-            AboutModel(strText: "Order placed successfully",
-                       strTimezone: "Just now"),
-            AboutModel(strText: "Your payment has been confirmed",
-                       strTimezone: "5m ago"),
-            AboutModel(strText: "Your food is being prepared",
-                       strTimezone: "10m ago"),
-            AboutModel(strText: "Delivery agent assigned",
-                       strTimezone: "30m ago"),
-            AboutModel(strText: "Your order is on the way",
-                       strTimezone: "1h ago"),
-            AboutModel(strText: "Special discount available!",
-                       strTimezone: "2h ago"),
-            AboutModel(strText: "Download our new app update",
-                       strTimezone: "3h ago"),
-            AboutModel(strText: "Refer a friend and earn",
-                       strTimezone: "5h ago"),
-            AboutModel(strText: "Limited-time deal ending soon",
-                       strTimezone: "12h ago"),
-            AboutModel(strText: "Delivery completed",
-                       strTimezone: "1d ago"),
-            AboutModel(strText: "Rate your last meal",
-                       strTimezone: "2d ago"),
-            AboutModel(strText: "Weekend offer just for you",
-                       strTimezone: "3d ago"),
-            AboutModel(strText: "Free delivery on orders above ₹299",
-                       strTimezone: "5d ago"),
-            AboutModel(strText: "Thanks for being with us!",
-                       strTimezone: "6d ago"),
-            AboutModel(strText: "New restaurants added near you",
-                       strTimezone: "1w ago")
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.orderPlaced.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.orderPlaced.1
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.paymentConfirmed.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.paymentConfirmed.1
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.foodPrepared.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.foodPrepared.1
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.agentAssigned.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.agentAssigned.1
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.orderOnWay.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.orderOnWay.1
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.discount.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.discount.1
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.appUpdate.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.appUpdate.1
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.referFriend.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.referFriend.1
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.limitedDeal.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.limitedDeal.1
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.deliveryDone.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.deliveryDone.1
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.rateMeal.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.rateMeal.1
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.weekendOffer.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.weekendOffer.1
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.freeDelivery.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.freeDelivery.1
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.thanks.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.thanks.1
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.newRestaurants.0
+                ),
+                strTimezone: LocalizationManager.shared.localizedString(
+                    forKey: Main.notificationModel.newRestaurants.1
+                )
+            ),
         ]
     }
-    
-    /**
-     Generates a static array of `AboutModel` objects for the "Inbox" section.
-     - Returns: A pre-populated array of `AboutModel`s representing messages from various promotions and updates.
-     */
+
+    // MARK: - Inbox Section
     class func addInboxData() -> [AboutModel] {
         return [
-            AboutModel(strText: "MealMonkey Promotions",
-                       strRightSideText: "6th July",
-                       strText2: "Get 20% off on your next meal!"),
-            AboutModel(strText: "Order Update",
-                       strRightSideText: "6th July",
-                       strText2: "Your order is being prepared by the restaurant."),
-            AboutModel(strText: "Delivery Reminder",
-                       strRightSideText: "6th July",
-                       strText2: "Your delivery agent is on the way."),
-            AboutModel(strText: "Welcome to MealMonkey",
-                       strRightSideText: "6th July",
-                       strText2: "Thanks for joining us! Start exploring meals."),
-            AboutModel(strText: "Rate Your Experience",
-                       strRightSideText: "6th July",
-                       strText2: "How was your recent meal order?"),
-            AboutModel(strText: "Flash Sale",
-                       strRightSideText: "6th July",
-                       strText2: "Enjoy 30% off on all pasta orders today only."),
-            AboutModel(strText: "New Restaurants",
-                       strRightSideText: "6th July",
-                       strText2: "Discover trending restaurants in your area."),
-            AboutModel(strText: "Refer & Earn",
-                       strRightSideText: "6th July",
-                       strText2: "Invite friends and earn ₹100 credits!"),
-            AboutModel(strText: "Weekend Special",
-                       strRightSideText: "6th July",
-                       strText2: "Free dessert on orders above ₹499."),
-            AboutModel(strText: "MealMonkey Tips", strRightSideText: "6th July",
-                       strText2: "Customize your orders with special instructions."),
-            AboutModel(strText: "Order Cancelled",
-                       strRightSideText: "6th July",
-                       strText2: "Your order has been cancelled as requested."),
-            AboutModel(strText: "Loyalty Program",
-                       strRightSideText: "6th July",
-                       strText2: "Collect Monkey Points with every purchase."),
-            AboutModel(strText: "Security Update",
-                       strRightSideText: "6th July",
-                       strText2: "Your password was recently changed."),
-            AboutModel(strText: "Account Verified",
-                       strRightSideText: "6th July",
-                       strText2: "Your account has been successfully verified."),
-            AboutModel(strText: "Limited Time Deal",
-                       strRightSideText: "6th July",
-                       strText2: "Flat ₹50 off on biryani orders today.")
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.promotions.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.promotions.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.promotions.2
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.orderUpdate.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.orderUpdate.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.orderUpdate.2
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.deliveryReminders.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.deliveryReminders.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.deliveryReminders.2
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.welcome.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.welcome.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.welcome.2
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.experience.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.experience.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.experience.2
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.flashSale.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.flashSale.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.flashSale.2
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.newRestaurants.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.newRestaurants.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.newRestaurants.2
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.referEarn.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.referEarn.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.referEarn.2
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.weekendSpecial.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.weekendSpecial.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.weekendSpecial.2
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.tips.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.tips.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.tips.2
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.orderCancel.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.orderCancel.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.orderCancel.2
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.loyaltyProgram.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.loyaltyProgram.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.loyaltyProgram.2
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.securityUpdate.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.securityUpdate.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.securityUpdate.2
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.accountVerified.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.accountVerified.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.accountVerified.2
+                )
+            ),
+            AboutModel(
+                strText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.limitedDeal.0
+                ),
+                strRightSideText: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.limitedDeal.1
+                ),
+                strText2: LocalizationManager.shared.localizedString(
+                    forKey: Main.inboxModel.limitedDeal.2
+                )
+            ),
         ]
     }
 }

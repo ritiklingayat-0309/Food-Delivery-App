@@ -86,6 +86,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnRatingStar" destination="vMe-zL-ZQf" id="kNH-UN-kmM"/>
                 <outlet property="imgViewTop" destination="dGZ-MK-obT" id="Uc3-tJ-r86"/>
                 <outlet property="lblCategory" destination="P3G-fx-NlE" id="wSc-4G-2h3"/>
                 <outlet property="lblDessertName" destination="7mQ-jm-vaX" id="gsc-pL-8um"/>

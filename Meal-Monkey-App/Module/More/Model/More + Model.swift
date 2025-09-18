@@ -11,21 +11,21 @@ import UIKit
 /// Model representing an option in the "More" section of the app.
 /// Each option includes an image, title, and an identifier tag.
 class More {
-    
+
     // MARK: - Properties
-    
+
     /// Icon for the menu item (from assets or SF Symbols).
     let image: UIImage
-    
+
     /// Title text displayed for the menu item.
     let title: String
-    
+
     /// Unique tag used to identify which menu item was selected.
     /// Matches with cases inside the `didSelectRowAt` switch.
     let intsTag: Int
-    
+
     // MARK: - Initializer
-    
+
     /// Creates a new `More` object.
     /// - Parameters:
     ///   - image: Image to display.
@@ -36,40 +36,97 @@ class More {
         self.title = title
         self.intsTag = intsTag
     }
-    
+
     // MARK: - Static Data
-    
+
     /// Provides the default list of menu options for the "More" screen.
     /// - Returns: An array of `More` objects.
     class func addData() -> [More] {
         return [
-            More(image: UIImage(named: "ic_payment") ?? UIImage(),
-                 title: "Payment Details",
-                 intsTag: 0),
-            
-            More(image: UIImage(named: "ic_order") ?? UIImage(),
-                 title: "My Orders",
-                 intsTag: 1),
-            
-            More(image: UIImage(named: "ic_notification") ?? UIImage(),
-                 title: "Notifications",
-                 intsTag: 2),
-            
-            More(image: UIImage(named: "ic_inbox2") ?? UIImage(),
-                 title: "Inbox",
-                 intsTag: 3),
-            
-            More(image: UIImage(named: "ic_about") ?? UIImage(),
-                 title: "About Us",
-                 intsTag: 4),
-            
-            More(image: UIImage(systemName: "heart.fill")?.withTintColor(
-                UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1),
-                renderingMode: .alwaysOriginal
-            ) ?? UIImage(),
-                 title: "Wish List",
-                 intsTag: 5
-            )
+            More(
+                image: UIImage(named: Main.ImageName.paymentDetails)
+                    ?? UIImage(),
+                title: LocalizationManager.shared.localizedString(
+                    forKey: Main.more.paymentDetails
+                ),
+                intsTag: 0
+            ),
+            More(
+                image: UIImage(named: Main.ImageName.myOrders) ?? UIImage(),
+                title: LocalizationManager.shared.localizedString(
+                    forKey: Main.more.myOrder
+                ),
+                intsTag: 1
+            ),
+            More(
+                image: UIImage(named: Main.ImageName.notification) ?? UIImage(),
+                title: LocalizationManager.shared.localizedString(
+                    forKey: Main.more.notification
+                ),
+                intsTag: 2
+            ),
+            More(
+                image: UIImage(named: Main.ImageName.inbox) ?? UIImage(),
+                title: LocalizationManager.shared.localizedString(
+                    forKey: Main.more.inbox
+                ),
+                intsTag: 3
+            ),
+            More(
+                image: UIImage(named: Main.ImageName.aboutUs) ?? UIImage(),
+                title: LocalizationManager.shared.localizedString(
+                    forKey: Main.more.aboutUs
+                ),
+                intsTag: 4
+            ),
+            More(
+                image: UIImage(systemName: Main.ImageName.wishlist)?
+                    .withTintColor(
+                        UIColor(
+                            red: 112 / 255,
+                            green: 112 / 255,
+                            blue: 112 / 255,
+                            alpha: 1
+                        ),
+                        renderingMode: .alwaysOriginal
+                    ) ?? UIImage(),
+                title: LocalizationManager.shared.localizedString(
+                    forKey: Main.more.wishlist
+                ),
+                intsTag: 5
+            ),
+            More(
+                image: UIImage(systemName: Main.ImageName.language)?
+                    .withTintColor(
+                        UIColor(
+                            red: 112 / 255,
+                            green: 112 / 255,
+                            blue: 112 / 255,
+                            alpha: 1
+                        ),
+                        renderingMode: .alwaysOriginal
+                    ) ?? UIImage(),
+                title: LocalizationManager.shared.localizedString(
+                    forKey: Main.more.Language
+                ),
+                intsTag: 6
+            ),
+            More(
+                image: UIImage(systemName: Main.ImageName.theam)?
+                    .withTintColor(
+                        UIColor(
+                            red: 112 / 255,
+                            green: 112 / 255,
+                            blue: 112 / 255,
+                            alpha: 1
+                        ),
+                        renderingMode: .alwaysOriginal
+                    ) ?? UIImage(),
+                title: LocalizationManager.shared.localizedString(
+                    forKey: Main.more.theme
+                ),
+                intsTag: 7
+            ),
         ]
     }
 }

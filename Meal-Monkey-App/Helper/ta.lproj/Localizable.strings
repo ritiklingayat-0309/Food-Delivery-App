@@ -1,0 +1,445 @@
+/* 
+  Localizable.strings
+  Meal-Monkey-App
+
+  Created by Ritik Lingayat on 06/09/25.
+  
+*/
+
+/* Login Screen Titles */
+"login_title" = "நுழைவு";
+"login_subtitle" = "நுழைய உங்கள் விவரங்களைச் சேர்க்கவும்";
+"login_or_with" = "அல்லது இதன் மூலம் நுழையவும்";
+/* Buttons */
+"login_button" = "நுழைவு";
+"forgot_password_button" = "கடவுச்சொல்லை மறந்தீர்களா?";
+"login_with_facebook" = "பேஸ்புக் மூலம் நுழையவும்";
+"login_with_google" = "கூகுள் மூலம் நுழையவும்";
+"signup_button" = "கணக்கு இல்லையா? பதிவு செய்யவும்";
+/* Text Fields */
+"email_placeholder" = "உங்கள் மின்னஞ்சல்";
+"password_placeholder" = "கடவுச்சொல்";
+
+
+/* SignUp Screen Titles */
+/* Labels */
+"signup_title_03" = "சைன் அப்";
+"signup_subtitle_03" = "சைன் அப் செய்ய உங்கள் விவரங்களை சேர்க்கவும்";
+/* Text Fields */
+"name_placeholder_03" = "உங்கள் பெயர்";
+"mobile_placeholder_03" = "மொபைல் எண்ணை";
+"email_placeholder_03" = "மின்னஞ்சல் முகவரி";
+"address_placeholder_03" = "முகவரி";
+"password_placeholder_03" = "கடவுச்சொல்";
+"confirm_password_placeholder_03" = "கடவுச்சொல்லை உறுதி செய்யவும்";
+/* Buttons */
+"signup_button_03" = "சைன் அப்";
+"already_have_account_03" = "ஏற்கனவே கணக்கு உள்ளதா? உள்நுழைக";
+
+
+/* Reset Password Screen Titles */
+/* Labels */
+"reset_password_title_03" = "கடவுச்சொல் மீட்டமை";
+"enter_your_email_title_03" = "புதிய கடவுச்சொல்லை அமைக்க இணைப்பைப் பெற உங்கள் மின்னஞ்சலை உள்ளிடவும்";
+/* Text Fields */
+"email_placeholder_03" = "மின்னஞ்சல் முகவரி";
+/* Buttons */
+"send_button_03" = "கிழி";
+
+/* OTP Screen */
+"verify_otp_title_03" = "உங்கள் மொபைலுக்கு OTP அனுப்பப்பட்டுள்ளது";
+"enter_otp_subtitle_03" = "தயவுசெய்து உங்கள் மொபைல் எண் 071*****12 சரிபார்த்து கடவுச்சொல்லை மீட்டமைக்கத் தொடரவும்";
+"click_here_button_03" = "இங்கே கிளிக் செய்க";
+"next_button_03" = "அடுத்து";
+
+
+/* NewPassword Screen */
+"enter_email_to_reset_pass_title_03" = "புதிய கடவுச்சொல்லை மீட்டமைக்க இணைப்பைப் பெற உங்கள் மின்னஞ்சலை உள்ளிடவும்";
+"new_password_title_03" = "புதிய கடவுச்சொல்";
+"confirm_password_title_03" = "கடவுச்சொல்லை உறுதிப்படுத்தவும்";
+
+/* New Password Screen - TextField Placeholders */
+"new_password_placeholder_03" = "புதிய கடவுச்சொல்லை உள்ளிடவும்";
+"confirm_password_placeholder_03" = "கடவுச்சொல்லை உறுதிப்படுத்தவும்";
+
+/* New Password Screen - Buttons */
+"next_button_03" = "அடுத்து";
+
+
+
+/* Features Screen - Titles */
+"features_title_1_03" = "நீங்கள் விரும்பும் உணவை கண்டுபிடிக்கவும்";
+"features_title_2_03" = "வேகமான டெலிவரி";
+"features_title_3_03" = "நேரடி கண்காணிப்பு";
+
+/* Features Screen - Subtitles */
+"features_subtitle_1_03" = "1,000 க்கும் மேற்பட்ட உணவகங்களில் சிறந்த உணவுகளை கண்டறியவும்";
+"features_subtitle_2_03" = "உங்கள் வீடு, அலுவலகம் மற்றும் எங்கு இருந்தாலும் வேகமான உணவு டெலிவரி";
+"features_subtitle_3_03" = "ஆர்டர் செய்தவுடன் பயன்பாட்டில் உங்கள் உணவை நேரடி நேரத்தில் கண்காணிக்கவும்";
+
+"features_next_button_03" = "அடுத்து";       // Tamil
+"features_done_button_03" = "முடிந்தது";    // Tamil
+
+
+/* Menu Screen - Titles */
+"menu_food_03" = "உணவு";
+"menu_beverages_03" = "பானங்கள்";
+"menu_desserts_03" = "இனிப்பு";
+"menu_quantity_items_03" = "25 பொருட்கள்";
+"menu_nav_title" = "மெனு";
+"no_result_found" = "முடிவு கிடைக்கவில்லை";
+"search_placeholder" = "உணவை தேடு";
+
+
+// offerpage - Tamil
+"offers_nav_title_03" = "சமீபத்திய சலுகைகள்";
+"offers_lbl_latest_03" = "தள்ளுபடிகள், சிறப்பு உணவுகள் மற்றும் மேலும் கண்டறியுங்கள்!";
+"offers_btn_check_03" = "சலுகையை பார்க்கவும்";
+"offers_cafe_03_0" = "கேஃபே டி நோயர்ஸ்";
+"offers_cafe_03_1" = "இஸ்ஸோ";
+"offers_cafe_03_2" = "கேஃபே பீன்ஸ்";
+"offers_rating_03" = "(124 மதிப்பீடுகள்)";
+"offers_restrotype_03" = "கேஃபே";
+"offers_foodtype_03" = "மேற்கத்திய உணவு";
+"offers_four_point_nine_03" = "4.9";
+
+/* Profile Page - Tamil */
+"profile_nav_title_03" = "சுயவிவரம்";
+"profile_lbl_title_user_03" = "வணக்கம், %@!";
+"profile_lbl_name_placeholder_03" = "பெயர்";
+"profile_lbl_email_placeholder_03" = "மின்னஞ்சல்";
+"profile_lbl_mobile_placeholder_03" = "மொபைல் எண்";
+"profile_lbl_address_placeholder_03" = "முகவரி";
+"profile_btn_edit_03" = "சுயவிவரத்தைத் திருத்து";
+"profile_btn_save_03" = "சேமி";
+"profile_btn_signout_03" = "வெளியேறு";
+"profile_update_success_msg_03" = "சுயவிவரம் வெற்றிகரமாக புதுப்பிக்கப்பட்டது!";
+"profile_update_error_msg_03" = "சுயவிவரத்தை புதுப்பிக்க முடியவில்லை.";
+"email_exists_title_03" = "மின்னஞ்சல் ஏற்கனவே உள்ளது";
+"email_exists_msg_03" = "இந்த மின்னஞ்சல் முகவரி ஏற்கனவே மற்றொரு பயனரால் பயன்படுத்தப்படுகிறது.";
+
+
+/* More Menu */
+"more_payment_details_03" = "கட்டண விவரங்கள்";
+"more_my_orders_03" = "எனது ஆர்டர்கள்";
+"more_notification_03" = "அறிவிப்புகள்";
+"more_inbox_03" = "இன்பாக்ஸ்";
+"more_about_us_03" = "எங்களை பற்றி";
+"more_wishlist_03" = "விருப்பப்பட்டியல்";
+"more_language_03" = "மொழி";
+"more_theme_03" = "தீம்";
+"more_title_03" = "மேலும்"; 
+
+
+
+
+/* Payment Screen Titles */
+"payment_details_title" = "கட்டண விவரங்கள்";
+"customize_payment_method_label" = "உங்கள் கட்டண முறையை தனிப்பயனாக்கவும்";
+"add_card_button_title" = "கார்டு சேர்க்கவும்";
+"add_another_card_button_title" = "மற்றொரு கார்டு சேர்க்கவும்";
+
+/* Empty State */
+"no_saved_cards_msg" = "இன்னும் சேமிக்கப்பட்ட கார்டுகள் இல்லை";
+"card_number_placeholder_03" = "கார்டு எண்ணை உள்ளிடவும்";
+"security_code_placeholder_03" = "பாதுகாப்பு குறியீட்டை உள்ளிடவும்";
+"first_name_placeholder_03" = "முதல் பெயரை உள்ளிடவும்";
+"last_name_placeholder_03" = "இறுதி பெயரை உள்ளிடவும்";
+"expiry_month_placeholder_03" = "மாதம்";
+"expiry_year_placeholder_03" = "வருடம்";
+/* Payment Screen Labels - Tamil */
+"add_credit_label_03" = "கிரெடிட்/டெபிட் கார்டை சேர்க்கவும்";
+"expiry_label_03" = "காலாவதி";
+"you_can_remove_label_03" = "நீங்கள் இந்த கார்டை எப்போதும் நீக்கலாம்";
+"other_method_label_03" = "மற்ற கட்டண முறை";
+"cash_on_delivery_label_03" = "பண பரிமாற்றம்";
+"delete_card_button_title_03" = "கார்டை நீக்கு";
+
+
+
+/* cart Screen Titles */
+"cart_category_label_03" = "வகை";
+"cart_price_label_03" = "விலை";
+"cart_type_label_03" = "வகைத் தன்மை";
+/* cart Screen Titles */
+"cart_nav_title_wishlist_03" = "விருப்பப்பட்ட பட்டியல்";
+"cart_nav_title_cart_03" = "வண்டி";
+"place_order_button_title_03" = "ஆர்டர் செய்யவும்";
+"empty_wishlist_message_03" = "உங்கள் விருப்பப்பட்ட பட்டியல் காலி"; // Tamil
+"empty_cart_message_03" = "உங்கள் வண்டி காலி";
+"ok_button" = "சரி";
+
+
+
+"order_list_title_03" = "ஆர்டர் பட்டியல்";
+
+
+"my_order_title_03" = "எனது ஆர்டர்";
+"delivery_instructions_03" = "டெலிவரி அறிவுறுத்தல்கள்";
+"subtotal_03" = "துணை மொத்தம்";
+"delivery_cost_03" = "டெலிவரி செலவு";
+"total_03" = "மொத்தம்";
+"king_burger_03" = "கிங் பर्गர்";
+"rating_03" = "(௧௨௪ மதிப்பீடுகள்)";
+"rating_value_03" = "௪.௫";
+"address_03" = "எண் 03, 4வது தெரு, நியூயார்க்";
+"add_note_03" = "குறிப்பு சேர்க்க";
+"checkout_03" = "செக்அவுட்";
+
+
+
+"checkout_title" = "சேகவுட்";
+"checkout_delivery_address" = "விநியோக முகவரி";
+"checkout_change_address" = "முகவரியை மாற்றவும்";
+"checkout_send_order" = "ஆர்டர் அனுப்பு";
+"checkout_payment_method" = "கட்டண முறை";
+"checkout_total" = "மொத்தம்";
+"checkout_discount" = "தள்ளுபடி";
+"checkout_delivery_cost" = "விநியோக செலவு";
+"checkout_subtotal" = "கூட்டு தொகை";
+"checkout_add_card" = "அட்டையைச் சேர்க்கவும்";
+"thank_you_03" = "நன்றி!";
+"for_your_order_03" = "உங்கள் ஆர்டருக்காக";
+"your_order_03" = "உங்கள் ஆர்டர் தற்போது செயலாக்கப்படுகின்றது. ஆர்டர் வெளிப்பாட்டில் எடுத்துக் கொள்ளப்பட்டவுடன் நாங்கள் உங்களைத் தகவலிடுவோம். உங்கள் ஆர்டரின் நிலையைச் சரிபார்க்கவும்.";
+"track_my_order_03" = "என் ஆர்டரை பின்தொடரவும்";
+"back_to_home_03" = "முகப்புக்கு திரும்பு";
+
+"add_card_debit_03" = "டெபிட் / கிரெடிட் கார்டைச் சேர்";
+"expiry_03" = "காலாவதி";
+"you_can_03" = "வேகமான கொள்முதல் செய்ய உங்கள் கார்டைச் சேமிக்கலாம்";
+
+"placeholder_card_number_03" = "கார்டு எண்";
+"placeholder_exp_month_03" = "மாதம்";
+"placeholder_exp_year_03" = "வருடம்";
+"placeholder_security_code_03" = "பாதுகாப்பு குறியீடு";
+"placeholder_first_name_03" = "முதல் பெயர்";
+"placeholder_last_name_03" = "கடைசி பெயர்";
+
+"add_card_button_03" = "கார்டைச் சேர்";
+"change_address_03" = " மாற்றவும்";
+
+
+// =======================
+// About Us Page Localization - Tamil
+// =======================
+"about_us_text1_03" = "எங்கள் நோக்கம் பயனர்களுக்கு எளிய மற்றும் சுலபமான வணிக அனுபவத்தை வழங்குவது. உலாவல், கொள்முதல் மற்றும் பொருட்களை நிர்வகித்தல் எளிதாக இருக்க வேண்டும்.";
+"about_us_text2_03" = "உயர்தர செயல்திறன், வெளிப்படைத் தன்மை மற்றும் நம்பகத்தன்மையை பராமரிக்க நாங்கள் அர்ப்பணிக்கப்பட்டுள்ளோம். எங்கள் குழு எப்போதும் பயன்பாட்டை மேம்படுத்துகிறது.";
+"about_us_text3_03" = "உங்கள் கருத்துக்கள் எங்களுக்கு முக்கியம். கேள்விகள் அல்லது பிரச்சினைகள் இருந்தால் எங்களை தொடர்பு கொள்ளுங்கள்.";
+"about_us_text4_03" = "தொழில்நுட்பம் மக்களுக்கு உதவ வேண்டும் என்று நாங்கள் நம்புகிறோம். அதனால் பயனர் தேவைகளை அடிப்படையாகக் கொண்டு எங்கள் தளத்தை மேம்படுத்துகிறோம்.";
+"about_us_text5_03" = "பாதுகாப்பு எங்கள் முன்னுரிமை. உங்கள் தனிப்பட்ட தரவை பாதுகாக்க நாங்கள் தொழில்துறை தரநிலைகளைப் பயன்படுத்துகிறோம்.";
+"about_us_text6_03" = "அனைவருக்கும் பயன்படும் வகையில் எங்கள் தளம் வடிவமைக்கப்பட்டுள்ளது.";
+"about_us_text7_03" = "நிலைத்தன்மை எங்களுக்கு முக்கியம். பசுமையான வணிகத்தை ஆதரிக்கிறோம்.";
+
+// =======================
+// Inbox Page Localization - Tamil
+// =======================
+"inbox_promotions_title_03" = "மீல் மங்கி சலுகைகள்";
+"inbox_promotions_date_03" = "ஜூலை ௬";
+"inbox_promotions_desc_03" = "உங்கள் அடுத்த உணவில் ௨௦% தள்ளுபடி பெறுங்கள்!";
+
+"inbox_order_update_title_03" = "ஆர்டர் அப்டேட்";
+"inbox_order_update_date_03" = "ஜூலை ௬";
+"inbox_order_update_desc_03" = "உங்கள் ஆர்டர் உணவகத்தில் தயாராகிறது.";
+
+"inbox_delivery_reminder_title_03" = "டெலிவரி நினைவூட்டல்";
+"inbox_delivery_reminder_date_03" = "ஜூலை ௬";
+"inbox_delivery_reminder_desc_03" = "உங்கள் டெலிவரி முகவர் வருகிறார்.";
+
+"inbox_welcome_title_03" = "மீல் மங்கிக்கு வரவேற்கிறோம்";
+"inbox_welcome_date_03" = "ஜூலை ௬";
+"inbox_welcome_desc_03" = "எங்களுடன் சேர்ந்ததற்கு நன்றி! உணவுகளை ஆராயத் தொடங்குங்கள்.";
+
+"inbox_experience_title_03" = "உங்கள் அனுபவத்தை மதிப்பிடுங்கள்";
+"inbox_experience_date_03" = "ஜூலை ௬";
+"inbox_experience_desc_03" = "உங்கள் சமீபத்திய உணவு எப்படி இருந்தது?";
+
+"inbox_flash_sale_title_03" = "ஃப்ளாஷ் சேல்";
+"inbox_flash_sale_date_03" = "ஜூலை ௬";
+"inbox_flash_sale_desc_03" = "இன்று மட்டும் பாஸ்தா ஆர்டர்களுக்கு ௩௦% தள்ளுபடி.";
+
+"inbox_new_restaurants_title_03" = "புதிய உணவகங்கள்";
+"inbox_new_restaurants_date_03" = "ஜூலை ௬";
+"inbox_new_restaurants_desc_03" = "உங்கள் பகுதியில் புதிய உணவகங்களை கண்டறியுங்கள்.";
+
+"inbox_refer_earn_title_03" = "அறிமுகப்படுத்தி சம்பாதிக்கவும்";
+"inbox_refer_earn_date_03" = "ஜூலை ௬";
+"inbox_refer_earn_desc_03" = "நண்பர்களை அழைத்து ₹௧௦௦ கிரெடிட்ஸ் பெறுங்கள்!";
+
+"inbox_weekend_special_title_03" = "வீக்கெண்ட் சிறப்பு";
+"inbox_weekend_special_date_03" = "ஜூலை ௬";
+"inbox_weekend_special_desc_03" = "₹௪௯௯ மேற்பட்ட ஆர்டர்களுக்கு இலவச டெசர்ட்.";
+
+"inbox_tips_title_03" = "மங்கி மீல் குறிப்புகள்";
+"inbox_tips_date_03" = "ஜூலை ௬";
+"inbox_tips_desc_03" = "சிறப்பு அறிவுறுத்தல்களுடன் உங்கள் ஆர்டரை தனிப்பயனாக்குங்கள்.";
+
+"inbox_order_cancel_title_03" = "ஆர்டர் ரத்து";
+"inbox_order_cancel_date_03" = "ஜூலை ௬";
+"inbox_order_cancel_desc_03" = "உங்கள் ஆர்டர் கோரிக்கைப்படி ரத்து செய்யப்பட்டது.";
+
+"inbox_loyalty_program_title_03" = "நிரந்தர திட்டம்";
+"inbox_loyalty_program_date_03" = "ஜூலை ௬";
+"inbox_loyalty_program_desc_03" = "ஒவ்வொரு கொள்முதலிலும் மங்கி பாயிண்ட்ஸ் பெறுங்கள்.";
+
+"inbox_security_update_title_03" = "பாதுகாப்பு புதுப்பிப்பு";
+"inbox_security_update_date_03" = "ஜூலை ௬";
+"inbox_security_update_desc_03" = "உங்கள் கடவுச்சொல் சமீபத்தில் மாற்றப்பட்டது.";
+
+"inbox_account_verified_title_03" = "கணக்கு சரிபார்க்கப்பட்டது";
+"inbox_account_verified_date_03" = "ஜூலை ௬";
+"inbox_account_verified_desc_03" = "உங்கள் கணக்கு வெற்றிகரமாக சரிபார்க்கப்பட்டது.";
+
+"inbox_limited_deal_title_03" = "குறுகிய கால சலுகை";
+"inbox_limited_deal_date_03" = "ஜூலை ௬";
+"inbox_limited_deal_desc_03" = "இன்று பிரியாணி ஆர்டர்களுக்கு ₹௫௦ தள்ளுபடி.";
+
+// =======================
+// Notifications Page Localization - Tamil
+// =======================
+"notification_order_placed_03" = "ஆர்டர் வெற்றிகரமாக செய்யப்பட்டது";
+"notification_order_placed_time_03" = "இப்போதுதான்";
+
+"notification_payment_confirmed_03" = "உங்கள் கட்டணம் உறுதிசெய்யப்பட்டது";
+"notification_payment_confirmed_time_03" = "௫ நிமிடங்களுக்கு முன்";
+
+"notification_food_prepared_03" = "உங்கள் உணவு தயாராகிறது";
+"notification_food_prepared_time_03" = "௰ நிமிடங்களுக்கு முன்";
+
+"notification_agent_assigned_03" = "டெலிவரி முகவர் நியமிக்கப்பட்டார்";
+"notification_agent_assigned_time_03" = "௩௰ நிமிடங்களுக்கு முன்";
+
+"notification_order_on_way_03" = "உங்கள் ஆர்டர் வருகையில் உள்ளது";
+"notification_order_on_way_time_03" = "௧ மணி நேரத்திற்கு முன்";
+
+"notification_discount_03" = "சிறப்பு தள்ளுபடி கிடைக்கிறது!";
+"notification_discount_time_03" = "௨ மணி நேரத்திற்கு முன்";
+
+"notification_app_update_03" = "எங்கள் புதிய ஆப் அப்டேட்டை பதிவிறக்குங்கள்";
+"notification_app_update_time_03" = "௩ மணி நேரத்திற்கு முன்";
+
+"notification_refer_friend_03" = "நண்பரை அறிமுகப்படுத்தி சம்பாதிக்கவும்";
+"notification_refer_friend_time_03" = "௫ மணி நேரத்திற்கு முன்";
+
+"notification_limited_deal_03" = "குறுகிய கால சலுகை விரைவில் முடிவடைகிறது";
+"notification_limited_deal_time_03" = "௰௨ மணி நேரத்திற்கு முன்";
+
+"notification_delivery_done_03" = "டெலிவரி முடிந்தது";
+"notification_delivery_done_time_03" = "௧ நாள் முன்";
+
+"notification_rate_meal_03" = "உங்கள் கடைசி உணவை மதிப்பிடுங்கள்";
+"notification_rate_meal_time_03" = "௨ நாள் முன்";
+
+"notification_weekend_offer_03" = "வீக்கெண்ட் சலுகை உங்களுக்காக";
+"notification_weekend_offer_time_03" = "௩ நாள் முன்";
+
+"notification_free_delivery_03" = "₹௨௯௯ மேற்பட்ட ஆர்டர்களுக்கு இலவச டெலிவரி";
+"notification_free_delivery_time_03" = "௫ நாள் முன்";
+
+"notification_thanks_03" = "எங்களுடன் இருந்ததற்கு நன்றி!";
+"notification_thanks_time_03" = "௬ நாள் முன்";
+
+"notification_new_restaurants_03" = "உங்களுக்குச் சுற்றியுள்ள புதிய உணவகங்கள் சேர்க்கப்பட்டுள்ளன";
+"notification_new_restaurants_time_03" = "௧ வாரம் முன்";
+"title_notification_03" = "அறிவிப்புகள்";
+"title_inbox_03" = "இன்பாக்ஸ்";
+"title_about_us_03" = "எங்களைப் பற்றி";
+
+
+
+
+"greeting_good_morning" = "காலை வணக்கம் %@!";
+"search_food_03" = "உணவு தேடு";
+"label_delivering_to_03" = "அருகில் வழங்கப்படுகிறது";
+
+
+
+
+"title_food_03" = "உணவு";
+"title_beverages_03" = "பானங்கள்";
+"title_desserts_03" = "இனிப்புகள்";
+
+
+"title_food_detail_03" = "உணவு விவரம்";
+
+
+"label_select_ingredients_03" = "செயல்பாட்டுப் பொருட்களை தேர்ந்தெடுக்கவும்";
+"label_select_portion_size_03" = "பகுதி அளவைத் தேர்ந்தெடுக்கவும்";
+"label_total_price_03" = "மொத்த விலை";
+"label_number_of_portions_03" = "பகுதிகளின் எண்ணிக்கை";
+"label_customize_order_03" = "உங்கள் ஆர்டரை தனிப்பயனாக்கவும்";
+"label_description_03" = "விவரம்";
+"button_add_to_cart_03" = "கார்ட்டில் சேர்க்கவும்";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Alert Titles */
+"error" = "பிழை";
+"invalid_email_title" = "தவறான மின்னஞ்சல்";
+"invalid_password_title" = "தவறான கடவுச்சொல்";
+"success" = "வெற்றி";
+"otp_title" = "OTP அனுப்பப்பட்டது";
+
+/* Card Titles */
+"invalid_input_title" = "தவறான உள்ளீடு";
+"invalid_card_number_title" = "தவறான கார்டு எண்";
+"invalid_security_code_title" = "தவறான பாதுகாப்பு குறியீடு";
+"duplicate_card_title" = "மீண்டும் கார்டு";
+
+/* Cart Titles */
+"order_placed_title" = "ஆர்டர் வைக்கப்பட்டது";
+"empty_cart_title" = "காலியான கூடை";
+
+/* Alert Messages */
+"enter_name_msg" = "தயவுசெய்து பெயரை உள்ளிடவும்";
+"enter_email_msg" = "தயவுசெய்து மின்னஞ்சலை உள்ளிடவும்";
+"invalid_email_msg" = "தயவுசெய்து செல்லுபடியாகும் மின்னஞ்சல் முகவரியை உள்ளிடவும்.";
+"enter_mobile_msg" = "தயவுசெய்து மொபைல் எண்ணை உள்ளிடவும்";
+"digits_only_msg" = "மொபைல் எண்ணில் மட்டுமே இலக்கங்கள் இருக்க வேண்டும்";
+"mobile_length_msg" = "மொபைல் எண் சரியாக 10 இலக்கங்கள் இருக்க வேண்டும்.";
+"enter_address_msg" = "தயவுசெய்து முகவரியை உள்ளிடவும்";
+"enter_password_msg" = "தயவுசெய்து கடவுச்சொல்லை உள்ளிடவும்";
+"invalid_password_msg" = "கடவுச்சொல் குறைந்தது 8 எழுத்துகள், 1 பெரிய எழுத்து, 1 சிறிய எழுத்து, 1 எண் மற்றும் 1 சிறப்பு எழுத்து கொண்டிருக்க வேண்டும்.";
+"enter_confirm_password_msg" = "தயவுசெய்து உறுதிப்படுத்தும் கடவுச்சொல்லை உள்ளிடவும்";
+"password_mismatch_msg" = "உறுதிப்படுத்தும் கடவுச்சொல் பொருந்தவில்லை";
+"registration_success_msg" = "பதிவு வெற்றிகரமாக முடிந்தது! நீங்கள் இப்போது நுழையலாம்.";
+"registration_failed_msg" = "பதிவு தோல்வியடைந்தது. தயவுசெய்து மீண்டும் முயற்சிக்கவும்.";
+"otp_message_msg" = "உங்கள் பதிவு செய்யப்பட்ட மொபைல் எண்ணுக்கு புதிய OTP அனுப்பப்பட்டுள்ளது.";
+"user_not_found_msg" = "பயனர் காணப்படவில்லை. தயவுசெய்து உங்கள் விவரங்களை சரிபார்க்கவும் அல்லது பதிவு செய்யவும்.";
+"login_failed_msg" = "நுழைவு தோல்வியடைந்தது. தயவுசெய்து பிறகு முயற்சிக்கவும்.";
+
+/* Card Messages */
+"empty_card_number_msg" = "தயவுசெய்து கார்டு எணைக் கொடுக்கவும்.";
+"invalid_card_digits_msg" = "கார்டு எண் இலக்கங்கள் மட்டுமே கொண்டிருக்க வேண்டும்.";
+"invalid_card_length_msg" = "கார்டு எண் சரியாக 16 இலக்கங்கள் கொண்டிருக்க வேண்டும்.";
+"empty_expiry_month_msg" = "தயவுசெய்து காலாவதி மாதத்தை உள்ளிடவும்.";
+"empty_expiry_year_msg" = "தயவுசெய்து காலாவதி ஆண்டை உள்ளிடவும்.";
+"empty_security_code_msg" = "தயவுசெய்து பாதுகாப்பு குறியீட்டை உள்ளிடவும்.";
+"invalid_security_code_digits_msg" = "பாதுகாப்பு குறியீட்டில் மட்டுமே இலக்கங்கள் இருக்க வேண்டும்.";
+"invalid_security_code_length_msg" = "பாதுகாப்பு குறியீடு 3 அல்லது 4 இலக்கங்கள் கொண்டிருக்க வேண்டும்.";
+"empty_first_name_msg" = "தயவுசெய்து கார்டு வைத்திருப்பவரின் முதல் பெயரை உள்ளிடவும்.";
+"invalid_first_name_msg" = "தயவுசெய்து எழுத்துக்களை பயன்படுத்தி செல்லுபடியாகும் முதல் பெயரை உள்ளிடவும்.";
+"empty_last_name_msg" = "தயவுசெய்து கார்டு வைத்திருப்பவரின் இறுதிப் பெயரை உள்ளிடவும்.";
+"invalid_last_name_msg" = "தயவுசெய்து எழுத்துக்களை பயன்படுத்தி செல்லுபடியாகும் இறுதிப் பெயரை உள்ளிடவும்.";
+"duplicate_card_msg" = "இந்த கார்டு எண் ஏற்கனவே சேமிக்கப்பட்டுள்ளது.";
+"card_expiry_date_msg" = "கார்டின் காலாவதி தேதி எதிர்காலத்தில் இருக்க வேண்டும்.";
+"expiry_month_validate_msg" = "காலாவதி மாதம் 2 இலக்கங்கள் கொண்டிருக்க வேண்டும் (எ.கா., 01–12).";
+"expiry_year_validate_msg" = "காலாவதி ஆண்டு 4 இலக்கங்கள் கொண்டிருக்க வேண்டும் (எ.கா., 2026).";
+"invalid_expiry_month_range_msg" = "காலாவதி மாதம் 01 முதல் 12 வரை இருக்க வேண்டும்.";
+
+/* Cart Messages */
+"added_to_cart_03" = "வண்டியில் சேர்க்கப்பட்டது!";
+"order_placed_success_msg" = "உங்கள் ஆர்டர் வெற்றிகரமாக வைக்கப்பட்டது!";
+"failed_to_place_order_msg" = "ஆர்டர் வைக்க தவறியது. தயவுசெய்து மீண்டும் முயற்சிக்கவும்.";
+"add_item_before_placing_order_msg" = "ஆர்டர் செய்ய முன்னர் பொருட்களைச் சேர்க்கவும்.";

@@ -82,6 +82,7 @@
             <connections>
                 <outlet property="imgView" destination="xf7-K1-gsw" id="uVg-ni-57f"/>
                 <outlet property="lblFoodType" destination="Paq-av-gIu" id="1EP-1H-ZJF"/>
+                <outlet property="lblFourPointNine" destination="xNB-hw-Geq" id="Yvw-bG-kiP"/>
                 <outlet property="lblRating" destination="pdT-du-NhW" id="IA6-vi-FIi"/>
                 <outlet property="lblRestrotype" destination="Eia-N4-Nwc" id="hXl-p4-Zfe"/>
                 <outlet property="lblcafeName" destination="NBQ-NW-LlN" id="cvR-t2-p4X"/>

@@ -11,51 +11,40 @@ import UIKit
 /// `Features` represents a single feature item displayed in the app, including
 /// an image, title, and subtitle description.
 class Features {
-    
-    // MARK: - Properties
-    /// Image representing the feature
     let image: UIImage
-    
-    /// Title of the feature
     let title: String
-    
-    /// Subtitle or description of the feature
     let subtitle: String
-    
-    // MARK: - Initializer
-    
-    /// Initializes a new `Features` object
-    /// - Parameters:
-    ///   - image: UIImage representing the feature
-    ///   - title: Title string for the feature
-    ///   - subtitle: Subtitle string describing the feature
-    init(image: UIImage, title: String, subtitle: String) {
+
+    init(image: UIImage, titleKey: String, subtitleKey: String) {
         self.image = image
-        self.title = title
-        self.subtitle = subtitle
+        self.title = LocalizationManager.shared.localizedString(
+            forKey: titleKey
+        )
+        self.subtitle = LocalizationManager.shared.localizedString(
+            forKey: subtitleKey
+        )
     }
-    
-    // MARK: - Data
-    
-    /// Provides an array of sample features to display in the app
-    /// - Returns: Array of `Features` objects
+
     class func addData() -> [Features] {
         return [
             Features(
-                image: UIImage(named: "ic_Find_Food") ?? UIImage(),
-                title: "Find Food You Love",
-                subtitle: "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep"
+                image: UIImage(named: Main.ImageName.Features_img1)
+                    ?? UIImage(),
+                titleKey: Main.Features.titile.0,
+                subtitleKey: Main.Features.subtitile.0
             ),
             Features(
-                image: UIImage(named: "ic_Fast_Delvery") ?? UIImage(),
-                title: "Fast Delivery",
-                subtitle: "Fast food delivery to your home, office wherever you are"
+                image: UIImage(named: Main.ImageName.Features_img2)
+                    ?? UIImage(),
+                titleKey: Main.Features.titile.1,
+                subtitleKey: Main.Features.subtitile.1
             ),
             Features(
-                image: UIImage(named: "ic_Live_Tracking") ?? UIImage(),
-                title: "Live Tracking",
-                subtitle: "Real time tracking of your food on the app once you placed the order"
-            )
+                image: UIImage(named: Main.ImageName.Features_img3)
+                    ?? UIImage(),
+                titleKey: Main.Features.titile.2,
+                subtitleKey: Main.Features.subtitile.2
+            ),
         ]
     }
 }

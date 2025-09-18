@@ -125,6 +125,9 @@
                 <outlet property="btnDeleteCard" destination="jyV-CQ-Jda" id="Qjj-u4-3pi"/>
                 <outlet property="imgViewCart" destination="jCa-Gr-uJ6" id="a5e-ZT-SiV"/>
                 <outlet property="lblCardNo" destination="pZN-ga-ZtF" id="uTg-kO-kg0"/>
+                <outlet property="lblCashOnDelivery" destination="hIE-dG-nAB" id="dPe-ko-gXN"/>
+                <outlet property="lblOtherMethod" destination="iwg-TN-mVe" id="kbs-Z5-4lH"/>
+                <outlet property="viewCardCell" destination="dgd-64-fsC" id="cxf-aR-7fn"/>
             </connections>
             <point key="canvasLocation" x="182.44274809160305" y="16.901408450704228"/>
         </tableViewCell>

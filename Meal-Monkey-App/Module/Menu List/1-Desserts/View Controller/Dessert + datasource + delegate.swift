@@ -6,66 +6,89 @@
 //
 
 import Foundation
-import UIKit
 import Lottie
+import UIKit
 
-extension DessertsViewController: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
-    
+extension DessertsViewController: UITableViewDelegate, UITableViewDataSource,
+    UITextFieldDelegate {
+
     // MARK: - UITableView DataSource
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
+        -> Int
+    {
         return filteredProducts.count
     }
-    
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DessertsTableViewCell",
-                                                       for: indexPath) as? DessertsTableViewCell else {
+
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        guard
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: Main.CellIdentifier.DessertsTableViewCell,
+                for: indexPath
+            ) as? DessertsTableViewCell
+        else {
             return UITableViewCell()
         }
-        
+
         let product = filteredProducts[indexPath.row]
         cell.configDessert(dessert: product)
         cell.selectionStyle = .none
         return cell
     }
-    
+
     // MARK: - UITableView Delegate
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
         let selectedProduct = filteredProducts[indexPath.row]
-        
+
         // Add product to recent items
         RecentItemsHelper.shared.addProduct(selectedProduct)
-        
+
         // Navigate to ItemDetailsViewController
-        let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
-        if let itemDetailsVC = storyboard.instantiateViewController(withIdentifier: "ItemDetailsViewController") as? ItemDetailsViewController {
+        let storyboard = UIStoryboard(
+            name: Main.StoryboardIdentifier.MenuListStoryboard,
+            bundle: nil
+        )
+        if let itemDetailsVC = storyboard.instantiateViewController(
+            withIdentifier: Main.ViewControllerIdentifier
+                .ItemDetailsViewController
+        ) as? ItemDetailsViewController {
             itemDetailsVC.selectedProduct = selectedProduct
-            navigationController?.pushViewController(itemDetailsVC, animated: true)
+            navigationController?.pushViewController(
+                itemDetailsVC,
+                animated: true
+            )
         }
     }
-    
+
     // MARK: - UITextField Delegate (Search)
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if let searchText = textField.text, !searchText.isEmpty {
             filteredProducts = arrProducts.filter { product in
-                product.strProductName.lowercased().contains(searchText.lowercased())
+                product.strProductName.lowercased().contains(
+                    searchText.lowercased()
+                )
             }
         } else {
             filteredProducts = arrProducts
         }
         if filteredProducts.isEmpty {
-                tblView.isHidden = true
-                emptySearchAnimationView?.isHidden = false
+            tblView.isHidden = true
+            emptySearchAnimationView?.isHidden = false
             noResultLabel?.isHidden = false
-                emptySearchAnimationView?.play()
-            } else {
-                tblView.isHidden = false
-                emptySearchAnimationView?.stop()
-                emptySearchAnimationView?.isHidden = true
-                noResultLabel?.isHidden = true  
-            }
+            emptySearchAnimationView?.play()
+        } else {
+            tblView.isHidden = false
+            emptySearchAnimationView?.stop()
+            emptySearchAnimationView?.isHidden = true
+            noResultLabel?.isHidden = true
+        }
         tblView.reloadData()
     }
 }

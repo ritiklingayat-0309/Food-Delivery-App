@@ -23,74 +23,84 @@ import UIKit
 /// print(allOffers.first?.strCafeName ?? "No Offers")
 /// ```
 class offer: NSObject {
-    
-    // MARK: - Properties
-    
-    /// Image name of the café (used to load from assets).
+
     let imageCafe: String
-    
-    /// Name of the café.
-    let strCafeName: String
-    
-    /// Number of ratings in string format (e.g., "(124 ratings)").
-    let strNoOfRatings: String
-    
-    /// Type of restaurant (e.g., "Café").
-    let strRestaurantType: String
-    
-    /// Type of food served (e.g., "Western Food").
-    let strFoodType: String
-    
-    // MARK: - Initializer
-    
-    /// Initializes a new `offer` object with given details.
-    /// - Parameters:
-    ///   - imageCafe: Café image name from assets.
-    ///   - strCafeName: Name of the café.
-    ///   - strNoOfRatings: Ratings count.
-    ///   - strRestaurantType: Type of restaurant.
-    ///   - strFoodType: Type of food offered.
+    let strCafeNameKey: String  // Localization key
+    let strRatingKey: String
+    let strRestaurantTypeKey: String
+    let strFoodTypeKey: String
+    let strFourPointNineKey: String
+
     init(
         imageCafe: String,
-        strCafeName: String,
-        strNoOfRatings: String,
-        strRestaurantType: String,
-        strFoodType: String
+        strCafeNameKey: String,
+        strRatingKey: String,
+        strRestaurantTypeKey: String,
+        strFoodTypeKey: String,
+        strFourPointNineKey: String
     ) {
         self.imageCafe = imageCafe
-        self.strCafeName = strCafeName
-        self.strNoOfRatings = strNoOfRatings
-        self.strRestaurantType = strRestaurantType
-        self.strFoodType = strFoodType
+        self.strCafeNameKey = strCafeNameKey
+        self.strRatingKey = strRatingKey
+        self.strRestaurantTypeKey = strRestaurantTypeKey
+        self.strFoodTypeKey = strFoodTypeKey
+        self.strFourPointNineKey = strFourPointNineKey
     }
-    
+
+    // Computed properties to get localized strings
+    var strCafeName: String {
+        return LocalizationManager.shared.localizedString(
+            forKey: strCafeNameKey
+        )
+    }
+
+    var strRating: String {
+        return LocalizationManager.shared.localizedString(forKey: strRatingKey)
+    }
+
+    var strRestaurantType: String {
+        return LocalizationManager.shared.localizedString(
+            forKey: strRestaurantTypeKey
+        )
+    }
+
+    var strFoodType: String {
+        return LocalizationManager.shared.localizedString(
+            forKey: strFoodTypeKey
+        )
+    }
+
+    var strFourPointNine: String {
+        LocalizationManager.shared.localizedString(forKey: strFourPointNineKey)
+    }
+
     // MARK: - Static Data
-    /// Returns a list of pre-defined offers.
-    /// Used for demo or testing purposes, representing available café offers.
-    /// - Returns: Array of `offer` objects.
     class func getAllOffers() -> [offer] {
         return [
             offer(
-                imageCafe: "ic_offer_cafede",
-                strCafeName: "Café de Noires",
-                strNoOfRatings: "(124 ratings)",
-                strRestaurantType: "Café",
-                strFoodType: "Western Food"
+                imageCafe: Main.ImageName.offer1,
+                strCafeNameKey: Main.Offers.cafeName.0,
+                strRatingKey: Main.Offers.cafeRating,
+                strRestaurantTypeKey: Main.Offers.restroType,
+                strFoodTypeKey: Main.Offers.foodType,
+                strFourPointNineKey: Main.Offers.fourPoing
             ),
             offer(
-                imageCafe: "ic_offer_Isso",
-                strCafeName: "Isso",
-                strNoOfRatings: "(124 ratings)",
-                strRestaurantType: "Café",
-                strFoodType: "Western Food"
+                imageCafe: Main.ImageName.offer2,
+                strCafeNameKey: Main.Offers.cafeName.1,
+                strRatingKey: Main.Offers.cafeRating,
+                strRestaurantTypeKey: Main.Offers.restroType,
+                strFoodTypeKey: Main.Offers.foodType,
+                strFourPointNineKey: Main.Offers.fourPoing
             ),
             offer(
-                imageCafe: "ic_offer_cafeBean",
-                strCafeName: "Cafe Beans",
-                strNoOfRatings: "(124 ratings)",
-                strRestaurantType: "Café",
-                strFoodType: "Western Food"
-            )
+                imageCafe: Main.ImageName.offer3,
+                strCafeNameKey: Main.Offers.cafeName.2,
+                strRatingKey: Main.Offers.cafeRating,
+                strRestaurantTypeKey: Main.Offers.restroType,
+                strFoodTypeKey: Main.Offers.foodType,
+                strFourPointNineKey: Main.Offers.fourPoing
+            ),
         ]
     }
 }

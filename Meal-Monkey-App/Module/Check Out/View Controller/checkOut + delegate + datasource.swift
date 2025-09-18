@@ -10,53 +10,75 @@ import UIKit
 
 // MARK: - UITableView Delegate & DataSource
 /// Extension to manage table view delegate and data source methods for `CheckOutViewController`.
-extension CheckOutViewController : UITableViewDelegate, UITableViewDataSource {
-    
+extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource {
+
     /// Returns the number of rows in the table view
     /// Includes shared payment cards plus Cash on Delivery and Gmail options
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
+        -> Int
+    {
         return paymentDetails.count + 2
     }
-    
+
     /// Configures and returns the cell for a given index path
     /// - Parameter indexPath: IndexPath of the cell
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
+        -> UITableViewCell
+    {
         switch indexPath.row {
-            
-            // Cash on Delivery cell
+
+        // Cash on Delivery cell
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifier.CashOnDeliveryTableViewCell, for: indexPath) as! CashOnDeliveryTableViewCell
+            let cell =
+                tableView.dequeueReusableCell(
+                    withIdentifier: Main.CellIdentifier
+                        .CashOnDeliveryTableViewCell,
+                    for: indexPath
+                ) as! CashOnDeliveryTableViewCell
             cell.btnSelect.isSelected = (selectedPaymentIndex == 0)
+            cell.applyTheme()
             return cell
-            
-            // Visa / Card cells
+
+        // Visa / Card cells
         case 1..<1 + paymentDetails.count:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifier.VisaTableViewCell, for: indexPath) as! VisaTableViewCell
+            let cell =
+                tableView.dequeueReusableCell(
+                    withIdentifier: Main.CellIdentifier.VisaTableViewCell,
+                    for: indexPath
+                ) as! VisaTableViewCell
             let cardIndex = indexPath.row - 1
-            let cardDetails = paymentDetails[cardIndex] // **Change:** Get the object from the Core Data array
-            
+            let cardDetails = paymentDetails[cardIndex]  // **Change:** Get the object from the Core Data array
+
             let fullCardNumber = cardDetails.cardNumber
             let lastFourDigits = fullCardNumber?.suffix(4)
             cell.lblCardNo.text = "**** **** **** \(lastFourDigits ?? "")"
-                       
-                       cell.btnSelect.isSelected = (selectedPaymentIndex == indexPath.row)
-                       return cell
-            
-            // Gmail payment option cell
-        case 1 + paymentDetails.count:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifier.GmailTableViewCell, for: indexPath) as! GmailTableViewCell
-            cell.btncircle.isSelected = (selectedPaymentIndex == indexPath.row)
+            cell.btnSelect.isSelected = (selectedPaymentIndex == indexPath.row)
+            cell.applyTheme()
             return cell
-            
+
+        // Gmail payment option cell
+        case 1 + paymentDetails.count:
+            let cell =
+                tableView.dequeueReusableCell(
+                    withIdentifier: Main.CellIdentifier.GmailTableViewCell,
+                    for: indexPath
+                ) as! GmailTableViewCell
+            cell.btncircle.isSelected = (selectedPaymentIndex == indexPath.row)
+            cell.applyTheme()
+            return cell
+
         default:
             return UITableViewCell()
         }
     }
-    
+
     /// Handles selection of a table view row
     /// Updates the selected payment method index and reloads the table
     /// - Parameter indexPath: IndexPath of the selected row
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
         selectedPaymentIndex = indexPath.row
         tblView.reloadData()
     }
@@ -65,8 +87,8 @@ extension CheckOutViewController : UITableViewDelegate, UITableViewDataSource {
 // MARK: - UITextField Delegate
 
 /// Extension to handle keyboard return key navigation between text fields
-extension CheckOutViewController : UITextFieldDelegate {
-    
+extension CheckOutViewController: UITextFieldDelegate {
+
     /// Handles the Return key press for text fields
     /// Moves focus to the next text field or dismisses keyboard
     /// - Parameter textField: Current active UITextField
@@ -87,5 +109,39 @@ extension CheckOutViewController : UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+
+    @objc func applyTheme() {
+        let theme = ThemeManager.currentTheme
+
+        // MARK: - Backgrounds
+        view.backgroundColor = theme.backgroundColor
+        //        viewMain.backgroundColor = theme.backgroundColor
+        viewAddCard.backgroundColor = theme.cellBackgroundColor
+        viewThanku.backgroundColor = theme.cellBackgroundColor
+
+        // MARK: - Labels
+        let labels = [
+            lblocYouCan, lbllocExpiry, lbllocAddCartdebit,
+            lbllocYourOrder, lbllocForYourOrder, lbllocThankYou,
+            lbllocDeliveryAddress, lbllocPaymentMethod, lblSubTotal,
+            lblDeliveryCost, lblDiscount, lblTotal,
+            lblSubTotal, lblDeliveryCost, lblDiscount, lblTotal,
+        ]
+        labels.forEach { $0?.textColor = theme.primaryFontColor }
+
+        // MARK: - Buttons
+        let buttons = [btnSendOrder, btnTrackMyOrder, btnAddCardCardView]
+        buttons.forEach {
+            $0?.backgroundColor = theme.mainColor
+            $0?.setTitleColor(theme.buttonTitle, for: .normal)
+        }
+
+        btnChangeAddress.tintColor = theme.buttonColor
+        btnAddCard.tintColor = theme.buttonColor
+        btnBackToHome.tintColor = theme.buttonColor
+        btnCross.tintColor = theme.buttonColor
+        btnCancelX.tintColor = theme.buttonColor
+        tblView.reloadData()  // Update cell colors
     }
 }

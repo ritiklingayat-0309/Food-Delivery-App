@@ -5,27 +5,35 @@
 //  Created by Ritik Lingayat on 09/08/25.
 //
 
-import UIKit
 import CoreData
 import NVActivityIndicatorView
+import UIKit
 
 /// `ItemDetailsViewController` handles the detailed view of a selected product, including
 /// displaying product information, managing quantity, adding to cart, and wishlist management.
 class ItemDetailsViewController: UIViewController {
-    
+
     // MARK: - Properties
-    
+
     /// Currently selected product
     var selectedProduct: ProductModel?
-    
+
     /// Current quantity selected by the user
     var currentQuantity: Int = 1
-    
+
     /// Wishlist status for the product
     var isHeartFilled = false
-    
+
     // MARK: - IBOutlets
-    
+
+    @IBOutlet weak var stackRating: UIStackView!
+
+    @IBOutlet weak var lblSelectTheIngredients: UILabel!
+    @IBOutlet weak var lblSelectTheSizeOfPortion: UILabel!
+    @IBOutlet weak var lbllocTotalPrice: UILabel!
+    @IBOutlet weak var lblNumberOfPortions: UILabel!
+    @IBOutlet weak var lblCustomizedYourOrder: UILabel!
+    @IBOutlet weak var lbllocDescription: UILabel!
     @IBOutlet weak var imgViewItem: UIImageView!
     @IBOutlet weak var viewDetails: UIView!
     @IBOutlet weak var lblItemName: UILabel!
@@ -42,108 +50,205 @@ class ItemDetailsViewController: UIViewController {
     @IBOutlet weak var btnTrolly: UIButton!
     @IBOutlet weak var viewDetailPage: UIView!
     @IBOutlet weak var btnHeart: UIButton!
-    var activityLoader : NVActivityIndicatorView?
-    
-    
+    var activityLoader: NVActivityIndicatorView?
+
     // MARK: - View Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setCartButton(target: self, action: #selector(cartButtonTapped))
         scrollViewDetails.showsVerticalScrollIndicator = false
-        
+
         // Setup navigation and cart buttons
         //        self.setCartButton(target: self, action: #selector(cartButtonTapped))
-        setLeftAlignedTitleWithBack("Food Detail", target: self, action: #selector(backButtonTapped))
-        
+        setLeftAlignedTitleWithBack(
+            LocalizationManager.shared.localizedString(
+                forKey: Main.ItemDetails.navtitle
+            ),
+            target: self,
+            action: #selector(backButtonTapped)
+        )
+
         // Round corners for buttons and views
         btnPlus.layer.cornerRadius = btnPlus.frame.height / 2
         btnMinus.layer.cornerRadius = btnMinus.frame.height / 2
         btnAddToCart.layer.cornerRadius = btnAddToCart.frame.height / 2
-        viewCountPlus_Minus.layer.cornerRadius = viewCountPlus_Minus.frame.height / 2
-        viewCountPlus_Minus.layer.borderColor = UIColor(red: 252/255, green: 96/255, blue: 17/255, alpha: 1.0).cgColor
+        viewCountPlus_Minus.layer.cornerRadius =
+            viewCountPlus_Minus.frame.height / 2
+        viewCountPlus_Minus.layer.borderColor =
+            UIColor(red: 252 / 255, green: 96 / 255, blue: 17 / 255, alpha: 1.0)
+            .cgColor
         viewCountPlus_Minus.layer.borderWidth = 1.0
         viewCountPlus_Minus.clipsToBounds = true
         configureUI()
         currentQuantity = 1
-        scrollViewDetails.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 200)
+        scrollViewDetails.contentSize = CGSize(
+            width: view.frame.width,
+            height: view.frame.height + 200
+        )
         navigationController?.navigationItem.hidesBackButton = true
-        
+
         // Setup detail page view styling
         viewDetailPage.layer.cornerRadius = 42
         viewDetailPage.layer.shadowColor = UIColor.gray.cgColor
         viewDetailPage.layer.shadowOpacity = 1
         viewDetailPage.layer.shadowOffset = CGSize(width: 0, height: -2)
         viewDetailPage.layer.shadowRadius = 4
-        
+
         // Show loading indicator while data loads
-        
         showLoadingState()
+        updateLocalizedTexts()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateLocalizedTexts),
+            name: .languageChanged,
+            object: nil
+        )
+
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: Notification.Name("themeChanged"),
+            object: nil
+        )
     }
-    
-    
+
+    @objc func applyTheme() {
+        let theme = ThemeManager.currentTheme
+
+        // Buttons
+        btnAddToCart.backgroundColor = theme.buttonColor
+        btnAddToCart.setTitleColor(theme.buttonTitle, for: .normal)
+        btnMinus.backgroundColor = theme.buttonColor
+        btnPlus.backgroundColor = theme.buttonColor
+        [btnPlus, btnMinus].forEach { btn in
+        }
+
+        // Labels
+        lblItemName.textColor = theme.primaryFontColor
+        lblPrice.textColor = theme.secondaryFontColor
+        lblTotalPrice.textColor = theme.primaryFontColor
+        viewCountPlus_Minus.layer.borderColor = theme.buttonColor.cgColor
+        viewCountPlus_Minus.layer.borderWidth = 1
+        viewCountPlus_Minus.layer.cornerRadius = 15
+
+        // Heart & Stars
+        btnHeart.tintColor = theme.iconTintColor
+        stackRating.arrangedSubviews.forEach { view in
+            if let img = view as? UIImageView {
+                img.tintColor = theme.iconTintColor
+            }
+        }
+    }
+
+    @objc func updateLocalizedTexts() {
+        lblSelectTheIngredients.text = LocalizationManager.shared
+            .localizedString(forKey: Main.ItemDetails.ingredian)
+        lblSelectTheSizeOfPortion.text = LocalizationManager.shared
+            .localizedString(forKey: Main.ItemDetails.sizeofPortion)
+        lbllocTotalPrice.text = LocalizationManager.shared.localizedString(
+            forKey: Main.ItemDetails.totalPrize
+        )
+        lblNumberOfPortions.text = LocalizationManager.shared.localizedString(
+            forKey: Main.ItemDetails.numberOfPortion
+        )
+        lblCustomizedYourOrder.text = LocalizationManager.shared
+            .localizedString(forKey: Main.ItemDetails.customizedYou)
+        lbllocDescription.text = LocalizationManager.shared.localizedString(
+            forKey: Main.ItemDetails.description
+        )
+        btnAddToCart.setTitle(
+            LocalizationManager.shared.localizedString(
+                forKey: Main.ItemDetails.btnAddCart
+            ),
+            for: .normal
+        )
+    }
+
     // MARK: - UI Handling
-    
     /// Hide UI elements while loading
-   
-    
     /// Show UI elements after loading is complete
     private func showUIElementsAfterLoading() {
         viewDetails.isHidden = false
         btnHeart.isHidden = false
         imgViewItem.isHidden = false
     }
-    
+
     /// Check if the product is in the user's wishlist and update heart button accordingly
     private func checkWishlistStatus() {
-        guard let savedUserIDString = UserDefaults.standard.string(forKey: "loggedInUserID"),
-              let product = selectedProduct,
-              let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
+        guard
+            let savedUserIDString = UserDefaults.standard.string(
+                forKey: "loggedInUserID"
+            ),
+            let product = selectedProduct,
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        else { return }
+
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Wishlist")
-        let predicate = NSPredicate(format: "productID == %i AND userID == %@", product.intId, savedUserIDString)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(
+            entityName: "Wishlist"
+        )
+        let predicate = NSPredicate(
+            format: "productID == %i AND userID == %@",
+            product.intId,
+            savedUserIDString
+        )
         fetchRequest.predicate = predicate
-        
+
         do {
             let wishlistItems = try managedContext.fetch(fetchRequest)
             if !wishlistItems.isEmpty {
                 isHeartFilled = true
-                btnHeart.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                btnHeart.setImage(
+                    UIImage(systemName: Main.ImageName.heartfill),
+                    for: .normal
+                )
             } else {
                 isHeartFilled = false
-                btnHeart.setImage(UIImage(systemName: "heart"), for: .normal)
+                btnHeart.setImage(
+                    UIImage(systemName: Main.ImageName.heart),
+                    for: .normal
+                )
             }
         } catch {
-            print("Failed to fetch wishlist status: \(error.localizedDescription)")
+            print(
+                "Failed to fetch wishlist status: \(error.localizedDescription)"
+            )
         }
     }
-    
+
     // MARK: - Button Actions
     /// Handle back button tap
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
-    
+
     /// Navigate to cart view
     @objc func cartButtonTapped() {
-        let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
-        if let secdVc = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+        let storyboard = UIStoryboard(
+            name: Main.StoryboardIdentifier.MenuListStoryboard,
+            bundle: nil
+        )
+        if let secdVc = storyboard.instantiateViewController(
+            withIdentifier: Main.ViewControllerIdentifier.CartViewController
+        ) as? CartViewController {
             secdVc.pagetype = .Cart
             navigationController?.pushViewController(secdVc, animated: true)
         }
     }
-    
+
     /// Configure UI with selected product details
     func configureUI() {
         guard let product = selectedProduct else { return }
         lblItemName.text = product.strProductName
         lblDescription.text = product.strProductDescription
         imgViewItem.image = UIImage(named: product.strProductImage)
-        lblRating.text = "\(product.floatProductRating) (\(product.intTotalNumberOfRatings) ratings)"
+        lblRating.text =
+            "\(product.floatProductRating) (\(product.intTotalNumberOfRatings) ratings)"
         updatePriceAndQuantityUI()
     }
-    
+
     /// Update price and quantity UI elements
     func updatePriceAndQuantityUI() {
         guard let product = selectedProduct else { return }
@@ -154,23 +259,33 @@ class ItemDetailsViewController: UIViewController {
         btnMinus.isEnabled = currentQuantity > 1
         btnMinus.alpha = currentQuantity > 1 ? 1.0 : 0.5
     }
-    
+
     /// Handle wishlist (heart) button action
     /// - Parameter sender: UIButton tapped
     @IBAction func btnHeartAction(_ sender: UIButton) {
-        guard let savedUserIDString = UserDefaults.standard.string(forKey: "loggedInUserID"),
-              let savedUserID = UUID(uuidString: savedUserIDString),
-              let product = selectedProduct,
-              let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
+        guard
+            let savedUserIDString = UserDefaults.standard.string(
+                forKey: "loggedInUserID"
+            ),
+            let savedUserID = UUID(uuidString: savedUserIDString),
+            let product = selectedProduct,
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        else { return }
+
         let managedContext = appDelegate.persistentContainer.viewContext
-        
+
         if isHeartFilled {
             // Remove from wishlist
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Wishlist")
-            let predicate = NSPredicate(format: "productID == %i AND userID == %@", product.intId, savedUserID as CVarArg)
+            let fetchRequest = NSFetchRequest<NSManagedObject>(
+                entityName: "Wishlist"
+            )
+            let predicate = NSPredicate(
+                format: "productID == %i AND userID == %@",
+                product.intId,
+                savedUserID as CVarArg
+            )
             fetchRequest.predicate = predicate
-            
+
             do {
                 let result = try managedContext.fetch(fetchRequest)
                 for object in result {
@@ -178,29 +293,47 @@ class ItemDetailsViewController: UIViewController {
                 }
                 try managedContext.save()
                 isHeartFilled = false
-                sender.setImage(UIImage(systemName: "heart"), for: .normal)
+                sender.setImage(
+                    UIImage(systemName: Main.ImageName.heart),
+                    for: .normal
+                )
                 print("Removed from Core Data wishlist")
             } catch {
-                print("Failed to remove from wishlist: \(error.localizedDescription)")
+                print(
+                    "Failed to remove from wishlist: \(error.localizedDescription)"
+                )
             }
         } else {
             // Add to wishlist
-            guard let wishlistEntity = NSEntityDescription.entity(forEntityName: "Wishlist", in: managedContext) else { return }
-            let wishlistItem = NSManagedObject(entity: wishlistEntity, insertInto: managedContext)
+            guard
+                let wishlistEntity = NSEntityDescription.entity(
+                    forEntityName: "Wishlist",
+                    in: managedContext
+                )
+            else { return }
+            let wishlistItem = NSManagedObject(
+                entity: wishlistEntity,
+                insertInto: managedContext
+            )
             wishlistItem.setValue(product.intId, forKey: "productID")
             wishlistItem.setValue(savedUserID, forKey: "userID")
-            
+
             do {
                 try managedContext.save()
                 isHeartFilled = true
-                sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                sender.setImage(
+                    UIImage(systemName: Main.ImageName.heartfill),
+                    for: .normal
+                )
                 print("Added to Core Data wishlist")
             } catch {
-                print("Failed to add to wishlist: \(error.localizedDescription)")
+                print(
+                    "Failed to add to wishlist: \(error.localizedDescription)"
+                )
             }
         }
     }
-    
+
     /// Decrease product quantity
     @IBAction func btnMinusAction(_ sender: Any) {
         if currentQuantity > 1 {
@@ -208,22 +341,27 @@ class ItemDetailsViewController: UIViewController {
             updatePriceAndQuantityUI()
         }
     }
-    
+
     /// Increase product quantity
     @IBAction func btnPlusAction(_ sender: Any) {
         currentQuantity += 1
         updatePriceAndQuantityUI()
     }
-    
+
     /// Navigate to cart view
     @IBAction func btnTrollyAction(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "MenuListStoryboard", bundle: nil)
-        if let secondVC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+        let storyboard = UIStoryboard(
+            name: Main.StoryboardIdentifier.MenuListStoryboard,
+            bundle: nil
+        )
+        if let secondVC = storyboard.instantiateViewController(
+            withIdentifier: Main.ViewControllerIdentifier.CartViewController
+        ) as? CartViewController {
             secondVC.pagetype = .Cart
             navigationController?.pushViewController(secondVC, animated: true)
         }
     }
-    
+
     /// Add selected product to cart
     @IBAction func btnAddToCartAction(_ sender: Any) {
         print("add to cart from detail Page")
@@ -231,90 +369,109 @@ class ItemDetailsViewController: UIViewController {
             print("Error: No product selected to add to cart.")
             return
         }
-        
+
         addToCart(productToAdd: product)
-        let alert = UIAlertController(title: "Success", message: "Added to cart!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        showAlert(
+            titleKey: Main.AlertTitle.success,
+            messageKey: Main.AlertMessage.addedIncart
+        )
     }
-    
+
     func showLoadingState() {
-            // Hide content first
+        // Hide content first
         viewDetailPage.isHidden = true
-            imgViewItem.isHidden = true
-            btnHeart.isHidden = true
+        imgViewItem.isHidden = true
+        btnHeart.isHidden = true
 
-            // Create loader frame (centered in the screen)
-            let loaderFrame = CGRect(
-                x: (view.frame.width - 50) / 2,
-                y: (view.frame.height - 50) / 2,
-                width: 50,
-                height: 50
+        // Create loader frame (centered in the screen)
+        let loaderFrame = CGRect(
+            x: (view.frame.width - 50) / 2,
+            y: (view.frame.height - 50) / 2,
+            width: 50,
+            height: 50
+        )
+
+        // Initialize loader only once
+        if activityLoader == nil {
+            activityLoader = NVActivityIndicatorView(
+                frame: loaderFrame,
+                type: .ballScaleRippleMultiple,
+                color: .loginBackground,
+                padding: 0
             )
-
-            // Initialize loader only once
-            if activityLoader == nil {
-                activityLoader = NVActivityIndicatorView(
-                    frame: loaderFrame,
-                    type: .ballScaleRippleMultiple,
-                    color: .loginBackground,
-                    padding: 0
-                )
-                if let loader = activityLoader {
-                    view.addSubview(loader)
-                }
-            }
-
-            // Start loader animation
-            activityLoader?.startAnimating()
-
-            // Simulate loading delay
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
-                guard let self = self else { return }
-
-                // Stop loader and hide it
-                self.activityLoader?.stopAnimating()
-                self.activityLoader?.removeFromSuperview()
-                self.activityLoader = nil
-
-                // Show product details after loading
-                self.viewDetailPage.isHidden = false
-                self.imgViewItem.isHidden = false
-                self.btnHeart.isHidden = false
-
-
-                
+            if let loader = activityLoader {
+                view.addSubview(loader)
             }
         }
 
+        // Start loader animation
+        activityLoader?.startAnimating()
 
-    
+        // Simulate loading delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
+            guard let self = self else { return }
+
+            // Stop loader and hide it
+            self.activityLoader?.stopAnimating()
+            self.activityLoader?.removeFromSuperview()
+            self.activityLoader = nil
+
+            // Show product details after loading
+            self.viewDetailPage.isHidden = false
+            self.imgViewItem.isHidden = false
+            self.btnHeart.isHidden = false
+
+        }
+    }
+
     /// Add product to Core Data cart or update existing quantity
     /// - Parameter productToAdd: ProductModel to add/update in cart
     private func addToCart(productToAdd: ProductModel) {
-        guard let savedUserIDString = UserDefaults.standard.string(forKey: "loggedInUserID"),
-              let savedUserID = UUID(uuidString: savedUserIDString),
-              let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
+        guard
+            let savedUserIDString = UserDefaults.standard.string(
+                forKey: "loggedInUserID"
+            ),
+            let savedUserID = UUID(uuidString: savedUserIDString),
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        else { return }
+
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Cart")
-        let predicate = NSPredicate(format: "productID == %i AND userID == %@", productToAdd.intId, savedUserID as CVarArg)
+        let predicate = NSPredicate(
+            format: "productID == %i AND userID == %@",
+            productToAdd.intId,
+            savedUserID as CVarArg
+        )
         fetchRequest.predicate = predicate
-        
+
         do {
             let existingCartItems = try managedContext.fetch(fetchRequest)
-            
+
             if let existingCartItem = existingCartItems.first {
-                let newQuantity = (existingCartItem.value(forKey: "quantity") as? Int ?? 0) + currentQuantity
+                let newQuantity =
+                    (existingCartItem.value(forKey: "quantity") as? Int ?? 0)
+                    + currentQuantity
                 existingCartItem.setValue(newQuantity, forKey: "quantity")
-                print("Product \(productToAdd.strProductName) updated in cart. New quantity: \(newQuantity)")
+                print(
+                    "Product \(productToAdd.strProductName) updated in cart. New quantity: \(newQuantity)"
+                )
             } else {
-                guard let cartEntity = NSEntityDescription.entity(forEntityName: "Cart", in: managedContext) else { return }
-                let newCartItem = NSManagedObject(entity: cartEntity, insertInto: managedContext)
+                guard
+                    let cartEntity = NSEntityDescription.entity(
+                        forEntityName: "Cart",
+                        in: managedContext
+                    )
+                else { return }
+                let newCartItem = NSManagedObject(
+                    entity: cartEntity,
+                    insertInto: managedContext
+                )
                 newCartItem.setValue(productToAdd.intId, forKey: "productID")
                 newCartItem.setValue(currentQuantity, forKey: "quantity")
                 newCartItem.setValue(savedUserID, forKey: "userID")
-                print("Product \(productToAdd.strProductName) added to cart with quantity: \(currentQuantity)")
+                print(
+                    "Product \(productToAdd.strProductName) added to cart with quantity: \(currentQuantity)"
+                )
             }
             try managedContext.save()
             print("Cart data saved successfully to Core Data.")

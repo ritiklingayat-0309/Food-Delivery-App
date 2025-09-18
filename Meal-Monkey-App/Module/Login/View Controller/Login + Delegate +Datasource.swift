@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 /// Extension of `LoginViewController` to handle `UITextFieldDelegate` methods
-extension LoginViewController : UITextFieldDelegate {
-    
+extension LoginViewController: UITextFieldDelegate {
+
     /// Called when the return key is pressed on the keyboard
     /// - Parameter textField: The text field whose return button was pressed
     /// - Returns: Boolean indicating whether the text field should process the return
@@ -28,4 +28,8 @@ extension LoginViewController : UITextFieldDelegate {
         }
         return true
     }
+}
+
+extension Notification.Name {
+    static let languageChanged = Notification.Name("languageChanged")
 }

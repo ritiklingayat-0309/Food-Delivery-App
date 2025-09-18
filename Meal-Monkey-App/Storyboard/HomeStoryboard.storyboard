@@ -183,6 +183,7 @@
                     <connections>
                         <outlet property="btnAddressDropdown" destination="tuj-DF-Hqo" id="j3w-id-Who"/>
                         <outlet property="lblAddress" destination="qJ5-hA-yUM" id="wHv-0C-FtJ"/>
+                        <outlet property="lbllocDeliveringTo" destination="r6H-to-DEn" id="5c5-XL-Atk"/>
                         <outlet property="tblView" destination="H0G-8k-Uf9" id="0fm-ou-Fes"/>
                         <outlet property="txtSearch" destination="Shb-Sg-J61" id="QSZ-Ci-hoC"/>
                     </connections>
@@ -455,6 +456,7 @@ meals and more!</string>
                     <navigationItem key="navigationItem" id="8E4-JP-Q86"/>
                     <connections>
                         <outlet property="btnCheckOffer" destination="52d-m7-gpK" id="gdQ-TL-sRX"/>
+                        <outlet property="lblLatestOffers" destination="l4E-qV-t11" id="KPe-hQ-4jN"/>
                         <outlet property="tblView" destination="KBn-M6-Wb9" id="8FR-zt-ePd"/>
                     </connections>
                 </viewController>
