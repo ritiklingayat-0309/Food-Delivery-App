@@ -1069,7 +1069,7 @@ at anytime </string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="for your order" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o17-yV-FXX">
-                                                        <rect key="frame" x="130" y="357" width="125" height="19.666666666666686"/>
+                                                        <rect key="frame" x="100" y="357" width="155" height="19.666666666666686"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                                         <color key="textColor" red="0.29019607843137252" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1130,7 +1130,7 @@ at anytime </string>
                                                     <constraint firstAttribute="trailing" secondItem="Pge-iF-Eih" secondAttribute="trailing" constant="113" id="jEQ-E4-P86"/>
                                                     <constraint firstItem="o17-yV-FXX" firstAttribute="top" secondItem="Ibt-a2-k4R" secondAttribute="bottom" constant="5" id="nl2-jz-Ex4"/>
                                                     <constraint firstItem="Ibt-a2-k4R" firstAttribute="leading" secondItem="94t-Yl-cGz" secondAttribute="leading" constant="38" id="oVQ-sC-q9P"/>
-                                                    <constraint firstItem="o17-yV-FXX" firstAttribute="leading" secondItem="94t-Yl-cGz" secondAttribute="leading" constant="130" id="qnd-Uu-Ijv"/>
+                                                    <constraint firstItem="o17-yV-FXX" firstAttribute="leading" secondItem="94t-Yl-cGz" secondAttribute="leading" constant="100" id="qnd-Uu-Ijv"/>
                                                     <constraint firstItem="UuQ-ns-skd" firstAttribute="top" secondItem="94t-Yl-cGz" secondAttribute="top" constant="43" id="vZY-J0-izh"/>
                                                     <constraint firstAttribute="trailing" secondItem="Ibt-a2-k4R" secondAttribute="trailing" constant="54" id="w6b-g5-Kcd"/>
                                                 </constraints>

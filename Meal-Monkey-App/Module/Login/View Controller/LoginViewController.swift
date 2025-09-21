@@ -49,7 +49,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var stackViewPass: UIStackView!
 
     // MARK: - View Lifecycle
-
     /// Called after the view has been loaded
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -299,7 +298,7 @@ class LoginViewController: UIViewController {
 
     @objc private func applyTheme() {
         let theme = ThemeManager.currentTheme
-        view.backgroundColor = theme.backgroundColor
+        
         // Labels
         [lblLogin, lblAddyouDetails, lblLogin].forEach {
             $0?.textColor = theme.primaryFontColor
@@ -308,8 +307,8 @@ class LoginViewController: UIViewController {
         // Buttons
         btnLogin.backgroundColor = theme.buttonColor
         btnLogin.setTitleColor(theme.buttonTitle, for: .normal)
-        btnSignIn.tintColor = theme.buttonColor
-        btnForget.setTitleColor(theme.buttonColor, for: .normal)
+//        btnSignIn.tintColor = theme.buttonColor
+        btnForget.setTitleColor(theme.primaryFontColor, for: .normal)
     }
 
     deinit {

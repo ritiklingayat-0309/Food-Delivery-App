@@ -145,7 +145,7 @@ class PaymentDetailsViewController: UIViewController,
         btnAddAnotherCart.backgroundColor = theme.mainColor
         btnAddAnotherCart.setTitleColor(theme.buttonTitle, for: .normal)
         btnAddCart.backgroundColor = theme.mainColor
-        btnAddCart.setTitleColor(theme.accentColor, for: .normal)
+        btnAddCart.setTitleColor(theme.buttonTitle, for: .normal)
         btnCross.tintColor = theme.mainColor
 
         // MARK: - TextFields

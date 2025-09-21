@@ -406,7 +406,7 @@ struct Main {
     struct AlertTitle {
         //all forms
         static let error = "error"
-        static let invalidEmail = "invalid_password_title"
+        static let invalidEmail = "invalid_email_title"
         static let invalidPassword = "invalid_password_title"
         static let success = "success"
         static let otptitle = "otp_title"
@@ -513,7 +513,7 @@ struct Main {
         static let subTotal = "checkout_subtotal"
         static let btnAddCard = "checkout_add_card"
         static let thankyou = "thank_you_03"
-        static let forYourOrder = "thank_you_03"
+        static let forYourOrder = "for_your_order_03"
         static let yourOrder = "your_order_03"
         static let btnTrakMyOrder = "track_my_order_03"
         static let btnBakcToHome = "back_to_home_03"
@@ -525,7 +525,6 @@ struct Main {
         static let otptitle1 = "verify_otp_title_03"
         static let otptitle2 = "enter_otp_subtitle_03"
         static let btnNext = "next_button_03"
-
     }
 
     struct Profile {
